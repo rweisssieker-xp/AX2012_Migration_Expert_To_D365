@@ -1,0 +1,7 @@
+{
+  "direct-sql": "Replace direct SQL with data entities, services, exports, or reporting replicas.",
+  "aif": "Redesign AIF services using OData, custom services, Business Events, or middleware.",
+  "overlayering": "Replace overlayering with extensions, Chain of Command, and event handlers.",
+  "client-dependency": "Remove COM, ActiveX, WinAPI, local file, and client-side dependencies.",
+  "posting": "Run senior solution architecture review and define reconciliation tests."
+}

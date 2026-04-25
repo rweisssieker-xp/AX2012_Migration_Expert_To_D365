@@ -1,0 +1,50 @@
+{
+  "name": "ax-to-d365fo-migration-expert",
+  "version": "0.2.0",
+  "description": "Enterprise AI migration command center for Microsoft Dynamics AX 4.0+ to Dynamics 365 Finance & Operations.",
+  "author": {
+    "name": "Migration Expert Team",
+    "email": "migration-expert@example.org",
+    "url": "https://example.org/ax-to-d365fo-migration-expert"
+  },
+  "homepage": "https://example.org/ax-to-d365fo-migration-expert",
+  "repository": "https://example.org/ax-to-d365fo-migration-expert/repository",
+  "license": "MIT",
+  "keywords": [
+    "dynamics-ax",
+    "d365fo",
+    "migration",
+    "finance-operations",
+    "xpp"
+  ],
+  "skills": "./skills/",
+  "hooks": "./hooks.json",
+  "mcpServers": "./.mcp.json",
+  "apps": "./.app.json",
+  "interface": {
+    "displayName": "AX to D365FO Migration Expert",
+    "shortDescription": "Reduce AX to D365FO migration scope with AI inventory analysis, governance, dashboards, and delivery artifacts.",
+    "longDescription": "Enterprise AI migration command center for Microsoft Dynamics AX 4.0, AX 2009, and AX 2012 environments moving to Dynamics 365 Finance & Operations. Helps identify what must be migrated, what D365FO standard can replace, what should be configured, and what can be retired. Covers technical inventory analysis, complexity scoring, effort estimation, customization disposition, X++ pattern detection, data entity mapping, integration modernization, report rationalization, standard feature matching, dependency analysis, risk mitigation playbooks, quality gates, upgrade path decisions, target architecture, compliance, ALM, ROI/business case, anti-waste scoring, wave planning, training impact, cutover simulation, reconciliation, Azure DevOps work items, command center dashboards, decision logs, and executive briefings.",
+    "developerName": "Migration Expert Team",
+    "category": "Productivity",
+    "capabilities": [
+      "Interactive",
+      "Write",
+      "Analyze",
+      "Plan",
+      "Generate"
+    ],
+    "websiteURL": "https://example.org/ax-to-d365fo-migration-expert",
+    "privacyPolicyURL": "https://example.org/privacy",
+    "termsOfServiceURL": "https://example.org/terms",
+    "defaultPrompt": [
+      "Find what we can retire, replace, configure, or migrate from this AX inventory.",
+      "Generate a migration command center dashboard from my AX inventory CSV.",
+      "Create quality gates, risk playbooks, and Azure DevOps work items for this migration."
+    ],
+    "brandColor": "#0078D4",
+    "composerIcon": "./assets/icon.svg",
+    "logo": "./assets/logo.svg",
+    "screenshots": []
+  }
+}

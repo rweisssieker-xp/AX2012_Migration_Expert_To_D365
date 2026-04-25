@@ -1,0 +1,9 @@
+Category,ObjectType,Name,Layer,Module,Usage,Complexity,Technology,BusinessPurpose
+Object,Class,SalesFormLetter_Extension,CUS,Sales,High,High,X++,Custom posting validation for sales invoices
+Object,Form,CustTableLegacyCreditCheck,USR,Accounts receivable,Low,Medium,X++,Old customer credit check form customization
+Integration,Service,AIFCustomerExport,CUS,Accounts receivable,Daily,High,AIF,Exports customer updates to CRM
+Integration,Interface,WarehouseFileDrop,CUS,Warehouse management,Hourly,Medium,CSV file drop,Outbound warehouse orders
+Report,Report,InventAgingCustom,CUS,Inventory,Monthly,Medium,SSRS,Custom inventory aging report
+ISV,Addon,LegacyTaxAddon,VAR,Tax,High,High,ISV,Localized tax calculation
+Security,Role,LegacyWarehouseSupervisor,USR,Warehouse management,High,Low,AX role,Warehouse supervisor permissions
+Data,Table,InventTransHistory,DAT,Inventory,High,High,SQL history,Historical inventory transactions

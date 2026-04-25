@@ -1,0 +1,27 @@
+{
+  "data_entities": {
+    "customer": ["Customers V3", "Customer groups", "Customer postal addresses"],
+    "vendor": ["Vendors V2", "Vendor groups", "Vendor bank accounts"],
+    "sales": ["Sales order headers V2", "Sales order lines V2"],
+    "purchase": ["Purchase order headers V2", "Purchase order lines V2"],
+    "inventory": ["Released products V2", "On-hand inventory", "Inventory journals"],
+    "ledger": ["General journal", "Main accounts", "Financial dimensions"]
+  },
+  "business_events": {
+    "sales": ["Sales order confirmed", "Sales invoice posted"],
+    "purchase": ["Purchase order confirmed"],
+    "ledger": ["Vendor payment posted", "Customer payment posted"],
+    "workflow": ["Workflow work item assigned", "Workflow completed"]
+  },
+  "workspaces": {
+    "finance": ["General ledger workspace", "Credit and collections", "Financial reporting"],
+    "warehouse": ["Warehouse management workspace", "Load planning workbench"],
+    "manufacturing": ["Production floor management", "Production control workspace"],
+    "retail": ["Channel management", "Commerce headquarters"]
+  },
+  "feature_management": {
+    "integration": ["Business events", "Data management recurring integrations"],
+    "reporting": ["Embedded Power BI", "Electronic reporting"],
+    "warehouse": ["Warehouse app features", "Advanced warehouse management"]
+  }
+}

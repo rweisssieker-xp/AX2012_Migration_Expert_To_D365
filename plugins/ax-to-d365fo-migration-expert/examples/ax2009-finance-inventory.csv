@@ -1,0 +1,6 @@
+Category,ObjectType,Name,Layer,Module,Usage,Complexity,Technology,BusinessPurpose
+Object,Class,LedgerJournalPostOverride,CUS,Finance,High,High,X++,Custom ledger journal posting
+Object,Form,DimensionLegacyEditor,USR,Finance,Low,Medium,X++,Old dimension maintenance form
+Integration,Interface,GLTrialBalanceSqlExport,CUS,Finance,Daily,High,Direct SQL,Exports trial balance to data warehouse
+Report,Report,TaxAuditPack,CUS,Tax,Quarterly,High,SSRS,Tax audit reporting
+Security,Role,LegacyFinanceController,USR,Finance,High,Medium,AX role,Finance controller permissions

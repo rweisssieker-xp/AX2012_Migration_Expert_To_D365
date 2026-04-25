@@ -1,0 +1,20 @@
+{
+  "name": "local-migration-plugins",
+  "interface": {
+    "displayName": "Local Migration Plugins"
+  },
+  "plugins": [
+    {
+      "name": "ax-to-d365fo-migration-expert",
+      "source": {
+        "source": "local",
+        "path": "./plugins/ax-to-d365fo-migration-expert"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Productivity"
+    }
+  ]
+}

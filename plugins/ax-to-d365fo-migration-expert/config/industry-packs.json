@@ -1,0 +1,7 @@
+{
+  "manufacturing": ["BOM", "routes", "production orders", "quality", "costing"],
+  "retail": ["POS", "stores", "pricing", "loyalty", "commerce channels"],
+  "wholesale": ["trade agreements", "rebates", "EDI", "warehouse"],
+  "finance-heavy": ["ledger", "financial dimensions", "tax", "reporting"],
+  "warehouse-heavy": ["WMS", "mobile devices", "work templates", "waves"]
+}

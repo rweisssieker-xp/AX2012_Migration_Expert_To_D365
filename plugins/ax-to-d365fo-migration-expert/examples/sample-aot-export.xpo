@@ -1,0 +1,14 @@
+CLASS #LegacyAIFCustomerService
+  PROPERTIES
+    Name                #LegacyAIFCustomerService
+  METHODS
+    SOURCE #run
+      #public void run()
+      #{
+      #    AifDocumentService service;
+      #    RunBaseBatch batch;
+      #    WinAPI::shellExecute("legacy.exe");
+      #}
+    ENDSOURCE
+  ENDMETHODS
+ENDCLASS

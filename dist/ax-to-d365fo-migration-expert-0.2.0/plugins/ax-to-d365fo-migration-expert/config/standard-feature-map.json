@@ -1,0 +1,15 @@
+{
+  "customer": "Customer master, credit and collections, customer data entities",
+  "cust": "Customer master, customer groups, credit and collections",
+  "vendor": "Vendor master, procurement categories, vendor data entities",
+  "vend": "Vendor master and accounts payable processes",
+  "sales": "Sales order management, pricing, trade agreements, sales data entities",
+  "purchase": "Procurement and sourcing, purchase orders, vendor collaboration",
+  "purch": "Procurement and sourcing, purchase orders",
+  "invent": "Inventory management, warehouse management, inventory data entities",
+  "warehouse": "Warehouse management, mobile device flows, work templates",
+  "ledger": "General ledger, financial dimensions, journals, Financial Reporter",
+  "tax": "Tax configuration, localization, electronic reporting",
+  "project": "Project management and accounting",
+  "retail": "Dynamics 365 Commerce and channel architecture"
+}

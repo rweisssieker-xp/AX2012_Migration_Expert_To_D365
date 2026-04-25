@@ -1,0 +1,21 @@
+{
+  "ax_sql": {
+    "connection_string_env": "AX_SQL_CONNECTION_STRING",
+    "driver_hint": "ODBC Driver 17 for SQL Server",
+    "default_query": "SELECT TOP 100 ElementType, Name, Layer, Model, ParentName AS Module FROM ModelElement"
+  },
+  "azure_devops": {
+    "organization_url_env": "AZDO_ORG_URL",
+    "project_env": "AZDO_PROJECT",
+    "pat_env": "AZDO_PAT",
+    "api_version": "7.1"
+  },
+  "lcs": {
+    "base_url_env": "LCS_BASE_URL",
+    "token_env": "LCS_BEARER_TOKEN"
+  },
+  "d365fo": {
+    "base_url_env": "D365FO_BASE_URL",
+    "token_env": "D365FO_BEARER_TOKEN"
+  }
+}

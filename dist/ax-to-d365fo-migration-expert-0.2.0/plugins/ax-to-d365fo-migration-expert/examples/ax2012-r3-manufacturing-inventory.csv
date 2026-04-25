@@ -1,0 +1,6 @@
+Category,ObjectType,Name,Layer,Module,Usage,Complexity,Technology,BusinessPurpose
+Object,Class,ProdCostRollupCustom,CUS,Manufacturing,High,High,X++,Custom production costing
+Object,Table,BOMCalcHistory,DAT,Manufacturing,High,Medium,SQL history,BOM calculation history
+Integration,Service,AIFProductionOrderImport,CUS,Manufacturing,Daily,High,AIF,Imports production orders
+Report,Report,ProdVarianceLegacy,CUS,Manufacturing,Monthly,Medium,SSRS,Production variance reporting
+ISV,Addon,ShopFloorAddon,VAR,Manufacturing,High,High,ISV,Shop floor execution
