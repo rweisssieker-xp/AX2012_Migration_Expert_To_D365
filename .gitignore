@@ -1,0 +1,34 @@
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Local outputs
+dist/
+tmp-*/
+tmp-*.md
+tmp-*.csv
+tmp-*.json
+tmp-*.xml
+migration-analysis/
+migration-workspaces/
+migration-exports/
+migration-dashboard/
+migration-code-analysis/
+data-quality-profile.md
+inventory-change-monitor.md
+usage-telemetry-summary.csv
+
+# Secrets / local config
+.env
+*.local.json
+*.secret.json
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
