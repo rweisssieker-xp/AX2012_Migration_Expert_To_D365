@@ -1,0 +1,10 @@
+Work Item Type,Title,Description,Tags,Effort,Risk
+User Story,"Rebuild: AIFCustomerExport","Legacy integrations usually need redesign for D365FO operations and monitoring. Target: OData, custom service, Business Events, or middleware","AXMigration;integration;aif;overlayering",11,High
+User Story,"ISV Review: LegacyTaxAddon","ISV capability needs product roadmap and licensing validation. Target: D365FO ISV successor, standard replacement, custom extension, or retire","AXMigration;isv;overlayering",11,High
+User Story,"Rebuild: SalesFormLetter_Extension","Unsupported legacy dependency detected. Target: Extension/service/data entity redesign","AXMigration;object;direct-sql;overlayering;posting;transaction-scope",11,High
+User Story,"Rebuild: InventTransHistory","Unsupported legacy dependency detected. Target: Extension/service/data entity redesign","AXMigration;data;direct-sql;posting",10,High
+User Story,"Extend: SalesFormLetter_Extension","Customization likely needs extension-based migration. Target: Chain of Command or event handler","AXMigration;object;overlayering;posting",9,High
+User Story,"Rebuild: WarehouseFileDrop","Legacy integrations usually need redesign for D365FO operations and monitoring. Target: Managed file integration through middleware or recurring data jobs","AXMigration;integration;overlayering",8,Medium
+User Story,"Retire Candidate: CustTableLegacyCreditCheck","Low usage suggests scope reduction opportunity. Target: Business validation before migration","AXMigration;object;overlayering",7,Medium
+User Story,"Standard / Power BI Review: InventAgingCustom","Reports should be rationalized before rebuild. Target: D365FO workspace, SSRS, Power BI, Financial Reporter, or archive","AXMigration;report;overlayering;report-rationalization",7,Medium
+User Story,"Map: LegacyWarehouseSupervisor","Security must be mapped rather than technically migrated as-is. Target: D365FO roles, duties, privileges, and SoD review","AXMigration;security;overlayering",3,Low
