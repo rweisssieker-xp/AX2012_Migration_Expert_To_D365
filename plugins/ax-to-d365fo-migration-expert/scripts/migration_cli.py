@@ -49,6 +49,81 @@ def main() -> int:
     export.add_argument("analysis_dir")
     export.add_argument("--output", default="migration-exports")
 
+    persona = sub.add_parser("persona-pack", help="Generate CEO/CIO/CISO/PM/team persona packs and readiness scores.")
+    persona.add_argument("analysis_dir")
+    persona.add_argument("--persona", choices=["ceo", "cio", "ciso", "pm", "team", "all"], default="all")
+    persona.add_argument("--output", default="persona-packs")
+    persona.add_argument("--office", action="store_true")
+
+    questionnaire = sub.add_parser("questionnaire", help="Generate role questionnaires, migration factory, cutover, hypercare, and partner packs.")
+    questionnaire.add_argument("--persona", choices=["ceo", "cio", "ciso", "pm", "team", "change", "all"], default="all")
+    questionnaire.add_argument("--output", default="migration-questionnaires")
+
+    github_issues = sub.add_parser("github-issues", help="Export analyzer work items as GitHub issue Markdown files.")
+    github_issues.add_argument("analysis_dir")
+    github_issues.add_argument("--output", default="github-issues")
+
+    stakeholder = sub.add_parser("stakeholder-pack", help="Generate extended CFO/COO/data/integration/QA/legal/support/vendor/partner stakeholder packs.")
+    stakeholder.add_argument("analysis_dir")
+    stakeholder.add_argument("--stakeholder", choices=["cfo", "coo", "data", "integration", "qa", "enterprise-architect", "vendor", "legal", "support", "partner-sales", "all"], default="all")
+    stakeholder.add_argument("--output", default="stakeholder-packs")
+
+    commerce_commands = {
+        "commerce-pack": ("generate_commerce_pack.py", "Generate full Commerce/CXP/CRM/POS pack.", "commerce-packs"),
+        "commerce-readiness": ("generate_commerce_readiness.py", "Generate Commerce readiness scores.", "commerce-readiness"),
+        "commerce-cutover": ("generate_commerce_cutover.py", "Generate Commerce cutover runbook and go-live gate.", "commerce-cutover"),
+        "commerce-offline-check": ("generate_commerce_offline_check.py", "Generate POS offline continuity and recovery pack.", "commerce-offline"),
+        "commerce-crm-pack": ("generate_commerce_crm_pack.py", "Generate CRM, Dataverse, Lead-to-Cash, and Customer Master pack.", "commerce-crm"),
+        "commerce-store-pack": ("generate_commerce_store_pack.py", "Generate Store Operations, POS hardware, and training pack.", "commerce-store"),
+        "commerce-payments-pack": ("generate_commerce_payments_pack.py", "Generate payments, PCI, settlement, and reconciliation pack.", "commerce-payments"),
+        "commerce-omnichannel-pack": ("generate_commerce_omnichannel_pack.py", "Generate omnichannel, e-commerce, analytics, and marketplace pack.", "commerce-omnichannel"),
+    }
+    for command, (_, help_text, default_output) in commerce_commands.items():
+        commerce = sub.add_parser(command, help=help_text)
+        commerce.add_argument("analysis_dir")
+        commerce.add_argument("--output", default=default_output)
+
+    solo_init = sub.add_parser("solo-init", help="Create a solo migration project operating folder.")
+    solo_init.add_argument("project")
+    solo_init.add_argument("--output", default="solo-migration")
+
+    solo_run = sub.add_parser("solo-run", help="Run full solo migration orchestration from inventory inputs.")
+    solo_run.add_argument("--project", required=True)
+    solo_run.add_argument("--input", action="append", required=True, dest="inputs")
+    solo_run.add_argument("--output", default="solo-migration")
+
+    solo_commands = {
+        "solo-evidence": ("evidence", "Generate solo evidence completeness outputs."),
+        "solo-status": ("status", "Generate solo migration health/status outputs."),
+        "solo-gates": ("gates", "Generate self-approval and external approval gates."),
+        "solo-daily": ("daily", "Generate daily migration command sheet."),
+        "solo-war-room": ("war-room", "Generate cutover war-room outputs."),
+        "solo-hypercare": ("hypercare", "Generate hypercare command center outputs."),
+        "solo-audit-binder": ("audit-binder", "Generate audit and evidence binder outputs."),
+        "solo-benefits": ("benefits", "Generate benefits realization outputs."),
+        "solo-orchestrate": ("orchestrate", "Generate master-orchestrator plan and routing outputs."),
+        "solo-brain": ("brain", "Generate AI migration brain outputs."),
+        "solo-next": ("next", "Generate next-best-action outputs."),
+        "solo-simulate": ("simulate", "Generate decision impact simulation outputs."),
+        "solo-scope-defense": ("scope-defense", "Generate scope defense outputs."),
+        "solo-waste-hunter": ("waste-hunter", "Generate waste hunter report."),
+        "solo-predict": ("predict", "Generate prediction outputs."),
+        "solo-translate": ("translate", "Generate stakeholder translation outputs."),
+        "solo-drift": ("drift", "Generate project drift detector outputs."),
+        "solo-communicate": ("communicate", "Generate communication copilot outputs."),
+        "solo-test-plan": ("test-plan", "Generate key-user/UAT/regression test plan outputs."),
+        "solo-test-status": ("test-status", "Generate test execution status outputs."),
+        "solo-signoff": ("signoff", "Generate business sign-off outputs."),
+    }
+    for command, (_, help_text) in solo_commands.items():
+        solo = sub.add_parser(command, help=help_text)
+        solo.add_argument("source")
+        solo.add_argument("--output")
+        if command == "solo-translate":
+            solo.add_argument("--role", default="")
+        if command == "solo-communicate":
+            solo.add_argument("--audience", default="")
+
     profile = sub.add_parser("profile-data", help="Profile CSV data quality.")
     profile.add_argument("input")
     profile.add_argument("--output", default="data-quality-profile.md")
@@ -95,6 +170,37 @@ def main() -> int:
         return run("extract_modelstore_inventory.py", [args.input, "--output", args.output])
     if args.command == "export":
         return run("export_analysis.py", [args.analysis_dir, "--output", args.output])
+    if args.command == "persona-pack":
+        cmd = [args.analysis_dir, "--persona", args.persona, "--output", args.output]
+        if args.office:
+            cmd += ["--office"]
+        return run("generate_persona_pack.py", cmd)
+    if args.command == "questionnaire":
+        return run("create_questionnaire_pack.py", ["--persona", args.persona, "--output", args.output])
+    if args.command == "github-issues":
+        return run("export_github_issues.py", [args.analysis_dir, "--output", args.output])
+    if args.command == "stakeholder-pack":
+        return run("generate_stakeholder_pack.py", [args.analysis_dir, "--stakeholder", args.stakeholder, "--output", args.output])
+    if args.command in commerce_commands:
+        script, _, _ = commerce_commands[args.command]
+        return run(script, [args.analysis_dir, "--output", args.output])
+    if args.command == "solo-init":
+        return run("create_solo_project.py", [args.project, "--output", args.output])
+    if args.command == "solo-run":
+        cmd = ["--project", args.project, "--output", args.output]
+        for item in args.inputs:
+            cmd += ["--input", item]
+        return run("run_solo_migration.py", cmd)
+    if args.command in solo_commands:
+        mode, _ = solo_commands[args.command]
+        cmd = [args.source, "--mode", mode]
+        if args.output:
+            cmd += ["--output", args.output]
+        if getattr(args, "role", ""):
+            cmd += ["--role", args.role]
+        if getattr(args, "audience", ""):
+            cmd += ["--audience", args.audience]
+        return run("generate_solo_artifacts.py", cmd)
     if args.command == "profile-data":
         return run("profile_data_quality.py", [args.input, "--output", args.output])
     if args.command == "monitor":
@@ -180,6 +286,34 @@ Create workspace:
 
 Export Excel/PPTX:
   python axmigrate.py export migration-analysis/sample --output migration-exports/sample
+
+Generate persona packs with readiness scores:
+  python axmigrate.py persona-pack migration-analysis/sample --persona all --office --output persona-packs/sample
+
+Generate questionnaires, factory, cutover, hypercare, and partner packs:
+  python axmigrate.py questionnaire --persona all --output migration-questionnaires/sample
+
+Export GitHub issue Markdown:
+  python axmigrate.py github-issues migration-analysis/sample --output github-issues/sample
+
+Generate extended stakeholder packs:
+  python axmigrate.py stakeholder-pack migration-analysis/sample --stakeholder all --output stakeholder-packs/sample
+
+Generate Commerce/CXP/CRM/POS pack:
+  python axmigrate.py commerce-pack migration-analysis/sample --output commerce-packs/sample
+
+Generate Commerce readiness:
+  python axmigrate.py commerce-readiness migration-analysis/sample --output commerce-readiness/sample
+
+Generate Commerce cutover and offline packs:
+  python axmigrate.py commerce-cutover migration-analysis/sample --output commerce-cutover/sample
+  python axmigrate.py commerce-offline-check migration-analysis/sample --output commerce-offline/sample
+
+Run solo migration operating system:
+  python axmigrate.py solo-run --project "Contoso AX Migration" --input plugins/ax-to-d365fo-migration-expert/examples/sample-ax-inventory.csv --output solo-migration
+
+Generate master-orchestrator status:
+  python axmigrate.py solo-orchestrate solo-migration/contoso-ax-migration --output master-orchestration/sample
 
 Doctor:
   python axmigrate.py doctor

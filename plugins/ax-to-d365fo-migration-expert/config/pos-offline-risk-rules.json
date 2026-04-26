@@ -1,0 +1,13 @@
+{
+  "risks": [
+    "offline database not initialized",
+    "sync conflict unresolved",
+    "offline payment not approved",
+    "store recovery untested"
+  ],
+  "controls": [
+    "offline-sync-test-plan.md",
+    "offline-recovery-runbook.md",
+    "pos-offline-continuity-pack.md"
+  ]
+}

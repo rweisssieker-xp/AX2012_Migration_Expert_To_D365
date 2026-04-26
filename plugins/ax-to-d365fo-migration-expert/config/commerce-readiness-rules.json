@@ -1,0 +1,31 @@
+{
+  "ready": {
+    "min_score": 75,
+    "critical_blockers": 0
+  },
+  "needs_control": {
+    "min_score": 50
+  },
+  "blocked": {
+    "score_below": 50,
+    "critical_evidence_missing": true
+  },
+  "workstreams": [
+    "cxp",
+    "crm_dataverse",
+    "lead_management",
+    "customer_master",
+    "commerce_hq",
+    "channel",
+    "commerce_scale_unit",
+    "channel_data_sync",
+    "pos",
+    "pos_offline",
+    "store_operations",
+    "payments_pci",
+    "loyalty_promotions",
+    "pricing_assortment",
+    "omnichannel_ecommerce",
+    "commerce_cutover"
+  ]
+}

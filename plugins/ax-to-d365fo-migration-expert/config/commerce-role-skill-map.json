@@ -1,0 +1,82 @@
+{
+  "cxp-owner": {
+    "skill": "ax-migration-cxp-owner",
+    "description": "CXP, CX, customer experience, customer journey, loyalty, omnichannel experience, or experience KPI migration needs for AX to D365FO and Dynamics 365 Commerce."
+  },
+  "crm-owner": {
+    "skill": "ax-migration-crm-owner",
+    "description": "CRM, Customer Engagement, Dataverse, Dynamics 365 Sales, Customer Service, contact, opportunity, case, or dual-write migration needs."
+  },
+  "lead-management-owner": {
+    "skill": "ax-migration-lead-management-owner",
+    "description": "lead management, lead capture, qualification, campaign handover, sales funnel, pipeline, or lead-to-cash migration needs."
+  },
+  "commerce-lead": {
+    "skill": "ax-migration-commerce-lead",
+    "description": "D365 Commerce HQ, channels, assortments, pricing, promotions, loyalty, online commerce, or retail channel migration needs."
+  },
+  "commerce-scale-unit-owner": {
+    "skill": "ax-migration-commerce-scale-unit-owner",
+    "description": "Commerce Scale Unit, CSU, Channel DB, Retail Server, Async Client, real-time service, sync, performance, or availability migration needs."
+  },
+  "pos-lead": {
+    "skill": "ax-migration-pos-lead",
+    "description": "POS, point of sale, MPOS, CPOS, store checkout, cashier processes, returns, receipts, shifts, or store POS migration needs."
+  },
+  "pos-offline-lead": {
+    "skill": "ax-migration-pos-offline-lead",
+    "description": "POS offline, offline DB, offline sync, offline payments, conflict handling, store offline continuity, or recovery planning needs."
+  },
+  "store-operations-lead": {
+    "skill": "ax-migration-store-operations-lead",
+    "description": "store operations, end-of-day, shifts, pickup, returns, inventory lookup, store training, or store go-live readiness needs."
+  },
+  "payments-lead": {
+    "skill": "ax-migration-payments-lead",
+    "description": "payment connectors, terminals, refunds, settlement, tokenization, PCI, payment reconciliation, or payment cutover needs."
+  },
+  "omnichannel-ecommerce-lead": {
+    "skill": "ax-migration-omnichannel-ecommerce-lead",
+    "description": "omnichannel, e-commerce, web store, BOPIS, pickup, return, ship-from-store, catalog, or inventory availability needs."
+  },
+  "loyalty-promotions-lead": {
+    "skill": "ax-migration-loyalty-promotions-lead",
+    "description": "loyalty cards, loyalty points, tiers, coupons, promotions, discounts, customer linkage, or loyalty migration needs."
+  },
+  "pricing-assortment-lead": {
+    "skill": "ax-migration-pricing-assortment-lead",
+    "description": "channel pricing, assortments, catalogs, product variants, publishing, trade agreements, or promotion migration needs."
+  },
+  "channel-data-sync-lead": {
+    "skill": "ax-migration-channel-data-sync-lead",
+    "description": "channel data sync, HQ sync, async jobs, Channel DB, offline recovery validation, or store data synchronization needs."
+  },
+  "retail-hardware-lead": {
+    "skill": "ax-migration-retail-hardware-lead",
+    "description": "retail hardware, POS devices, scanners, receipt printers, cash drawers, payment terminals, store network, or device readiness needs."
+  },
+  "commerce-security-pci-lead": {
+    "skill": "ax-migration-commerce-security-pci-lead",
+    "description": "commerce security, PCI, payment tokens, POS roles, device security, payment secrets, or store security gate needs."
+  },
+  "customer-master-lead": {
+    "skill": "ax-migration-customer-master-lead",
+    "description": "customer master harmonization across Finance and Operations, Commerce, CRM, Dataverse, customers, contacts, and identity needs."
+  },
+  "call-center-lead": {
+    "skill": "ax-migration-call-center-lead",
+    "description": "call center orders, customer service, scripts, order capture, payment handling, or call center migration needs."
+  },
+  "marketplace-integration-lead": {
+    "skill": "ax-migration-marketplace-integration-lead",
+    "description": "marketplace integrations, marketplace order intake, inventory, returns, settlement, or marketplace reconciliation needs."
+  },
+  "commerce-analytics-lead": {
+    "skill": "ax-migration-commerce-analytics-lead",
+    "description": "commerce analytics, channel KPIs, conversion, store sales, returns, loyalty analytics, or customer insights migration needs."
+  },
+  "store-training-lead": {
+    "skill": "ax-migration-store-training-lead",
+    "description": "store training, cashier training, store manager readiness, super user training, support handover, or store go-live training needs."
+  }
+}

@@ -597,6 +597,21 @@ def write_reports(items: list[InventoryItem], output: Path) -> None:
     (output / "ai-executive-stories.md").write_text(executive_stories(items, rating), encoding="utf-8")
     (output / "ai-adrs.md").write_text(architecture_decision_records(items), encoding="utf-8")
     (output / "migration-knowledge-graph.json").write_text(json.dumps(knowledge_graph(items), indent=2), encoding="utf-8")
+    (output / "persona-ceo-summary.md").write_text(persona_ceo_summary(items, rating, score, cost_model), encoding="utf-8")
+    (output / "persona-cio-architecture-view.md").write_text(persona_cio_architecture_view(items, rating), encoding="utf-8")
+    (output / "persona-ciso-security-view.md").write_text(persona_ciso_security_view(items), encoding="utf-8")
+    (output / "persona-project-manager-control-view.md").write_text(persona_pm_control_view(items, rating), encoding="utf-8")
+    (output / "persona-team-member-task-view.md").write_text(persona_team_member_task_view(items), encoding="utf-8")
+    (output / "steering-committee-pack.md").write_text(steering_committee_pack(items, rating, score, cost_model), encoding="utf-8")
+    (output / "raid-log.md").write_text(raid_log(items), encoding="utf-8")
+    (output / "raci-matrix.md").write_text(raci_matrix(items), encoding="utf-8")
+    (output / "weekly-status-report.md").write_text(weekly_status_report(items, rating), encoding="utf-8")
+    (output / "ciso-security-gate-pack.md").write_text(ciso_security_gate_pack(items), encoding="utf-8")
+    (output / "project-operating-model.md").write_text(project_operating_model(items), encoding="utf-8")
+    (output / "board-ceo-narrative.md").write_text(board_ceo_narrative(items, rating, cost_model), encoding="utf-8")
+    (output / "team-execution-pack.md").write_text(team_execution_pack(items), encoding="utf-8")
+    (output / "role-based-prompt-library.md").write_text(role_based_prompt_library(), encoding="utf-8")
+    (output / "project-onboarding-guide.md").write_text(project_onboarding_guide(items), encoding="utf-8")
 
     (output / "inventory-normalized.json").write_text(
         json.dumps([item_to_dict(item) for item in items], indent=2),
@@ -1126,6 +1141,232 @@ def knowledge_graph(items: list[InventoryItem]) -> dict[str, Any]:
             edges.append({"from": item_id, "to": risk_id, "type": "has_risk"})
     unique_nodes = {node["id"]: node for node in nodes}
     return {"nodes": list(unique_nodes.values()), "edges": edges}
+
+
+def migration_metrics(items: list[InventoryItem], rating: str, model: dict[str, Any]) -> dict[str, Any]:
+    points = sum(item.effort_points for item in items)
+    retire = sum(1 for item in items if "Retire" in item.disposition)
+    high_risk = sum(1 for item in items if item.effort_points >= 9)
+    risks = sum(len(item.risk_flags) for item in items)
+    days = points * float(model.get("hours_per_effort_point", 6)) / float(model.get("hours_per_day", 8))
+    return {"points": points, "retire": retire, "high_risk": high_risk, "risks": risks, "days": round(days, 1), "rating": rating}
+
+
+def persona_ceo_summary(items: list[InventoryItem], rating: str, score: int, model: dict[str, Any]) -> str:
+    metrics = migration_metrics(items, rating, model)
+    return f"""# CEO Migration Summary
+
+## Executive Position
+
+The migration currently rates **{rating}** with a complexity score of **{score}**. The AI analysis identified **{metrics['retire']}** scope-reduction candidates, **{metrics['high_risk']}** high-risk items, and **{metrics['risks']}** risk flags.
+
+## CEO Decisions Needed
+
+{md_table(["Decision", "Why it matters"], [
+    ["Approve scope-reduction mandate", "Avoid migrating low-value customizations, reports, and historical data."],
+    ["Confirm business standardization appetite", "D365FO value depends on process simplification, not legacy recreation."],
+    ["Assign executive owners for unresolved high-risk items", "Risk decisions need accountable business leadership."],
+    ["Confirm investment envelope", "Current heuristic effort is " + str(metrics["days"]) + " person-days before detailed planning."]
+])}
+
+## Board-Level Message
+
+The migration should be governed as a business simplification and risk-reduction program, not only as an ERP technical move.
+"""
+
+
+def persona_cio_architecture_view(items: list[InventoryItem], rating: str) -> str:
+    rows = []
+    for item in sorted(items, key=lambda value: value.effort_points, reverse=True):
+        if item.category in ("integration", "data", "report", "object", "isv"):
+            rows.append([item.name, item.category, item.target_pattern, ", ".join(item.risk_flags) or "none", item.effort_points])
+    return "# CIO Architecture View\n\n" + md_table(
+        ["Item", "Domain", "Target pattern", "Architecture risk", "Effort"],
+        rows,
+    ) + "\n\n## CIO Focus\n\n- Remove unsupported legacy integration patterns.\n- Reduce technical debt before cloud migration.\n- Sequence high-risk rebuilds through architecture gates.\n"
+
+
+def persona_ciso_security_view(items: list[InventoryItem]) -> str:
+    security_items = [item for item in items if item.category == "security" or any(flag in item.risk_flags for flag in ("direct-sql", "client-dependency", "aif"))]
+    rows = [[item.name, item.category, ", ".join(item.risk_flags) or "security mapping", security_control_for(item), "CISO / security lead"] for item in security_items]
+    return "# CISO Security View\n\n" + md_table(["Item", "Area", "Risk", "Control / review", "Owner"], rows) + "\n"
+
+
+def security_control_for(item: InventoryItem) -> str:
+    if "direct-sql" in item.risk_flags:
+        return "Replace direct data access with governed service/entity pattern."
+    if "client-dependency" in item.risk_flags:
+        return "Remove local/client dependency and review endpoint/security model."
+    if "aif" in item.risk_flags:
+        return "Review authentication, replay, monitoring, and least privilege for new integration."
+    return "Map roles, duties, privileges, and SoD controls."
+
+
+def persona_pm_control_view(items: list[InventoryItem], rating: str) -> str:
+    rows = [
+        ["Complexity", rating, "Program Manager", "Track weekly"],
+        ["High-risk items", sum(1 for item in items if item.effort_points >= 9), "Workstream leads", "Escalate blockers"],
+        ["Open decisions", sum(1 for item in items if item.effort_points >= 8 or "Retire" in item.disposition), "Steering committee", "Decision log"],
+        ["Scope reduction candidates", sum(1 for item in items if "Retire" in item.disposition), "Business owners", "Validate in workshops"],
+    ]
+    return "# Project Manager Control View\n\n" + md_table(["Control", "Value", "Owner", "Action"], rows) + "\n"
+
+
+def persona_team_member_task_view(items: list[InventoryItem]) -> str:
+    rows = []
+    for index, item in enumerate(sorted(items, key=lambda value: value.effort_points, reverse=True), start=1):
+        rows.append([f"T-{index:03d}", task_for_item(item), item.category, suggested_owner(item), "New"])
+    return "# Team Member Task View\n\n" + md_table(["ID", "Task", "Workstream", "Suggested owner", "Status"], rows) + "\n"
+
+
+def task_for_item(item: InventoryItem) -> str:
+    if "Retire" in item.disposition:
+        return f"Validate retirement decision for {item.name}."
+    if item.category == "integration":
+        return f"Document target integration design for {item.name}."
+    if item.category == "report":
+        return f"Validate usage and target reporting pattern for {item.name}."
+    if item.category == "security":
+        return f"Map security role/duties for {item.name}."
+    return f"Review migration disposition and target pattern for {item.name}."
+
+
+def suggested_owner(item: InventoryItem) -> str:
+    return {
+        "integration": "Integration lead",
+        "report": "Reporting lead",
+        "security": "Security lead",
+        "data": "Data migration lead",
+        "isv": "Solution architect",
+    }.get(item.category, "Functional / technical lead")
+
+
+def steering_committee_pack(items: list[InventoryItem], rating: str, score: int, model: dict[str, Any]) -> str:
+    metrics = migration_metrics(items, rating, model)
+    decisions = [[f"DEC-{idx:03d}", f"Approve {item.disposition} for {item.name}", suggested_owner(item), "Next steering"] for idx, item in enumerate(items, start=1) if item.effort_points >= 8 or "Retire" in item.disposition]
+    return "# Steering Committee Pack\n\n" + md_table(
+        ["Metric", "Value"],
+        [["Complexity", rating], ["Score", score], ["High-risk items", metrics["high_risk"]], ["Scope reduction candidates", metrics["retire"]], ["Effort points", metrics["points"]]],
+    ) + "\n\n## Decisions Needed\n\n" + md_table(["ID", "Decision", "Owner", "Due"], decisions) + "\n"
+
+
+def raid_log(items: list[InventoryItem]) -> str:
+    rows = []
+    for index, item in enumerate(items, start=1):
+        if item.risk_flags:
+            rows.append([f"R-{index:03d}", "Risk", item.name, ", ".join(item.risk_flags), suggested_owner(item), "Open"])
+        if item.effort_points >= 8:
+            rows.append([f"D-{index:03d}", "Dependency", item.name, "Requires architecture/business decision", suggested_owner(item), "Open"])
+    return "# RAID Log\n\n" + md_table(["ID", "Type", "Item", "Description", "Owner", "Status"], rows) + "\n"
+
+
+def raci_matrix(items: list[InventoryItem]) -> str:
+    workstreams = sorted({item.category for item in items})
+    rows = [[ws.title(), suggested_owner(InventoryItem(source_file="", raw={}, category=ws)), "Solution architect", "Business owner", "Program manager"] for ws in workstreams]
+    return "# RACI Matrix\n\n" + md_table(["Workstream", "Responsible", "Accountable", "Consulted", "Informed"], rows) + "\n"
+
+
+def weekly_status_report(items: list[InventoryItem], rating: str) -> str:
+    return "# Weekly Status Report\n\n" + md_table(
+        ["Area", "Status", "Comment"],
+        [
+            ["Overall", "Amber" if rating in ("Medium", "High") else "Red" if rating == "Critical" else "Green", f"Complexity is {rating}."],
+            ["Scope", "Amber", f"{sum(1 for item in items if 'Retire' in item.disposition)} scope-reduction candidates need validation."],
+            ["Risks", "Amber", f"{sum(len(item.risk_flags) for item in items)} risk flags detected."],
+            ["Decisions", "Amber", "High-effort and retire decisions require owner confirmation."],
+        ],
+    ) + "\n"
+
+
+def ciso_security_gate_pack(items: list[InventoryItem]) -> str:
+    rows = [
+        ["Identity and access", "Roles/duties mapped", "Required before UAT", "Open"],
+        ["SoD", "Segregation of duties reviewed", "Required before UAT", "Open"],
+        ["Integrations", "Auth, secrets, monitoring, replay reviewed", "Required before SIT", "Open"],
+        ["Sensitive data", "GDPR/DSGVO and retention reviewed", "Required before data migration trial", "Open"],
+        ["Go-live", "Privileged access and emergency access reviewed", "Required before cutover", "Open"],
+    ]
+    return "# CISO Security Gate Pack\n\n" + md_table(["Gate", "Evidence", "Timing", "Status"], rows) + "\n\n## Security Items\n\n" + persona_ciso_security_view(items)
+
+
+def project_operating_model(items: list[InventoryItem]) -> str:
+    return "# Project Operating Model\n\n" + md_table(
+        ["Area", "Recommendation"],
+        [
+            ["Governance", "Weekly delivery review and bi-weekly steering committee."],
+            ["Decision rights", "Business owns scope decisions; architecture owns technical patterns; CISO owns security gates."],
+            ["Escalation", "Escalate high-risk blockers within 48 hours."],
+            ["Cadence", "Daily workstream standups during build/test/cutover windows."],
+            ["Artifacts", "Maintain RAID, RACI, decision log, backlog, cutover runbook, and test dashboard."],
+        ],
+    ) + "\n"
+
+
+def board_ceo_narrative(items: list[InventoryItem], rating: str, model: dict[str, Any]) -> str:
+    metrics = migration_metrics(items, rating, model)
+    return f"""# Board / CEO Narrative
+
+## Why Migrate
+
+The AX estate carries technical and operational risk that increases cost, slows change, and limits supportability.
+
+## Why Now
+
+D365FO migration is an opportunity to retire low-value scope, standardize processes, modernize integrations, and improve security governance.
+
+## Risk of Doing Nothing
+
+Legacy customizations, direct integrations, aging reports, and unclear data history requirements will continue to increase operational risk.
+
+## Investment Logic
+
+The current AI scan estimates **{metrics['points']} effort points** and highlights **{metrics['retire']} scope-reduction opportunities**. The recommended path is controlled scope reduction before build commitment.
+"""
+
+
+def team_execution_pack(items: list[InventoryItem]) -> str:
+    return "# Team Execution Pack\n\n## Daily Task List\n\n" + persona_team_member_task_view(items) + "\n## Defect Triage Template\n\n" + md_table(
+        ["Defect", "Severity", "Owner", "Root cause", "Next action"],
+        [["", "Sev 1 / Sev 2 / Sev 3", "", "", ""]],
+    ) + "\n"
+
+
+def role_based_prompt_library() -> str:
+    return """# Role-Based Prompt Library
+
+## CEO
+
+Act as a CEO reviewing this AX to D365FO migration. Summarize business value, risk of delay, investment logic, and top decisions needed.
+
+## CIO
+
+Act as a CIO reviewing this migration architecture. Identify technical debt, supportability risks, integration modernization needs, and architecture decisions.
+
+## CISO
+
+Act as a CISO reviewing this migration. Identify identity, access, SoD, integration security, sensitive data, retention, and go-live security gate risks.
+
+## Project Manager
+
+Act as the program manager. Generate RAID, weekly status, dependencies, milestones, blockers, and steering committee decisions.
+
+## Project Team Member
+
+Act as a workstream team member. Convert the analysis into daily tasks, workshop questions, test scripts, and defect triage actions.
+"""
+
+
+def project_onboarding_guide(items: list[InventoryItem]) -> str:
+    return "# Project Onboarding Guide\n\n" + md_table(
+        ["Topic", "What new team members need to know"],
+        [
+            ["Mission", "Reduce AX migration scope while preserving business-critical capability."],
+            ["Evidence", "Use inventory, reports, telemetry, and workshop validation."],
+            ["Workflow", "Analyze, validate, decide, design, build, test, cutover, stabilize."],
+            ["Key files", "Dashboard, RAID, decision log, backlog, security gate, cutover plan."],
+            ["First task", "Review persona-team-member-task-view.md and assigned workstream reports."],
+        ],
+    ) + "\n"
 
 
 def cost_model_report(items: list[InventoryItem], rating: str, model: dict[str, Any]) -> str:

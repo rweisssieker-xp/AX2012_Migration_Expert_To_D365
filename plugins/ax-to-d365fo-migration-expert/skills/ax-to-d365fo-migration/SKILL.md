@@ -414,6 +414,31 @@ Use these for advanced product differentiation and high-value consulting automat
 - Continuous Migration Monitor.
 - Executive Story Generator.
 
+### 76-95. Role-Based AI-KI USP Set
+
+Use these when the user asks for maximum value for project managers, CEOs, CIOs, CISOs, project members, steering committees, or automated stakeholder communication:
+
+- CEO Migration Value Cockpit.
+- CIO Architecture Control Tower.
+- CISO Security Gate Copilot.
+- Project Manager Autonomous PMO Pack.
+- Team Member Task Translator.
+- Steering Committee Decision Generator.
+- Board Narrative Builder.
+- Persona-Based Prompt Library.
+- Auto-RACI Generator.
+- Auto-RAID Generator.
+- Weekly Status Writer.
+- CISO Evidence Binder.
+- Project Operating Model Generator.
+- Role-Based Onboarding Guide.
+- Executive Risk Translation.
+- AI Governance Traceability Pack.
+- Role-Specific KPI Extractor.
+- Decision-to-Backlog Bridge.
+- Stakeholder Communication Autopilot.
+- Autonomous Migration Factory Starter Kit.
+
 ## Recommended Deliverables
 
 For planning requests, produce concrete artifacts:
@@ -427,6 +452,44 @@ For planning requests, produce concrete artifacts:
 - Test strategy with entry and exit criteria.
 - Cutover checklist and rollback criteria.
 - Risk register with owners, severity, probability, mitigation, and due date.
+
+## Persona Sub-Skills
+
+When the user clearly asks from a specific stakeholder perspective, prefer the dedicated persona skill:
+
+- `ax-migration-ceo-advisor` for CEO, board, sponsor, CFO, COO, value, investment, and business case.
+- `ax-migration-cio-architect` for CIO, CTO, architecture, modernization, integrations, ALM, and platform decisions.
+- `ax-migration-ciso-guardian` for CISO, security, privacy, SoD, compliance, evidence, and gate readiness.
+- `ax-migration-project-manager` for PMO, RAID, RACI, status, governance, milestones, and stakeholder reporting.
+- `ax-migration-team-executor` for developers, consultants, data leads, testers, and execution tasks.
+- `ax-migration-steering-committee` for steering packs, gate reviews, decisions, escalations, and action logs.
+- `ax-migration-change-adoption` for training, change impact, communication, UAT ownership, and hypercare adoption.
+- `ax-migration-persona-pack-generator` for persona packs, readiness scores, Excel workbooks, and PowerPoint decks.
+- `ax-migration-questionnaire-factory` for role questionnaires, factory mode, cutover war room, hypercare, and partner sales packs.
+- `ax-migration-github-exporter` for GitHub issue Markdown export.
+- `ax-migration-regulatory-pack` for DACH/GDPR/GoBD, EU e-invoicing, finance audit, pharma, automotive EDI, and public-sector controls.
+- `ax-migration-industry-pack` for manufacturing, retail, wholesale, project operations, finance-heavy, warehouse/SCM, public sector, and automotive tailoring.
+- `ax-migration-connector-wizard` for AX SQL, Azure DevOps, LCS, D365FO, usage telemetry, GitHub export, and dry-run setup.
+- `ax-migration-cfo-finance-leadership` for budget, ROI, TCO, benefits, audit, and closing readiness.
+- `ax-migration-coo-operations` for operational continuity, process disruption, dual-run, warehouse, production, and supply chain readiness.
+- `ax-migration-data-governance` for data ownership, cleansing, reconciliation, archive, retention, and master data governance.
+- `ax-migration-integration-owner` for interface criticality, API modernization, middleware, retry, reconciliation, and cutover sequencing.
+- `ax-migration-qa-lead` for test coverage, risk-based testing, UAT, regression, and defect triage.
+- `ax-migration-enterprise-architect` for capability maps, portfolio impact, technical debt, target landscape, and dependency risk.
+- `ax-migration-vendor-manager` for ISV contracts, license impact, vendor readiness, third-party replacement, and commercial decisions.
+- `ax-migration-legal-compliance` for data processing, retention, regulatory obligations, contractual risk, and audit evidence.
+- `ax-migration-support-operations` for support model, runbooks, monitoring, hypercare-to-BAU, and incident categorization.
+- `ax-migration-partner-sales` for discovery, assessment offers, proposals, SOWs, pricing assumptions, and executive pitch.
+- `ax-migration-commerce-orchestrator` for Commerce/CXP/CRM/POS domain coordination.
+- `ax-migration-cxp-owner` for customer experience, journey, loyalty, and omnichannel KPIs.
+- `ax-migration-crm-owner` for CRM, Dataverse, Customer Engagement, contacts, opportunities, cases, and dual-write.
+- `ax-migration-lead-management-owner` for leads, pipeline, campaigns, qualification, and lead-to-cash.
+- `ax-migration-commerce-lead` for Commerce HQ, channels, assortments, pricing, promotions, and loyalty.
+- `ax-migration-commerce-scale-unit-owner` for CSU, Channel DB, Retail Server, Async Client, sync, performance, and availability.
+- `ax-migration-pos-lead` for POS, MPOS/CPOS, checkout, cashier, returns, receipts, and shifts.
+- `ax-migration-pos-offline-lead` for offline DB, offline sync, offline payments, conflict handling, and recovery.
+- `ax-migration-payments-lead` for payment connectors, terminals, refunds, settlement, tokenization, PCI, and reconciliation.
+- `ax-migration-omnichannel-ecommerce-lead` for web commerce, BOPIS, ship-from-store, inventory availability, and marketplace.
 
 Use the plugin templates when the user asks for files, workshops, or project setup:
 
@@ -501,6 +564,21 @@ Recommended input columns are documented in `docs/input-inventory-format.md`. Th
 - `ai-adrs.md`
 - `migration-knowledge-graph.json`
 - `inventory-normalized.json`
+- `persona-ceo-summary.md`
+- `persona-cio-architecture-view.md`
+- `persona-ciso-security-view.md`
+- `persona-project-manager-control-view.md`
+- `persona-team-member-task-view.md`
+- `steering-committee-pack.md`
+- `raid-log.md`
+- `raci-matrix.md`
+- `weekly-status-report.md`
+- `ciso-security-gate-pack.md`
+- `project-operating-model.md`
+- `board-ceo-narrative.md`
+- `team-execution-pack.md`
+- `role-based-prompt-library.md`
+- `project-onboarding-guide.md`
 
 Use `examples/sample-ax-inventory.csv` as the minimal test input.
 

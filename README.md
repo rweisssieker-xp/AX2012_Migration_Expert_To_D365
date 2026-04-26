@@ -12,8 +12,9 @@ The repository contains a Codex plugin that analyzes AX inventories, X++/XPO/AOT
 
 - Reduces migration scope by identifying what to migrate, replace, configure, archive, or retire.
 - Analyzes CSV, JSON, X++ source, XPO, and AOT text exports.
-- Produces 31 analyzer outputs including dashboards, risk heatmaps, effort estimates, cost model, ADRs, Azure DevOps CSV, and knowledge graph JSON.
-- Generates 52 migration project templates.
+- Produces 46 analyzer outputs including dashboards, risk heatmaps, effort estimates, cost model, ADRs, Azure DevOps CSV, knowledge graph JSON, CEO/CIO/CISO/PM/team persona packs, RAID, RACI, weekly status, and steering committee artifacts.
+- Generates 67 migration project templates.
+- Includes 76 Codex skills: end-to-end migration expert plus executive, architecture, security, PMO, delivery, finance, operations, data, integration, QA, legal, vendor, support, partner sales, regulatory, industry, connector, automation, master-orchestrator, solo-operator, key-user/tester, and Commerce/CXP/CRM/POS skills.
 - Exports analysis to Excel and PowerPoint.
 - Provides connector scaffolding for AX SQL, Azure DevOps, LCS, D365FO metadata/OData, and usage telemetry.
 
@@ -51,6 +52,54 @@ Check local environment:
 python .\axmigrate.py doctor
 ```
 
+Generate persona packs with readiness scores and Office exports:
+
+```powershell
+python .\axmigrate.py persona-pack migration-analysis\sample --persona all --office --output persona-packs\sample
+```
+
+Generate questionnaires, factory, cutover, hypercare, and partner packs:
+
+```powershell
+python .\axmigrate.py questionnaire --persona all --output migration-questionnaires\sample
+```
+
+Generate extended stakeholder packs:
+
+```powershell
+python .\axmigrate.py stakeholder-pack migration-analysis\sample --stakeholder all --output stakeholder-packs\sample
+```
+
+Export GitHub issue Markdown:
+
+```powershell
+python .\axmigrate.py github-issues migration-analysis\sample --output github-issues\sample
+```
+
+Generate Commerce/CXP/CRM/POS packs:
+
+```powershell
+python .\axmigrate.py commerce-pack migration-analysis\sample --output commerce-packs\sample
+python .\axmigrate.py commerce-readiness migration-analysis\sample --output commerce-readiness\sample
+python .\axmigrate.py commerce-cutover migration-analysis\sample --output commerce-cutover\sample
+python .\axmigrate.py commerce-offline-check migration-analysis\sample --output commerce-offline\sample
+python .\axmigrate.py commerce-crm-pack migration-analysis\sample --output commerce-crm\sample
+python .\axmigrate.py commerce-store-pack migration-analysis\sample --output commerce-store\sample
+python .\axmigrate.py commerce-payments-pack migration-analysis\sample --output commerce-payments\sample
+python .\axmigrate.py commerce-omnichannel-pack migration-analysis\sample --output commerce-omnichannel\sample
+```
+
+Run the Solo/Master-Orchestrator operating system:
+
+```powershell
+python .\axmigrate.py solo-init "Contoso AX Migration" --output solo-migration
+python .\axmigrate.py solo-run --project "Contoso AX Migration" --input plugins\ax-to-d365fo-migration-expert\examples\sample-ax-inventory.csv --output solo-migration
+python .\axmigrate.py solo-orchestrate solo-migration\contoso-ax-migration --output master-orchestration\contoso
+python .\axmigrate.py solo-status solo-migration\contoso-ax-migration
+python .\axmigrate.py solo-test-plan solo-migration\contoso-ax-migration
+python .\axmigrate.py solo-signoff solo-migration\contoso-ax-migration
+```
+
 ## Repository Map
 
 - `plugins/ax-to-d365fo-migration-expert/` - Codex plugin.
@@ -72,6 +121,7 @@ python .\axmigrate.py doctor
 - [Plugin usage](plugins/ax-to-d365fo-migration-expert/docs/installation-and-usage.md)
 - [Input format](plugins/ax-to-d365fo-migration-expert/docs/input-inventory-format.md)
 - [AI feature list](plugins/ax-to-d365fo-migration-expert/docs/ai-usp-feature-list.md)
+- [Role-based AI-KI USP pack](plugins/ax-to-d365fo-migration-expert/docs/role-based-ai-ki-usp-pack.md)
 - [Roadmap](ROADMAP.md)
 - [Disclaimer](DISCLAIMER.md)
 

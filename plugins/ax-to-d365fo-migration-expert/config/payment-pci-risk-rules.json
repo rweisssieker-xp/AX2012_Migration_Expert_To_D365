@@ -1,0 +1,13 @@
+{
+  "risks": [
+    "PCI scope unclear",
+    "terminal certification missing",
+    "refund/settlement reconciliation missing",
+    "tokenization evidence missing"
+  ],
+  "controls": [
+    "commerce-security-pci-gate.md",
+    "payment-reconciliation-pack.md",
+    "payment-cutover-checklist.md"
+  ]
+}

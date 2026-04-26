@@ -1,0 +1,96 @@
+{
+  "cxp": [
+    "CXP",
+    "CX",
+    "Customer Experience",
+    "Kundenerlebnis",
+    "Customer Journey",
+    "Experience",
+    "Journey Mapping"
+  ],
+  "crm": [
+    "CRM",
+    "Customer Engagement",
+    "CE",
+    "Dataverse",
+    "Sales",
+    "Customer Service",
+    "Kontakt",
+    "Contact",
+    "Opportunity",
+    "Case"
+  ],
+  "lead_management": [
+    "Lead",
+    "Leads",
+    "Lead-to-Cash",
+    "Pipeline",
+    "Sales Funnel",
+    "Campaign",
+    "Kampagne",
+    "Qualification",
+    "Qualifizierung"
+  ],
+  "commerce": [
+    "D365 Commerce",
+    "Retail",
+    "Commerce HQ",
+    "Channel",
+    "Online Store",
+    "Commerce Channel",
+    "Store Commerce"
+  ],
+  "csu": [
+    "Commerce Scale Unit",
+    "CSU",
+    "Scale Unit",
+    "Channel DB",
+    "Retail Server",
+    "Async Client",
+    "Real-time Service",
+    "RTS"
+  ],
+  "pos": [
+    "POS",
+    "Point of Sale",
+    "MPOS",
+    "CPOS",
+    "Store POS",
+    "Kasse",
+    "Checkout",
+    "Cashier",
+    "Kassierer"
+  ],
+  "offline": [
+    "Offline",
+    "Offline Mode",
+    "Offline DB",
+    "Offline Sync",
+    "Store offline",
+    "Netzwerkausfall",
+    "Offline payments"
+  ],
+  "payments": [
+    "Payment",
+    "Payments",
+    "Terminal",
+    "Payment terminal",
+    "Connector",
+    "Refund",
+    "Settlement",
+    "PCI",
+    "Tokenization",
+    "Acquirer"
+  ],
+  "store_ops": [
+    "Store",
+    "Filiale",
+    "Store Operations",
+    "Shift",
+    "End of Day",
+    "Returns",
+    "Pickup",
+    "Inventory lookup",
+    "Click and Collect"
+  ]
+}

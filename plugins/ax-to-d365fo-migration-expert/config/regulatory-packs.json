@@ -1,0 +1,32 @@
+{
+  "dach-gdpr-gobd": {
+    "regions": ["DE", "AT", "CH"],
+    "focus": ["GDPR/DSGVO", "GoBD", "audit retention", "tax evidence", "data minimization"],
+    "outputs": ["ciso-security-gate-pack.md", "ai-risk-mitigation-playbooks.md", "ai-decision-log.md"]
+  },
+  "eu-e-invoicing": {
+    "regions": ["EU"],
+    "focus": ["e-invoicing", "tax localization", "invoice archive", "integration monitoring"],
+    "outputs": ["persona-cio-architecture-view.md", "persona-ciso-security-view.md", "ai-data-entity-mapping.md"]
+  },
+  "finance-audit": {
+    "regions": ["global"],
+    "focus": ["segregation of duties", "financial controls", "reconciliation", "opening balances", "audit trail"],
+    "outputs": ["ciso-security-gate-pack.md", "ai-quality-gates.md", "weekly-status-report.md"]
+  },
+  "pharma-validation": {
+    "regions": ["global"],
+    "focus": ["validated systems", "GxP evidence", "test traceability", "change control", "electronic records"],
+    "outputs": ["ai-quality-gates.md", "ai-evidence-confidence.md", "team-execution-pack.md"]
+  },
+  "automotive-edi": {
+    "regions": ["global"],
+    "focus": ["EDI", "supplier/customer schedules", "warehouse integration", "traceability", "cutover continuity"],
+    "outputs": ["persona-cio-architecture-view.md", "cutover-war-room-live-pack.md", "ai-risk-heatmap.md"]
+  },
+  "public-sector": {
+    "regions": ["global"],
+    "focus": ["procurement controls", "budget controls", "audit", "retention", "access transparency"],
+    "outputs": ["persona-ciso-security-view.md", "steering-committee-pack.md", "ai-decision-log.md"]
+  }
+}

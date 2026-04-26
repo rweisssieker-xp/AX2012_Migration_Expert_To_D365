@@ -31,7 +31,11 @@ class AnalyzerTests(unittest.TestCase):
             self.assertTrue((output / "dashboard.html").exists())
             self.assertTrue((output / "ai-cost-model.md").exists())
             self.assertTrue((output / "ai-azure-devops-work-items.csv").exists())
-            self.assertEqual(len(list(output.iterdir())), 31)
+            self.assertTrue((output / "persona-ceo-summary.md").exists())
+            self.assertTrue((output / "persona-ciso-security-view.md").exists())
+            self.assertTrue((output / "steering-committee-pack.md").exists())
+            self.assertTrue((output / "team-execution-pack.md").exists())
+            self.assertEqual(len(list(output.iterdir())), 46)
 
     def test_xpp_pattern_detection_flags_direct_sql_and_posting(self):
         rows = analyzer.load_rows(ROOT / "examples" / "sample-xpp-class.xpp")

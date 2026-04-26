@@ -1,0 +1,18 @@
+{
+  "sequence": [
+    "HQ freeze",
+    "CSU validation",
+    "Channel DB sync",
+    "POS switch",
+    "Payment validation",
+    "Offline fallback",
+    "Store smoke",
+    "Go/no-go"
+  ],
+  "required_evidence": [
+    "commerce-go-live-gate.md",
+    "store-cutover-smoke-tests.md",
+    "payment-reconciliation-pack.md",
+    "offline-recovery-runbook.md"
+  ]
+}

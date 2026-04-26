@@ -1,0 +1,14 @@
+{
+  "go_live_blockers": [
+    "CSU Readiness Score below 75",
+    "POS Offline Readiness Score below 75 where offline is required",
+    "Payments/PCI Readiness Score below 75",
+    "Store Cutover Smoke Tests missing",
+    "Channel Data Sync Evidence missing",
+    "Offline Recovery Runbook missing",
+    "Payment Reconciliation Pack missing",
+    "Commerce Security/PCI Gate missing",
+    "Customer Master Harmonization open for CRM/Commerce/FO customer sync",
+    "Lead-to-Cash Traceability missing for CRM/Sales/Commerce scope"
+  ]
+}

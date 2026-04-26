@@ -1,0 +1,23 @@
+{
+  "entities": [
+    "Customer",
+    "Contact",
+    "Lead",
+    "Opportunity",
+    "Quote",
+    "Order",
+    "Case"
+  ],
+  "patterns": [
+    "Dataverse",
+    "Dual-write",
+    "Lead-to-Cash",
+    "Customer master harmonization"
+  ],
+  "outputs": [
+    "crm-fit-gap-pack.md",
+    "lead-management-migration-pack.md",
+    "lead-to-cash-traceability.md",
+    "customer-master-harmonization.md"
+  ]
+}

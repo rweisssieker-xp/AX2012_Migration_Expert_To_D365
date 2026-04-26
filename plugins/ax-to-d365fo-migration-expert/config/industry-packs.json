@@ -1,7 +1,34 @@
 {
-  "manufacturing": ["BOM", "routes", "production orders", "quality", "costing"],
-  "retail": ["POS", "stores", "pricing", "loyalty", "commerce channels"],
-  "wholesale": ["trade agreements", "rebates", "EDI", "warehouse"],
-  "finance-heavy": ["ledger", "financial dimensions", "tax", "reporting"],
-  "warehouse-heavy": ["WMS", "mobile devices", "work templates", "waves"]
+  "manufacturing": {
+    "keywords": ["BOM", "routes", "production orders", "quality", "costing", "MRP", "shop floor"],
+    "focus": ["production orders", "warehouse", "quality", "planning", "costing", "MES integration"]
+  },
+  "retail": {
+    "keywords": ["POS", "stores", "pricing", "loyalty", "commerce channels", "assortment"],
+    "focus": ["commerce", "pricing", "inventory", "payments", "store integrations", "customer experience"]
+  },
+  "wholesale": {
+    "keywords": ["trade agreements", "rebates", "EDI", "warehouse", "sales order"],
+    "focus": ["order management", "pricing", "warehouse", "EDI", "rebates"]
+  },
+  "project-operations": {
+    "keywords": ["project", "WBS", "timesheet", "billing", "revenue recognition"],
+    "focus": ["project accounting", "resource management", "billing", "recognition", "timesheets"]
+  },
+  "finance-heavy": {
+    "keywords": ["ledger", "financial dimensions", "tax", "reporting", "fixed asset", "consolidation"],
+    "focus": ["financial controls", "dimensions", "tax", "fixed assets", "consolidation", "close process"]
+  },
+  "warehouse-scm": {
+    "keywords": ["WMS", "mobile devices", "work templates", "waves", "transport", "inventory"],
+    "focus": ["advanced warehouse", "mobile flows", "inventory accuracy", "transport", "cycle counting"]
+  },
+  "public-sector": {
+    "keywords": ["fund", "budget", "grant", "public", "procurement"],
+    "focus": ["budget control", "procurement", "fund accounting", "audit", "transparency"]
+  },
+  "automotive": {
+    "keywords": ["EDI", "kanban", "sequence", "supplier schedule", "traceability"],
+    "focus": ["EDI", "supplier schedules", "sequencing", "traceability", "quality"]
+  }
 }
