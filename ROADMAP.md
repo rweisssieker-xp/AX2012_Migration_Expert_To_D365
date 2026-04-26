@@ -24,6 +24,22 @@
 - Richer interactive dashboard visuals.
 - More sample inventories for Commerce, POS Offline, CRM/Dataverse, and multi-company AX estates.
 - Optional packaged sample output gallery for demos without customer data.
+- Migration Intelligence Fabric expansion for Features 381-500:
+  - AI Migration Memory.
+  - Benchmarking and peer comparison.
+  - Portfolio control tower.
+  - Scenario lab.
+  - Delivery quality auditor.
+  - Technical debt liquidator.
+  - Microsoft Fabric/data product advisor.
+  - Integration resilience engineer.
+  - Security attack surface mapper.
+  - Sustainability advisor.
+  - Autonomous PMO negotiator.
+  - Knowledge transfer examiner.
+  - Migration war game.
+  - Post-go-live value realization.
+  - Continuous improvement backlog.
 
 ## v0.4
 

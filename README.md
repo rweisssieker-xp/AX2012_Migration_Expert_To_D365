@@ -136,6 +136,7 @@ python .\axmigrate.py solo-signoff solo-migration\contoso-ax-migration
 - [Commerce/CXP/CRM/POS](docs/commerce-cxp-crm-pos.md)
 - [Solo and Master Orchestrator](docs/solo-master-orchestrator.md)
 - [Autonomous Governance & Evidence Intelligence](docs/autonomous-governance-evidence.md)
+- [Migration Intelligence Fabric](docs/migration-intelligence-fabric.md)
 - [Plugin usage](plugins/ax-to-d365fo-migration-expert/docs/installation-and-usage.md)
 - [Input format](plugins/ax-to-d365fo-migration-expert/docs/input-inventory-format.md)
 - [AI feature list](plugins/ax-to-d365fo-migration-expert/docs/ai-usp-feature-list.md)

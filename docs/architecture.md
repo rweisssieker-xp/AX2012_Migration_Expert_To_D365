@@ -56,6 +56,7 @@ AX exports / code / telemetry
 | Customer & Commerce Experience | CXP, CRM/Dataverse, lead-to-cash, customer master, D365 Commerce, CSU, POS, POS offline, payments, store operations, loyalty, pricing, omnichannel, marketplace, call center, and analytics. |
 | Solo/Master autonomy | A single user can initialize, run, govern, test, gate, communicate, sign off, and track a migration using generated artifacts and master-orchestrator routing. |
 | Autonomous governance | Contract scope, evidence freshness, cutover rehearsals, reconciliation, license cost, release train, training readiness, ISV exit, regulatory countries, archive, hyperautomation, board forecast, process twin, and meetings become controlled artifact flows. |
+| Migration intelligence fabric | Future layer for reusable migration memory, benchmarking, portfolio control, scenario simulation, quality audit, technical debt, analytics modernization, resilience, security attack surface, sustainability, knowledge transfer, war games, value realization, and continuous improvement. |
 
 ## Design Principles
 

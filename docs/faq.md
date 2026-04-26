@@ -47,6 +47,10 @@ Yes. The Customer & Commerce Experience domain covers CXP, CRM/Dataverse, Lead M
 
 Yes. The Autonomous Governance & Evidence Intelligence layer covers contract/scope guardrails, stakeholder sentiment, evidence vault, cutover rehearsal, reconciliation judge, license/cost optimization, ALM release train, training readiness, ISV exit, country regulatory packs, archive strategy, hyperautomation, board risk forecast, process twin, and meeting copilot outputs.
 
+## What is the Migration Intelligence Fabric?
+
+It is the documented next USP backlog after the current 380-feature implementation. It proposes Features 381-500 for migration memory, benchmarking, portfolio control, scenario simulation, delivery quality audit, technical debt liquidation, Fabric/data product modernization, integration resilience, security attack surface, sustainability, PMO negotiation, knowledge transfer, migration war games, value realization, and continuous improvement.
+
 ## When is Commerce go-live blocked?
 
 Commerce go-live is blocked when critical evidence is missing for CSU readiness, POS Offline readiness where offline is required, Payments/PCI, Store Smoke Tests, Channel Data Sync, Offline Recovery, Payment Reconciliation, Commerce Security/PCI, Customer Master Harmonization, or Lead-to-Cash Traceability.

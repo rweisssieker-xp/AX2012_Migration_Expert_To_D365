@@ -11,6 +11,7 @@
 - [Commerce/CXP/CRM/POS](commerce-cxp-crm-pos.md)
 - [Solo and Master Orchestrator](solo-master-orchestrator.md)
 - [Autonomous Governance & Evidence Intelligence](autonomous-governance-evidence.md)
+- [Migration Intelligence Fabric](migration-intelligence-fabric.md)
 
 ## Plugin Docs
 
@@ -31,6 +32,10 @@
 | Config JSON files | 25 |
 | Analyzer outputs | 46 |
 | AI/KI features | 380 |
+
+## Future USP Backlog
+
+- [Migration Intelligence Fabric](migration-intelligence-fabric.md): proposed next expansion for Features 381-500, including migration memory, benchmarking, portfolio control, scenario lab, quality audit, technical debt liquidation, Fabric advisor, integration resilience, attack surface, sustainability, PMO negotiation, knowledge transfer, war games, value realization, and continuous improvement.
 
 ## Governance
 
