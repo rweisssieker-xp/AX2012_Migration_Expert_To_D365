@@ -1,0 +1,16 @@
+{
+  "gates": [
+    "build",
+    "deploy",
+    "smoke",
+    "regression",
+    "code freeze",
+    "release approval"
+  ],
+  "blocked_when_missing": [
+    "environment readiness",
+    "rollback plan",
+    "release owner",
+    "deployment evidence"
+  ]
+}

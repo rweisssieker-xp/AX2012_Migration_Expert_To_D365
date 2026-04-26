@@ -1,0 +1,17 @@
+{
+  "license_domains": [
+    "D365FO",
+    "Commerce",
+    "CRM",
+    "Dataverse",
+    "Team Members",
+    "Operations Activity"
+  ],
+  "risk_signals": [
+    "overallocated",
+    "unmapped role",
+    "shared account",
+    "inactive user",
+    "premium connector"
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "scope_creep_keywords": [
+    "new requirement",
+    "also migrate",
+    "must include",
+    "not in scope",
+    "late request"
+  ],
+  "requires_change_request": [
+    "new integration",
+    "new report",
+    "new legal entity",
+    "new country",
+    "new channel"
+  ],
+  "commercial_impact": [
+    "budget",
+    "timeline",
+    "resources",
+    "contract",
+    "license"
+  ]
+}

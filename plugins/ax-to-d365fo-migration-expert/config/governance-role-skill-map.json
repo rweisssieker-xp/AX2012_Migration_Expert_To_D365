@@ -1,0 +1,33 @@
+{
+  "contract_scope": {
+    "skill": "ax-migration-contract-scope-guardian",
+    "commands": [
+      "scope-guard",
+      "contract-risk"
+    ]
+  },
+  "evidence": {
+    "skill": "ax-migration-evidence-vault-manager",
+    "commands": [
+      "evidence-vault"
+    ]
+  },
+  "cutover_rehearsal": {
+    "skill": "ax-migration-cutover-rehearsal-lead",
+    "commands": [
+      "cutover-rehearsal"
+    ]
+  },
+  "reconciliation": {
+    "skill": "ax-migration-reconciliation-judge",
+    "commands": [
+      "reconciliation-judge"
+    ]
+  },
+  "orchestrator": {
+    "skill": "ax-migration-autonomous-governance-orchestrator",
+    "commands": [
+      "governance-pack"
+    ]
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "processes": [
+    "lead-to-cash",
+    "order-to-cash",
+    "procure-to-pay",
+    "plan-to-produce",
+    "record-to-report",
+    "hire-to-retire"
+  ],
+  "nodes": [
+    "process",
+    "role",
+    "data",
+    "integration",
+    "report",
+    "test",
+    "risk",
+    "evidence",
+    "decision"
+  ]
+}

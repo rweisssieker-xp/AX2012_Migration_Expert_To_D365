@@ -1,0 +1,16 @@
+{
+  "domains": [
+    "finance",
+    "inventory",
+    "customer",
+    "vendor",
+    "open transactions",
+    "tax",
+    "loyalty"
+  ],
+  "default_status": {
+    "pass": "Ready",
+    "variance": "Needs control",
+    "missing": "Blocked"
+  }
+}

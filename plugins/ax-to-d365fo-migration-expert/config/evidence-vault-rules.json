@@ -1,0 +1,19 @@
+{
+  "freshness_days": 14,
+  "critical_evidence": [
+    "CISO",
+    "Finance",
+    "UAT",
+    "Cutover",
+    "Reconciliation",
+    "Payments",
+    "Commerce",
+    "Legal"
+  ],
+  "blocked_when_missing": [
+    "go_live_approval",
+    "security_gate",
+    "reconciliation_signoff",
+    "cutover_rehearsal_scorecard"
+  ]
+}

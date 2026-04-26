@@ -1,0 +1,28 @@
+{
+  "countries": [
+    "DE",
+    "AT",
+    "CH",
+    "FR",
+    "NL",
+    "BE",
+    "ES",
+    "IT",
+    "UK",
+    "US",
+    "CA",
+    "PL",
+    "SE",
+    "NO",
+    "DK"
+  ],
+  "obligations": [
+    "tax",
+    "e-invoicing",
+    "audit retention",
+    "privacy",
+    "localization",
+    "payments",
+    "reporting"
+  ]
+}

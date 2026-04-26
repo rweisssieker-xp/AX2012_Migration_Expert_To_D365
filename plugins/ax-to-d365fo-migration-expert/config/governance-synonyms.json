@@ -1,0 +1,43 @@
+{
+  "contract_scope": [
+    "contract",
+    "vertrag",
+    "sow",
+    "scope",
+    "umfang",
+    "change request",
+    "cr",
+    "commercial",
+    "freigabe"
+  ],
+  "evidence": [
+    "evidence",
+    "nachweis",
+    "audit",
+    "sign-off",
+    "go-live proof",
+    "gate evidence"
+  ],
+  "cutover_rehearsal": [
+    "cutover rehearsal",
+    "dress rehearsal",
+    "probe",
+    "generalprobe",
+    "rollback test"
+  ],
+  "reconciliation": [
+    "reconciliation",
+    "abgleich",
+    "tolerance",
+    "finance balance",
+    "inventory balance"
+  ],
+  "meeting": [
+    "meeting",
+    "protokoll",
+    "minutes",
+    "agenda",
+    "decision",
+    "action item"
+  ]
+}

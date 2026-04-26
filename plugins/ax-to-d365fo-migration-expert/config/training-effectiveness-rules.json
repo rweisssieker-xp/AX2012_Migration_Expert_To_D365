@@ -1,0 +1,15 @@
+{
+  "signals": [
+    "attendance",
+    "assessment score",
+    "uat defects",
+    "repeat defects",
+    "process questions",
+    "sign-off"
+  ],
+  "blocked_when": [
+    "key user not trained",
+    "critical role missing",
+    "training below threshold"
+  ]
+}
