@@ -17,6 +17,8 @@ migration-workspaces/
 migration-exports/
 migration-dashboard/
 migration-code-analysis/
+!examples/outputs/
+!examples/outputs/**
 data-quality-profile.md
 inventory-change-monitor.md
 usage-telemetry-summary.csv
@@ -31,4 +33,3 @@ usage-telemetry-summary.csv
 Thumbs.db
 .vscode/
 .idea/
-

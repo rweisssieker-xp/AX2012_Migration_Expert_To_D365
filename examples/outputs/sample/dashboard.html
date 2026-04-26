@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>AX to D365FO Migration Command Center</title>
+  <style>
+    body { font-family: Segoe UI, Arial, sans-serif; margin: 0; background: #f6f8fb; color: #172033; }
+    header { background: #0078d4; color: white; padding: 28px 36px; }
+    main { padding: 28px 36px; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 14px; margin-bottom: 28px; }
+    .card { background: white; border: 1px solid #d9e2ec; border-radius: 8px; padding: 16px; }
+    .card span { display: block; color: #526173; font-size: 13px; }
+    .card strong { display: block; font-size: 28px; margin-top: 8px; }
+    table { width: 100%; border-collapse: collapse; background: white; border: 1px solid #d9e2ec; }
+    th, td { text-align: left; padding: 10px 12px; border-bottom: 1px solid #edf1f5; }
+    th { background: #eef5fb; }
+    .toolbar { display: flex; gap: 12px; margin: 0 0 18px; }
+    input, select { padding: 9px 10px; border: 1px solid #b8c5d1; border-radius: 6px; }
+  </style>
+</head>
+<body>
+  <header><h1>AX to D365FO Migration Command Center</h1><p>Generated from AX inventory evidence.</p></header>
+  <main>
+    <div class="grid"><section class="card"><span>Complexity</span><strong>Medium</strong></section>
+<section class="card"><span>Score</span><strong>80</strong></section>
+<section class="card"><span>Items</span><strong>8</strong></section>
+<section class="card"><span>Retire Candidates</span><strong>1</strong></section>
+<section class="card"><span>High Risk</span><strong>4</strong></section>
+<section class="card"><span>Effort Points</span><strong>66</strong></section></div>
+    <h2>Disposition and Risk</h2>
+    <div class="toolbar">
+      <input id="search" placeholder="Search items, risks, disposition" oninput="filterRows()">
+      <select id="category" onchange="filterRows()"><option value="">All categories</option><option value="data">Data</option>
+<option value="integration">Integration</option>
+<option value="isv">Isv</option>
+<option value="object">Object</option>
+<option value="report">Report</option>
+<option value="security">Security</option></select>
+    </div>
+    <table id="items"><thead><tr><th>Item</th><th>Category</th><th>Disposition</th><th>Effort</th><th>Risks</th></tr></thead><tbody><tr><td>AIFCustomerExport</td><td>integration</td><td>Rebuild</td><td>11</td><td>aif, overlayering</td></tr>
+<tr><td>LegacyTaxAddon</td><td>isv</td><td>ISV Review</td><td>11</td><td>overlayering</td></tr>
+<tr><td>InventTransHistory</td><td>data</td><td>Rebuild</td><td>10</td><td>direct-sql, posting</td></tr>
+<tr><td>SalesFormLetter_Extension</td><td>object</td><td>Extend</td><td>9</td><td>overlayering, posting</td></tr>
+<tr><td>WarehouseFileDrop</td><td>integration</td><td>Rebuild</td><td>8</td><td>overlayering</td></tr>
+<tr><td>CustTableLegacyCreditCheck</td><td>object</td><td>Retire Candidate</td><td>7</td><td>overlayering</td></tr>
+<tr><td>InventAgingCustom</td><td>report</td><td>Standard / Power BI Review</td><td>7</td><td>overlayering, report-rationalization</td></tr>
+<tr><td>LegacyWarehouseSupervisor</td><td>security</td><td>Map</td><td>3</td><td>overlayering</td></tr></tbody></table>
+  </main>
+  <script>
+    function filterRows() {
+      const q = document.getElementById('search').value.toLowerCase();
+      const c = document.getElementById('category').value.toLowerCase();
+      document.querySelectorAll('#items tbody tr').forEach(row => {
+        const text = row.innerText.toLowerCase();
+        const category = row.children[1].innerText.toLowerCase();
+        row.style.display = text.includes(q) && (!c || category === c) ? '' : 'none';
+      });
+    }
+    document.querySelectorAll('th').forEach((th, index) => th.onclick = () => {
+      const tbody = document.querySelector('#items tbody');
+      [...tbody.rows].sort((a, b) => a.children[index].innerText.localeCompare(b.children[index].innerText, undefined, {numeric: true})).forEach(row => tbody.appendChild(row));
+    });
+  </script>
+</body>
+</html>

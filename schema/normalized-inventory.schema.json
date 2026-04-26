@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Normalized AX Migration Inventory",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "properties": {
+      "source_file": { "type": "string" },
+      "category": { "type": "string" },
+      "object_type": { "type": "string" },
+      "name": { "type": "string" },
+      "layer": { "type": "string" },
+      "module": { "type": "string" },
+      "usage": { "type": "string" },
+      "complexity": { "type": "string" },
+      "technology": { "type": "string" },
+      "business_purpose": { "type": "string" },
+      "risk_flags": { "type": "array", "items": { "type": "string" } },
+      "disposition": { "type": "string" },
+      "target_pattern": { "type": "string" },
+      "effort_points": { "type": "number" },
+      "confidence": { "type": "string" },
+      "confidence_reason": { "type": "string" },
+      "rationale": { "type": "string" }
+    },
+    "required": ["name", "category", "disposition", "effort_points"],
+    "additionalProperties": true
+  }
+}

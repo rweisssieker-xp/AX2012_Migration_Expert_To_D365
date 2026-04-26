@@ -1,0 +1,38 @@
+name: Build Release Package
+
+on:
+  workflow_dispatch:
+  push:
+    tags:
+      - "v*"
+
+jobs:
+  package:
+    runs-on: windows-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install export dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install openpyxl python-pptx
+
+      - name: Validate
+        run: python axmigrate.py validate
+
+      - name: Package
+        shell: pwsh
+        run: .\tasks.ps1 package
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: ax-to-d365fo-migration-expert
+          path: dist/*.zip

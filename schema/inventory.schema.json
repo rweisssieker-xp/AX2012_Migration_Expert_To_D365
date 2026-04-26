@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "AX Migration Inventory Row",
+  "type": "object",
+  "properties": {
+    "Category": { "type": "string" },
+    "ObjectType": { "type": "string" },
+    "Name": { "type": "string" },
+    "Layer": { "type": "string" },
+    "Module": { "type": "string" },
+    "Usage": { "type": "string" },
+    "Complexity": { "type": "string" },
+    "Technology": { "type": "string" },
+    "BusinessPurpose": { "type": "string" }
+  },
+  "required": ["Name"],
+  "additionalProperties": true
+}

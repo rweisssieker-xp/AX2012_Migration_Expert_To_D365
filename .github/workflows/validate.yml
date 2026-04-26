@@ -25,12 +25,14 @@ jobs:
           python -m pip install openpyxl python-pptx
 
       - name: Validate plugin
-        run: python plugins\ax-to-d365fo-migration-expert\scripts\migration_cli.py validate
+        run: python axmigrate.py validate
+
+      - name: Doctor
+        run: python axmigrate.py doctor
 
       - name: Smoke test analyzer
         run: |
-          python plugins\ax-to-d365fo-migration-expert\scripts\migration_cli.py analyze plugins\ax-to-d365fo-migration-expert\examples\sample-ax-inventory.csv plugins\ax-to-d365fo-migration-expert\examples\sample-xpp-class.xpp --output migration-analysis\ci
+          python axmigrate.py analyze plugins\ax-to-d365fo-migration-expert\examples\sample-ax-inventory.csv plugins\ax-to-d365fo-migration-expert\examples\sample-xpp-class.xpp --output migration-analysis\ci
 
       - name: Smoke test exports
-        run: python plugins\ax-to-d365fo-migration-expert\scripts\migration_cli.py export migration-analysis\ci --output migration-exports\ci
-
+        run: python axmigrate.py export migration-analysis\ci --output migration-exports\ci

@@ -4,12 +4,16 @@
 from __future__ import annotations
 
 import argparse
+import importlib.util
+import json
+import os
 import subprocess
 import sys
 from pathlib import Path
 
 
 ROOT = Path(__file__).resolve().parents[1]
+REPO_ROOT = ROOT.parents[1]
 SCRIPTS = ROOT / "scripts"
 
 
@@ -79,6 +83,8 @@ def main() -> int:
     usage.add_argument("--output", default="usage-telemetry-summary.csv")
 
     sub.add_parser("validate", help="Run plugin validation checks.")
+    sub.add_parser("doctor", help="Check local runtime, optional dependencies, config, and environment.")
+    sub.add_parser("examples", help="Print useful example commands.")
 
     args = parser.parse_args()
     if args.command == "init":
@@ -119,7 +125,66 @@ def main() -> int:
         return run("analyze_usage_telemetry.py", [args.input, "--object-column", args.object_column, "--output", args.output])
     if args.command == "validate":
         return run("validate_plugin.py", [])
+    if args.command == "doctor":
+        return doctor()
+    if args.command == "examples":
+        print_examples()
+        return 0
     return 2
+
+
+def doctor() -> int:
+    checks = [
+        ("Python", sys.version.split()[0]),
+        ("Plugin root", str(ROOT)),
+        ("Version", read_version()),
+        ("openpyxl", module_status("openpyxl")),
+        ("python-pptx", module_status("pptx")),
+        ("pyodbc", module_status("pyodbc")),
+        ("plugin.json", "OK" if (ROOT / ".codex-plugin" / "plugin.json").exists() else "Missing"),
+        ("config", "OK" if (ROOT / "config").exists() else "Missing"),
+    ]
+    for name, value in checks:
+        print(f"{name}: {value}")
+    integration_cfg = json.loads((ROOT / "config" / "integrations.json").read_text(encoding="utf-8"))
+    for section in integration_cfg.values():
+        for key, env_name in section.items():
+            if key.endswith("_env"):
+                print(f"{env_name}: {'set' if os.environ.get(env_name) else 'not set'}")
+    return 0
+
+
+def read_version() -> str:
+    version_file = REPO_ROOT / "VERSION"
+    return version_file.read_text(encoding="utf-8").strip() if version_file.exists() else "unknown"
+
+
+def module_status(name: str) -> str:
+    return "OK" if importlib.util.find_spec(name) else "missing"
+
+
+def print_examples() -> None:
+    print(
+        """
+Validate:
+  python axmigrate.py validate
+
+Analyze sample inventory:
+  python axmigrate.py analyze plugins/ax-to-d365fo-migration-expert/examples/sample-ax-inventory.csv --output migration-analysis/sample
+
+Scan X++ / XPO:
+  python axmigrate.py scan-code plugins/ax-to-d365fo-migration-expert/examples/sample-xpp-class.xpp --output migration-analysis/code
+
+Create workspace:
+  python axmigrate.py init "Contoso AX Migration"
+
+Export Excel/PPTX:
+  python axmigrate.py export migration-analysis/sample --output migration-exports/sample
+
+Doctor:
+  python axmigrate.py doctor
+""".strip()
+    )
 
 
 if __name__ == "__main__":

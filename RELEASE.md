@@ -11,7 +11,8 @@ python plugins\ax-to-d365fo-migration-expert\scripts\migration_cli.py validate
 4. Build the distributable ZIP:
 
 ```powershell
-$version = "0.2.0"
+        $version = Get-Content .\VERSION -Raw
+        $version = $version.Trim()
 $releaseRoot = "dist\ax-to-d365fo-migration-expert-$version"
 Remove-Item $releaseRoot -Recurse -Force -ErrorAction SilentlyContinue
 New-Item -ItemType Directory -Path "$releaseRoot\plugins" -Force
@@ -23,4 +24,3 @@ Compress-Archive -Path "$releaseRoot\*" -DestinationPath "dist\ax-to-d365fo-migr
 ```
 
 5. Attach the ZIP to the GitHub release.
-
