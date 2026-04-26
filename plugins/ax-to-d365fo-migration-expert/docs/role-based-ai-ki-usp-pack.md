@@ -8,7 +8,7 @@ Dieses Pack macht die AX-zu-D365FO-Migration fuer jede Zielgruppe automatisch ve
 
 | Prinzip | Bedeutung |
 | --- | --- |
-| One evidence base | Ein Inventory erzeugt alle Management-, Security-, Architektur- und Delivery-Sichten. |
+| One evidence base | Ein Inventory erzeugt Management-, Security-, Architektur-, Delivery-, Solo-, Test- und Commerce-Sichten. |
 | Persona translation | AI-KI uebersetzt technische Funde in zielgruppengerechte Entscheidungen. |
 | Automatic artifacts | Status, RAID, RACI, Steering Pack, Security Gate, Team Tasks und Board Narrative entstehen automatisch. |
 | Governance by evidence | Empfehlungen enthalten Risiko, Confidence, Owner-Vorschlag und naechste Aktion. |
@@ -52,6 +52,23 @@ Dieses Pack macht die AX-zu-D365FO-Migration fuer jede Zielgruppe automatisch ve
 | Payments / PCI | `ax-migration-payments-lead` | Payment Connector, Terminal, Refund, Settlement, Tokenization und PCI Evidence. |
 | Store Operations | `ax-migration-store-operations-lead` | Filialprozesse, End-of-Day, Pickup, Returns, Inventory Lookup und Store Training. |
 | Omnichannel / E-Commerce | `ax-migration-omnichannel-ecommerce-lead` | Web Commerce, BOPIS, Ship-from-store, Inventory Availability und Marketplace. |
+| Loyalty / Promotions | `ax-migration-loyalty-promotions-lead` | Loyalty Cards, Punkte, Tiers, Coupons, Promotions und Customer Linkage. |
+| Pricing / Assortment | `ax-migration-pricing-assortment-lead` | Channel Pricing, Assortments, Catalogs, Product Variants und Publishing. |
+| Channel Data Sync | `ax-migration-channel-data-sync-lead` | HQ-to-channel Sync, Channel DB, Async Jobs und Offline Recovery Validation. |
+| Retail Hardware | `ax-migration-retail-hardware-lead` | POS Devices, Scanner, Receipt Printer, Drawer, Payment Terminal und Store Network. |
+| Commerce Security / PCI | `ax-migration-commerce-security-pci-lead` | POS Security, Payment Controls, Tokens, Secrets, Roles und PCI Evidence. |
+| Customer Master | `ax-migration-customer-master-lead` | Customer Harmonization ueber FO, Commerce, CRM und Dataverse. |
+| Call Center | `ax-migration-call-center-lead` | Call Center Orders, Scripts, Customer Service, Payment Handling und Order Capture. |
+| Marketplace Integration | `ax-migration-marketplace-integration-lead` | Marketplace Orders, Inventory, Returns, Settlement und Reconciliation. |
+| Commerce Analytics | `ax-migration-commerce-analytics-lead` | Channel KPIs, Conversion, Sales, Returns, Loyalty und Analytics. |
+| Store Training | `ax-migration-store-training-lead` | Cashier, Store Manager, Support, Super User und Store Go-live Training. |
+| Commerce Orchestrator | `ax-migration-commerce-orchestrator` | Commerce Skill Routing, Readiness, Go-live Blocking und Evidence Control. |
+| Solo Operator | `ax-migration-solo-operator` | Einzelperson kann Projektordner, Arbeitsplan, Rollenvertretung und Governance starten. |
+| Master Orchestrator | `ax-migration-master-orchestrator` | Steuert Skills, Evidence, Gates, Action Queue, Routing und naechste Aktionen. |
+| Key User | `ax-migration-key-user` | Prozessvalidierung, UAT-Szenarien, Business Sign-off und Trainingsfeedback. |
+| UAT Tester | `ax-migration-uat-tester` | UAT Execution, Defects, Retest, Evidence und Abnahme. |
+| Regression Tester | `ax-migration-regression-tester` | Regression Scope, Risikoabdeckung, Test Suite und Wiederholungstests. |
+| Process Owner Validator | `ax-migration-process-owner-validator` | Prozessfreigabe, End-to-End Validation und Business Evidence. |
 
 ## CEO USPs
 
@@ -100,6 +117,42 @@ Dieses Pack macht die AX-zu-D365FO-Migration fuer jede Zielgruppe automatisch ve
 | Prompt Library | `role-based-prompt-library.md` | Rollen koennen AI-KI mit passenden Prompts weiterarbeiten lassen. |
 | Project Onboarding Guide | `project-onboarding-guide.md` | Neue Teammitglieder starten mit klarer Reihenfolge und Rollenfokus. |
 
+## Key User und Tester USPs
+
+| USP | Automatisch erzeugtes Ergebnis | Nutzen |
+| --- | --- | --- |
+| Key User Role Pack | `key-user-role-pack.md` | Key User erhalten prozessbezogene Aufgaben, Evidence und Sign-off-Fokus. |
+| UAT Execution Pack | `uat-test-execution-pack.md` | UAT wird aus Scope, Risiken und Rollen abgeleitet. |
+| Regression Test Suite | `regression-test-suite.md` | Wiederholbare Regression fuer kritische Prozesse, Integrationen, Reports und Security. |
+| Process Owner Validation | `process-owner-validation-pack.md` | Prozessverantwortliche bekommen klare Abnahmekriterien und offene Entscheidungen. |
+| Test Evidence Matrix | `test-evidence-matrix.md` | Testnachweise werden gate-faehig und auditierbar. |
+
+## Solo/Master-Orchestrator USPs
+
+| USP | Automatisch erzeugtes Ergebnis | Nutzen |
+| --- | --- | --- |
+| Solo Project Operating System | `solo-project-charter.md`, `solo-workplan.md`, `solo-role-substitute-matrix.md` | Eine Einzelperson kann das Projekt strukturiert starten und steuern. |
+| Master Skill Router | `master-orchestration-plan.md`, `skill-routing-map.md`, `evidence-to-skill-matrix.md` | Der Master-Orchestrator erkennt Themen und leitet sie an passende Skills. |
+| AI Migration Brain | `migration-digital-twin.md`, `decision-impact-simulator.md`, `next-best-actions.md` | Entscheidungen, Auswirkungen und naechste Schritte werden automatisch vorgeschlagen. |
+| Evidence Gatekeeper | `evidence-completeness-matrix.md`, `self-approval-gate-register.md`, `external-approval-pack.md` | Fehlende Nachweise und externe Freigaben werden sichtbar. |
+| Scope Defense und Waste Hunter | `scope-defense-pack.md`, `waste-hunter-report.md` | Unnoetiger Scope, Scope Creep und Migrationsverschwendung werden aktiv bekämpft. |
+| Sign-off Copilot | `business-signoff-pack.md`, `test-evidence-matrix.md` | Abnahme wird aus Evidence, Teststatus und offenen Entscheidungen aufgebaut. |
+
+## Commerce/CXP/CRM/POS USPs
+
+| USP | Automatisch erzeugtes Ergebnis | Nutzen |
+| --- | --- | --- |
+| Commerce Master Pack | `commerce-master-pack.md` | Ein konsolidiertes Steuerungspaket fuer Customer & Commerce Experience. |
+| CXP Journey Mapper | `cxp-journey-map.md` | Customer Journey, Loyalty, CRM, POS und Omnichannel werden verbunden. |
+| CRM/Dataverse Fit-Gap | `crm-fit-gap-pack.md` | CRM, Dataverse, Dual-write, Contacts, Opportunities und Cases werden bewertbar. |
+| Lead-to-Cash Traceability | `lead-to-cash-traceability.md` | Lead, Opportunity, Order, Fulfillment, Invoice und Service werden Ende-zu-Ende verknuepft. |
+| Customer Master Harmonizer | `customer-master-harmonization.md` | Kundenstamm ueber FO, Commerce und CRM wird steuerbar. |
+| CSU Risk Advisor | `commerce-scale-unit-readiness.md` | CSU, Channel DB, Retail Server, Async Client und Sync werden go-live-faehig bewertet. |
+| POS Offline Continuity | `pos-offline-continuity-pack.md`, `offline-recovery-runbook.md` | Offline-Faehigkeit, Recovery und Sync-Konflikte werden vor Go-live geprueft. |
+| Payment/PCI Gate | `payment-reconciliation-pack.md`, `commerce-security-pci-gate.md` | Payments, Terminals, Refunds, Settlement, Tokenization und PCI Evidence werden kontrolliert. |
+| Store Cutover Smoke Tests | `store-cutover-smoke-tests.md` | Store Go-live wird durch POS, Offline, Payment, Receipt, Shift und Sync Tests abgesichert. |
+| Omnichannel Flow Mapper | `omnichannel-order-flow-map.md` | BOPIS, Ship-from-store, Returns, Marketplace und Inventory Availability werden testbar. |
+
 ## Automatische Ausgabe
 
 Der Analyzer erzeugt zusaetzlich zu den technischen Reports diese Rollenartefakte:
@@ -122,4 +175,4 @@ Der Analyzer erzeugt zusaetzlich zu den technischen Reports diese Rollenartefakt
 
 ## Maximaler USP
 
-Das Plugin liefert nicht nur Migrationsempfehlungen. Es erzeugt automatisch ein komplettes, rollenbasiertes Steuerungs- und Lieferpaket: Executive Story, Architekturentscheidungen, Security Gates, PMO-Steuerung, Teamaufgaben, Prompt-Bibliothek und Onboarding.
+Das Plugin liefert nicht nur Migrationsempfehlungen. Es erzeugt automatisch ein komplettes, rollenbasiertes Steuerungs- und Lieferpaket: Executive Story, Architekturentscheidungen, Security Gates, PMO-Steuerung, Teamaufgaben, Key-User/UAT/Regression, Master-Orchestrator, Solo-Projektbetrieb, Commerce/CXP/CRM/POS Readiness, Go-live Gates, Prompt-Bibliothek und Onboarding.

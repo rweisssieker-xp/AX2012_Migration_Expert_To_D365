@@ -2,6 +2,12 @@
 
 ## 0.2.0
 
+- Expanded plugin to 76 skills, 211 templates, 31 Python scripts, 15 JSON configs, 46 analyzer outputs, and 301 documented AI/KI feature entries.
+- Added role packs for CEO, CIO, CISO, PMO, team, CFO, COO, data governance, integration, QA, enterprise architecture, vendor, legal, support, partner sales, key users, UAT testers, regression testers, and process owners.
+- Added Solo/Master-Orchestrator runtime commands for single-user project operation, evidence, gates, daily control, war room, hypercare, audit binder, benefits, skill routing, migration brain, predictions, scope defense, waste hunting, test planning, test status, and sign-off.
+- Added Customer & Commerce Experience domain for CXP, CRM/Dataverse, Lead Management, D365 Commerce, Commerce Scale Unit, POS, POS Offline, Payments/PCI, Store Operations, Omnichannel, Loyalty, Pricing, Assortment, Channel Sync, Retail Hardware, Customer Master, Call Center, Marketplace, Analytics, Store Training, and Commerce go-live gates.
+- Added Commerce CLI commands for full pack, readiness, cutover, offline check, CRM pack, store pack, payments pack, and omnichannel pack.
+- Added root documentation for command reference, Commerce/CXP/CRM/POS, and Solo/Master-Orchestrator operation.
 - Added 20 innovative migration features including What-if Simulator, Migration Knowledge Graph, Do Not Migrate Report, Value Tracker, Data Quality Profiler, Scope Monitor, ADRs, Pattern Library, and Workshop Prompt Pack.
 - Added direct integration scaffolding for AX SQL, Azure DevOps, LCS, D365FO metadata, usage telemetry, and expanded D365FO knowledge base.
 - Added unified CLI with `init`, `analyze`, `scan-code`, `dashboard`, `extract-modelstore`, `export`, and `validate` commands.

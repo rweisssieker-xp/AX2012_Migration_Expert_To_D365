@@ -2,6 +2,17 @@
 
 Codex plugin for AI-powered Microsoft Dynamics AX 4.0, AX 2009, and AX 2012 migration scope reduction and delivery acceleration targeting Dynamics 365 Finance & Operations.
 
+## Current Scope
+
+| Area | Current state |
+| --- | --- |
+| Skills | 76 Codex skills. |
+| Templates | 211 delivery, governance, testing, Commerce, solo, and role templates. |
+| Scripts | 31 Python scripts. |
+| Configs | 15 JSON configuration files. |
+| Analyzer outputs | 46 files from a standard inventory analysis. |
+| AI/KI feature docs | 301 feature entries. |
+
 ## Included Skills
 
 - `ax-to-d365fo-migration`: end-to-end migration assessment, planning, fit-gap, X++ conversion, data migration, integrations, reports, testing, cutover, and stabilization.
@@ -29,6 +40,7 @@ Codex plugin for AI-powered Microsoft Dynamics AX 4.0, AX 2009, and AX 2012 migr
 - `ax-migration-support-operations`: support model, runbooks, monitoring, hypercare-to-BAU, and incident categories.
 - `ax-migration-partner-sales`: discovery, assessment offers, proposals, SOWs, pricing assumptions, and client executive pitch.
 - Commerce/CXP/CRM/POS skill group: CXP, CRM, Lead Management, Commerce HQ, Commerce Scale Unit, POS, POS Offline, Store Operations, Payments, Omnichannel, Loyalty, Pricing, Channel Sync, Retail Hardware, PCI, Customer Master, Call Center, Marketplace, Commerce Analytics, and Store Training.
+- Solo/Master-Orchestrator skill group: solo operator, master orchestrator, AI migration brain, scope defense, waste hunter, prediction, drift detection, stakeholder translation, key-user/UAT/regression testing, process owner validation, test execution, sign-off, evidence gates, audit binder, benefits, hypercare, and war room operation.
 
 ## Max AI USP Feature List
 
@@ -162,56 +174,13 @@ See `docs/ai-usp-feature-list.md` for detailed feature behavior, inputs, and out
 
 ## Included Templates
 
-- `templates/migration-readiness-assessment.md`
-- `templates/fit-gap-matrix.md`
-- `templates/customization-disposition-matrix.md`
-- `templates/data-migration-plan.md`
-- `templates/integration-inventory.md`
-- `templates/test-strategy.md`
-- `templates/cutover-checklist.md`
-- `templates/risk-register.md`
-- `templates/legacy-complexity-score.md`
-- `templates/migration-effort-estimate.md`
-- `templates/report-rationalization.md`
-- `templates/security-role-mapping.md`
-- `templates/isv-replacement-assessment.md`
-- `templates/migration-decision-log.md`
-- `templates/migration-backlog.md`
-- `templates/workshop-question-bank.md`
-- `templates/business-case-roi.md`
-- `templates/target-architecture.md`
-- `templates/compliance-audit-checklist.md`
-- `templates/environment-alm-plan.md`
-- `templates/training-change-impact.md`
-- `templates/cutover-downtime-estimate.md`
-- `templates/dual-run-reconciliation-plan.md`
-- `templates/command-center-dashboard.md`
-- `templates/evidence-confidence-score.md`
-- `templates/risk-mitigation-playbook.md`
-- `templates/data-entity-mapping.md`
-- `templates/quality-gate-engine.md`
-- `templates/upgrade-path-decision.md`
-- `templates/anti-waste-score.md`
-- `templates/before-after-architecture.md`
-- `templates/azure-devops-work-items.md`
-- `templates/standard-feature-matchmaker.md`
-- `templates/industry-template-pack.md`
-- `templates/migration-methodology.md`
-- `templates/persona-dashboard-pack.md`
-- `templates/ceo-summary.md`
-- `templates/cio-architecture-view.md`
-- `templates/ciso-security-gate-pack.md`
-- `templates/project-manager-control-view.md`
-- `templates/team-member-task-view.md`
-- `templates/steering-committee-pack.md`
-- `templates/raid-log.md`
-- `templates/raci-matrix.md`
-- `templates/weekly-status-report.md`
-- `templates/project-operating-model.md`
-- `templates/board-ceo-narrative.md`
-- `templates/team-execution-pack.md`
-- `templates/role-based-prompt-library.md`
-- `templates/project-onboarding-guide.md`
+The plugin includes 211 templates. The template library covers:
+
+- Core assessment, fit-gap, customization disposition, data migration, integration, testing, cutover, risk, security, ALM, training, business case, and target architecture.
+- AI analysis outputs such as anti-waste, before/after architecture, dependency graph, cost model, quality gates, decision log, evidence confidence, and knowledge graph.
+- Persona and stakeholder outputs for CEO, CIO, CISO, PMO, team, CFO, COO, data, integration, QA, enterprise architecture, vendor, legal, support, partner sales, steering, change, and onboarding.
+- Solo/Master-Orchestrator outputs for project charter, workplan, role substitution, evidence, gates, action queue, migration brain, daily command sheet, war room, hypercare, audit binder, benefits, scope defense, waste hunter, prediction, drift, communication, testing, and sign-off.
+- Commerce/CXP/CRM/POS outputs for CXP journey, CRM, Lead-to-Cash, Customer Master, Commerce HQ, CSU, Channel Sync, POS, POS Offline, Store Operations, POS Hardware, Store Training, Payments, PCI, Omnichannel, Loyalty, Pricing, Assortment, Call Center, Marketplace, Analytics, and Hypercare.
 
 ## Helper Script
 
@@ -328,6 +297,10 @@ python plugins/ax-to-d365fo-migration-expert/scripts/migration_cli.py commerce-p
 python plugins/ax-to-d365fo-migration-expert/scripts/migration_cli.py commerce-readiness migration-analysis/contoso --output commerce-readiness/contoso
 python plugins/ax-to-d365fo-migration-expert/scripts/migration_cli.py commerce-cutover migration-analysis/contoso --output commerce-cutover/contoso
 python plugins/ax-to-d365fo-migration-expert/scripts/migration_cli.py commerce-offline-check migration-analysis/contoso --output commerce-offline/contoso
+python plugins/ax-to-d365fo-migration-expert/scripts/migration_cli.py commerce-crm-pack migration-analysis/contoso --output commerce-crm/contoso
+python plugins/ax-to-d365fo-migration-expert/scripts/migration_cli.py commerce-store-pack migration-analysis/contoso --output commerce-store/contoso
+python plugins/ax-to-d365fo-migration-expert/scripts/migration_cli.py commerce-payments-pack migration-analysis/contoso --output commerce-payments/contoso
+python plugins/ax-to-d365fo-migration-expert/scripts/migration_cli.py commerce-omnichannel-pack migration-analysis/contoso --output commerce-omnichannel/contoso
 ```
 
 Run the Solo/Master-Orchestrator operating system:
@@ -336,10 +309,23 @@ Run the Solo/Master-Orchestrator operating system:
 python plugins/ax-to-d365fo-migration-expert/scripts/migration_cli.py solo-init "Contoso AX Migration" --output solo-migration
 python plugins/ax-to-d365fo-migration-expert/scripts/migration_cli.py solo-run --project "Contoso AX Migration" --input plugins/ax-to-d365fo-migration-expert/examples/sample-ax-inventory.csv --output solo-migration
 python plugins/ax-to-d365fo-migration-expert/scripts/migration_cli.py solo-orchestrate solo-migration/contoso-ax-migration --output master-orchestration/contoso
+python plugins/ax-to-d365fo-migration-expert/scripts/migration_cli.py solo-evidence solo-migration/contoso-ax-migration
+python plugins/ax-to-d365fo-migration-expert/scripts/migration_cli.py solo-gates solo-migration/contoso-ax-migration
 python plugins/ax-to-d365fo-migration-expert/scripts/migration_cli.py solo-status solo-migration/contoso-ax-migration
 python plugins/ax-to-d365fo-migration-expert/scripts/migration_cli.py solo-test-plan solo-migration/contoso-ax-migration
 python plugins/ax-to-d365fo-migration-expert/scripts/migration_cli.py solo-signoff solo-migration/contoso-ax-migration
 ```
+
+## Main Documentation
+
+- Repository docs: `docs/README.md`
+- Command reference: `docs/command-reference.md`
+- Commerce/CXP/CRM/POS domain: `docs/commerce-cxp-crm-pos.md`
+- Solo/Master-Orchestrator: `docs/solo-master-orchestrator.md`
+- Installation and usage: `docs/installation-and-usage.md`
+- Input format: `docs/input-inventory-format.md`
+- AI/KI USP feature list: `docs/ai-usp-feature-list.md`
+- Role-based AI-KI USP pack: `docs/role-based-ai-ki-usp-pack.md`
 
 Validate the plugin:
 

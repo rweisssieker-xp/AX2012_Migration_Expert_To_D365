@@ -53,6 +53,14 @@ python plugins\ax-to-d365fo-migration-expert\scripts\migration_cli.py usage-tele
 python plugins\ax-to-d365fo-migration-expert\scripts\migration_cli.py validate
 ```
 
+From the repository root, the shorter wrapper is also available:
+
+```powershell
+python .\axmigrate.py validate
+python .\axmigrate.py doctor
+python .\axmigrate.py examples
+```
+
 ## Integration Environment Variables
 
 Direct integrations are configured through `config/integrations.json` and environment variables:
@@ -99,6 +107,52 @@ Outputs:
 - `ai-standard-feature-matches.md`: D365FO standard feature candidates.
 - `ai-dependency-graph.md`: Mermaid dependency graph.
 - `ai-azure-devops-work-items.csv`: importable delivery backlog starter.
+- Persona and governance outputs: `persona-ceo-summary.md`, `persona-cio-architecture-view.md`, `persona-ciso-security-view.md`, `persona-project-manager-control-view.md`, `persona-team-member-task-view.md`, `steering-committee-pack.md`, `raid-log.md`, `raci-matrix.md`, `weekly-status-report.md`, `ciso-security-gate-pack.md`, `project-operating-model.md`, `board-ceo-narrative.md`, `team-execution-pack.md`, `role-based-prompt-library.md`, and `project-onboarding-guide.md`.
+
+## Persona, Stakeholder, and Questionnaire Packs
+
+```powershell
+python .\axmigrate.py persona-pack migration-analysis\contoso --persona all --office --output persona-packs\contoso
+python .\axmigrate.py stakeholder-pack migration-analysis\contoso --stakeholder all --output stakeholder-packs\contoso
+python .\axmigrate.py questionnaire --persona all --output migration-questionnaires\contoso
+python .\axmigrate.py github-issues migration-analysis\contoso --output github-issues\contoso
+```
+
+## Commerce/CXP/CRM/POS Packs
+
+```powershell
+python .\axmigrate.py commerce-pack migration-analysis\contoso --output commerce-packs\contoso
+python .\axmigrate.py commerce-readiness migration-analysis\contoso --output commerce-readiness\contoso
+python .\axmigrate.py commerce-cutover migration-analysis\contoso --output commerce-cutover\contoso
+python .\axmigrate.py commerce-offline-check migration-analysis\contoso --output commerce-offline\contoso
+python .\axmigrate.py commerce-crm-pack migration-analysis\contoso --output commerce-crm\contoso
+python .\axmigrate.py commerce-store-pack migration-analysis\contoso --output commerce-store\contoso
+python .\axmigrate.py commerce-payments-pack migration-analysis\contoso --output commerce-payments\contoso
+python .\axmigrate.py commerce-omnichannel-pack migration-analysis\contoso --output commerce-omnichannel\contoso
+```
+
+Commerce packs cover CXP, CRM/Dataverse, Lead Management, Customer Master, Commerce HQ, CSU, Channel DB, Channel Sync, POS, POS Offline, Payments/PCI, Store Operations, Store Training, Loyalty, Pricing, Assortment, Omnichannel, Call Center, Marketplace, Analytics, and Commerce Hypercare.
+
+## Solo/Master-Orchestrator Packs
+
+```powershell
+python .\axmigrate.py solo-init "Contoso AX Migration" --output solo-migration
+python .\axmigrate.py solo-run --project "Contoso AX Migration" --input plugins\ax-to-d365fo-migration-expert\examples\sample-ax-inventory.csv --output solo-migration
+python .\axmigrate.py solo-orchestrate solo-migration\contoso-ax-migration --output master-orchestration\contoso
+python .\axmigrate.py solo-evidence solo-migration\contoso-ax-migration
+python .\axmigrate.py solo-status solo-migration\contoso-ax-migration
+python .\axmigrate.py solo-gates solo-migration\contoso-ax-migration
+python .\axmigrate.py solo-daily solo-migration\contoso-ax-migration
+python .\axmigrate.py solo-war-room solo-migration\contoso-ax-migration
+python .\axmigrate.py solo-hypercare solo-migration\contoso-ax-migration
+python .\axmigrate.py solo-audit-binder solo-migration\contoso-ax-migration
+python .\axmigrate.py solo-benefits solo-migration\contoso-ax-migration
+python .\axmigrate.py solo-test-plan solo-migration\contoso-ax-migration
+python .\axmigrate.py solo-test-status solo-migration\contoso-ax-migration
+python .\axmigrate.py solo-signoff solo-migration\contoso-ax-migration
+```
+
+The Solo/Master layer supports a single user with project operating artifacts, evidence completeness, self-approval gates, external approval packs, master routing, daily actions, scope defense, waste hunting, predictions, stakeholder communication, test planning, test status, sign-off, audit binder, benefits tracking, cutover, and hypercare.
 
 ## Configuration
 
@@ -108,6 +162,15 @@ Adjust these files to fit your delivery model:
 - `config/standard-feature-map.json`
 - `config/risk-rules.json`
 - `config/industry-packs.json`
+- `config/regulatory-packs.json`
+- `config/commerce-role-skill-map.json`
+- `config/commerce-synonyms.json`
+- `config/commerce-readiness-rules.json`
+- `config/commerce-gate-minimum-evidence.json`
+- `config/commerce-cutover-checks.json`
+- `config/pos-offline-risk-rules.json`
+- `config/payment-pci-risk-rules.json`
+- `config/crm-lead-management-map.json`
 
 ## Tests
 
@@ -119,4 +182,10 @@ Full validation:
 
 ```powershell
 python plugins\ax-to-d365fo-migration-expert\scripts\validate_plugin.py
+```
+
+Doctor check:
+
+```powershell
+python .\axmigrate.py doctor
 ```

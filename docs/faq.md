@@ -35,6 +35,18 @@ It includes generic HTTP connector scaffolding for LCS and D365FO/OData endpoint
 
 No. Recommendations include evidence and confidence signals. Business owners, architects, and steering committees should validate high-impact decisions.
 
+## Can one person run a migration project with this plugin?
+
+The plugin is designed to support a solo operator with generated plans, role substitution, evidence checks, master-orchestrator routing, daily actions, test planning, sign-off, audit binder, hypercare, and benefits tracking. It does not remove the need for external approvals where real governance is required, such as executive, security, finance, audit, legal, customer, payment, or production go-live sign-off.
+
+## Does the plugin cover Commerce, CRM, CXP, POS, and offline store scenarios?
+
+Yes. The Customer & Commerce Experience domain covers CXP, CRM/Dataverse, Lead Management, D365 Commerce HQ, Commerce Scale Unit, Channel DB, POS, POS Offline, Payments/PCI, Store Operations, Loyalty, Pricing, Assortment, Omnichannel, Marketplace, Call Center, Analytics, and Store Training.
+
+## When is Commerce go-live blocked?
+
+Commerce go-live is blocked when critical evidence is missing for CSU readiness, POS Offline readiness where offline is required, Payments/PCI, Store Smoke Tests, Channel Data Sync, Offline Recovery, Payment Reconciliation, Commerce Security/PCI, Customer Master Harmonization, or Lead-to-Cash Traceability.
+
 ## Can generated analysis be committed?
 
 Usually no. Generated analysis may contain customer data. Keep it out of version control unless it is sanitized sample data.
@@ -45,6 +57,12 @@ Usually no. Generated analysis may contain customer data. Keep it out of version
 python plugins\ax-to-d365fo-migration-expert\scripts\migration_cli.py validate
 ```
 
+For local runtime and optional dependency checks:
+
+```powershell
+python .\axmigrate.py doctor
+```
+
 ## Where do I change cost assumptions?
 
 Edit:
@@ -52,4 +70,3 @@ Edit:
 ```text
 plugins/ax-to-d365fo-migration-expert/config/migration-cost-model.json
 ```
-

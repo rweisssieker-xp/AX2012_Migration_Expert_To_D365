@@ -24,7 +24,7 @@
   "interface": {
     "displayName": "AX to D365FO Migration Expert",
     "shortDescription": "Reduce AX to D365FO migration scope with AI inventory analysis, governance, dashboards, and delivery artifacts.",
-    "longDescription": "Enterprise AI migration command center for Microsoft Dynamics AX 4.0, AX 2009, and AX 2012 environments moving to Dynamics 365 Finance & Operations. Helps identify what must be migrated, what D365FO standard can replace, what should be configured, and what can be retired. Covers technical inventory analysis, complexity scoring, effort estimation, customization disposition, X++ pattern detection, data entity mapping, integration modernization, report rationalization, standard feature matching, dependency analysis, risk mitigation playbooks, quality gates, upgrade path decisions, target architecture, compliance, ALM, ROI/business case, anti-waste scoring, wave planning, training impact, cutover simulation, reconciliation, Azure DevOps work items, command center dashboards, decision logs, and executive briefings.",
+    "longDescription": "Enterprise AI migration command center for Microsoft Dynamics AX 4.0, AX 2009, and AX 2012 environments moving to Dynamics 365 Finance & Operations. Helps identify what must be migrated, what D365FO standard can replace, what should be configured, and what can be retired. Covers technical inventory analysis, complexity scoring, effort estimation, customization disposition, X++ pattern detection, data entity mapping, integration modernization, report rationalization, standard feature matching, dependency analysis, risk mitigation playbooks, quality gates, upgrade path decisions, target architecture, compliance, ALM, ROI/business case, anti-waste scoring, wave planning, training impact, cutover simulation, reconciliation, Azure DevOps work items, command center dashboards, decision logs, and executive briefings. Includes role-specific skills and artifacts for executives, CIO, CISO, PMO, delivery teams, finance, operations, data, integration, QA, legal, vendor, support, partner sales, key users, and testers. Adds a Solo/Master-Orchestrator layer for single-user project operation, evidence gates, skill routing, daily control, test planning, sign-off, audit binder, hypercare, benefits, and governance. Adds a Customer & Commerce Experience domain for CXP, CRM/Dataverse, Lead Management, D365 Commerce, Commerce Scale Unit, POS, POS Offline, Payments/PCI, Store Operations, Loyalty, Pricing, Assortment, Omnichannel, Marketplace, Call Center, Analytics, Store Training, and Commerce go-live blocking evidence.",
     "developerName": "Migration Expert Team",
     "category": "Productivity",
     "capabilities": [
@@ -40,7 +40,9 @@
     "defaultPrompt": [
       "Find what we can retire, replace, configure, or migrate from this AX inventory.",
       "Generate a migration command center dashboard from my AX inventory CSV.",
-      "Create quality gates, risk playbooks, and Azure DevOps work items for this migration."
+      "Create quality gates, risk playbooks, and Azure DevOps work items for this migration.",
+      "Generate Commerce/CXP/CRM/POS readiness, cutover, offline, payments, CRM, store, and omnichannel packs.",
+      "Run the Solo/Master-Orchestrator flow so one user can control evidence, gates, tests, sign-off, hypercare, and benefits."
     ],
     "brandColor": "#0078D4",
     "composerIcon": "./assets/icon.svg",

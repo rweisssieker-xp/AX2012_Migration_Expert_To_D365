@@ -7,6 +7,8 @@ The distributable package contains:
 - `plugins/ax-to-d365fo-migration-expert`
 - `.agents/plugins/marketplace.json`
 - `INSTALL.md`
+- `README.md`
+- `docs/`
 
 ## Install Into Another Repo
 
@@ -36,6 +38,7 @@ From the target repo root:
 
 ```powershell
 python plugins\ax-to-d365fo-migration-expert\scripts\migration_cli.py validate
+python plugins\ax-to-d365fo-migration-expert\scripts\migration_cli.py doctor
 ```
 
 ## First Run
@@ -51,6 +54,24 @@ Open:
 ```text
 migration-analysis\sample\dashboard.html
 ```
+
+## Commerce and Solo Smoke Tests
+
+```powershell
+python plugins\ax-to-d365fo-migration-expert\scripts\migration_cli.py commerce-pack migration-analysis\sample --output commerce-packs\sample
+python plugins\ax-to-d365fo-migration-expert\scripts\migration_cli.py commerce-readiness migration-analysis\sample --output commerce-readiness\sample
+python plugins\ax-to-d365fo-migration-expert\scripts\migration_cli.py solo-init "Sample AX Migration" --output solo-migration
+python plugins\ax-to-d365fo-migration-expert\scripts\migration_cli.py solo-run --project "Sample AX Migration" --input plugins\ax-to-d365fo-migration-expert\examples\sample-ax-inventory.csv --output solo-migration
+```
+
+## Scope Included
+
+- 76 skills.
+- 211 templates.
+- 31 Python scripts.
+- 15 JSON configs.
+- 46 analyzer outputs.
+- 301 documented AI/KI feature entries.
 
 ## External Integrations
 
