@@ -490,6 +490,16 @@ When the user clearly asks from a specific stakeholder perspective, prefer the d
 - `ax-migration-pos-offline-lead` for offline DB, offline sync, offline payments, conflict handling, and recovery.
 - `ax-migration-payments-lead` for payment connectors, terminals, refunds, settlement, tokenization, PCI, and reconciliation.
 - `ax-migration-omnichannel-ecommerce-lead` for web commerce, BOPIS, ship-from-store, inventory availability, and marketplace.
+- `ax-migration-autonomous-governance-orchestrator` for contract/scope, evidence, rehearsal, reconciliation, license, release, training, ISV, regulatory, archive, automation, board risk, process twin, and meeting governance.
+- `ax-migration-contract-scope-guardian` for SOW, scope, change request, commercial approval, and scope creep protection.
+- `ax-migration-evidence-vault-manager` for evidence vault, freshness, go-live gaps, chain of custody, and audit binder.
+- `ax-migration-cutover-rehearsal-lead` for rehearsal plans, scorecards, defects, critical path variance, and rollback readiness.
+- `ax-migration-reconciliation-judge` for finance, inventory, customer/vendor, open transaction, and tolerance-based reconciliation.
+- `ax-migration-license-cost-optimizer` for role-to-license mapping, overallocation, subscription forecast, and cost optimization.
+- `ax-migration-alm-release-train-controller` for release train, environment readiness, freeze calendar, deployment risk, and rollback gates.
+- `ax-migration-board-risk-forecaster` for executive go-live probability, budget, scope, test, and portfolio risk forecasts.
+- `ax-migration-process-twin-builder` for end-to-end process twins and process risk traceability.
+- `ax-migration-meeting-copilot` for meeting decisions, action logs, RAID updates, and meeting-to-backlog conversion.
 
 Use the plugin templates when the user asks for files, workshops, or project setup:
 

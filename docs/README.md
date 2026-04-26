@@ -10,6 +10,7 @@
 - [Command reference](command-reference.md)
 - [Commerce/CXP/CRM/POS](commerce-cxp-crm-pos.md)
 - [Solo and Master Orchestrator](solo-master-orchestrator.md)
+- [Autonomous Governance & Evidence Intelligence](autonomous-governance-evidence.md)
 
 ## Plugin Docs
 
@@ -24,12 +25,12 @@
 
 | Area | Count |
 | --- | ---: |
-| Skills | 76 |
-| Templates | 211 |
-| Python scripts | 31 |
-| Config JSON files | 15 |
+| Skills | 92 |
+| Templates | 264 |
+| Python scripts | 49 |
+| Config JSON files | 25 |
 | Analyzer outputs | 46 |
-| AI/KI features | 301 |
+| AI/KI features | 380 |
 
 ## Governance
 

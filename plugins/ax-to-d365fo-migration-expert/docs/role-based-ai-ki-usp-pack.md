@@ -63,6 +63,19 @@ Dieses Pack macht die AX-zu-D365FO-Migration fuer jede Zielgruppe automatisch ve
 | Commerce Analytics | `ax-migration-commerce-analytics-lead` | Channel KPIs, Conversion, Sales, Returns, Loyalty und Analytics. |
 | Store Training | `ax-migration-store-training-lead` | Cashier, Store Manager, Support, Super User und Store Go-live Training. |
 | Commerce Orchestrator | `ax-migration-commerce-orchestrator` | Commerce Skill Routing, Readiness, Go-live Blocking und Evidence Control. |
+| Contract / Scope Guardian | `ax-migration-contract-scope-guardian` | Vertrag, SOW, Scope, Change Requests, kommerzielle Auswirkungen und Freigaben. |
+| Evidence Vault Manager | `ax-migration-evidence-vault-manager` | Evidence Vault, Freshness, Go-live Gaps, Chain of Custody und Audit Binder. |
+| Cutover Rehearsal Lead | `ax-migration-cutover-rehearsal-lead` | Cutover-Proben, Scorecards, Defects, Critical Path und Rollback Readiness. |
+| Reconciliation Judge | `ax-migration-reconciliation-judge` | Finance, Inventory, Customer/Vendor, Open Transactions und Toleranz-Sign-off. |
+| License Cost Optimizer | `ax-migration-license-cost-optimizer` | D365FO, Commerce, CRM, Dataverse, Rollen, User, Subscription und Kostenoptimierung. |
+| ALM Release Train Controller | `ax-migration-alm-release-train-controller` | Build, Deploy, Freeze, Environment Readiness, Release Gates und Rollback. |
+| Training Effectiveness Monitor | `ax-migration-training-effectiveness-monitor` | Training, Adoption, Key User Readiness, Rollenabdeckung und Hypercare-Risiko. |
+| ISV Exit Strategist | `ax-migration-isv-exit-strategist` | ISV Exit, Vendor Replacement, Vertragsende, Add-on Retirement und Transition Risk. |
+| Regulatory Country Pack Generator | `ax-migration-regulatory-country-pack-generator` | Laenderpakete fuer Tax, E-Invoicing, Audit, Privacy, Retention und Localization. |
+| Legacy Archive Strategist | `ax-migration-legacy-archive-strategist` | Archivstrategie, Historical Data, Read-only Access, Retention und Reporting. |
+| Board Risk Forecaster | `ax-migration-board-risk-forecaster` | Go-live Probability, Budget Risk, Scope Risk, Test Risk und Executive Trends. |
+| Process Twin Builder | `ax-migration-process-twin-builder` | E2E Process Twin, Risk Traceability, Test Coverage und Hypercare Prediction. |
+| Meeting Copilot | `ax-migration-meeting-copilot` | Agenda, Protokoll, Decisions, Actions, RAID Updates und Meeting-to-Backlog. |
 | Solo Operator | `ax-migration-solo-operator` | Einzelperson kann Projektordner, Arbeitsplan, Rollenvertretung und Governance starten. |
 | Master Orchestrator | `ax-migration-master-orchestrator` | Steuert Skills, Evidence, Gates, Action Queue, Routing und naechste Aktionen. |
 | Key User | `ax-migration-key-user` | Prozessvalidierung, UAT-Szenarien, Business Sign-off und Trainingsfeedback. |
@@ -153,6 +166,25 @@ Dieses Pack macht die AX-zu-D365FO-Migration fuer jede Zielgruppe automatisch ve
 | Store Cutover Smoke Tests | `store-cutover-smoke-tests.md` | Store Go-live wird durch POS, Offline, Payment, Receipt, Shift und Sync Tests abgesichert. |
 | Omnichannel Flow Mapper | `omnichannel-order-flow-map.md` | BOPIS, Ship-from-store, Returns, Marketplace und Inventory Availability werden testbar. |
 
+## Autonomous Governance & Evidence USPs
+
+| USP | Automatisch erzeugtes Ergebnis | Nutzen |
+| --- | --- | --- |
+| Contract & Scope Guardian | `contract-scope-risk-pack.md`, `change-request-impact-register.md` | Scope Creep, SOW-Risiken und Change Requests werden kommerziell steuerbar. |
+| Stakeholder Sentiment Radar | `stakeholder-sentiment-radar.md`, `resistance-risk-map.md` | Widerstand, Entscheidungsstau und Adoption-Risiken werden frueh sichtbar. |
+| Migration Evidence Vault | `migration-evidence-vault-index.md`, `go-live-evidence-gap-report.md` | Go-live Evidence wird zentral, aktuell und gate-faehig. |
+| Cutover Rehearsal Simulator | `cutover-rehearsal-scorecard.md`, `cutover-critical-path-variance.md` | Cutover-Proben werden messbar und vergleichbar. |
+| Reconciliation Judge | `finance-reconciliation-judge.md`, `reconciliation-tolerance-matrix.md` | Datenabgleich wird nicht nur dokumentiert, sondern bewertet. |
+| License & Cost Optimizer | `license-cost-optimization-pack.md`, `role-license-mapping.md` | CFO/CIO sehen Lizenz- und Betriebskostenrisiken. |
+| ALM Release Controller | `alm-release-train-plan.md`, `environment-readiness-gate.md` | Build, Deploy, Freeze, Tests und Release-Gates werden kontrolliert. |
+| Training Effectiveness Monitor | `training-effectiveness-score.md`, `role-training-coverage-matrix.md` | Training wird an echter Readiness gemessen. |
+| ISV Exit Strategist | `isv-exit-strategy-pack.md`, `vendor-termination-checklist.md` | Alte ISV-Abhaengigkeiten werden kommerziell und technisch aufloesbar. |
+| Country Regulatory Pack | `country-regulatory-pack.md`, `tax-einvoicing-readiness-gate.md` | Laender-Rollouts erhalten Tax, E-Invoicing, Privacy und Audit Gates. |
+| Legacy Archive Strategist | `legacy-archive-strategy.md`, `archive-retention-evidence.md` | Historie wird rechtssicher archiviert statt teuer migriert. |
+| Board Risk Forecast | `board-risk-forecast.md`, `executive-go-live-probability.md` | Vorstand sieht Go-live-Wahrscheinlichkeit, Budget-, Scope- und Test-Risiko. |
+| Process Twin Builder | `end-to-end-process-twin.md`, `process-risk-traceability-map.md` | E2E-Prozesse werden mit Rollen, Daten, Integrationen, Tests und Risiken verbunden. |
+| Meeting Copilot | `meeting-decision-action-log.md`, `meeting-to-backlog-bridge.md` | Meetings werden automatisch zu Entscheidungen, Actions, RAID und Backlog. |
+
 ## Automatische Ausgabe
 
 Der Analyzer erzeugt zusaetzlich zu den technischen Reports diese Rollenartefakte:
@@ -175,4 +207,4 @@ Der Analyzer erzeugt zusaetzlich zu den technischen Reports diese Rollenartefakt
 
 ## Maximaler USP
 
-Das Plugin liefert nicht nur Migrationsempfehlungen. Es erzeugt automatisch ein komplettes, rollenbasiertes Steuerungs- und Lieferpaket: Executive Story, Architekturentscheidungen, Security Gates, PMO-Steuerung, Teamaufgaben, Key-User/UAT/Regression, Master-Orchestrator, Solo-Projektbetrieb, Commerce/CXP/CRM/POS Readiness, Go-live Gates, Prompt-Bibliothek und Onboarding.
+Das Plugin liefert nicht nur Migrationsempfehlungen. Es erzeugt automatisch ein komplettes, rollenbasiertes Steuerungs- und Lieferpaket: Executive Story, Architekturentscheidungen, Security Gates, PMO-Steuerung, Teamaufgaben, Key-User/UAT/Regression, Master-Orchestrator, Solo-Projektbetrieb, Commerce/CXP/CRM/POS Readiness, Go-live Gates, Autonomous Governance, Evidence Vault, Contract Scope Guard, Reconciliation Judge, Board Risk Forecast, Process Twin, Meeting Copilot, Prompt-Bibliothek und Onboarding.

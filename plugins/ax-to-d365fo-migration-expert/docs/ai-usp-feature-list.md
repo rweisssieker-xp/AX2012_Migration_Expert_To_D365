@@ -1254,3 +1254,319 @@ Creates support runbooks for POS, CSU, Channel DB, offline sync, payments, store
 ## Feature 301: Solo/Master-Orchestrator CLI Runtime
 
 Turns solo and master-orchestrator skills into executable CLI flows for init, run, evidence, status, gates, daily control, war room, hypercare, audit binder, benefits, orchestration, migration brain, next actions, simulations, scope defense, waste hunting, prediction, translation, drift, communication, test planning, test status, and sign-off.
+
+## Feature 302: AI Contract & Scope Guardian
+
+Detects contract, SOW, scope, commercial, assumption, approval, and change-request risks before they become unmanaged delivery commitments.
+
+## Feature 303: AI Change Request Impact Builder
+
+Creates change request impact summaries with scope, cost, timeline, resources, risk, evidence, affected workstreams, and approval path.
+
+## Feature 304: AI SOW Assumption Tracker
+
+Tracks proposal and SOW assumptions against real migration evidence and flags assumptions that need validation or commercial escalation.
+
+## Feature 305: AI Scope Baseline Ledger
+
+Creates an auditable baseline of approved scope, excluded scope, deferred scope, open scope, and scope changes.
+
+## Feature 306: AI Commercial Approval Matrix
+
+Maps commercial decisions to approvers, value impact, cost impact, contractual exposure, and next approval step.
+
+## Feature 307: AI Stakeholder Sentiment Radar
+
+Infers alignment, resistance, decision fatigue, missing ownership, and adoption risk from meeting notes, status, issues, and open decisions.
+
+## Feature 308: AI Resistance Risk Mapper
+
+Turns stakeholder concerns into risk categories, mitigation actions, communication owners, and escalation triggers.
+
+## Feature 309: AI Decision Bottleneck Detector
+
+Finds blocked decisions, overdue approvals, missing accountable owners, and repeating meeting topics that are slowing migration progress.
+
+## Feature 310: AI Migration Evidence Vault
+
+Creates a structured evidence index for all go-live, security, finance, test, cutover, Commerce, CRM, legal, audit, and business sign-off evidence.
+
+## Feature 311: AI Evidence Freshness Monitor
+
+Flags stale evidence, missing evidence owners, expired approvals, outdated test proof, and gate evidence that must be regenerated.
+
+## Feature 312: AI Go-Live Evidence Gap Report
+
+Shows exactly which evidence gaps block go-live, which gaps only need control, and which owners must act next.
+
+## Feature 313: AI Evidence Chain of Custody
+
+Links evidence to source, owner, date, gate, decision, affected process, and approval status so audit trails are explainable.
+
+## Feature 314: AI Audit-Ready Sign-off Binder
+
+Builds a single sign-off binder for external approvers with evidence index, exceptions, accepted risks, owner approvals, and gate outcomes.
+
+## Feature 315: AI Cutover Rehearsal Simulator
+
+Runs cutover rehearsal packs that compare planned sequence, actual duration, defects, blockers, rollback points, and critical path variance.
+
+## Feature 316: AI Dress Rehearsal Scorecard
+
+Scores each rehearsal by timing, completeness, defect severity, manual effort, owner readiness, rollback readiness, and go-live confidence.
+
+## Feature 317: AI Cutover Defect Pattern Detector
+
+Groups cutover rehearsal defects by source, owner, process, environment, data, integration, user action, and repeat occurrence.
+
+## Feature 318: AI Critical Path Variance Advisor
+
+Detects which cutover tasks are consuming more time than planned and recommends compression, automation, resequencing, or additional rehearsal.
+
+## Feature 319: AI Rollback Readiness Judge
+
+Assesses whether rollback steps, decision points, backups, communication, data recovery, and owner availability are credible.
+
+## Feature 320: AI Data Reconciliation Judge
+
+Evaluates reconciliation results and classifies them as Ready, Needs control, or Blocked using domain-specific tolerance logic.
+
+## Feature 321: AI Finance Reconciliation Judge
+
+Checks financial balances, open items, dimensions, tax, subledger alignment, trial balance, and closing readiness.
+
+## Feature 322: AI Inventory Reconciliation Judge
+
+Checks on-hand, valuation, warehouse, batch/serial, reservations, open movements, and inventory costing evidence.
+
+## Feature 323: AI Customer/Vendor Reconciliation Judge
+
+Checks customer, vendor, address, contact, tax, balance, open transaction, and duplicate alignment.
+
+## Feature 324: AI Open Transaction Reconciliation Judge
+
+Assesses sales orders, purchase orders, projects, production, service, inventory movements, and financial open transactions.
+
+## Feature 325: AI Reconciliation Tolerance Matrix
+
+Creates tolerance thresholds, allowed variance reasons, escalation rules, sign-off owners, and exception handling.
+
+## Feature 326: AI License & Cost Optimization Advisor
+
+Maps D365FO, Commerce, CRM, Dataverse, Power Platform, and user roles to license impact, over-allocation risk, and cost reduction opportunities.
+
+## Feature 327: AI Role-to-License Mapper
+
+Translates migrated roles and target processes into license candidates, exceptions, and review questions for CIO/CFO approval.
+
+## Feature 328: AI License Overallocation Detector
+
+Finds inactive users, oversized roles, duplicate access patterns, shared accounts, premium connector exposure, and unnecessary license cost.
+
+## Feature 329: AI Subscription Cost Forecaster
+
+Forecasts run-rate cost by license, environment, integration, connector, storage, reporting, Commerce, CRM, and Power Platform footprint.
+
+## Feature 330: AI ALM & Release Train Controller
+
+Creates release train control for build, deploy, code freeze, regression, environment readiness, release approvals, and rollback evidence.
+
+## Feature 331: AI Environment Readiness Gate
+
+Scores D365FO, Commerce, CRM, integration, test, training, performance, and cutover environments for release readiness.
+
+## Feature 332: AI Release Freeze Calendar
+
+Generates code freeze, data freeze, configuration freeze, integration freeze, training freeze, and go-live communication milestones.
+
+## Feature 333: AI Deployment Risk Register
+
+Turns release and deployment evidence into risks, rollback points, dependencies, owners, and go/no-go conditions.
+
+## Feature 334: AI Build-to-Test Traceability
+
+Links builds, releases, defects, test cycles, code changes, environments, and evidence to show what has actually been validated.
+
+## Feature 335: AI Training Effectiveness Monitor
+
+Measures whether training has produced operational readiness using attendance, role coverage, assessments, UAT defects, and repeated questions.
+
+## Feature 336: AI Training Adoption Risk Mapper
+
+Identifies roles, locations, stores, teams, and processes where adoption risk remains high before go-live.
+
+## Feature 337: AI Role Training Coverage Matrix
+
+Maps every business role to training material, trainer, completion, assessment result, UAT participation, and sign-off.
+
+## Feature 338: AI Key User Readiness Judge
+
+Scores key users by process knowledge, UAT evidence, defect closure, training participation, and ability to support hypercare.
+
+## Feature 339: AI Training-to-Hypercare Predictor
+
+Predicts which training gaps will become hypercare volume and routes them to training, process owner, or support actions.
+
+## Feature 340: AI ISV Exit Strategist
+
+Creates keep, replace, retire, renegotiate, rebuild, or standardize strategies for legacy AX ISVs and add-ons.
+
+## Feature 341: AI ISV Transition Risk Register
+
+Tracks data extraction, license termination, support dependency, replacement solution, contract risk, and go-live transition risk.
+
+## Feature 342: AI Vendor Termination Checklist
+
+Creates termination, renewal, notice period, data handover, support exit, and legal approval actions for vendors and ISVs.
+
+## Feature 343: AI ISV-to-Standard Feature Mapper
+
+Maps legacy ISV features to D365FO, Commerce, CRM, Power Platform, or archive alternatives.
+
+## Feature 344: AI Vendor Commercial Negotiator
+
+Produces evidence-backed negotiation positions for renewal, termination, replacement, transition support, and commercial concessions.
+
+## Feature 345: AI Regulatory Country Pack Generator
+
+Creates country-specific tax, e-invoicing, retention, audit, privacy, payment, reporting, and localization readiness packs.
+
+## Feature 346: AI Localization Obligation Mapper
+
+Maps legal entities and countries to localization obligations, responsible owners, evidence, and gate checks.
+
+## Feature 347: AI Tax & E-Invoicing Readiness Gate
+
+Blocks country go-live when tax configuration, e-invoicing, reporting, fiscal retention, or audit proof is missing.
+
+## Feature 348: AI Data Residency & Privacy Mapper
+
+Links country, customer, employee, vendor, transaction, and archive data to privacy and residency controls.
+
+## Feature 349: AI Multi-Country Rollout Sequencer
+
+Sequences country waves by regulatory readiness, complexity, localization risk, data readiness, and business priority.
+
+## Feature 350: AI Legacy Archive Strategy Builder
+
+Defines what historical data stays in AX/archive, what migrates, what is summarized, what is searchable, and what is legally retained.
+
+## Feature 351: AI Archive Access Model
+
+Designs role-based read-only access, search, reporting, audit retrieval, privacy controls, and support process for archived legacy data.
+
+## Feature 352: AI Archive Retention Evidence Pack
+
+Creates retention evidence, purge rules, legal holds, access logs, and audit retrieval procedures.
+
+## Feature 353: AI Archive Cost Avoidance Calculator
+
+Shows avoided migration effort, reduced storage, reduced testing, lower downtime, and compliance trade-offs from archive strategy.
+
+## Feature 354: AI Historical Reporting Bridge
+
+Maps old reports to archive reporting, Power BI, exported data stores, or D365FO replacement reports.
+
+## Feature 355: AI Hyperautomation Connector Builder
+
+Identifies opportunities for Power Automate, Logic Apps, Fabric, Dataverse, APIs, Business Events, and workflow modernization.
+
+## Feature 356: AI Automation Candidate Backlog
+
+Turns manual migration steps, approval workflows, reporting handoffs, and operational tasks into automation backlog items.
+
+## Feature 357: AI Power Platform Opportunity Pack
+
+Creates Power Apps, Power Automate, Dataverse, Copilot, and reporting opportunity candidates linked to business value.
+
+## Feature 358: AI Integration Automation Advisor
+
+Recommends where old file, AIF, direct SQL, and manual processes can be replaced by modern automated integration patterns.
+
+## Feature 359: AI Post-Migration Modernization Roadmap
+
+Builds a modernization backlog that starts after stabilization and avoids overloading go-live scope.
+
+## Feature 360: AI Board Risk Forecast
+
+Forecasts go-live probability, budget risk, scope risk, test risk, cutover risk, training risk, and unresolved approval risk for executives.
+
+## Feature 361: AI Executive Go-Live Probability
+
+Turns project evidence into a board-level go-live confidence score with trend, blockers, and required decisions.
+
+## Feature 362: AI Budget/Scope/Test Risk Trend
+
+Shows CFO/CIO/PMO trend lines for budget pressure, scope movement, testing progress, and defect closure.
+
+## Feature 363: AI Steering Escalation Predictor
+
+Identifies which risks are likely to require steering committee intervention within the next reporting cycle.
+
+## Feature 364: AI Portfolio Rollout Risk Comparator
+
+Compares legal entities, countries, stores, channels, or waves by readiness and go-live risk.
+
+## Feature 365: AI End-to-End Process Twin
+
+Builds process twins for lead-to-cash, order-to-cash, procure-to-pay, plan-to-produce, record-to-report, and other end-to-end processes.
+
+## Feature 366: AI Process Risk Traceability Map
+
+Links every process step to roles, data, integrations, reports, tests, controls, evidence, defects, and decisions.
+
+## Feature 367: AI Process Breakpoint Detector
+
+Finds where end-to-end processes break because data, integration, role, test, report, or owner evidence is missing.
+
+## Feature 368: AI Process-to-Test Coverage Builder
+
+Turns process twin nodes into test scenarios, test evidence, regression packs, and process owner sign-off requirements.
+
+## Feature 369: AI Process-to-Hypercare Classifier
+
+Predicts which process steps will generate hypercare issues and prepares support runbooks.
+
+## Feature 370: AI Autonomous Meeting Copilot
+
+Converts meeting notes into decisions, action items, owners, due dates, risks, assumptions, issues, dependencies, and backlog updates.
+
+## Feature 371: AI Meeting-to-Backlog Bridge
+
+Turns meeting decisions and actions into work items with acceptance criteria, evidence requirements, priority, and owning role.
+
+## Feature 372: AI Decision Memory Updater
+
+Updates the decision log with context, options, recommendation, rationale, impact, owner, and date.
+
+## Feature 373: AI RAID Auto-Updater
+
+Updates risks, assumptions, issues, and dependencies from meetings, evidence gaps, test results, cutover rehearsals, and stakeholder signals.
+
+## Feature 374: AI Action Owner Chaser
+
+Identifies overdue actions, unowned blockers, stale decisions, and missing evidence owners.
+
+## Feature 375: AI Autonomous Governance Orchestrator
+
+Routes contract, evidence, cutover, reconciliation, license, ALM, training, ISV, regulatory, archive, automation, board risk, process twin, and meeting tasks to the right skills.
+
+## Feature 376: AI Governance Readiness Score
+
+Scores governance domains and produces Ready, Needs control, or Blocked status for leadership and PMO.
+
+## Feature 377: AI External Approval Boundary Guard
+
+Ensures the plugin proposes evidence and sign-off candidates but marks real executive, security, legal, audit, finance, payment, and production approvals as external.
+
+## Feature 378: AI Governance Smoke Test Pack
+
+Creates repeatable smoke outputs for governance-pack, evidence-vault, scope-guard, contract-risk, cutover-rehearsal, reconciliation, license, ALM, training, ISV, regulatory, archive, automation, board risk, process twin, and meeting copilot.
+
+## Feature 379: AI Governance CLI Runtime
+
+Adds executable CLI commands for autonomous governance, evidence vault, scope guard, contract risk, cutover rehearsal, reconciliation judge, license cost, ALM release, training readiness, ISV exit, country regulatory pack, archive strategy, hyperautomation, board risk, process twin, and meeting copilot.
+
+## Feature 380: AI Project Autonomy Control Plane
+
+Combines migration analysis, role skills, solo operation, Commerce, governance, evidence, board risk, process twin, and meeting control into one autonomous migration operating model.

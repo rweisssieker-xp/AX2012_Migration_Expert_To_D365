@@ -25,6 +25,16 @@ plugins/ax-to-d365fo-migration-expert/config
 | `pos-offline-risk-rules.json` | POS offline blockers, risks, and recovery controls. |
 | `payment-pci-risk-rules.json` | Payment, PCI, terminal, tokenization, and settlement risk rules. |
 | `crm-lead-management-map.json` | CRM/Dataverse, lead-to-cash, customer/contact/opportunity/case, dual-write, and customer master mapping. |
+| `governance-role-skill-map.json` | Governance domain to skill and command routing. |
+| `governance-synonyms.json` | Contract, evidence, rehearsal, reconciliation, and meeting synonyms. |
+| `evidence-vault-rules.json` | Evidence freshness, critical evidence, and blocker rules. |
+| `contract-scope-risk-rules.json` | Scope creep, change request, and commercial impact rules. |
+| `reconciliation-rules.json` | Finance, inventory, customer/vendor, open transaction, and tolerance rules. |
+| `license-cost-rules.json` | License domain, role, user, and cost risk signals. |
+| `alm-release-rules.json` | Build, deploy, freeze, release approval, rollback, and environment readiness gates. |
+| `training-effectiveness-rules.json` | Training, adoption, UAT, key-user, and role coverage readiness rules. |
+| `country-regulatory-rules.json` | Country, tax, e-invoicing, audit retention, privacy, localization, payment, and reporting obligations. |
+| `process-twin-rules.json` | End-to-end process, role, data, integration, report, test, risk, evidence, and decision nodes. |
 
 ## Cost Model
 

@@ -75,6 +75,27 @@ python plugins\ax-to-d365fo-migration-expert\scripts\migration_cli.py <command> 
 | `solo-test-status` | Generate test execution status outputs. |
 | `solo-signoff` | Generate business sign-off outputs. |
 
+## Autonomous Governance & Evidence Commands
+
+| Command | Purpose |
+| --- | --- |
+| `governance-pack` | Generate the autonomous governance master pack. |
+| `evidence-vault` | Generate evidence vault, freshness, go-live gap, chain-of-custody, and audit binder outputs. |
+| `scope-guard` | Generate scope baseline, change request, contract/scope risk, and commercial approval outputs. |
+| `contract-risk` | Generate contract, SOW assumption, commercial risk, and change request impact outputs. |
+| `cutover-rehearsal` | Generate cutover rehearsal plan, scorecard, defect log, and critical path variance outputs. |
+| `reconciliation-judge` | Generate finance, inventory, customer/vendor, open transaction, and tolerance reconciliation outputs. |
+| `license-cost` | Generate license mapping, over-allocation, subscription forecast, and cost optimization outputs. |
+| `alm-release` | Generate ALM release train, environment gate, freeze calendar, and deployment risk outputs. |
+| `training-readiness` | Generate training effectiveness, adoption risk, and role training coverage outputs. |
+| `isv-exit` | Generate ISV exit strategy, transition risk, and vendor termination outputs. |
+| `country-regulatory-pack` | Generate country regulatory, localization, tax, and e-invoicing readiness outputs. |
+| `archive-strategy` | Generate legacy archive strategy, access model, and retention evidence outputs. |
+| `hyperautomation-pack` | Generate automation candidate, Power Platform, and modernization outputs. |
+| `board-risk` | Generate board risk forecast, go-live probability, and budget/scope/test trend outputs. |
+| `process-twin` | Generate end-to-end process twin and process risk traceability outputs. |
+| `meeting-copilot` | Generate meeting action log, meeting-to-backlog bridge, decision bottleneck, and sentiment outputs. |
+
 ## Connector and Validation Commands
 
 | Command | Purpose |

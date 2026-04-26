@@ -66,12 +66,12 @@ python plugins\ax-to-d365fo-migration-expert\scripts\migration_cli.py solo-run -
 
 ## Scope Included
 
-- 76 skills.
-- 211 templates.
-- 31 Python scripts.
-- 15 JSON configs.
+- 92 skills.
+- 264 templates.
+- 49 Python scripts.
+- 25 JSON configs.
 - 46 analyzer outputs.
-- 301 documented AI/KI feature entries.
+- 380 documented AI/KI feature entries.
 
 ## External Integrations
 

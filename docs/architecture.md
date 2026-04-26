@@ -31,6 +31,7 @@ repo root
 | Persona and stakeholder generators | Produce CEO, CIO, CISO, PMO, team, CFO, COO, data, integration, QA, legal, vendor, support, and partner packs. |
 | Commerce generators | Produce Customer & Commerce Experience artifacts for CXP, CRM, Lead Management, Commerce HQ, CSU, POS, POS Offline, Payments, Store Ops, Omnichannel, Loyalty, Pricing, Marketplace, Call Center, and Analytics. |
 | Solo/Master-Orchestrator generators | Produce single-user project operating artifacts, evidence gates, master routing, daily command sheets, tests, sign-off, audit binder, hypercare, and benefits tracking. |
+| Governance/Evidence generators | Produce contract/scope, stakeholder sentiment, evidence vault, cutover rehearsal, reconciliation, license, ALM release, training, ISV exit, country regulatory, archive, hyperautomation, board risk, process twin, and meeting copilot artifacts. |
 | Validator | Runs repository health checks. |
 
 ## Data Flow
@@ -54,6 +55,7 @@ AX exports / code / telemetry
 | Role operating model | Persona-specific decision and execution artifacts for executives, architecture, security, PMO, team, finance, operations, QA, legal, vendors, support, and partners. |
 | Customer & Commerce Experience | CXP, CRM/Dataverse, lead-to-cash, customer master, D365 Commerce, CSU, POS, POS offline, payments, store operations, loyalty, pricing, omnichannel, marketplace, call center, and analytics. |
 | Solo/Master autonomy | A single user can initialize, run, govern, test, gate, communicate, sign off, and track a migration using generated artifacts and master-orchestrator routing. |
+| Autonomous governance | Contract scope, evidence freshness, cutover rehearsals, reconciliation, license cost, release train, training readiness, ISV exit, regulatory countries, archive, hyperautomation, board forecast, process twin, and meetings become controlled artifact flows. |
 
 ## Design Principles
 
@@ -79,3 +81,5 @@ AX exports / code / telemetry
 | `generate_commerce_cutover.py` | Generates Commerce cutover runbooks, store smoke tests, and go-live gates. |
 | `generate_solo_artifacts.py` | Generates Solo/Master-Orchestrator artifacts, gates, tests, status, and sign-off packs. |
 | `run_solo_migration.py` | Runs the solo migration orchestration flow from inputs into a project operating folder. |
+| `governance_pack_common.py` | Shared helper for autonomous governance and evidence intelligence output generation. |
+| `generate_governance_pack.py` | Generates the autonomous governance master pack. |

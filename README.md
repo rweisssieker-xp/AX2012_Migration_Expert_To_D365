@@ -13,12 +13,13 @@ The repository contains a Codex plugin that analyzes AX inventories, X++/XPO/AOT
 - Reduces migration scope by identifying what to migrate, replace, configure, archive, or retire.
 - Analyzes CSV, JSON, X++ source, XPO, and AOT text exports.
 - Produces 46 analyzer outputs including dashboards, risk heatmaps, effort estimates, cost model, ADRs, Azure DevOps CSV, knowledge graph JSON, CEO/CIO/CISO/PM/team persona packs, RAID, RACI, weekly status, and steering committee artifacts.
-- Generates 211 migration project templates.
-- Includes 76 Codex skills: end-to-end migration expert plus executive, architecture, security, PMO, delivery, finance, operations, data, integration, QA, legal, vendor, support, partner sales, regulatory, industry, connector, automation, master-orchestrator, solo-operator, key-user/tester, and Commerce/CXP/CRM/POS skills.
+- Generates 264 migration project templates.
+- Includes 92 Codex skills: end-to-end migration expert plus executive, architecture, security, PMO, delivery, finance, operations, data, integration, QA, legal, vendor, support, partner sales, regulatory, industry, connector, automation, master-orchestrator, solo-operator, key-user/tester, Commerce/CXP/CRM/POS, and autonomous governance/evidence intelligence skills.
 - Exports analysis to Excel and PowerPoint.
 - Provides connector scaffolding for AX SQL, Azure DevOps, LCS, D365FO metadata/OData, and usage telemetry.
 - Adds a Solo/Master-Orchestrator operating model so a single plugin user can generate project control, evidence, gates, daily actions, test plans, sign-off, audit binder, hypercare, and benefits tracking.
 - Adds a dedicated Customer & Commerce Experience domain for CXP, CRM/Dataverse, Lead Management, D365 Commerce, CSU, POS, POS Offline, Payments, Store Operations, Omnichannel, Loyalty, Pricing, Assortment, Marketplace, Call Center, Analytics, and Store Training.
+- Adds an Autonomous Governance & Evidence Intelligence layer for contract/scope guard, stakeholder sentiment, evidence vault, cutover rehearsal, reconciliation judge, license/cost, ALM release, training readiness, ISV exit, country regulatory packs, archive strategy, hyperautomation, board risk, process twin, and meeting copilot.
 
 ## Quick Start
 
@@ -116,12 +117,12 @@ python .\axmigrate.py solo-signoff solo-migration\contoso-ax-migration
 
 | Area | Current state |
 | --- | --- |
-| Skills | 76 Codex skills across migration, roles, testing, solo operation, orchestration, connectors, industry/regulatory, and Commerce/CXP/CRM/POS. |
-| Templates | 211 templates for assessment, delivery, governance, testing, cutover, hypercare, role packs, solo operation, and Commerce. |
-| Scripts | 31 Python scripts including CLI, analyzer, exporters, connectors, validators, Commerce generators, and Solo/Master generators. |
-| Configs | 15 JSON configs including cost model, risks, D365FO knowledge, integrations, Commerce readiness/gates, POS offline, PCI, and CRM lead management maps. |
+| Skills | 92 Codex skills across migration, roles, testing, solo operation, orchestration, connectors, industry/regulatory, Commerce/CXP/CRM/POS, and governance/evidence intelligence. |
+| Templates | 264 templates for assessment, delivery, governance, testing, cutover, hypercare, role packs, solo operation, Commerce, evidence, rehearsal, reconciliation, ALM, training, archive, board risk, and process twin. |
+| Scripts | 49 Python scripts including CLI, analyzer, exporters, connectors, validators, Commerce generators, Solo/Master generators, and governance generators. |
+| Configs | 25 JSON configs including cost model, risks, D365FO knowledge, integrations, Commerce readiness/gates, POS offline, PCI, CRM lead management, evidence, scope, reconciliation, license, ALM, training, country regulatory, and process twin rules. |
 | Analyzer outputs | 46 generated outputs from inventory analysis, including technical, executive, governance, role, dashboard, graph, and backlog artifacts. |
-| AI/KI features | 301 documented feature items, including the 260-feature autonomy expansion and Commerce features 261-300. |
+| AI/KI features | 380 documented feature items, including solo autonomy, Commerce features, and autonomous governance/evidence intelligence. |
 
 ## Documentation
 
@@ -134,6 +135,7 @@ python .\axmigrate.py solo-signoff solo-migration\contoso-ax-migration
 - [Command reference](docs/command-reference.md)
 - [Commerce/CXP/CRM/POS](docs/commerce-cxp-crm-pos.md)
 - [Solo and Master Orchestrator](docs/solo-master-orchestrator.md)
+- [Autonomous Governance & Evidence Intelligence](docs/autonomous-governance-evidence.md)
 - [Plugin usage](plugins/ax-to-d365fo-migration-expert/docs/installation-and-usage.md)
 - [Input format](plugins/ax-to-d365fo-migration-expert/docs/input-inventory-format.md)
 - [AI feature list](plugins/ax-to-d365fo-migration-expert/docs/ai-usp-feature-list.md)

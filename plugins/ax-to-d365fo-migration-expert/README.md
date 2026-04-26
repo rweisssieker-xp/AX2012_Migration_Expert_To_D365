@@ -6,12 +6,12 @@ Codex plugin for AI-powered Microsoft Dynamics AX 4.0, AX 2009, and AX 2012 migr
 
 | Area | Current state |
 | --- | --- |
-| Skills | 76 Codex skills. |
-| Templates | 211 delivery, governance, testing, Commerce, solo, and role templates. |
-| Scripts | 31 Python scripts. |
-| Configs | 15 JSON configuration files. |
+| Skills | 92 Codex skills. |
+| Templates | 264 delivery, governance, testing, Commerce, solo, evidence, rehearsal, reconciliation, ALM, training, board risk, and role templates. |
+| Scripts | 49 Python scripts. |
+| Configs | 25 JSON configuration files. |
 | Analyzer outputs | 46 files from a standard inventory analysis. |
-| AI/KI feature docs | 301 feature entries. |
+| AI/KI feature docs | 380 feature entries. |
 
 ## Included Skills
 
@@ -41,6 +41,7 @@ Codex plugin for AI-powered Microsoft Dynamics AX 4.0, AX 2009, and AX 2012 migr
 - `ax-migration-partner-sales`: discovery, assessment offers, proposals, SOWs, pricing assumptions, and client executive pitch.
 - Commerce/CXP/CRM/POS skill group: CXP, CRM, Lead Management, Commerce HQ, Commerce Scale Unit, POS, POS Offline, Store Operations, Payments, Omnichannel, Loyalty, Pricing, Channel Sync, Retail Hardware, PCI, Customer Master, Call Center, Marketplace, Commerce Analytics, and Store Training.
 - Solo/Master-Orchestrator skill group: solo operator, master orchestrator, AI migration brain, scope defense, waste hunter, prediction, drift detection, stakeholder translation, key-user/UAT/regression testing, process owner validation, test execution, sign-off, evidence gates, audit binder, benefits, hypercare, and war room operation.
+- Autonomous Governance & Evidence Intelligence skill group: contract/scope guard, stakeholder sentiment, evidence vault, cutover rehearsal, reconciliation judge, license cost, ALM release, training readiness, ISV exit, country regulatory, archive strategy, hyperautomation, board risk, process twin, meeting copilot, and governance orchestration.
 
 ## Max AI USP Feature List
 
@@ -174,13 +175,14 @@ See `docs/ai-usp-feature-list.md` for detailed feature behavior, inputs, and out
 
 ## Included Templates
 
-The plugin includes 211 templates. The template library covers:
+The plugin includes 264 templates. The template library covers:
 
 - Core assessment, fit-gap, customization disposition, data migration, integration, testing, cutover, risk, security, ALM, training, business case, and target architecture.
 - AI analysis outputs such as anti-waste, before/after architecture, dependency graph, cost model, quality gates, decision log, evidence confidence, and knowledge graph.
 - Persona and stakeholder outputs for CEO, CIO, CISO, PMO, team, CFO, COO, data, integration, QA, enterprise architecture, vendor, legal, support, partner sales, steering, change, and onboarding.
 - Solo/Master-Orchestrator outputs for project charter, workplan, role substitution, evidence, gates, action queue, migration brain, daily command sheet, war room, hypercare, audit binder, benefits, scope defense, waste hunter, prediction, drift, communication, testing, and sign-off.
 - Commerce/CXP/CRM/POS outputs for CXP journey, CRM, Lead-to-Cash, Customer Master, Commerce HQ, CSU, Channel Sync, POS, POS Offline, Store Operations, POS Hardware, Store Training, Payments, PCI, Omnichannel, Loyalty, Pricing, Assortment, Call Center, Marketplace, Analytics, and Hypercare.
+- Autonomous Governance & Evidence Intelligence outputs for contract/scope risk, change requests, SOW assumptions, stakeholder sentiment, evidence vault, evidence freshness, go-live evidence gaps, cutover rehearsals, reconciliation, license cost, ALM release, training readiness, ISV exit, regulatory countries, archive strategy, hyperautomation, board risk, process twins, and meeting-to-backlog control.
 
 ## Helper Script
 
@@ -316,12 +318,26 @@ python plugins/ax-to-d365fo-migration-expert/scripts/migration_cli.py solo-test-
 python plugins/ax-to-d365fo-migration-expert/scripts/migration_cli.py solo-signoff solo-migration/contoso-ax-migration
 ```
 
+Generate autonomous governance and evidence intelligence:
+
+```bash
+python plugins/ax-to-d365fo-migration-expert/scripts/migration_cli.py governance-pack migration-analysis/contoso --output governance-packs/contoso
+python plugins/ax-to-d365fo-migration-expert/scripts/migration_cli.py evidence-vault migration-analysis/contoso --output evidence-vault/contoso
+python plugins/ax-to-d365fo-migration-expert/scripts/migration_cli.py scope-guard migration-analysis/contoso --output scope-guard/contoso
+python plugins/ax-to-d365fo-migration-expert/scripts/migration_cli.py cutover-rehearsal migration-analysis/contoso --output cutover-rehearsal/contoso
+python plugins/ax-to-d365fo-migration-expert/scripts/migration_cli.py reconciliation-judge migration-analysis/contoso --output reconciliation/contoso
+python plugins/ax-to-d365fo-migration-expert/scripts/migration_cli.py board-risk migration-analysis/contoso --output board-risk/contoso
+python plugins/ax-to-d365fo-migration-expert/scripts/migration_cli.py process-twin migration-analysis/contoso --output process-twin/contoso
+python plugins/ax-to-d365fo-migration-expert/scripts/migration_cli.py meeting-copilot migration-analysis/contoso --output meeting-copilot/contoso
+```
+
 ## Main Documentation
 
 - Repository docs: `docs/README.md`
 - Command reference: `docs/command-reference.md`
 - Commerce/CXP/CRM/POS domain: `docs/commerce-cxp-crm-pos.md`
 - Solo/Master-Orchestrator: `docs/solo-master-orchestrator.md`
+- Autonomous Governance & Evidence Intelligence: `docs/autonomous-governance-evidence.md`
 - Installation and usage: `docs/installation-and-usage.md`
 - Input format: `docs/input-inventory-format.md`
 - AI/KI USP feature list: `docs/ai-usp-feature-list.md`

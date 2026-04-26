@@ -43,6 +43,10 @@ The plugin is designed to support a solo operator with generated plans, role sub
 
 Yes. The Customer & Commerce Experience domain covers CXP, CRM/Dataverse, Lead Management, D365 Commerce HQ, Commerce Scale Unit, Channel DB, POS, POS Offline, Payments/PCI, Store Operations, Loyalty, Pricing, Assortment, Omnichannel, Marketplace, Call Center, Analytics, and Store Training.
 
+## Does it cover governance beyond technical migration?
+
+Yes. The Autonomous Governance & Evidence Intelligence layer covers contract/scope guardrails, stakeholder sentiment, evidence vault, cutover rehearsal, reconciliation judge, license/cost optimization, ALM release train, training readiness, ISV exit, country regulatory packs, archive strategy, hyperautomation, board risk forecast, process twin, and meeting copilot outputs.
+
 ## When is Commerce go-live blocked?
 
 Commerce go-live is blocked when critical evidence is missing for CSU readiness, POS Offline readiness where offline is required, Payments/PCI, Store Smoke Tests, Channel Data Sync, Offline Recovery, Payment Reconciliation, Commerce Security/PCI, Customer Master Harmonization, or Lead-to-Cash Traceability.

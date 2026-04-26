@@ -49,8 +49,8 @@ def main() -> int:
     for path in [ROOT / ".codex-plugin" / "plugin.json", *list((ROOT / "config").glob("*.json"))]:
         assert_json(path)
     skill_files = sorted((ROOT / "skills").glob("*/SKILL.md"))
-    if len(skill_files) != 76:
-        raise SystemExit(f"Expected 76 skills, got {len(skill_files)}")
+    if len(skill_files) != 92:
+        raise SystemExit(f"Expected 92 skills, got {len(skill_files)}")
     for path in skill_files:
         assert_skill(path)
 
@@ -78,6 +78,24 @@ def main() -> int:
             temp_root / "solo_test_plan",
             temp_root / "solo_signoff",
         ]
+        governance_outputs = [
+            temp_root / "governance_pack",
+            temp_root / "evidence_vault",
+            temp_root / "scope_guard",
+            temp_root / "contract_risk",
+            temp_root / "cutover_rehearsal",
+            temp_root / "reconciliation_judge",
+            temp_root / "license_cost",
+            temp_root / "alm_release",
+            temp_root / "training_readiness",
+            temp_root / "isv_exit",
+            temp_root / "country_regulatory",
+            temp_root / "archive_strategy",
+            temp_root / "hyperautomation",
+            temp_root / "board_risk",
+            temp_root / "process_twin",
+            temp_root / "meeting_copilot",
+        ]
         run([sys.executable, str(ROOT / "scripts" / "analyze_ax_inventory.py"), str(ROOT / "examples" / "sample-ax-inventory.csv"), str(ROOT / "examples" / "sample-xpp-class.xpp"), "--output", str(analysis)])
         run([sys.executable, str(ROOT / "scripts" / "create_migration_workspace.py"), "Validation", "--output", str(workspace)])
         for script, output in [
@@ -101,13 +119,32 @@ def main() -> int:
             ("signoff", solo_outputs[4]),
         ]:
             run([sys.executable, str(ROOT / "scripts" / "generate_solo_artifacts.py"), str(solo_run), "--mode", mode, "--output", str(output)])
+        for script, output in [
+            ("generate_governance_pack.py", governance_outputs[0]),
+            ("generate_evidence_vault.py", governance_outputs[1]),
+            ("generate_scope_guard.py", governance_outputs[2]),
+            ("generate_contract_risk.py", governance_outputs[3]),
+            ("generate_cutover_rehearsal.py", governance_outputs[4]),
+            ("generate_reconciliation_judge.py", governance_outputs[5]),
+            ("generate_license_cost.py", governance_outputs[6]),
+            ("generate_alm_release.py", governance_outputs[7]),
+            ("generate_training_readiness.py", governance_outputs[8]),
+            ("generate_isv_exit.py", governance_outputs[9]),
+            ("generate_country_regulatory_pack.py", governance_outputs[10]),
+            ("generate_archive_strategy.py", governance_outputs[11]),
+            ("generate_hyperautomation_pack.py", governance_outputs[12]),
+            ("generate_board_risk.py", governance_outputs[13]),
+            ("generate_process_twin.py", governance_outputs[14]),
+            ("generate_meeting_copilot.py", governance_outputs[15]),
+        ]:
+            run([sys.executable, str(ROOT / "scripts" / script), str(analysis), "--output", str(output)])
 
         report_count = len(list(analysis.glob("*")))
         template_count = len(list((workspace / "validation").glob("*.md")))
         if report_count != 46:
             raise SystemExit(f"Expected 46 analysis outputs, got {report_count}")
-        if template_count != 211:
-            raise SystemExit(f"Expected 211 templates, got {template_count}")
+        if template_count != 264:
+            raise SystemExit(f"Expected 264 templates, got {template_count}")
         if not (commerce_outputs[0] / "commerce-master-pack.md").exists():
             raise SystemExit("Commerce pack did not generate commerce-master-pack.md")
         if not (commerce_outputs[1] / "commerce-readiness.json").exists():
@@ -122,6 +159,16 @@ def main() -> int:
             raise SystemExit("Solo status did not generate migration-health-score.md")
         if not (solo_outputs[3] / "uat-test-execution-pack.md").exists():
             raise SystemExit("Solo test plan did not generate uat-test-execution-pack.md")
+        if not (governance_outputs[0] / "autonomous-governance-master-pack.md").exists():
+            raise SystemExit("Governance pack did not generate autonomous-governance-master-pack.md")
+        if not (governance_outputs[1] / "migration-evidence-vault-index.md").exists():
+            raise SystemExit("Evidence vault did not generate migration-evidence-vault-index.md")
+        if not (governance_outputs[4] / "cutover-rehearsal-scorecard.md").exists():
+            raise SystemExit("Cutover rehearsal did not generate cutover-rehearsal-scorecard.md")
+        if not (governance_outputs[5] / "finance-reconciliation-judge.md").exists():
+            raise SystemExit("Reconciliation judge did not generate finance-reconciliation-judge.md")
+        if not (governance_outputs[13] / "board-risk-forecast.md").exists():
+            raise SystemExit("Board risk did not generate board-risk-forecast.md")
 
     todo_hits = []
     for path in [*ROOT.rglob("*"), ROOT.parents[1] / ".agents" / "plugins" / "marketplace.json"]:

@@ -83,6 +83,29 @@ def main() -> int:
         commerce.add_argument("analysis_dir")
         commerce.add_argument("--output", default=default_output)
 
+    governance_commands = {
+        "governance-pack": ("generate_governance_pack.py", "Generate autonomous governance master pack.", "governance-packs"),
+        "evidence-vault": ("generate_evidence_vault.py", "Generate migration evidence vault.", "evidence-vault"),
+        "scope-guard": ("generate_scope_guard.py", "Generate scope guard outputs.", "scope-guard"),
+        "contract-risk": ("generate_contract_risk.py", "Generate contract and commercial risk outputs.", "contract-risk"),
+        "cutover-rehearsal": ("generate_cutover_rehearsal.py", "Generate cutover rehearsal outputs.", "cutover-rehearsal"),
+        "reconciliation-judge": ("generate_reconciliation_judge.py", "Generate reconciliation judge outputs.", "reconciliation-judge"),
+        "license-cost": ("generate_license_cost.py", "Generate license and cost optimization outputs.", "license-cost"),
+        "alm-release": ("generate_alm_release.py", "Generate ALM and release train outputs.", "alm-release"),
+        "training-readiness": ("generate_training_readiness.py", "Generate training readiness outputs.", "training-readiness"),
+        "isv-exit": ("generate_isv_exit.py", "Generate ISV exit strategy outputs.", "isv-exit"),
+        "country-regulatory-pack": ("generate_country_regulatory_pack.py", "Generate country regulatory pack.", "country-regulatory"),
+        "archive-strategy": ("generate_archive_strategy.py", "Generate legacy archive strategy.", "archive-strategy"),
+        "hyperautomation-pack": ("generate_hyperautomation_pack.py", "Generate hyperautomation pack.", "hyperautomation-pack"),
+        "board-risk": ("generate_board_risk.py", "Generate board risk forecast.", "board-risk"),
+        "process-twin": ("generate_process_twin.py", "Generate end-to-end process twin.", "process-twin"),
+        "meeting-copilot": ("generate_meeting_copilot.py", "Generate meeting copilot outputs.", "meeting-copilot"),
+    }
+    for command, (_, help_text, default_output) in governance_commands.items():
+        governance = sub.add_parser(command, help=help_text)
+        governance.add_argument("source")
+        governance.add_argument("--output", default=default_output)
+
     solo_init = sub.add_parser("solo-init", help="Create a solo migration project operating folder.")
     solo_init.add_argument("project")
     solo_init.add_argument("--output", default="solo-migration")
@@ -184,6 +207,9 @@ def main() -> int:
     if args.command in commerce_commands:
         script, _, _ = commerce_commands[args.command]
         return run(script, [args.analysis_dir, "--output", args.output])
+    if args.command in governance_commands:
+        script, _, _ = governance_commands[args.command]
+        return run(script, [args.source, "--output", args.output])
     if args.command == "solo-init":
         return run("create_solo_project.py", [args.project, "--output", args.output])
     if args.command == "solo-run":
@@ -308,6 +334,14 @@ Generate Commerce readiness:
 Generate Commerce cutover and offline packs:
   python axmigrate.py commerce-cutover migration-analysis/sample --output commerce-cutover/sample
   python axmigrate.py commerce-offline-check migration-analysis/sample --output commerce-offline/sample
+
+Generate autonomous governance and evidence intelligence:
+  python axmigrate.py governance-pack migration-analysis/sample --output governance-packs/sample
+  python axmigrate.py evidence-vault migration-analysis/sample --output evidence-vault/sample
+  python axmigrate.py scope-guard migration-analysis/sample --output scope-guard/sample
+  python axmigrate.py cutover-rehearsal migration-analysis/sample --output cutover-rehearsal/sample
+  python axmigrate.py reconciliation-judge migration-analysis/sample --output reconciliation/sample
+  python axmigrate.py board-risk migration-analysis/sample --output board-risk/sample
 
 Run solo migration operating system:
   python axmigrate.py solo-run --project "Contoso AX Migration" --input plugins/ax-to-d365fo-migration-expert/examples/sample-ax-inventory.csv --output solo-migration

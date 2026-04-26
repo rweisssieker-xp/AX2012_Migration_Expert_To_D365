@@ -154,6 +154,29 @@ python .\axmigrate.py solo-signoff solo-migration\contoso-ax-migration
 
 The Solo/Master layer supports a single user with project operating artifacts, evidence completeness, self-approval gates, external approval packs, master routing, daily actions, scope defense, waste hunting, predictions, stakeholder communication, test planning, test status, sign-off, audit binder, benefits tracking, cutover, and hypercare.
 
+## Autonomous Governance & Evidence Intelligence Packs
+
+```powershell
+python .\axmigrate.py governance-pack migration-analysis\contoso --output governance-packs\contoso
+python .\axmigrate.py evidence-vault migration-analysis\contoso --output evidence-vault\contoso
+python .\axmigrate.py scope-guard migration-analysis\contoso --output scope-guard\contoso
+python .\axmigrate.py contract-risk migration-analysis\contoso --output contract-risk\contoso
+python .\axmigrate.py cutover-rehearsal migration-analysis\contoso --output cutover-rehearsal\contoso
+python .\axmigrate.py reconciliation-judge migration-analysis\contoso --output reconciliation\contoso
+python .\axmigrate.py license-cost migration-analysis\contoso --output license-cost\contoso
+python .\axmigrate.py alm-release migration-analysis\contoso --output alm-release\contoso
+python .\axmigrate.py training-readiness migration-analysis\contoso --output training-readiness\contoso
+python .\axmigrate.py isv-exit migration-analysis\contoso --output isv-exit\contoso
+python .\axmigrate.py country-regulatory-pack migration-analysis\contoso --output country-regulatory\contoso
+python .\axmigrate.py archive-strategy migration-analysis\contoso --output archive-strategy\contoso
+python .\axmigrate.py hyperautomation-pack migration-analysis\contoso --output hyperautomation\contoso
+python .\axmigrate.py board-risk migration-analysis\contoso --output board-risk\contoso
+python .\axmigrate.py process-twin migration-analysis\contoso --output process-twin\contoso
+python .\axmigrate.py meeting-copilot migration-analysis\contoso --output meeting-copilot\contoso
+```
+
+These commands convert the same migration evidence into contract/scope control, evidence vaults, cutover rehearsal proof, reconciliation sign-off, license cost optimization, ALM release gates, training readiness, ISV exit, country regulatory packs, archive strategy, hyperautomation backlog, board risk forecast, process twin traceability, and meeting-to-backlog actions.
+
 ## Configuration
 
 Adjust these files to fit your delivery model:
@@ -171,6 +194,16 @@ Adjust these files to fit your delivery model:
 - `config/pos-offline-risk-rules.json`
 - `config/payment-pci-risk-rules.json`
 - `config/crm-lead-management-map.json`
+- `config/governance-role-skill-map.json`
+- `config/governance-synonyms.json`
+- `config/evidence-vault-rules.json`
+- `config/contract-scope-risk-rules.json`
+- `config/reconciliation-rules.json`
+- `config/license-cost-rules.json`
+- `config/alm-release-rules.json`
+- `config/training-effectiveness-rules.json`
+- `config/country-regulatory-rules.json`
+- `config/process-twin-rules.json`
 
 ## Tests
 

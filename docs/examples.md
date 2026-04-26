@@ -87,3 +87,16 @@ python .\axmigrate.py solo-status solo-migration\contoso-ax-migration
 python .\axmigrate.py solo-test-plan solo-migration\contoso-ax-migration
 python .\axmigrate.py solo-signoff solo-migration\contoso-ax-migration
 ```
+
+## Generate Autonomous Governance Packs
+
+```powershell
+python .\axmigrate.py governance-pack migration-analysis\sample --output governance-packs\sample
+python .\axmigrate.py evidence-vault migration-analysis\sample --output evidence-vault\sample
+python .\axmigrate.py scope-guard migration-analysis\sample --output scope-guard\sample
+python .\axmigrate.py cutover-rehearsal migration-analysis\sample --output cutover-rehearsal\sample
+python .\axmigrate.py reconciliation-judge migration-analysis\sample --output reconciliation\sample
+python .\axmigrate.py board-risk migration-analysis\sample --output board-risk\sample
+python .\axmigrate.py process-twin migration-analysis\sample --output process-twin\sample
+python .\axmigrate.py meeting-copilot migration-analysis\sample --output meeting-copilot\sample
+```
