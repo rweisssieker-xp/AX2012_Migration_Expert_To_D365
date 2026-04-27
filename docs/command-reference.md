@@ -111,12 +111,15 @@ python .\axmigrate.py <command> [options]
 | `value-realization` | Run the `value-realization` migration automation command. |
 | `continuous-improvement` | Run the `continuous-improvement` migration automation command. |
 
-## Automation, Gates, Demos, Connectors
+## Automation, Gates, Demos, UI, Security, Connectors
 
 | Command | Purpose |
 | --- | --- |
 | `orchestrate` | Analyze input, select skills, detect missing evidence, and propose next CLI commands. |
 | `evidence-gates` | Create go-live gate questionnaire and Ready/Needs control/Blocked result. |
+| `memory-store` | Persist migration memory into local SQLite and JSONL files. |
+| `security-scan` | Scan files for secrets, connection strings, and common PII patterns. |
+| `project-ui` | Generate a local HTML command UI for wizard, gates, router, memory, and security commands. |
 | `wizard` | Ask for or accept a project profile and generate a tailored execution plan. |
 | `demo-projects` | Generate ready-to-open demo projects and dashboards. |
 | `ax-sql` | Run the `ax-sql` migration automation command. |

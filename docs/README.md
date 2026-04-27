@@ -29,10 +29,10 @@
 | --- | ---: |
 | Skills | 112 |
 | Templates | 325 |
-| Python scripts | 72 |
+| Python scripts | 75 |
 | Config JSON files | 35 |
 | Analyzer outputs | 46 |
-| AI/KI features | 500 |
+| AI/KI features | 530 |
 
 ## Implemented USP Layer
 

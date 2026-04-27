@@ -4,6 +4,7 @@
 from __future__ import annotations
 
 import csv
+import hashlib
 import json
 import re
 from pathlib import Path
@@ -141,6 +142,74 @@ def write_outputs(source: Path, output: Path, mode: str) -> None:
         writer.writerow(["Domain", "Score", "Status"])
         for domain, item in scores.items():
             writer.writerow([domain, item["score"], item["status"]])
+    if mode == "evidence-vault":
+        write_evidence_manifest(source, output)
+
+
+def evidence_files(source: Path) -> list[Path]:
+    if source.is_file():
+        return [source]
+    if not source.exists():
+        return []
+    suffixes = {".md", ".json", ".csv", ".txt", ".xpp", ".xpo", ".xlsx", ".pptx", ".pdf", ".docx"}
+    return sorted(path for path in source.rglob("*") if path.is_file() and path.suffix.lower() in suffixes)
+
+
+def sha256(path: Path) -> str:
+    digest = hashlib.sha256()
+    with path.open("rb") as handle:
+        for block in iter(lambda: handle.read(1024 * 1024), b""):
+            digest.update(block)
+    return digest.hexdigest()
+
+
+def write_evidence_manifest(source: Path, output: Path) -> None:
+    rows = []
+    hash_lines = []
+    for path in evidence_files(source):
+        try:
+            file_hash = sha256(path)
+        except OSError:
+            continue
+        item = {
+            "path": str(path),
+            "name": path.name,
+            "size_bytes": path.stat().st_size,
+            "sha256": file_hash,
+            "gate": classify_evidence_gate(path),
+            "owner": classify_evidence_owner(path),
+        }
+        rows.append(item)
+        hash_lines.append(f"{file_hash}  {path}")
+    (output / "evidence-manifest.json").write_text(json.dumps(rows, indent=2), encoding="utf-8")
+    with (output / "evidence-manifest.csv").open("w", encoding="utf-8", newline="") as handle:
+        writer = csv.DictWriter(handle, fieldnames=["path", "name", "size_bytes", "sha256", "gate", "owner"])
+        writer.writeheader()
+        writer.writerows(rows)
+    (output / "evidence-hashes.sha256").write_text("\n".join(hash_lines) + ("\n" if hash_lines else ""), encoding="utf-8")
+
+
+def classify_evidence_gate(path: Path) -> str:
+    text = path.name.lower()
+    if any(word in text for word in ["ciso", "security", "pci", "attack"]):
+        return "Security/CISO"
+    if any(word in text for word in ["reconciliation", "finance", "ledger", "inventory"]):
+        return "Finance reconciliation"
+    if any(word in text for word in ["cutover", "smoke", "rollback", "rehearsal"]):
+        return "Cutover"
+    if any(word in text for word in ["uat", "test", "quality"]):
+        return "UAT/Test"
+    return "General evidence"
+
+
+def classify_evidence_owner(path: Path) -> str:
+    gate = classify_evidence_gate(path)
+    return {
+        "Security/CISO": "CISO",
+        "Finance reconciliation": "Finance owner",
+        "Cutover": "Cutover lead",
+        "UAT/Test": "QA/Test lead",
+    }.get(gate, "PMO")
 
 
 def run_cli(mode: str, description: str) -> int:

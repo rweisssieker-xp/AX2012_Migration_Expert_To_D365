@@ -191,9 +191,13 @@ python .\axmigrate.py orchestrate migration-analysis\contoso --output orchestrat
 python .\axmigrate.py evidence-gates migration-analysis\contoso --ciso-approval yes --cutover-rehearsal yes --finance-reconciliation yes --uat-signoff yes --rollback-plan yes --output evidence-gates\contoso
 python .\axmigrate.py wizard --profile multi-country --project "Contoso Global Rollout" --output migration-wizard\global
 python .\axmigrate.py demo-projects --output demo-projects
+python .\axmigrate.py memory-store migration-analysis\contoso --project "Contoso AX Migration" --output migration-memory-store\contoso
+python .\axmigrate.py security-scan migration-analysis\contoso --output security-scan\contoso
+python .\axmigrate.py project-ui --output migration-ui
 ```
 
 The router analyzes text, analysis folders, or project folders, selects the matching skills, lists missing evidence, and writes `next-commands.ps1`. The evidence gate command produces Ready, Needs control, or Blocked results while keeping real CISO, legal, finance, audit, payment/PCI, and production approvals external.
+The memory store persists reusable project signals into local SQLite and JSONL files. The security scanner flags secrets, connection strings, email addresses, IBANs, and card-like values with redacted samples. The project UI creates a local `project-wizard.html` page with copy-ready commands.
 
 ## Migration Intelligence Fabric
 

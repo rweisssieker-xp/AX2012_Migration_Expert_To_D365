@@ -139,6 +139,19 @@ def main() -> int:
     for gate_name in ["ciso-approval", "cutover-rehearsal", "finance-reconciliation", "uat-signoff", "commerce-payments", "rollback-plan"]:
         gates.add_argument(f"--{gate_name}", choices=["yes", "no"], default="no")
 
+    memory_store = sub.add_parser("memory-store", help="Persist migration memory into local SQLite and JSONL files.")
+    memory_store.add_argument("source")
+    memory_store.add_argument("--project", default="Migration Project")
+    memory_store.add_argument("--output", default="migration-memory-store")
+
+    security_scan = sub.add_parser("security-scan", help="Scan files for secrets, connection strings, and common PII patterns.")
+    security_scan.add_argument("source")
+    security_scan.add_argument("--output", default="security-scan")
+    security_scan.add_argument("--fail-on-findings", action="store_true")
+
+    project_ui = sub.add_parser("project-ui", help="Generate local HTML UI for wizard, gates, router, memory, and security commands.")
+    project_ui.add_argument("--output", default="migration-ui")
+
     solo_init = sub.add_parser("solo-init", help="Create a solo migration project operating folder.")
     solo_init.add_argument("project")
     solo_init.add_argument("--output", default="solo-migration")
@@ -261,6 +274,15 @@ def main() -> int:
         for gate_name in ["ciso_approval", "cutover_rehearsal", "finance_reconciliation", "uat_signoff", "commerce_payments", "rollback_plan"]:
             cmd += [f"--{gate_name.replace('_', '-')}", getattr(args, gate_name)]
         return run("evaluate_evidence_gates.py", cmd)
+    if args.command == "memory-store":
+        return run("update_migration_memory_store.py", [args.source, "--project", args.project, "--output", args.output])
+    if args.command == "security-scan":
+        cmd = [args.source, "--output", args.output]
+        if args.fail_on_findings:
+            cmd += ["--fail-on-findings"]
+        return run("scan_sensitive_data.py", cmd)
+    if args.command == "project-ui":
+        return run("create_project_ui.py", ["--output", args.output])
     if args.command == "solo-init":
         return run("create_solo_project.py", [args.project, "--output", args.output])
     if args.command == "solo-run":

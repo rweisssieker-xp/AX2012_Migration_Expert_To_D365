@@ -19,7 +19,7 @@ COMMAND_GROUPS = {
     "Solo/Master Orchestrator": ["solo-init", "solo-run", "solo-evidence", "solo-status", "solo-gates", "solo-daily", "solo-war-room", "solo-hypercare", "solo-audit-binder", "solo-benefits", "solo-orchestrate", "solo-brain", "solo-next", "solo-simulate", "solo-scope-defense", "solo-waste-hunter", "solo-predict", "solo-translate", "solo-drift", "solo-communicate", "solo-test-plan", "solo-test-status", "solo-signoff"],
     "Autonomous Governance & Evidence": ["governance-pack", "evidence-vault", "scope-guard", "contract-risk", "cutover-rehearsal", "reconciliation-judge", "license-cost", "alm-release", "training-readiness", "isv-exit", "country-regulatory-pack", "archive-strategy", "hyperautomation-pack", "board-risk", "process-twin", "meeting-copilot"],
     "Migration Intelligence Fabric": ["intelligence-pack", "migration-memory", "benchmark", "portfolio-control", "scenario-lab", "quality-audit", "debt-liquidator", "fabric-advisor", "integration-resilience", "attack-surface", "sustainability", "pmo-negotiator", "knowledge-transfer-exam", "war-game", "value-realization", "continuous-improvement"],
-    "Automation, Gates, Demos, Connectors": ["orchestrate", "evidence-gates", "wizard", "demo-projects", "ax-sql", "push-ado", "fetch-lcs", "fetch-d365fo", "usage-telemetry", "validate", "doctor", "examples"],
+    "Automation, Gates, Demos, UI, Security, Connectors": ["orchestrate", "evidence-gates", "memory-store", "security-scan", "project-ui", "wizard", "demo-projects", "ax-sql", "push-ado", "fetch-lcs", "fetch-d365fo", "usage-telemetry", "validate", "doctor", "examples"],
 }
 
 PURPOSES = {
@@ -27,6 +27,9 @@ PURPOSES = {
     "evidence-gates": "Create go-live gate questionnaire and Ready/Needs control/Blocked result.",
     "wizard": "Ask for or accept a project profile and generate a tailored execution plan.",
     "demo-projects": "Generate ready-to-open demo projects and dashboards.",
+    "memory-store": "Persist migration memory into local SQLite and JSONL files.",
+    "security-scan": "Scan files for secrets, connection strings, and common PII patterns.",
+    "project-ui": "Generate a local HTML command UI for wizard, gates, router, memory, and security commands.",
 }
 
 FEATURE_381_500 = [
@@ -59,6 +62,19 @@ FEATURE_381_500 = [
     "AI Release ZIP Builder", "AI GitHub Actions Validation Gate", "AI Quickstart Experience", "AI Install Experience",
     "AI Distribution Readiness Pack", "AI Dashboard Demo Launcher", "AI Project Alone Mode", "AI Role Substitution Advisor",
     "AI Project Autopilot Control Board", "AI End-to-End Migration Autonomy Score", "AI Executive Truth Source", "AI Plugin Completeness Gate",
+]
+
+FEATURE_501_530 = [
+    "AI Persistent Migration Memory Store", "AI SQLite Lessons Learned Ledger", "AI JSONL Migration Memory Export",
+    "AI Evidence Vault Manifest", "AI Evidence SHA256 Chain", "AI Evidence Owner Classifier",
+    "AI Evidence Gate Classifier", "AI Security Secret Scanner", "AI PII Pattern Detector",
+    "AI Connection String Guard", "AI Redacted Finding Report", "AI Security Scan CSV Export",
+    "AI Local Project Wizard UI", "AI Local Command Center UI", "AI Copy-Ready Command Builder",
+    "AI Demo Index Portal", "AI Dashboard Showcase Launcher", "AI Evidence Vault Hash Workbook Source",
+    "AI Offline Product Demo Mode", "AI Local Audit Trail Pack", "AI Memory Signal Classifier",
+    "AI Cross-Project Reuse Signal", "AI Command UI Evidence Flow", "AI Security Gate Smoke Test",
+    "AI Memory Store Smoke Test", "AI UI Generation Smoke Test", "AI Demo Index Smoke Test",
+    "AI Evidence Manifest Validator", "AI Enterprise Distribution Hardening", "AI Product Readiness Extension Gate",
 ]
 
 
@@ -182,12 +198,17 @@ def extend_features() -> None:
     path = ROOT / "docs" / "ai-usp-feature-list.md"
     text = path.read_text(encoding="utf-8")
     existing = {int(num) for num in re.findall(r"## Feature (\d+):", text)}
-    if all(num in existing for num in range(381, 501)):
+    if all(num in existing for num in range(381, 531)):
         return
     additions = []
     for idx, title in enumerate(FEATURE_381_500, start=381):
-        additions.append(f"## Feature {idx}: {title}\n\n{title} adds automated, evidence-backed migration control for the plugin, skills, dashboards, gates, demos, exports, validation, or Migration Intelligence Fabric.\n")
-    path.write_text(text.rstrip() + "\n\n" + "\n".join(additions), encoding="utf-8")
+        if idx not in existing:
+            additions.append(f"## Feature {idx}: {title}\n\n{title} adds automated, evidence-backed migration control for the plugin, skills, dashboards, gates, demos, exports, validation, or Migration Intelligence Fabric.\n")
+    for idx, title in enumerate(FEATURE_501_530, start=501):
+        if idx not in existing:
+            additions.append(f"## Feature {idx}: {title}\n\n{title} adds product-readiness automation for local memory, evidence vault integrity, UI, demo showcase, security scanning, or enterprise distribution hardening.\n")
+    if additions:
+        path.write_text(text.rstrip() + "\n\n" + "\n".join(additions), encoding="utf-8")
 
 
 def main() -> int:

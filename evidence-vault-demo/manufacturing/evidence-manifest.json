@@ -1,0 +1,362 @@
+[
+  {
+    "path": "demo-projects\\manufacturing\\analysis\\ai-adrs.md",
+    "name": "ai-adrs.md",
+    "size_bytes": 539,
+    "sha256": "dd9d82b07322e7a382b47b71bdceb10277274d9ac60b37d317d141acb31207d4",
+    "gate": "General evidence",
+    "owner": "PMO"
+  },
+  {
+    "path": "demo-projects\\manufacturing\\analysis\\ai-analysis-summary.md",
+    "name": "ai-analysis-summary.md",
+    "size_bytes": 368,
+    "sha256": "4f1d9f388eb33dabcaf1b78e893885f365bded2302362f54529883490d97a4a1",
+    "gate": "General evidence",
+    "owner": "PMO"
+  },
+  {
+    "path": "demo-projects\\manufacturing\\analysis\\ai-anti-waste-score.md",
+    "name": "ai-anti-waste-score.md",
+    "size_bytes": 366,
+    "sha256": "cfcca4813b03f0487944c7e8d866465dc08c716d8535d5b3fd6c7a0e93703549",
+    "gate": "General evidence",
+    "owner": "PMO"
+  },
+  {
+    "path": "demo-projects\\manufacturing\\analysis\\ai-azure-devops-work-items.csv",
+    "name": "ai-azure-devops-work-items.csv",
+    "size_bytes": 1120,
+    "sha256": "8b5346e4ac375cac2d902adc2cde2ef9c64040820388b25d451409f3636d9ef5",
+    "gate": "General evidence",
+    "owner": "PMO"
+  },
+  {
+    "path": "demo-projects\\manufacturing\\analysis\\ai-before-after-architecture.md",
+    "name": "ai-before-after-architecture.md",
+    "size_bytes": 711,
+    "sha256": "41dff24d2dfd4d35110d4ffa9679cc30e86d0674ebe04a3988a2ccc6fe306171",
+    "gate": "General evidence",
+    "owner": "PMO"
+  },
+  {
+    "path": "demo-projects\\manufacturing\\analysis\\ai-command-center-dashboard.md",
+    "name": "ai-command-center-dashboard.md",
+    "size_bytes": 965,
+    "sha256": "efa8589abca1ea6475793acbee20294692ab49dbe31b36fc977c2cb10aeb0cf1",
+    "gate": "General evidence",
+    "owner": "PMO"
+  },
+  {
+    "path": "demo-projects\\manufacturing\\analysis\\ai-cost-model.md",
+    "name": "ai-cost-model.md",
+    "size_bytes": 214,
+    "sha256": "3cff3a6f62b59295c10e640cef7c305e671c5e6eec828eb48e919b5d218e1147",
+    "gate": "General evidence",
+    "owner": "PMO"
+  },
+  {
+    "path": "demo-projects\\manufacturing\\analysis\\ai-customization-disposition.md",
+    "name": "ai-customization-disposition.md",
+    "size_bytes": 1146,
+    "sha256": "51d44012a972667381a93a4a7fd347a8816f4870077ae2b13158373742615f73",
+    "gate": "General evidence",
+    "owner": "PMO"
+  },
+  {
+    "path": "demo-projects\\manufacturing\\analysis\\ai-data-entity-mapping.md",
+    "name": "ai-data-entity-mapping.md",
+    "size_bytes": 582,
+    "sha256": "6b49ab415f54f59d378c40c0a6d8d7f33762dc7fb9777046a5127763338cba98",
+    "gate": "General evidence",
+    "owner": "PMO"
+  },
+  {
+    "path": "demo-projects\\manufacturing\\analysis\\ai-data-quality-checks.md",
+    "name": "ai-data-quality-checks.md",
+    "size_bytes": 252,
+    "sha256": "6b1f54db2c2200cd64e160c300d74ab91921db2925fe31274359ba5debfdaa69",
+    "gate": "UAT/Test",
+    "owner": "QA/Test lead"
+  },
+  {
+    "path": "demo-projects\\manufacturing\\analysis\\ai-decision-log.md",
+    "name": "ai-decision-log.md",
+    "size_bytes": 772,
+    "sha256": "e3a283ba782753411818ff56b5e594b5ded3a925d0c2408d0259cc1581420742",
+    "gate": "General evidence",
+    "owner": "PMO"
+  },
+  {
+    "path": "demo-projects\\manufacturing\\analysis\\ai-dependency-graph.md",
+    "name": "ai-dependency-graph.md",
+    "size_bytes": 1268,
+    "sha256": "130ffeac25e196fa365253028e6d5e6618144dff2579ef513b1cf6a76ecaae2d",
+    "gate": "General evidence",
+    "owner": "PMO"
+  },
+  {
+    "path": "demo-projects\\manufacturing\\analysis\\ai-do-not-migrate-report.md",
+    "name": "ai-do-not-migrate-report.md",
+    "size_bytes": 343,
+    "sha256": "ea5a5b315b38edb8b16217fce79dfcf72874bfc19d5817a976a45aedd0ff9867",
+    "gate": "General evidence",
+    "owner": "PMO"
+  },
+  {
+    "path": "demo-projects\\manufacturing\\analysis\\ai-effort-estimate.md",
+    "name": "ai-effort-estimate.md",
+    "size_bytes": 304,
+    "sha256": "90ee25f04ea8dbf90dca4db785c1fc841a183e1ad31df429a42d96b23f2725f6",
+    "gate": "General evidence",
+    "owner": "PMO"
+  },
+  {
+    "path": "demo-projects\\manufacturing\\analysis\\ai-evidence-confidence.md",
+    "name": "ai-evidence-confidence.md",
+    "size_bytes": 681,
+    "sha256": "266535d137c735030f247c144afa39ada7090b845c115c1f463352b2a9b4df33",
+    "gate": "General evidence",
+    "owner": "PMO"
+  },
+  {
+    "path": "demo-projects\\manufacturing\\analysis\\ai-executive-briefing.md",
+    "name": "ai-executive-briefing.md",
+    "size_bytes": 1166,
+    "sha256": "ffa55290d64184af636b9f125d1310f722775371dccaf982bfd5b3f0addcf3d8",
+    "gate": "General evidence",
+    "owner": "PMO"
+  },
+  {
+    "path": "demo-projects\\manufacturing\\analysis\\ai-executive-stories.md",
+    "name": "ai-executive-stories.md",
+    "size_bytes": 885,
+    "sha256": "75c5a0597cd19c6bc79aa5fd41f6394a505a4ce0ce69bf44f8dcce4cb4036773",
+    "gate": "General evidence",
+    "owner": "PMO"
+  },
+  {
+    "path": "demo-projects\\manufacturing\\analysis\\ai-migration-backlog.md",
+    "name": "ai-migration-backlog.md",
+    "size_bytes": 1172,
+    "sha256": "8f0e87f470827da2818f4ae7596832b8d055731008204cbe1fa98c3a62798869",
+    "gate": "General evidence",
+    "owner": "PMO"
+  },
+  {
+    "path": "demo-projects\\manufacturing\\analysis\\ai-quality-gates.md",
+    "name": "ai-quality-gates.md",
+    "size_bytes": 677,
+    "sha256": "63b6e3342d0ad3f8762a89f9b5a191f82feaae3b94b65d671262d2ad72cef390",
+    "gate": "UAT/Test",
+    "owner": "QA/Test lead"
+  },
+  {
+    "path": "demo-projects\\manufacturing\\analysis\\ai-risk-heatmap.md",
+    "name": "ai-risk-heatmap.md",
+    "size_bytes": 476,
+    "sha256": "91319c2b9d96e145910c3e6d84e15d5bfab7a3ea06caff63a506b15260a51a3c",
+    "gate": "General evidence",
+    "owner": "PMO"
+  },
+  {
+    "path": "demo-projects\\manufacturing\\analysis\\ai-risk-mitigation-playbooks.md",
+    "name": "ai-risk-mitigation-playbooks.md",
+    "size_bytes": 748,
+    "sha256": "b12875786f6d539d4358d4b1b10ab2fa2f3d03a9b07f7f1660977076ec5fe11d",
+    "gate": "General evidence",
+    "owner": "PMO"
+  },
+  {
+    "path": "demo-projects\\manufacturing\\analysis\\ai-risk-radar.md",
+    "name": "ai-risk-radar.md",
+    "size_bytes": 756,
+    "sha256": "078f005a4b2d8ce6e670664cbee60f16b68378b749f3cfdb383d97e2b76c1877",
+    "gate": "General evidence",
+    "owner": "PMO"
+  },
+  {
+    "path": "demo-projects\\manufacturing\\analysis\\ai-standard-feature-matches.md",
+    "name": "ai-standard-feature-matches.md",
+    "size_bytes": 904,
+    "sha256": "37ee2f548c0700212be17df5b0fb2cd1af4227b3a66927ab2102033504823740",
+    "gate": "General evidence",
+    "owner": "PMO"
+  },
+  {
+    "path": "demo-projects\\manufacturing\\analysis\\ai-upgrade-path-decision.md",
+    "name": "ai-upgrade-path-decision.md",
+    "size_bytes": 367,
+    "sha256": "151b327f8ba76088ec0a805972117c2dd9d3c82b65df56dd94621c2502056074",
+    "gate": "General evidence",
+    "owner": "PMO"
+  },
+  {
+    "path": "demo-projects\\manufacturing\\analysis\\ai-value-tracker.md",
+    "name": "ai-value-tracker.md",
+    "size_bytes": 265,
+    "sha256": "a8a476d7b5396223086fc7bba52e2b87823f877233721342e42cb6f2164ec0b0",
+    "gate": "General evidence",
+    "owner": "PMO"
+  },
+  {
+    "path": "demo-projects\\manufacturing\\analysis\\ai-wave-roadmap.md",
+    "name": "ai-wave-roadmap.md",
+    "size_bytes": 479,
+    "sha256": "28065f4180ebfc1996e8ea4cda2cea475f1bc6e47740ee98e85d31ad9ce99dcc",
+    "gate": "General evidence",
+    "owner": "PMO"
+  },
+  {
+    "path": "demo-projects\\manufacturing\\analysis\\ai-what-if-scenarios.md",
+    "name": "ai-what-if-scenarios.md",
+    "size_bytes": 466,
+    "sha256": "48384f25fff94b4bb6d46daf8cd1d83c4c74cab624fb2cd39aa93e2ed5340179",
+    "gate": "General evidence",
+    "owner": "PMO"
+  },
+  {
+    "path": "demo-projects\\manufacturing\\analysis\\ai-workshop-questions.md",
+    "name": "ai-workshop-questions.md",
+    "size_bytes": 898,
+    "sha256": "619be18abbd3f35a59de9d96ae439f7dd62b456d0d54e7e1e7babaf04113dfb9",
+    "gate": "General evidence",
+    "owner": "PMO"
+  },
+  {
+    "path": "demo-projects\\manufacturing\\analysis\\board-ceo-narrative.md",
+    "name": "board-ceo-narrative.md",
+    "size_bytes": 697,
+    "sha256": "a95f18e2968cc215141f40880faeb73f52213d30bab0085c833e37466d68d6af",
+    "gate": "General evidence",
+    "owner": "PMO"
+  },
+  {
+    "path": "demo-projects\\manufacturing\\analysis\\ciso-security-gate-pack.md",
+    "name": "ciso-security-gate-pack.md",
+    "size_bytes": 968,
+    "sha256": "34cffac8e2b190bbe52b752150d2cf0958f366225e187e61bfc88816cdb6df59",
+    "gate": "Security/CISO",
+    "owner": "CISO"
+  },
+  {
+    "path": "demo-projects\\manufacturing\\analysis\\inventory-normalized.json",
+    "name": "inventory-normalized.json",
+    "size_bytes": 3683,
+    "sha256": "7110800de056d94f5c6e66d57f345027e4d7f7fb9fb7436061e665355904cb35",
+    "gate": "Finance reconciliation",
+    "owner": "Finance owner"
+  },
+  {
+    "path": "demo-projects\\manufacturing\\analysis\\migration-knowledge-graph.json",
+    "name": "migration-knowledge-graph.json",
+    "size_bytes": 2555,
+    "sha256": "0c027ce8e71baf9034a2d01cad8304028f867018282f7287535aa54297a0a336",
+    "gate": "General evidence",
+    "owner": "PMO"
+  },
+  {
+    "path": "demo-projects\\manufacturing\\analysis\\persona-ceo-summary.md",
+    "name": "persona-ceo-summary.md",
+    "size_bytes": 916,
+    "sha256": "c23dceacd090e04c6d2b1fb46b27b27627502d90d92d4b7bb9d4c6d331d4297b",
+    "gate": "General evidence",
+    "owner": "PMO"
+  },
+  {
+    "path": "demo-projects\\manufacturing\\analysis\\persona-cio-architecture-view.md",
+    "name": "persona-cio-architecture-view.md",
+    "size_bytes": 867,
+    "sha256": "f4f60e9a5b2f6f6d9fd40c61e5b1450987a887d94799d9cdd5ac5975a7a8a2c7",
+    "gate": "General evidence",
+    "owner": "PMO"
+  },
+  {
+    "path": "demo-projects\\manufacturing\\analysis\\persona-ciso-security-view.md",
+    "name": "persona-ciso-security-view.md",
+    "size_bytes": 413,
+    "sha256": "d90347f8a0a37a079259547da970b3965da8048217af4bc94312968124892183",
+    "gate": "Security/CISO",
+    "owner": "CISO"
+  },
+  {
+    "path": "demo-projects\\manufacturing\\analysis\\persona-project-manager-control-view.md",
+    "name": "persona-project-manager-control-view.md",
+    "size_bytes": 359,
+    "sha256": "43d426de4f92459ccede7fa4c25b05b31ae1cb6aed72a28bf87075f23a94fc94",
+    "gate": "General evidence",
+    "owner": "PMO"
+  },
+  {
+    "path": "demo-projects\\manufacturing\\analysis\\persona-team-member-task-view.md",
+    "name": "persona-team-member-task-view.md",
+    "size_bytes": 717,
+    "sha256": "fbc9faee726a56dcf7dd40d85f31d7b24557378ee84cf98eda39bde3688da5c7",
+    "gate": "General evidence",
+    "owner": "PMO"
+  },
+  {
+    "path": "demo-projects\\manufacturing\\analysis\\project-onboarding-guide.md",
+    "name": "project-onboarding-guide.md",
+    "size_bytes": 518,
+    "sha256": "251ddaf120f0677103cf1f0b2615861fb4ba61ed4c9bdc83c505b22fb5b012c7",
+    "gate": "General evidence",
+    "owner": "PMO"
+  },
+  {
+    "path": "demo-projects\\manufacturing\\analysis\\project-operating-model.md",
+    "name": "project-operating-model.md",
+    "size_bytes": 501,
+    "sha256": "22c9630d689a6b63ef6eb33e2abcf0bf62d5c516bde4509dc6bc1d87abd1e0b6",
+    "gate": "General evidence",
+    "owner": "PMO"
+  },
+  {
+    "path": "demo-projects\\manufacturing\\analysis\\raci-matrix.md",
+    "name": "raci-matrix.md",
+    "size_bytes": 478,
+    "sha256": "5f043052c0af8a7dbad966d204d83384bf2bb3cbda9f7c9524a7f027c2644ba6",
+    "gate": "General evidence",
+    "owner": "PMO"
+  },
+  {
+    "path": "demo-projects\\manufacturing\\analysis\\raid-log.md",
+    "name": "raid-log.md",
+    "size_bytes": 911,
+    "sha256": "c30ded7a6ed17fac2f3fde997a99e81bae768bc7111eb29c4484b04d6645a843",
+    "gate": "General evidence",
+    "owner": "PMO"
+  },
+  {
+    "path": "demo-projects\\manufacturing\\analysis\\role-based-prompt-library.md",
+    "name": "role-based-prompt-library.md",
+    "size_bytes": 835,
+    "sha256": "9e15e556bf7e44e7ecfe6856866cc42db425a71e39ca57ab459b960ec77bc0fa",
+    "gate": "General evidence",
+    "owner": "PMO"
+  },
+  {
+    "path": "demo-projects\\manufacturing\\analysis\\steering-committee-pack.md",
+    "name": "steering-committee-pack.md",
+    "size_bytes": 561,
+    "sha256": "ddcf427e8fdce49ccc8c6a11586ea0132320feb4d2f5ece0e97c281c324e634b",
+    "gate": "General evidence",
+    "owner": "PMO"
+  },
+  {
+    "path": "demo-projects\\manufacturing\\analysis\\team-execution-pack.md",
+    "name": "team-execution-pack.md",
+    "size_bytes": 925,
+    "sha256": "d171b6be367d47b883f40a43a9d99ab0ddb2ecc31dae430d49d283e54d9ef724",
+    "gate": "General evidence",
+    "owner": "PMO"
+  },
+  {
+    "path": "demo-projects\\manufacturing\\analysis\\weekly-status-report.md",
+    "name": "weekly-status-report.md",
+    "size_bytes": 318,
+    "sha256": "69acb351296fae4a1999c73e92231e19662410c29d7715b119a42f306853efc3",
+    "gate": "General evidence",
+    "owner": "PMO"
+  }
+]

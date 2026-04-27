@@ -125,6 +125,9 @@ python .\axmigrate.py scenario-lab migration-analysis\sample --output scenario-l
 python .\axmigrate.py quality-audit migration-analysis\sample --output quality-audit\sample
 python .\axmigrate.py war-game migration-analysis\sample --output war-game\sample
 python .\axmigrate.py value-realization migration-analysis\sample --output value-realization\sample
+python .\axmigrate.py memory-store migration-analysis\sample --project "Contoso AX Migration" --output migration-memory-store\sample
+python .\axmigrate.py security-scan migration-analysis\sample --output security-scan\sample
+python .\axmigrate.py project-ui --output migration-ui
 ```
 
 ## Repository Map
@@ -143,10 +146,10 @@ python .\axmigrate.py value-realization migration-analysis\sample --output value
 | --- | --- |
 | Skills | 112 Codex skills across migration, roles, testing, solo operation, orchestration, connectors, industry/regulatory, Commerce/CXP/CRM/POS, governance/evidence intelligence, and Migration Intelligence Fabric. |
 | Templates | 325 templates for assessment, delivery, governance, testing, cutover, hypercare, role packs, solo operation, Commerce, evidence, rehearsal, reconciliation, ALM, training, archive, board risk, process twin, and intelligence fabric outputs. |
-| Scripts | 72 Python scripts including CLI, analyzer, exporters, connectors, validators, Commerce generators, Solo/Master generators, governance generators, intelligence generators, documentation generator, wizard, evidence gates, router, and demo project generator. |
+| Scripts | 75 Python scripts including CLI, analyzer, exporters, connectors, validators, Commerce generators, Solo/Master generators, governance generators, intelligence generators, documentation generator, wizard, evidence gates, router, memory store, security scanner, local UI, and demo project generator. |
 | Configs | 35 JSON configs including cost model, risks, D365FO knowledge, integrations, Commerce readiness/gates, POS offline, PCI, CRM lead management, evidence, scope, reconciliation, license, ALM, training, country regulatory, process twin, benchmarking, portfolio, scenario, quality, integration resilience, security, and value rules. |
 | Analyzer outputs | 46 generated outputs from inventory analysis, including technical, executive, governance, role, dashboard, graph, and backlog artifacts. |
-| AI/KI features | 500 documented feature items, including solo autonomy, Commerce features, autonomous governance/evidence intelligence, wizard automation, evidence gates, Dashboard 2.0, stronger Office exports, strict validation, and Migration Intelligence Fabric. |
+| AI/KI features | 530 documented feature items, including solo autonomy, Commerce features, autonomous governance/evidence intelligence, wizard automation, evidence gates, Dashboard 2.0, stronger Office exports, strict validation, Migration Intelligence Fabric, memory store, evidence hashes, security scanning, local UI, and demo portal. |
 
 ## Documentation
 

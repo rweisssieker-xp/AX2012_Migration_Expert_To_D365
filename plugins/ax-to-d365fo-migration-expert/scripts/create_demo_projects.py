@@ -53,6 +53,7 @@ def main() -> int:
             run("generate_portfolio_control.py", [str(analysis), "--output", str(demo / "portfolio-control")])
             run("generate_scenario_lab.py", [str(analysis), "--output", str(demo / "scenario-lab")])
         dashboard_rows.append(f"| {name} | `{source.name}` | [{name} dashboard](./{name}/analysis/dashboard.html) |")
+    write_demo_index(root, dashboard_rows)
     (root / "README.md").write_text(
         "# Demo Projects\n\n"
         "| Demo | Input | Dashboard |\n| --- | --- | --- |\n"
@@ -62,6 +63,28 @@ def main() -> int:
     )
     print(f"Generated demo projects into {root.resolve()}")
     return 0
+
+
+def write_demo_index(root: Path, dashboard_rows: list[str]) -> None:
+    cards = []
+    for line in dashboard_rows:
+        parts = [part.strip() for part in line.strip("|").split("|")]
+        if len(parts) >= 3:
+            name = parts[0]
+            cards.append(
+                f"<section><h2>{name}</h2><a href=\"./{name}/analysis/dashboard.html\">Open dashboard</a>"
+                f"<p>Analysis, persona and governance outputs are generated under <code>{name}</code>.</p></section>"
+            )
+    (root / "demo-index.html").write_text(
+        "<!doctype html><html lang=\"en\"><head><meta charset=\"utf-8\"><title>AX Migration Demo Index</title>"
+        "<style>body{font-family:Segoe UI,Arial,sans-serif;margin:0;background:#f4f7fa;color:#172033}"
+        "header{background:#17446b;color:white;padding:24px 32px}main{padding:24px 32px;display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px}"
+        "section{background:white;border:1px solid #d9e2ec;border-radius:8px;padding:18px}a{color:#0f5f8f;font-weight:700}</style></head>"
+        "<body><header><h1>AX to D365FO Demo Projects</h1><p>Ready-to-open dashboards and generated migration packs.</p></header><main>"
+        + "\n".join(cards)
+        + "</main></body></html>",
+        encoding="utf-8",
+    )
 
 
 if __name__ == "__main__":

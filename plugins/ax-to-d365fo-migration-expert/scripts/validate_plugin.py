@@ -26,7 +26,7 @@ CLI_COMMANDS = [
     "board-risk", "process-twin", "meeting-copilot", "intelligence-pack", "migration-memory", "benchmark",
     "portfolio-control", "scenario-lab", "quality-audit", "debt-liquidator", "fabric-advisor", "integration-resilience",
     "attack-surface", "sustainability", "pmo-negotiator", "knowledge-transfer-exam", "war-game", "value-realization",
-    "continuous-improvement", "orchestrate", "evidence-gates", "solo-init", "solo-run", "solo-evidence", "solo-status",
+    "continuous-improvement", "orchestrate", "evidence-gates", "memory-store", "security-scan", "project-ui", "solo-init", "solo-run", "solo-evidence", "solo-status",
     "solo-gates", "solo-daily", "solo-war-room", "solo-hypercare", "solo-audit-binder", "solo-benefits", "solo-orchestrate",
     "solo-brain", "solo-next", "solo-simulate", "solo-scope-defense", "solo-waste-hunter", "solo-predict", "solo-translate",
     "solo-drift", "solo-communicate", "solo-test-plan", "solo-test-status", "solo-signoff", "profile-data", "monitor",
@@ -98,11 +98,11 @@ def assert_feature_numbers() -> None:
     for match in re.finditer(r"## Features (\d+)-(\d+):", text):
         start, end = int(match.group(1)), int(match.group(2))
         numbers.update(range(start, end + 1))
-    expected = set(range(1, 501))
+    expected = set(range(1, 531))
     missing = sorted(expected - numbers)
-    extra_gap = sorted(num for num in numbers if num < 1 or num > 500)
+    extra_gap = sorted(num for num in numbers if num < 1 or num > 530)
     if missing or extra_gap:
-        raise SystemExit(f"Feature numbering is not continuous 1-500. Missing={missing[:20]} Extra={extra_gap[:20]}")
+        raise SystemExit(f"Feature numbering is not continuous 1-530. Missing={missing[:20]} Extra={extra_gap[:20]}")
 
 
 def main() -> int:
@@ -163,6 +163,9 @@ def main() -> int:
         export_output = temp_root / "exports"
         orchestration_output = temp_root / "orchestration"
         evidence_gate_output = temp_root / "evidence_gates"
+        memory_store_output = temp_root / "memory_store"
+        security_scan_output = temp_root / "security_scan"
+        project_ui_output = temp_root / "project_ui"
         intelligence_outputs = [
             temp_root / "intelligence_pack",
             temp_root / "migration_memory",
@@ -230,6 +233,9 @@ def main() -> int:
             run([sys.executable, str(ROOT / "scripts" / script), str(analysis), "--output", str(output)])
         run([sys.executable, str(ROOT / "scripts" / "orchestrate_migration.py"), str(analysis), "--output", str(orchestration_output)])
         run([sys.executable, str(ROOT / "scripts" / "evaluate_evidence_gates.py"), str(analysis), "--ciso-approval", "yes", "--cutover-rehearsal", "yes", "--finance-reconciliation", "yes", "--uat-signoff", "yes", "--rollback-plan", "yes", "--output", str(evidence_gate_output)])
+        run([sys.executable, str(ROOT / "scripts" / "update_migration_memory_store.py"), str(analysis), "--project", "Validation", "--output", str(memory_store_output)])
+        run([sys.executable, str(ROOT / "scripts" / "scan_sensitive_data.py"), str(analysis), "--output", str(security_scan_output)])
+        run([sys.executable, str(ROOT / "scripts" / "create_project_ui.py"), "--output", str(project_ui_output)])
 
         report_count = len(list(analysis.glob("*")))
         template_count = len(list((workspace / "validation").glob("*.md")))
@@ -255,6 +261,10 @@ def main() -> int:
             raise SystemExit("Governance pack did not generate autonomous-governance-master-pack.md")
         if not (governance_outputs[1] / "migration-evidence-vault-index.md").exists():
             raise SystemExit("Evidence vault did not generate migration-evidence-vault-index.md")
+        if not (governance_outputs[1] / "evidence-manifest.json").exists():
+            raise SystemExit("Evidence vault did not generate evidence-manifest.json")
+        if not (governance_outputs[1] / "evidence-hashes.sha256").exists():
+            raise SystemExit("Evidence vault did not generate evidence-hashes.sha256")
         if not (governance_outputs[4] / "cutover-rehearsal-scorecard.md").exists():
             raise SystemExit("Cutover rehearsal did not generate cutover-rehearsal-scorecard.md")
         if not (governance_outputs[5] / "finance-reconciliation-judge.md").exists():
@@ -271,6 +281,12 @@ def main() -> int:
             raise SystemExit("Orchestrator did not generate skill-routing.json")
         if not (evidence_gate_output / "go-live-gate-result.json").exists():
             raise SystemExit("Evidence gates did not generate go-live-gate-result.json")
+        if not (memory_store_output / "migration-memory.sqlite").exists():
+            raise SystemExit("Memory store did not generate migration-memory.sqlite")
+        if not (security_scan_output / "security-scan-report.json").exists():
+            raise SystemExit("Security scan did not generate security-scan-report.json")
+        if not (project_ui_output / "project-wizard.html").exists():
+            raise SystemExit("Project UI did not generate project-wizard.html")
         run([sys.executable, str(ROOT / "scripts" / "create_project_wizard.py"), "--profile", "multi-country", "--project", "Validation Global", "--output", str(wizard_output)])
         run([sys.executable, str(ROOT / "scripts" / "create_demo_projects.py"), "--output", str(demo_output)])
         if not (wizard_output / "wizard-plan.md").exists():
@@ -279,6 +295,8 @@ def main() -> int:
             raise SystemExit("Demo projects did not generate commerce-pos dashboard.html")
         if not (demo_output / "multi-country-rollout" / "analysis" / "dashboard.html").exists():
             raise SystemExit("Demo projects did not generate multi-country dashboard.html")
+        if not (demo_output / "demo-index.html").exists():
+            raise SystemExit("Demo projects did not generate demo-index.html")
 
     todo_hits = []
     for path in [*ROOT.rglob("*"), ROOT.parents[1] / ".agents" / "plugins" / "marketplace.json"]:
