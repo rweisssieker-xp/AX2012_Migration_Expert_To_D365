@@ -8,6 +8,7 @@
 - [Examples](examples.md)
 - [FAQ](faq.md)
 - [Command reference](command-reference.md)
+- [Skill handbook](skill-handbook.md)
 - [Commerce/CXP/CRM/POS](commerce-cxp-crm-pos.md)
 - [Solo and Master Orchestrator](solo-master-orchestrator.md)
 - [Autonomous Governance & Evidence Intelligence](autonomous-governance-evidence.md)

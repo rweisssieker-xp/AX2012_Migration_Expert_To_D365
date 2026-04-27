@@ -133,6 +133,7 @@ python .\axmigrate.py solo-signoff solo-migration\contoso-ax-migration
 - [Examples](docs/examples.md)
 - [FAQ](docs/faq.md)
 - [Command reference](docs/command-reference.md)
+- [Skill handbook](docs/skill-handbook.md)
 - [Commerce/CXP/CRM/POS](docs/commerce-cxp-crm-pos.md)
 - [Solo and Master Orchestrator](docs/solo-master-orchestrator.md)
 - [Autonomous Governance & Evidence Intelligence](docs/autonomous-governance-evidence.md)

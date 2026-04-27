@@ -335,6 +335,7 @@ python plugins/ax-to-d365fo-migration-expert/scripts/migration_cli.py meeting-co
 
 - Repository docs: `docs/README.md`
 - Command reference: `docs/command-reference.md`
+- Skill handbook: `docs/skill-handbook.md`
 - Commerce/CXP/CRM/POS domain: `docs/commerce-cxp-crm-pos.md`
 - Solo/Master-Orchestrator: `docs/solo-master-orchestrator.md`
 - Autonomous Governance & Evidence Intelligence: `docs/autonomous-governance-evidence.md`
