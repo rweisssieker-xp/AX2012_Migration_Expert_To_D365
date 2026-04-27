@@ -1,0 +1,186 @@
+{
+  "nodes": [
+    {
+      "id": "N_RetailPriceOverride",
+      "label": "RetailPriceOverride",
+      "type": "object"
+    },
+    {
+      "id": "N_module_Commerce",
+      "label": "Commerce",
+      "type": "process"
+    },
+    {
+      "id": "N_risk_client_dependency",
+      "label": "client-dependency",
+      "type": "risk"
+    },
+    {
+      "id": "N_risk_overlayering",
+      "label": "overlayering",
+      "type": "risk"
+    },
+    {
+      "id": "N_CSUChannelSyncMonitor",
+      "label": "CSUChannelSyncMonitor",
+      "type": "integration"
+    },
+    {
+      "id": "N_POSOfflineRecoveryForm",
+      "label": "POSOfflineRecoveryForm",
+      "type": "object"
+    },
+    {
+      "id": "N_module_POS",
+      "label": "POS",
+      "type": "process"
+    },
+    {
+      "id": "N_PaymentTerminalConnector",
+      "label": "PaymentTerminalConnector",
+      "type": "integration"
+    },
+    {
+      "id": "N_module_Payments",
+      "label": "Payments",
+      "type": "process"
+    },
+    {
+      "id": "N_risk_posting",
+      "label": "posting",
+      "type": "risk"
+    },
+    {
+      "id": "N_LoyaltyLiabilityReport",
+      "label": "LoyaltyLiabilityReport",
+      "type": "report"
+    },
+    {
+      "id": "N_module_Loyalty",
+      "label": "Loyalty",
+      "type": "process"
+    },
+    {
+      "id": "N_risk_report_rationalization",
+      "label": "report-rationalization",
+      "type": "risk"
+    },
+    {
+      "id": "N_RetailTransactionHistory",
+      "label": "RetailTransactionHistory",
+      "type": "data"
+    },
+    {
+      "id": "N_risk_direct_sql",
+      "label": "direct-sql",
+      "type": "risk"
+    },
+    {
+      "id": "N_StoreManagerLegacyRole",
+      "label": "StoreManagerLegacyRole",
+      "type": "security"
+    },
+    {
+      "id": "N_module_Store_Operations",
+      "label": "Store Operations",
+      "type": "process"
+    }
+  ],
+  "edges": [
+    {
+      "from": "N_module_Commerce",
+      "to": "N_RetailPriceOverride",
+      "type": "contains"
+    },
+    {
+      "from": "N_RetailPriceOverride",
+      "to": "N_risk_client_dependency",
+      "type": "has_risk"
+    },
+    {
+      "from": "N_RetailPriceOverride",
+      "to": "N_risk_overlayering",
+      "type": "has_risk"
+    },
+    {
+      "from": "N_module_Commerce",
+      "to": "N_CSUChannelSyncMonitor",
+      "type": "contains"
+    },
+    {
+      "from": "N_CSUChannelSyncMonitor",
+      "to": "N_risk_client_dependency",
+      "type": "has_risk"
+    },
+    {
+      "from": "N_CSUChannelSyncMonitor",
+      "to": "N_risk_overlayering",
+      "type": "has_risk"
+    },
+    {
+      "from": "N_module_POS",
+      "to": "N_POSOfflineRecoveryForm",
+      "type": "contains"
+    },
+    {
+      "from": "N_POSOfflineRecoveryForm",
+      "to": "N_risk_overlayering",
+      "type": "has_risk"
+    },
+    {
+      "from": "N_module_Payments",
+      "to": "N_PaymentTerminalConnector",
+      "type": "contains"
+    },
+    {
+      "from": "N_PaymentTerminalConnector",
+      "to": "N_risk_overlayering",
+      "type": "has_risk"
+    },
+    {
+      "from": "N_PaymentTerminalConnector",
+      "to": "N_risk_posting",
+      "type": "has_risk"
+    },
+    {
+      "from": "N_module_Loyalty",
+      "to": "N_LoyaltyLiabilityReport",
+      "type": "contains"
+    },
+    {
+      "from": "N_LoyaltyLiabilityReport",
+      "to": "N_risk_overlayering",
+      "type": "has_risk"
+    },
+    {
+      "from": "N_LoyaltyLiabilityReport",
+      "to": "N_risk_report_rationalization",
+      "type": "has_risk"
+    },
+    {
+      "from": "N_module_Commerce",
+      "to": "N_RetailTransactionHistory",
+      "type": "contains"
+    },
+    {
+      "from": "N_RetailTransactionHistory",
+      "to": "N_risk_client_dependency",
+      "type": "has_risk"
+    },
+    {
+      "from": "N_RetailTransactionHistory",
+      "to": "N_risk_direct_sql",
+      "type": "has_risk"
+    },
+    {
+      "from": "N_module_Store_Operations",
+      "to": "N_StoreManagerLegacyRole",
+      "type": "contains"
+    },
+    {
+      "from": "N_StoreManagerLegacyRole",
+      "to": "N_risk_overlayering",
+      "type": "has_risk"
+    }
+  ]
+}

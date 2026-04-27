@@ -1,0 +1,16 @@
+Workstream,Score,Status
+cxp_journey,32,Blocked
+crm_dataverse,44,Blocked
+lead_management,44,Blocked
+customer_master,56,Needs control
+commerce_hq,68,Needs control
+commerce_scale_unit,56,Blocked
+pos,32,Blocked
+pos_offline,44,Blocked
+store_operations,32,Blocked
+payments_pci,56,Blocked
+omnichannel_ecommerce,20,Blocked
+loyalty_promotions,44,Blocked
+pricing_assortment,32,Blocked
+channel_data_sync,32,Blocked
+commerce_cutover,68,Needs control

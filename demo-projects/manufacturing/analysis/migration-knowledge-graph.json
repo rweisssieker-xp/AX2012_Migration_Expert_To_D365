@@ -1,0 +1,116 @@
+{
+  "nodes": [
+    {
+      "id": "N_ProdCostRollupCustom",
+      "label": "ProdCostRollupCustom",
+      "type": "object"
+    },
+    {
+      "id": "N_module_Manufacturing",
+      "label": "Manufacturing",
+      "type": "process"
+    },
+    {
+      "id": "N_risk_overlayering",
+      "label": "overlayering",
+      "type": "risk"
+    },
+    {
+      "id": "N_BOMCalcHistory",
+      "label": "BOMCalcHistory",
+      "type": "object"
+    },
+    {
+      "id": "N_risk_direct_sql",
+      "label": "direct-sql",
+      "type": "risk"
+    },
+    {
+      "id": "N_AIFProductionOrderImport",
+      "label": "AIFProductionOrderImport",
+      "type": "integration"
+    },
+    {
+      "id": "N_risk_aif",
+      "label": "aif",
+      "type": "risk"
+    },
+    {
+      "id": "N_ProdVarianceLegacy",
+      "label": "ProdVarianceLegacy",
+      "type": "report"
+    },
+    {
+      "id": "N_risk_report_rationalization",
+      "label": "report-rationalization",
+      "type": "risk"
+    },
+    {
+      "id": "N_ShopFloorAddon",
+      "label": "ShopFloorAddon",
+      "type": "isv"
+    }
+  ],
+  "edges": [
+    {
+      "from": "N_module_Manufacturing",
+      "to": "N_ProdCostRollupCustom",
+      "type": "contains"
+    },
+    {
+      "from": "N_ProdCostRollupCustom",
+      "to": "N_risk_overlayering",
+      "type": "has_risk"
+    },
+    {
+      "from": "N_module_Manufacturing",
+      "to": "N_BOMCalcHistory",
+      "type": "contains"
+    },
+    {
+      "from": "N_BOMCalcHistory",
+      "to": "N_risk_direct_sql",
+      "type": "has_risk"
+    },
+    {
+      "from": "N_module_Manufacturing",
+      "to": "N_AIFProductionOrderImport",
+      "type": "contains"
+    },
+    {
+      "from": "N_AIFProductionOrderImport",
+      "to": "N_risk_aif",
+      "type": "has_risk"
+    },
+    {
+      "from": "N_AIFProductionOrderImport",
+      "to": "N_risk_overlayering",
+      "type": "has_risk"
+    },
+    {
+      "from": "N_module_Manufacturing",
+      "to": "N_ProdVarianceLegacy",
+      "type": "contains"
+    },
+    {
+      "from": "N_ProdVarianceLegacy",
+      "to": "N_risk_overlayering",
+      "type": "has_risk"
+    },
+    {
+      "from": "N_ProdVarianceLegacy",
+      "to": "N_risk_report_rationalization",
+      "type": "has_risk"
+    },
+    {
+      "from": "N_module_Manufacturing",
+      "to": "N_ShopFloorAddon",
+      "type": "contains"
+    },
+    {
+      "from": "N_ShopFloorAddon",
+      "to": "N_risk_overlayering",
+      "type": "has_risk"
+    }
+  ]
+}

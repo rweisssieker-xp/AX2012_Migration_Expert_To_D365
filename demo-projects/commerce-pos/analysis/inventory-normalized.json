@@ -1,0 +1,154 @@
+[
+  {
+    "source_file": "ax2012-retail-commerce-pos-inventory.csv",
+    "category": "object",
+    "object_type": "Class",
+    "name": "RetailPriceOverride",
+    "layer": "CUS",
+    "module": "Commerce",
+    "usage": "High",
+    "complexity": "High",
+    "technology": "X++",
+    "business_purpose": "Custom channel pricing override",
+    "risk_flags": [
+      "client-dependency",
+      "overlayering"
+    ],
+    "disposition": "Rebuild",
+    "target_pattern": "Extension/service/data entity redesign",
+    "effort_points": 9,
+    "confidence": "High",
+    "confidence_reason": "Inventory row contains strong classification evidence.",
+    "rationale": "Unsupported legacy dependency detected."
+  },
+  {
+    "source_file": "ax2012-retail-commerce-pos-inventory.csv",
+    "category": "integration",
+    "object_type": "Service",
+    "name": "CSUChannelSyncMonitor",
+    "layer": "CUS",
+    "module": "Commerce",
+    "usage": "Daily",
+    "complexity": "High",
+    "technology": "Retail Server",
+    "business_purpose": "Commerce Scale Unit sync monitoring",
+    "risk_flags": [
+      "client-dependency",
+      "overlayering"
+    ],
+    "disposition": "Rebuild",
+    "target_pattern": "Middleware-backed D365FO integration pattern",
+    "effort_points": 11,
+    "confidence": "High",
+    "confidence_reason": "Inventory row contains strong classification evidence.",
+    "rationale": "Legacy integrations usually need redesign for D365FO operations and monitoring."
+  },
+  {
+    "source_file": "ax2012-retail-commerce-pos-inventory.csv",
+    "category": "object",
+    "object_type": "Form",
+    "name": "POSOfflineRecoveryForm",
+    "layer": "USR",
+    "module": "POS",
+    "usage": "High",
+    "complexity": "High",
+    "technology": "X++",
+    "business_purpose": "Store offline recovery process",
+    "risk_flags": [
+      "overlayering"
+    ],
+    "disposition": "Extend",
+    "target_pattern": "Form extension plus event handlers",
+    "effort_points": 9,
+    "confidence": "High",
+    "confidence_reason": "Inventory row contains strong classification evidence.",
+    "rationale": "Customization likely needs extension-based migration."
+  },
+  {
+    "source_file": "ax2012-retail-commerce-pos-inventory.csv",
+    "category": "integration",
+    "object_type": "Interface",
+    "name": "PaymentTerminalConnector",
+    "layer": "CUS",
+    "module": "Payments",
+    "usage": "Daily",
+    "complexity": "High",
+    "technology": "Connector",
+    "business_purpose": "Payment terminal and settlement integration",
+    "risk_flags": [
+      "overlayering",
+      "posting"
+    ],
+    "disposition": "Rebuild",
+    "target_pattern": "Middleware-backed D365FO integration pattern",
+    "effort_points": 11,
+    "confidence": "High",
+    "confidence_reason": "Inventory row contains strong classification evidence.",
+    "rationale": "Legacy integrations usually need redesign for D365FO operations and monitoring."
+  },
+  {
+    "source_file": "ax2012-retail-commerce-pos-inventory.csv",
+    "category": "report",
+    "object_type": "Report",
+    "name": "LoyaltyLiabilityReport",
+    "layer": "CUS",
+    "module": "Loyalty",
+    "usage": "Monthly",
+    "complexity": "Medium",
+    "technology": "SSRS",
+    "business_purpose": "Loyalty points liability reporting",
+    "risk_flags": [
+      "overlayering",
+      "report-rationalization"
+    ],
+    "disposition": "Standard / Power BI Review",
+    "target_pattern": "D365FO workspace, SSRS, Power BI, Financial Reporter, or archive",
+    "effort_points": 7,
+    "confidence": "High",
+    "confidence_reason": "Inventory row contains strong classification evidence.",
+    "rationale": "Reports should be rationalized before rebuild."
+  },
+  {
+    "source_file": "ax2012-retail-commerce-pos-inventory.csv",
+    "category": "data",
+    "object_type": "Table",
+    "name": "RetailTransactionHistory",
+    "layer": "DAT",
+    "module": "Commerce",
+    "usage": "High",
+    "complexity": "High",
+    "technology": "SQL history",
+    "business_purpose": "Historical retail transactions",
+    "risk_flags": [
+      "client-dependency",
+      "direct-sql"
+    ],
+    "disposition": "Rebuild",
+    "target_pattern": "Extension/service/data entity redesign",
+    "effort_points": 10,
+    "confidence": "High",
+    "confidence_reason": "Inventory row contains strong classification evidence.",
+    "rationale": "Unsupported legacy dependency detected."
+  },
+  {
+    "source_file": "ax2012-retail-commerce-pos-inventory.csv",
+    "category": "security",
+    "object_type": "Role",
+    "name": "StoreManagerLegacyRole",
+    "layer": "USR",
+    "module": "Store Operations",
+    "usage": "High",
+    "complexity": "Medium",
+    "technology": "AX role",
+    "business_purpose": "Store manager access",
+    "risk_flags": [
+      "overlayering"
+    ],
+    "disposition": "Map",
+    "target_pattern": "D365FO roles, duties, privileges, and SoD review",
+    "effort_points": 5,
+    "confidence": "High",
+    "confidence_reason": "Inventory row contains strong classification evidence.",
+    "rationale": "Security must be mapped rather than technically migrated as-is."
+  }
+]

@@ -1,0 +1,156 @@
+{
+  "nodes": [
+    {
+      "id": "N_AIFLeadToCashSync",
+      "label": "AIFLeadToCashSync",
+      "type": "integration"
+    },
+    {
+      "id": "N_module_CRM",
+      "label": "CRM",
+      "type": "process"
+    },
+    {
+      "id": "N_risk_aif",
+      "label": "aif",
+      "type": "risk"
+    },
+    {
+      "id": "N_risk_overlayering",
+      "label": "overlayering",
+      "type": "risk"
+    },
+    {
+      "id": "N_CustContactLegacyMap",
+      "label": "CustContactLegacyMap",
+      "type": "data"
+    },
+    {
+      "id": "N_module_Customer_Master",
+      "label": "Customer Master",
+      "type": "process"
+    },
+    {
+      "id": "N_risk_direct_sql",
+      "label": "direct-sql",
+      "type": "risk"
+    },
+    {
+      "id": "N_OpportunityQuoteBridge",
+      "label": "OpportunityQuoteBridge",
+      "type": "object"
+    },
+    {
+      "id": "N_module_Sales",
+      "label": "Sales",
+      "type": "process"
+    },
+    {
+      "id": "N_DataverseCustomerExport",
+      "label": "DataverseCustomerExport",
+      "type": "integration"
+    },
+    {
+      "id": "N_module_Dataverse",
+      "label": "Dataverse",
+      "type": "process"
+    },
+    {
+      "id": "N_PipelineConversionLegacy",
+      "label": "PipelineConversionLegacy",
+      "type": "report"
+    },
+    {
+      "id": "N_risk_report_rationalization",
+      "label": "report-rationalization",
+      "type": "risk"
+    },
+    {
+      "id": "N_SalesManagerLegacyRole",
+      "label": "SalesManagerLegacyRole",
+      "type": "security"
+    }
+  ],
+  "edges": [
+    {
+      "from": "N_module_CRM",
+      "to": "N_AIFLeadToCashSync",
+      "type": "contains"
+    },
+    {
+      "from": "N_AIFLeadToCashSync",
+      "to": "N_risk_aif",
+      "type": "has_risk"
+    },
+    {
+      "from": "N_AIFLeadToCashSync",
+      "to": "N_risk_overlayering",
+      "type": "has_risk"
+    },
+    {
+      "from": "N_module_Customer_Master",
+      "to": "N_CustContactLegacyMap",
+      "type": "contains"
+    },
+    {
+      "from": "N_CustContactLegacyMap",
+      "to": "N_risk_direct_sql",
+      "type": "has_risk"
+    },
+    {
+      "from": "N_CustContactLegacyMap",
+      "to": "N_risk_overlayering",
+      "type": "has_risk"
+    },
+    {
+      "from": "N_module_Sales",
+      "to": "N_OpportunityQuoteBridge",
+      "type": "contains"
+    },
+    {
+      "from": "N_OpportunityQuoteBridge",
+      "to": "N_risk_overlayering",
+      "type": "has_risk"
+    },
+    {
+      "from": "N_module_Dataverse",
+      "to": "N_DataverseCustomerExport",
+      "type": "contains"
+    },
+    {
+      "from": "N_DataverseCustomerExport",
+      "to": "N_risk_direct_sql",
+      "type": "has_risk"
+    },
+    {
+      "from": "N_DataverseCustomerExport",
+      "to": "N_risk_overlayering",
+      "type": "has_risk"
+    },
+    {
+      "from": "N_module_CRM",
+      "to": "N_PipelineConversionLegacy",
+      "type": "contains"
+    },
+    {
+      "from": "N_PipelineConversionLegacy",
+      "to": "N_risk_overlayering",
+      "type": "has_risk"
+    },
+    {
+      "from": "N_PipelineConversionLegacy",
+      "to": "N_risk_report_rationalization",
+      "type": "has_risk"
+    },
+    {
+      "from": "N_module_Sales",
+      "to": "N_SalesManagerLegacyRole",
+      "type": "contains"
+    },
+    {
+      "from": "N_SalesManagerLegacyRole",
+      "to": "N_risk_overlayering",
+      "type": "has_risk"
+    }
+  ]
+}

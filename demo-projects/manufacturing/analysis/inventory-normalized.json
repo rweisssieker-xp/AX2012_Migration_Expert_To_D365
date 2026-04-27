@@ -1,0 +1,109 @@
+[
+  {
+    "source_file": "ax2012-r3-manufacturing-inventory.csv",
+    "category": "object",
+    "object_type": "Class",
+    "name": "ProdCostRollupCustom",
+    "layer": "CUS",
+    "module": "Manufacturing",
+    "usage": "High",
+    "complexity": "High",
+    "technology": "X++",
+    "business_purpose": "Custom production costing",
+    "risk_flags": [
+      "overlayering"
+    ],
+    "disposition": "Extend",
+    "target_pattern": "Chain of Command or event handler",
+    "effort_points": 8,
+    "confidence": "High",
+    "confidence_reason": "Inventory row contains strong classification evidence.",
+    "rationale": "Customization likely needs extension-based migration."
+  },
+  {
+    "source_file": "ax2012-r3-manufacturing-inventory.csv",
+    "category": "object",
+    "object_type": "Table",
+    "name": "BOMCalcHistory",
+    "layer": "DAT",
+    "module": "Manufacturing",
+    "usage": "High",
+    "complexity": "Medium",
+    "technology": "SQL history",
+    "business_purpose": "BOM calculation history",
+    "risk_flags": [
+      "direct-sql"
+    ],
+    "disposition": "Rebuild",
+    "target_pattern": "Extension/service/data entity redesign",
+    "effort_points": 6,
+    "confidence": "High",
+    "confidence_reason": "Inventory row contains strong classification evidence.",
+    "rationale": "Unsupported legacy dependency detected."
+  },
+  {
+    "source_file": "ax2012-r3-manufacturing-inventory.csv",
+    "category": "integration",
+    "object_type": "Service",
+    "name": "AIFProductionOrderImport",
+    "layer": "CUS",
+    "module": "Manufacturing",
+    "usage": "Daily",
+    "complexity": "High",
+    "technology": "AIF",
+    "business_purpose": "Imports production orders",
+    "risk_flags": [
+      "aif",
+      "overlayering"
+    ],
+    "disposition": "Rebuild",
+    "target_pattern": "OData, custom service, Business Events, or middleware",
+    "effort_points": 11,
+    "confidence": "High",
+    "confidence_reason": "Inventory row contains strong classification evidence.",
+    "rationale": "Legacy integrations usually need redesign for D365FO operations and monitoring."
+  },
+  {
+    "source_file": "ax2012-r3-manufacturing-inventory.csv",
+    "category": "report",
+    "object_type": "Report",
+    "name": "ProdVarianceLegacy",
+    "layer": "CUS",
+    "module": "Manufacturing",
+    "usage": "Monthly",
+    "complexity": "Medium",
+    "technology": "SSRS",
+    "business_purpose": "Production variance reporting",
+    "risk_flags": [
+      "overlayering",
+      "report-rationalization"
+    ],
+    "disposition": "Standard / Power BI Review",
+    "target_pattern": "D365FO workspace, SSRS, Power BI, Financial Reporter, or archive",
+    "effort_points": 7,
+    "confidence": "High",
+    "confidence_reason": "Inventory row contains strong classification evidence.",
+    "rationale": "Reports should be rationalized before rebuild."
+  },
+  {
+    "source_file": "ax2012-r3-manufacturing-inventory.csv",
+    "category": "isv",
+    "object_type": "Addon",
+    "name": "ShopFloorAddon",
+    "layer": "VAR",
+    "module": "Manufacturing",
+    "usage": "High",
+    "complexity": "High",
+    "technology": "ISV",
+    "business_purpose": "Shop floor execution",
+    "risk_flags": [
+      "overlayering"
+    ],
+    "disposition": "ISV Review",
+    "target_pattern": "D365FO ISV successor, standard replacement, custom extension, or retire",
+    "effort_points": 11,
+    "confidence": "High",
+    "confidence_reason": "Inventory row contains strong classification evidence.",
+    "rationale": "ISV capability needs product roadmap and licensing validation."
+  }
+]

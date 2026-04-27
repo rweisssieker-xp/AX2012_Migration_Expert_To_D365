@@ -1,0 +1,183 @@
+{
+  "Contract and Scope": {
+    "score": 31,
+    "status": "Blocked",
+    "keywords": [
+      "contract",
+      "sow",
+      "scope",
+      "change request",
+      "commercial",
+      "approval"
+    ]
+  },
+  "Stakeholder Sentiment": {
+    "score": 40,
+    "status": "Blocked",
+    "keywords": [
+      "stakeholder",
+      "resistance",
+      "decision",
+      "meeting",
+      "owner",
+      "alignment"
+    ]
+  },
+  "Evidence Vault": {
+    "score": 49,
+    "status": "Blocked",
+    "keywords": [
+      "evidence",
+      "proof",
+      "sign-off",
+      "audit",
+      "gate",
+      "missing"
+    ]
+  },
+  "Cutover Rehearsal": {
+    "score": 58,
+    "status": "Needs control",
+    "keywords": [
+      "cutover",
+      "rehearsal",
+      "rollback",
+      "critical path",
+      "smoke",
+      "war room"
+    ]
+  },
+  "Reconciliation": {
+    "score": 67,
+    "status": "Needs control",
+    "keywords": [
+      "reconciliation",
+      "balance",
+      "variance",
+      "finance",
+      "inventory",
+      "customer",
+      "vendor"
+    ]
+  },
+  "License and Cost": {
+    "score": 58,
+    "status": "Needs control",
+    "keywords": [
+      "license",
+      "subscription",
+      "cost",
+      "budget",
+      "role",
+      "user"
+    ]
+  },
+  "ALM Release": {
+    "score": 67,
+    "status": "Needs control",
+    "keywords": [
+      "alm",
+      "release",
+      "deploy",
+      "environment",
+      "build",
+      "freeze"
+    ]
+  },
+  "Training": {
+    "score": 40,
+    "status": "Blocked",
+    "keywords": [
+      "training",
+      "adoption",
+      "key user",
+      "uat",
+      "learning",
+      "readiness"
+    ]
+  },
+  "ISV Exit": {
+    "score": 40,
+    "status": "Blocked",
+    "keywords": [
+      "isv",
+      "vendor",
+      "addon",
+      "contract",
+      "replacement",
+      "termination"
+    ]
+  },
+  "Country Regulatory": {
+    "score": 31,
+    "status": "Blocked",
+    "keywords": [
+      "country",
+      "tax",
+      "e-invoicing",
+      "retention",
+      "privacy",
+      "localization"
+    ]
+  },
+  "Archive Strategy": {
+    "score": 67,
+    "status": "Needs control",
+    "keywords": [
+      "archive",
+      "history",
+      "retention",
+      "readonly",
+      "legacy",
+      "reporting"
+    ]
+  },
+  "Hyperautomation": {
+    "score": 31,
+    "status": "Blocked",
+    "keywords": [
+      "automation",
+      "logic apps",
+      "power automate",
+      "fabric",
+      "dataverse",
+      "api"
+    ]
+  },
+  "Board Risk": {
+    "score": 67,
+    "status": "Needs control",
+    "keywords": [
+      "board",
+      "forecast",
+      "probability",
+      "budget",
+      "scope",
+      "risk"
+    ]
+  },
+  "Process Twin": {
+    "score": 40,
+    "status": "Blocked",
+    "keywords": [
+      "lead-to-cash",
+      "order-to-cash",
+      "procure-to-pay",
+      "process",
+      "twin",
+      "traceability"
+    ]
+  },
+  "Meeting Copilot": {
+    "score": 49,
+    "status": "Blocked",
+    "keywords": [
+      "meeting",
+      "minutes",
+      "agenda",
+      "action",
+      "decision",
+      "backlog"
+    ]
+  }
+}

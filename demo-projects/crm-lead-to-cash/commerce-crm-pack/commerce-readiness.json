@@ -1,0 +1,179 @@
+{
+  "cxp_journey": {
+    "score": 20,
+    "status": "Blocked",
+    "keywords": [
+      "cxp",
+      "customer experience",
+      "journey",
+      "loyalty",
+      "omnichannel"
+    ]
+  },
+  "crm_dataverse": {
+    "score": 80,
+    "status": "Ready",
+    "keywords": [
+      "crm",
+      "dataverse",
+      "customer engagement",
+      "contact",
+      "opportunity",
+      "case",
+      "dual-write"
+    ]
+  },
+  "lead_management": {
+    "score": 56,
+    "status": "Needs control",
+    "keywords": [
+      "lead",
+      "pipeline",
+      "sales funnel",
+      "campaign",
+      "qualification",
+      "lead-to-cash"
+    ]
+  },
+  "customer_master": {
+    "score": 80,
+    "status": "Ready",
+    "keywords": [
+      "customer",
+      "contact",
+      "identity",
+      "master",
+      "dataverse"
+    ]
+  },
+  "commerce_hq": {
+    "score": 32,
+    "status": "Blocked",
+    "keywords": [
+      "commerce",
+      "retail",
+      "channel",
+      "assortment",
+      "pricing",
+      "promotion"
+    ]
+  },
+  "commerce_scale_unit": {
+    "score": 20,
+    "status": "Blocked",
+    "keywords": [
+      "csu",
+      "scale unit",
+      "channel db",
+      "retail server",
+      "async",
+      "real-time service"
+    ]
+  },
+  "pos": {
+    "score": 32,
+    "status": "Blocked",
+    "keywords": [
+      "pos",
+      "point of sale",
+      "mpos",
+      "cpos",
+      "kasse",
+      "checkout",
+      "cashier"
+    ]
+  },
+  "pos_offline": {
+    "score": 20,
+    "status": "Blocked",
+    "keywords": [
+      "offline",
+      "offline db",
+      "offline sync",
+      "offline payments",
+      "store offline"
+    ]
+  },
+  "store_operations": {
+    "score": 32,
+    "status": "Blocked",
+    "keywords": [
+      "store",
+      "filiale",
+      "shift",
+      "end of day",
+      "returns",
+      "pickup",
+      "inventory lookup"
+    ]
+  },
+  "payments_pci": {
+    "score": 20,
+    "status": "Blocked",
+    "keywords": [
+      "payment",
+      "terminal",
+      "refund",
+      "settlement",
+      "pci",
+      "tokenization",
+      "acquirer"
+    ]
+  },
+  "omnichannel_ecommerce": {
+    "score": 20,
+    "status": "Blocked",
+    "keywords": [
+      "e-commerce",
+      "online store",
+      "bopis",
+      "ship-from-store",
+      "click and collect"
+    ]
+  },
+  "loyalty_promotions": {
+    "score": 32,
+    "status": "Blocked",
+    "keywords": [
+      "loyalty",
+      "points",
+      "tiers",
+      "coupon",
+      "promotion",
+      "discount"
+    ]
+  },
+  "pricing_assortment": {
+    "score": 32,
+    "status": "Blocked",
+    "keywords": [
+      "pricing",
+      "assortment",
+      "catalog",
+      "variant",
+      "publishing"
+    ]
+  },
+  "channel_data_sync": {
+    "score": 32,
+    "status": "Blocked",
+    "keywords": [
+      "sync",
+      "channel data",
+      "async job",
+      "hq sync",
+      "channel db"
+    ]
+  },
+  "commerce_cutover": {
+    "score": 68,
+    "status": "Needs control",
+    "keywords": [
+      "cutover",
+      "go-live",
+      "smoke",
+      "rollback",
+      "war room"
+    ]
+  }
+}

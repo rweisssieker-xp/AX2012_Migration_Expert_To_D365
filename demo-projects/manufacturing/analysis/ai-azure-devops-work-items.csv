@@ -1,0 +1,6 @@
+Work Item Type,Title,Description,Tags,Effort,Risk
+User Story,"Rebuild: AIFProductionOrderImport","Legacy integrations usually need redesign for D365FO operations and monitoring. Target: OData, custom service, Business Events, or middleware","AXMigration;integration;aif;overlayering",11,High
+User Story,"ISV Review: ShopFloorAddon","ISV capability needs product roadmap and licensing validation. Target: D365FO ISV successor, standard replacement, custom extension, or retire","AXMigration;isv;overlayering",11,High
+User Story,"Extend: ProdCostRollupCustom","Customization likely needs extension-based migration. Target: Chain of Command or event handler","AXMigration;object;overlayering",8,Medium
+User Story,"Standard / Power BI Review: ProdVarianceLegacy","Reports should be rationalized before rebuild. Target: D365FO workspace, SSRS, Power BI, Financial Reporter, or archive","AXMigration;report;overlayering;report-rationalization",7,Medium
+User Story,"Rebuild: BOMCalcHistory","Unsupported legacy dependency detected. Target: Extension/service/data entity redesign","AXMigration;object;direct-sql",6,Medium

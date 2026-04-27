@@ -1,0 +1,8 @@
+Work Item Type,Title,Description,Tags,Effort,Risk
+User Story,"Rebuild: CSUChannelSyncMonitor","Legacy integrations usually need redesign for D365FO operations and monitoring. Target: Middleware-backed D365FO integration pattern","AXMigration;integration;client-dependency;overlayering",11,High
+User Story,"Rebuild: PaymentTerminalConnector","Legacy integrations usually need redesign for D365FO operations and monitoring. Target: Middleware-backed D365FO integration pattern","AXMigration;integration;overlayering;posting",11,High
+User Story,"Rebuild: RetailTransactionHistory","Unsupported legacy dependency detected. Target: Extension/service/data entity redesign","AXMigration;data;client-dependency;direct-sql",10,High
+User Story,"Rebuild: RetailPriceOverride","Unsupported legacy dependency detected. Target: Extension/service/data entity redesign","AXMigration;object;client-dependency;overlayering",9,High
+User Story,"Extend: POSOfflineRecoveryForm","Customization likely needs extension-based migration. Target: Form extension plus event handlers","AXMigration;object;overlayering",9,High
+User Story,"Standard / Power BI Review: LoyaltyLiabilityReport","Reports should be rationalized before rebuild. Target: D365FO workspace, SSRS, Power BI, Financial Reporter, or archive","AXMigration;report;overlayering;report-rationalization",7,Medium
+User Story,"Map: StoreManagerLegacyRole","Security must be mapped rather than technically migrated as-is. Target: D365FO roles, duties, privileges, and SoD review","AXMigration;security;overlayering",5,Medium

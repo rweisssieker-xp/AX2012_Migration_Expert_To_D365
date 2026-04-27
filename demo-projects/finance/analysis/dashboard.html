@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>AX to D365FO Migration Command Center</title>
+  <style>
+    body { font-family: Segoe UI, Arial, sans-serif; margin: 0; background: #f6f8fb; color: #172033; }
+    header { background: #0f5f8f; color: white; padding: 28px 36px; }
+    main { padding: 28px 36px; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 14px; margin-bottom: 28px; }
+    .card { background: white; border: 1px solid #d9e2ec; border-radius: 8px; padding: 16px; }
+    .card span { display: block; color: #526173; font-size: 13px; }
+    .card strong { display: block; font-size: 28px; margin-top: 8px; }
+    .split { display: grid; grid-template-columns: minmax(0, 1fr) minmax(260px, 420px); gap: 18px; margin-bottom: 28px; }
+    table { width: 100%; border-collapse: collapse; background: white; border: 1px solid #d9e2ec; }
+    th, td { text-align: left; padding: 10px 12px; border-bottom: 1px solid #edf1f5; }
+    th { background: #eef5fb; }
+    .toolbar { display: flex; gap: 12px; margin: 0 0 18px; }
+    input, select { padding: 9px 10px; border: 1px solid #b8c5d1; border-radius: 6px; }
+    .pill { display: inline-block; border-radius: 999px; padding: 3px 9px; font-size: 12px; font-weight: 600; }
+    .ready { background: #e4f5ea; color: #0f6b2f; }
+    .needs-control { background: #fff5d7; color: #765000; }
+    .blocked { background: #fde7e9; color: #9f1d2c; }
+    .panel { background: white; border: 1px solid #d9e2ec; border-radius: 8px; padding: 16px; }
+    @media (max-width: 900px) { .split { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+  <header><h1>AX to D365FO Migration Command Center</h1><p>Autonomy dashboard with scope, gate, evidence and skill-routing signals.</p></header>
+  <main>
+    <div class="grid"><section class="card"><span>Complexity</span><strong>Medium</strong></section>
+<section class="card"><span>Score</span><strong>46</strong></section>
+<section class="card"><span>Items</span><strong>5</strong></section>
+<section class="card"><span>Retire Candidates</span><strong>1</strong></section>
+<section class="card"><span>High Risk</span><strong>3</strong></section>
+<section class="card"><span>Effort Points</span><strong>41</strong></section>
+<section class="card"><span>Evidence Gaps</span><strong>0</strong></section>
+<section class="card"><span>Blocked</span><strong>3</strong></section></div>
+    <div class="split">
+      <section class="panel">
+        <h2>Workstream Control</h2>
+        <table><thead><tr><th>Workstream</th><th>Items</th><th>Effort</th><th>Blocked</th></tr></thead><tbody><tr><td>Integration</td><td>1</td><td>11</td><td>1</td></tr>
+<tr><td>Object</td><td>2</td><td>16</td><td>1</td></tr>
+<tr><td>Report</td><td>1</td><td>9</td><td>1</td></tr>
+<tr><td>Security</td><td>1</td><td>5</td><td>0</td></tr></tbody></table>
+      </section>
+      <section class="panel">
+        <h2>Skill Routing</h2>
+        <table><thead><tr><th>Skill / Command Route</th><th>Signals</th></tr></thead><tbody><tr><td>functional-finance-owner</td><td>5</td></tr>
+<tr><td>master-orchestrator</td><td>5</td></tr>
+<tr><td>evidence-vault-manager</td><td>3</td></tr>
+<tr><td>commerce-orchestrator</td><td>1</td></tr>
+<tr><td>data-governance</td><td>1</td></tr>
+<tr><td>functional-scm-owner</td><td>1</td></tr>
+<tr><td>integration-owner</td><td>1</td></tr>
+<tr><td>reporting-bi-lead</td><td>1</td></tr>
+<tr><td>ciso-guardian</td><td>1</td></tr></tbody></table>
+      </section>
+    </div>
+    <h2>Disposition and Risk</h2>
+    <div class="toolbar">
+      <input id="search" placeholder="Search items, risks, disposition" oninput="filterRows()">
+      <select id="category" onchange="filterRows()"><option value="">All categories</option><option value="integration">Integration</option>
+<option value="object">Object</option>
+<option value="report">Report</option>
+<option value="security">Security</option></select>
+      <select id="status" onchange="filterRows()"><option value="">All statuses</option><option>Ready</option><option>Needs control</option><option>Blocked</option></select>
+    </div>
+    <table id="items"><thead><tr><th>Item</th><th>Category</th><th>Status</th><th>Disposition</th><th>Effort</th><th>Risks</th><th>Routes</th></tr></thead><tbody><tr data-status="Blocked"><td>GLTrialBalanceSqlExport</td><td>integration</td><td><span class="pill blocked">Blocked</span></td><td>Rebuild</td><td>11</td><td>direct-sql, overlayering</td><td>data-governance, evidence-vault-manager, functional-finance-owner, functional-scm-owner, integration-owner, master-orchestrator</td></tr>
+<tr data-status="Blocked"><td>LedgerJournalPostOverride</td><td>object</td><td><span class="pill blocked">Blocked</span></td><td>Extend</td><td>9</td><td>overlayering, posting</td><td>commerce-orchestrator, evidence-vault-manager, functional-finance-owner, master-orchestrator</td></tr>
+<tr data-status="Blocked"><td>TaxAuditPack</td><td>report</td><td><span class="pill blocked">Blocked</span></td><td>Standard / Power BI Review</td><td>9</td><td>overlayering, report-rationalization</td><td>evidence-vault-manager, functional-finance-owner, master-orchestrator, reporting-bi-lead</td></tr>
+<tr data-status="Needs control"><td>DimensionLegacyEditor</td><td>object</td><td><span class="pill needs-control">Needs control</span></td><td>Retire Candidate</td><td>7</td><td>overlayering</td><td>functional-finance-owner, master-orchestrator</td></tr>
+<tr data-status="Needs control"><td>LegacyFinanceController</td><td>security</td><td><span class="pill needs-control">Needs control</span></td><td>Map</td><td>5</td><td>overlayering</td><td>ciso-guardian, functional-finance-owner, master-orchestrator</td></tr></tbody></table>
+  </main>
+  <script>
+    function filterRows() {
+      const q = document.getElementById('search').value.toLowerCase();
+      const c = document.getElementById('category').value.toLowerCase();
+      const s = document.getElementById('status').value.toLowerCase();
+      document.querySelectorAll('#items tbody tr').forEach(row => {
+        const text = row.innerText.toLowerCase();
+        const category = row.children[1].innerText.toLowerCase();
+        const status = row.dataset.status.toLowerCase();
+        row.style.display = text.includes(q) && (!c || category === c) && (!s || status === s) ? '' : 'none';
+      });
+    }
+    document.querySelectorAll('th').forEach((th, index) => th.onclick = () => {
+      const tbody = document.querySelector('#items tbody');
+      [...tbody.rows].sort((a, b) => a.children[index].innerText.localeCompare(b.children[index].innerText, undefined, {numeric: true})).forEach(row => tbody.appendChild(row));
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,126 @@
+{
+  "nodes": [
+    {
+      "id": "N_LedgerJournalPostOverride",
+      "label": "LedgerJournalPostOverride",
+      "type": "object"
+    },
+    {
+      "id": "N_module_Finance",
+      "label": "Finance",
+      "type": "process"
+    },
+    {
+      "id": "N_risk_overlayering",
+      "label": "overlayering",
+      "type": "risk"
+    },
+    {
+      "id": "N_risk_posting",
+      "label": "posting",
+      "type": "risk"
+    },
+    {
+      "id": "N_DimensionLegacyEditor",
+      "label": "DimensionLegacyEditor",
+      "type": "object"
+    },
+    {
+      "id": "N_GLTrialBalanceSqlExport",
+      "label": "GLTrialBalanceSqlExport",
+      "type": "integration"
+    },
+    {
+      "id": "N_risk_direct_sql",
+      "label": "direct-sql",
+      "type": "risk"
+    },
+    {
+      "id": "N_TaxAuditPack",
+      "label": "TaxAuditPack",
+      "type": "report"
+    },
+    {
+      "id": "N_module_Tax",
+      "label": "Tax",
+      "type": "process"
+    },
+    {
+      "id": "N_risk_report_rationalization",
+      "label": "report-rationalization",
+      "type": "risk"
+    },
+    {
+      "id": "N_LegacyFinanceController",
+      "label": "LegacyFinanceController",
+      "type": "security"
+    }
+  ],
+  "edges": [
+    {
+      "from": "N_module_Finance",
+      "to": "N_LedgerJournalPostOverride",
+      "type": "contains"
+    },
+    {
+      "from": "N_LedgerJournalPostOverride",
+      "to": "N_risk_overlayering",
+      "type": "has_risk"
+    },
+    {
+      "from": "N_LedgerJournalPostOverride",
+      "to": "N_risk_posting",
+      "type": "has_risk"
+    },
+    {
+      "from": "N_module_Finance",
+      "to": "N_DimensionLegacyEditor",
+      "type": "contains"
+    },
+    {
+      "from": "N_DimensionLegacyEditor",
+      "to": "N_risk_overlayering",
+      "type": "has_risk"
+    },
+    {
+      "from": "N_module_Finance",
+      "to": "N_GLTrialBalanceSqlExport",
+      "type": "contains"
+    },
+    {
+      "from": "N_GLTrialBalanceSqlExport",
+      "to": "N_risk_direct_sql",
+      "type": "has_risk"
+    },
+    {
+      "from": "N_GLTrialBalanceSqlExport",
+      "to": "N_risk_overlayering",
+      "type": "has_risk"
+    },
+    {
+      "from": "N_module_Tax",
+      "to": "N_TaxAuditPack",
+      "type": "contains"
+    },
+    {
+      "from": "N_TaxAuditPack",
+      "to": "N_risk_overlayering",
+      "type": "has_risk"
+    },
+    {
+      "from": "N_TaxAuditPack",
+      "to": "N_risk_report_rationalization",
+      "type": "has_risk"
+    },
+    {
+      "from": "N_module_Finance",
+      "to": "N_LegacyFinanceController",
+      "type": "contains"
+    },
+    {
+      "from": "N_LegacyFinanceController",
+      "to": "N_risk_overlayering",
+      "type": "has_risk"
+    }
+  ]
+}

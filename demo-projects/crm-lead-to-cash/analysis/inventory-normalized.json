@@ -1,0 +1,132 @@
+[
+  {
+    "source_file": "ax2012-crm-lead-to-cash-inventory.csv",
+    "category": "integration",
+    "object_type": "Service",
+    "name": "AIFLeadToCashSync",
+    "layer": "CUS",
+    "module": "CRM",
+    "usage": "Daily",
+    "complexity": "High",
+    "technology": "AIF",
+    "business_purpose": "Lead to cash synchronization with CRM",
+    "risk_flags": [
+      "aif",
+      "overlayering"
+    ],
+    "disposition": "Rebuild",
+    "target_pattern": "OData, custom service, Business Events, or middleware",
+    "effort_points": 11,
+    "confidence": "High",
+    "confidence_reason": "Inventory row contains strong classification evidence.",
+    "rationale": "Legacy integrations usually need redesign for D365FO operations and monitoring."
+  },
+  {
+    "source_file": "ax2012-crm-lead-to-cash-inventory.csv",
+    "category": "data",
+    "object_type": "Table",
+    "name": "CustContactLegacyMap",
+    "layer": "DAT",
+    "module": "Customer Master",
+    "usage": "High",
+    "complexity": "Medium",
+    "technology": "SQL history",
+    "business_purpose": "Customer contact legacy mapping",
+    "risk_flags": [
+      "direct-sql",
+      "overlayering"
+    ],
+    "disposition": "Rebuild",
+    "target_pattern": "Extension/service/data entity redesign",
+    "effort_points": 8,
+    "confidence": "High",
+    "confidence_reason": "Inventory row contains strong classification evidence.",
+    "rationale": "Unsupported legacy dependency detected."
+  },
+  {
+    "source_file": "ax2012-crm-lead-to-cash-inventory.csv",
+    "category": "object",
+    "object_type": "Class",
+    "name": "OpportunityQuoteBridge",
+    "layer": "CUS",
+    "module": "Sales",
+    "usage": "High",
+    "complexity": "High",
+    "technology": "X++",
+    "business_purpose": "Opportunity to quotation custom bridge",
+    "risk_flags": [
+      "overlayering"
+    ],
+    "disposition": "Extend",
+    "target_pattern": "Chain of Command or event handler",
+    "effort_points": 8,
+    "confidence": "High",
+    "confidence_reason": "Inventory row contains strong classification evidence.",
+    "rationale": "Customization likely needs extension-based migration."
+  },
+  {
+    "source_file": "ax2012-crm-lead-to-cash-inventory.csv",
+    "category": "integration",
+    "object_type": "Interface",
+    "name": "DataverseCustomerExport",
+    "layer": "CUS",
+    "module": "Dataverse",
+    "usage": "Daily",
+    "complexity": "High",
+    "technology": "Direct SQL",
+    "business_purpose": "Customer export to Dataverse staging",
+    "risk_flags": [
+      "direct-sql",
+      "overlayering"
+    ],
+    "disposition": "Rebuild",
+    "target_pattern": "Data entity, export, reporting replica, or data lake pattern",
+    "effort_points": 11,
+    "confidence": "High",
+    "confidence_reason": "Inventory row contains strong classification evidence.",
+    "rationale": "Legacy integrations usually need redesign for D365FO operations and monitoring."
+  },
+  {
+    "source_file": "ax2012-crm-lead-to-cash-inventory.csv",
+    "category": "report",
+    "object_type": "Report",
+    "name": "PipelineConversionLegacy",
+    "layer": "CUS",
+    "module": "CRM",
+    "usage": "Monthly",
+    "complexity": "Medium",
+    "technology": "SSRS",
+    "business_purpose": "Pipeline conversion reporting",
+    "risk_flags": [
+      "overlayering",
+      "report-rationalization"
+    ],
+    "disposition": "Standard / Power BI Review",
+    "target_pattern": "D365FO workspace, SSRS, Power BI, Financial Reporter, or archive",
+    "effort_points": 7,
+    "confidence": "High",
+    "confidence_reason": "Inventory row contains strong classification evidence.",
+    "rationale": "Reports should be rationalized before rebuild."
+  },
+  {
+    "source_file": "ax2012-crm-lead-to-cash-inventory.csv",
+    "category": "security",
+    "object_type": "Role",
+    "name": "SalesManagerLegacyRole",
+    "layer": "USR",
+    "module": "Sales",
+    "usage": "High",
+    "complexity": "Medium",
+    "technology": "AX role",
+    "business_purpose": "Sales manager security",
+    "risk_flags": [
+      "overlayering"
+    ],
+    "disposition": "Map",
+    "target_pattern": "D365FO roles, duties, privileges, and SoD review",
+    "effort_points": 5,
+    "confidence": "High",
+    "confidence_reason": "Inventory row contains strong classification evidence.",
+    "rationale": "Security must be mapped rather than technically migrated as-is."
+  }
+]

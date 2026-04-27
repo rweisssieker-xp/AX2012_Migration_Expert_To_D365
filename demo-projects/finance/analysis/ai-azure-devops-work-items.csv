@@ -1,0 +1,6 @@
+Work Item Type,Title,Description,Tags,Effort,Risk
+User Story,"Rebuild: GLTrialBalanceSqlExport","Legacy integrations usually need redesign for D365FO operations and monitoring. Target: Data entity, export, reporting replica, or data lake pattern","AXMigration;integration;direct-sql;overlayering",11,High
+User Story,"Extend: LedgerJournalPostOverride","Customization likely needs extension-based migration. Target: Chain of Command or event handler","AXMigration;object;overlayering;posting",9,High
+User Story,"Standard / Power BI Review: TaxAuditPack","Reports should be rationalized before rebuild. Target: D365FO workspace, SSRS, Power BI, Financial Reporter, or archive","AXMigration;report;overlayering;report-rationalization",9,High
+User Story,"Retire Candidate: DimensionLegacyEditor","Low usage suggests scope reduction opportunity. Target: Business validation before migration","AXMigration;object;overlayering",7,Medium
+User Story,"Map: LegacyFinanceController","Security must be mapped rather than technically migrated as-is. Target: D365FO roles, duties, privileges, and SoD review","AXMigration;security;overlayering",5,Medium
