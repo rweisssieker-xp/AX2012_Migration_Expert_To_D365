@@ -1,0 +1,7 @@
+Category,ObjectType,Name,Layer,Module,Usage,Complexity,Technology,BusinessPurpose
+Object,Class,DETaxLocalizationOverride,CUS,Tax,High,High,X++,Germany tax localization override
+Object,Class,FREInvoiceConnector,CUS,Finance,High,High,X++,France e-invoicing connector
+Integration,Interface,GlobalBankPaymentHub,CUS,Payments,Daily,High,AIF,Multi-country payment hub
+Data,Table,LegalEntityArchiveHistory,DAT,Finance,High,High,SQL history,Historical legal entity data
+Report,Report,CountryAuditPack,CUS,Audit,Quarterly,High,SSRS,Country audit reporting
+Security,Role,RegionalFinanceController,USR,Finance,High,Medium,AX role,Regional finance access
