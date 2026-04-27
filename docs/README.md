@@ -27,16 +27,17 @@
 
 | Area | Count |
 | --- | ---: |
-| Skills | 92 |
-| Templates | 264 |
-| Python scripts | 51 |
-| Config JSON files | 25 |
+| Skills | 112 |
+| Templates | 325 |
+| Python scripts | 72 |
+| Config JSON files | 35 |
 | Analyzer outputs | 46 |
-| AI/KI features | 380 |
+| AI/KI features | 500 |
 
-## Future USP Backlog
+## Implemented USP Layer
 
-- [Migration Intelligence Fabric](migration-intelligence-fabric.md): proposed next expansion for Features 381-500, including migration memory, benchmarking, portfolio control, scenario lab, quality audit, technical debt liquidation, Fabric advisor, integration resilience, attack surface, sustainability, PMO negotiation, knowledge transfer, war games, value realization, and continuous improvement.
+- [Migration Intelligence Fabric](migration-intelligence-fabric.md): implemented layer for Features 381-500, including migration memory, benchmarking, portfolio control, scenario lab, quality audit, technical debt liquidation, Fabric advisor, integration resilience, attack surface, sustainability, PMO negotiation, knowledge transfer, war games, value realization, and continuous improvement.
+- [Template map](template-map.md): validator-backed mapping for every template.
 
 ## Governance
 

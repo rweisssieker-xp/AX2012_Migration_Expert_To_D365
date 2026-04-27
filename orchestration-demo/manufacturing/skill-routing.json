@@ -1,0 +1,133 @@
+[
+  {
+    "domain": "governance",
+    "score": 100,
+    "hits": [
+      "evidence",
+      "gate",
+      "ciso",
+      "scope",
+      "reconciliation",
+      "cutover"
+    ],
+    "skills": [
+      "ax-migration-autonomous-governance-orchestrator",
+      "ax-migration-evidence-vault-manager",
+      "ax-migration-reconciliation-judge"
+    ],
+    "commands": [
+      "governance-pack",
+      "evidence-vault",
+      "evidence-gates",
+      "reconciliation-judge"
+    ],
+    "evidence": [
+      "External approvals",
+      "Evidence freshness",
+      "Reconciliation sign-off",
+      "Cutover rehearsal result"
+    ]
+  },
+  {
+    "domain": "crm",
+    "score": 88,
+    "hits": [
+      "lead",
+      "opportunity",
+      "case",
+      "customer master"
+    ],
+    "skills": [
+      "ax-migration-crm-owner",
+      "ax-migration-lead-management-owner",
+      "ax-migration-customer-master-lead"
+    ],
+    "commands": [
+      "commerce-crm-pack",
+      "process-twin"
+    ],
+    "evidence": [
+      "Lead-to-Cash traceability",
+      "Customer master harmonization",
+      "Dual-write decision"
+    ]
+  },
+  {
+    "domain": "commerce",
+    "score": 64,
+    "hits": [
+      "pos",
+      "store"
+    ],
+    "skills": [
+      "ax-migration-commerce-orchestrator",
+      "ax-migration-commerce-lead",
+      "ax-migration-pos-lead",
+      "ax-migration-payments-lead"
+    ],
+    "commands": [
+      "commerce-pack",
+      "commerce-readiness",
+      "commerce-cutover"
+    ],
+    "evidence": [
+      "CSU readiness",
+      "POS smoke tests",
+      "Payment/PCI evidence",
+      "Store cutover smoke tests"
+    ]
+  },
+  {
+    "domain": "solo",
+    "score": 64,
+    "hits": [
+      "master",
+      "next action"
+    ],
+    "skills": [
+      "ax-migration-master-orchestrator",
+      "ax-migration-solo-operator",
+      "ax-migration-ai-migration-brain"
+    ],
+    "commands": [
+      "solo-orchestrate",
+      "solo-evidence",
+      "solo-gates",
+      "solo-test-plan",
+      "solo-signoff"
+    ],
+    "evidence": [
+      "Role substitution",
+      "Self-approval gate",
+      "External approval boundary",
+      "Test evidence"
+    ]
+  },
+  {
+    "domain": "fabric",
+    "score": 64,
+    "hits": [
+      "scenario",
+      "quality"
+    ],
+    "skills": [
+      "ax-migration-intelligence-fabric-orchestrator",
+      "ax-migration-migration-memory",
+      "ax-migration-scenario-lab"
+    ],
+    "commands": [
+      "intelligence-pack",
+      "migration-memory",
+      "benchmark",
+      "scenario-lab",
+      "war-game",
+      "value-realization"
+    ],
+    "evidence": [
+      "Benchmark baseline",
+      "Scenario assumptions",
+      "Portfolio wave data",
+      "Post-go-live KPI baseline"
+    ]
+  }
+]

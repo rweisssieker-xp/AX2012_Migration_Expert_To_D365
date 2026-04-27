@@ -30,17 +30,24 @@ def status(answers: dict[str, bool]) -> str:
 
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("source", nargs="?", default=".", help="Analysis folder or project folder used as evidence context.")
     parser.add_argument("--output", default="evidence-gates")
     for key, _, _ in GATES:
         parser.add_argument(f"--{key.replace('_', '-')}", choices=["yes", "no"], default="no")
     args = parser.parse_args()
     answers = {key: getattr(args, key) == "yes" for key, _, _ in GATES}
-    result = {"status": status(answers), "answers": answers}
+    result = {"status": status(answers), "answers": answers, "source": str(Path(args.source))}
     output = Path(args.output)
     output.mkdir(parents=True, exist_ok=True)
     questions = "\n".join(f"- [{ 'x' if answers[key] else ' ' }] {question} `--{key.replace('_', '-')}`" for key, question, _ in GATES)
     actions = "\n".join(f"- Close evidence for `{key}`." for key, value in answers.items() if not value) or "- No missing gate evidence."
-    (output / "evidence-gate-questionnaire.md").write_text("# Evidence Gate Questionnaire\n\n" + questions + "\n", encoding="utf-8")
+    (output / "evidence-gate-questionnaire.md").write_text(
+        "# Evidence Gate Questionnaire\n\n"
+        f"Source: `{args.source}`\n\n"
+        + questions
+        + "\n",
+        encoding="utf-8",
+    )
     (output / "go-live-gate-result.json").write_text(json.dumps(result, indent=2), encoding="utf-8")
     (output / "next-evidence-actions.md").write_text(f"# Next Evidence Actions\n\n## Status\n\n`{result['status']}`\n\n## Actions\n\n{actions}\n", encoding="utf-8")
     print(f"Generated evidence gate result {result['status']} into {output.resolve()}")

@@ -1,0 +1,291 @@
+{
+  "nodes": [
+    {
+      "id": "N_LedgerJournalService",
+      "label": "LedgerJournalService",
+      "type": "integration"
+    },
+    {
+      "id": "N_module_Finance",
+      "label": "Finance",
+      "type": "process"
+    },
+    {
+      "id": "N_risk_overlayering",
+      "label": "overlayering",
+      "type": "risk"
+    },
+    {
+      "id": "N_risk_posting",
+      "label": "posting",
+      "type": "risk"
+    },
+    {
+      "id": "N_DE_EInvoiceAdapter",
+      "label": "DE_EInvoiceAdapter",
+      "type": "integration"
+    },
+    {
+      "id": "N_module_Tax",
+      "label": "Tax",
+      "type": "process"
+    },
+    {
+      "id": "N_FR_TaxSettlementBatch",
+      "label": "FR_TaxSettlementBatch",
+      "type": "object"
+    },
+    {
+      "id": "N_risk_batch",
+      "label": "batch",
+      "type": "risk"
+    },
+    {
+      "id": "N_UK_VATMakingTaxDigital",
+      "label": "UK_VATMakingTaxDigital",
+      "type": "integration"
+    },
+    {
+      "id": "N_risk_aif",
+      "label": "aif",
+      "type": "risk"
+    },
+    {
+      "id": "N_US_SalesTaxConnector",
+      "label": "US_SalesTaxConnector",
+      "type": "integration"
+    },
+    {
+      "id": "N_risk_integration_modernization",
+      "label": "integration-modernization",
+      "type": "risk"
+    },
+    {
+      "id": "N_IntercompanyOrderFlow",
+      "label": "IntercompanyOrderFlow",
+      "type": "object"
+    },
+    {
+      "id": "N_module_SCM",
+      "label": "SCM",
+      "type": "process"
+    },
+    {
+      "id": "N_risk_client_dependency",
+      "label": "client-dependency",
+      "type": "risk"
+    },
+    {
+      "id": "N_GlobalCustomerMaster",
+      "label": "GlobalCustomerMaster",
+      "type": "object"
+    },
+    {
+      "id": "N_module_AccountsReceivable",
+      "label": "AccountsReceivable",
+      "type": "process"
+    },
+    {
+      "id": "N_VendorBankValidation",
+      "label": "VendorBankValidation",
+      "type": "object"
+    },
+    {
+      "id": "N_module_AccountsPayable",
+      "label": "AccountsPayable",
+      "type": "process"
+    },
+    {
+      "id": "N_SecurityRoleTemplate",
+      "label": "SecurityRoleTemplate",
+      "type": "security"
+    },
+    {
+      "id": "N_module_Security",
+      "label": "Security",
+      "type": "process"
+    },
+    {
+      "id": "N_LegacyDataArchive",
+      "label": "LegacyDataArchive",
+      "type": "integration"
+    },
+    {
+      "id": "N_module_Archive",
+      "label": "Archive",
+      "type": "process"
+    },
+    {
+      "id": "N_CountryRolloutPMO",
+      "label": "CountryRolloutPMO",
+      "type": "object"
+    },
+    {
+      "id": "N_module_PMO",
+      "label": "PMO",
+      "type": "process"
+    },
+    {
+      "id": "N_LocalLabelExtensions",
+      "label": "LocalLabelExtensions",
+      "type": "integration"
+    },
+    {
+      "id": "N_module_Localization",
+      "label": "Localization",
+      "type": "process"
+    }
+  ],
+  "edges": [
+    {
+      "from": "N_module_Finance",
+      "to": "N_LedgerJournalService",
+      "type": "contains"
+    },
+    {
+      "from": "N_LedgerJournalService",
+      "to": "N_risk_overlayering",
+      "type": "has_risk"
+    },
+    {
+      "from": "N_LedgerJournalService",
+      "to": "N_risk_posting",
+      "type": "has_risk"
+    },
+    {
+      "from": "N_module_Tax",
+      "to": "N_DE_EInvoiceAdapter",
+      "type": "contains"
+    },
+    {
+      "from": "N_DE_EInvoiceAdapter",
+      "to": "N_risk_overlayering",
+      "type": "has_risk"
+    },
+    {
+      "from": "N_module_Tax",
+      "to": "N_FR_TaxSettlementBatch",
+      "type": "contains"
+    },
+    {
+      "from": "N_FR_TaxSettlementBatch",
+      "to": "N_risk_batch",
+      "type": "has_risk"
+    },
+    {
+      "from": "N_FR_TaxSettlementBatch",
+      "to": "N_risk_overlayering",
+      "type": "has_risk"
+    },
+    {
+      "from": "N_FR_TaxSettlementBatch",
+      "to": "N_risk_posting",
+      "type": "has_risk"
+    },
+    {
+      "from": "N_module_Tax",
+      "to": "N_UK_VATMakingTaxDigital",
+      "type": "contains"
+    },
+    {
+      "from": "N_UK_VATMakingTaxDigital",
+      "to": "N_risk_aif",
+      "type": "has_risk"
+    },
+    {
+      "from": "N_UK_VATMakingTaxDigital",
+      "to": "N_risk_overlayering",
+      "type": "has_risk"
+    },
+    {
+      "from": "N_module_Tax",
+      "to": "N_US_SalesTaxConnector",
+      "type": "contains"
+    },
+    {
+      "from": "N_US_SalesTaxConnector",
+      "to": "N_risk_integration_modernization",
+      "type": "has_risk"
+    },
+    {
+      "from": "N_module_SCM",
+      "to": "N_IntercompanyOrderFlow",
+      "type": "contains"
+    },
+    {
+      "from": "N_IntercompanyOrderFlow",
+      "to": "N_risk_client_dependency",
+      "type": "has_risk"
+    },
+    {
+      "from": "N_IntercompanyOrderFlow",
+      "to": "N_risk_overlayering",
+      "type": "has_risk"
+    },
+    {
+      "from": "N_module_AccountsReceivable",
+      "to": "N_GlobalCustomerMaster",
+      "type": "contains"
+    },
+    {
+      "from": "N_GlobalCustomerMaster",
+      "to": "N_risk_client_dependency",
+      "type": "has_risk"
+    },
+    {
+      "from": "N_GlobalCustomerMaster",
+      "to": "N_risk_overlayering",
+      "type": "has_risk"
+    },
+    {
+      "from": "N_module_AccountsPayable",
+      "to": "N_VendorBankValidation",
+      "type": "contains"
+    },
+    {
+      "from": "N_VendorBankValidation",
+      "to": "N_risk_overlayering",
+      "type": "has_risk"
+    },
+    {
+      "from": "N_module_Security",
+      "to": "N_SecurityRoleTemplate",
+      "type": "contains"
+    },
+    {
+      "from": "N_SecurityRoleTemplate",
+      "to": "N_risk_overlayering",
+      "type": "has_risk"
+    },
+    {
+      "from": "N_module_Archive",
+      "to": "N_LegacyDataArchive",
+      "type": "contains"
+    },
+    {
+      "from": "N_LegacyDataArchive",
+      "to": "N_risk_overlayering",
+      "type": "has_risk"
+    },
+    {
+      "from": "N_module_PMO",
+      "to": "N_CountryRolloutPMO",
+      "type": "contains"
+    },
+    {
+      "from": "N_CountryRolloutPMO",
+      "to": "N_risk_overlayering",
+      "type": "has_risk"
+    },
+    {
+      "from": "N_module_Localization",
+      "to": "N_LocalLabelExtensions",
+      "type": "contains"
+    },
+    {
+      "from": "N_LocalLabelExtensions",
+      "to": "N_risk_overlayering",
+      "type": "has_risk"
+    }
+  ]
+}

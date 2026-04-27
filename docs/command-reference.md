@@ -6,107 +6,125 @@ Use the root wrapper from the repository root:
 python .\axmigrate.py <command> [options]
 ```
 
-The plugin script can also be called directly:
-
-```powershell
-python plugins\ax-to-d365fo-migration-expert\scripts\migration_cli.py <command> [options]
-```
-
-## Core Migration Commands
+## Core Migration
 
 | Command | Purpose |
 | --- | --- |
-| `init` | Create a migration workspace from all templates. |
-| `analyze` | Analyze CSV, JSON, X++, XPO, and AOT-style evidence. |
-| `scan-code` | Alias for code-focused X++/XPO/AOT analysis. |
-| `dashboard` | Generate analysis including `dashboard.html`. |
-| `extract-modelstore` | Normalize AX modelstore-style CSV exports. |
-| `export` | Export an analysis folder to Excel and PowerPoint. |
-| `profile-data` | Profile CSV data quality. |
-| `monitor` | Compare two normalized inventory snapshots. |
+| `init` | Run the `init` migration automation command. |
+| `analyze` | Run the `analyze` migration automation command. |
+| `scan-code` | Run the `scan-code` migration automation command. |
+| `dashboard` | Run the `dashboard` migration automation command. |
+| `extract-modelstore` | Run the `extract-modelstore` migration automation command. |
+| `export` | Run the `export` migration automation command. |
+| `profile-data` | Run the `profile-data` migration automation command. |
+| `monitor` | Run the `monitor` migration automation command. |
 
-## Role, Governance, and Delivery Commands
-
-| Command | Purpose |
-| --- | --- |
-| `persona-pack` | Generate CEO, CIO, CISO, PM, and team packs with readiness scoring. |
-| `questionnaire` | Generate role questionnaires, migration factory, cutover, hypercare, and partner packs. |
-| `stakeholder-pack` | Generate CFO, COO, data, integration, QA, enterprise architecture, vendor, legal, support, and partner packs. |
-| `github-issues` | Export analyzer work items as GitHub issue Markdown files. |
-
-## Commerce/CXP/CRM/POS Commands
+## Role, Governance, and Delivery
 
 | Command | Purpose |
 | --- | --- |
-| `commerce-pack` | Generate the full Customer & Commerce Experience master pack. |
-| `commerce-readiness` | Generate readiness scores for CXP, CRM, Lead, Customer Master, Commerce HQ, CSU, POS, Offline, Store Ops, Payments, Loyalty, Pricing, Omnichannel, and Cutover. |
-| `commerce-cutover` | Generate Store/POS/CSU/Payments/Offline cutover runbook, smoke tests, and go-live gate. |
-| `commerce-offline-check` | Generate POS offline continuity, offline sync test, and recovery runbooks. |
-| `commerce-crm-pack` | Generate CRM/Dataverse, Lead Management, Lead-to-Cash, and Customer Master packs. |
-| `commerce-store-pack` | Generate Store Operations, POS Hardware, and Store Training packs. |
-| `commerce-payments-pack` | Generate Payment Reconciliation, PCI/Security Gate, and Payment Cutover packs. |
-| `commerce-omnichannel-pack` | Generate Omnichannel Order Flow, Commerce Analytics, and Marketplace Integration packs. |
+| `persona-pack` | Run the `persona-pack` migration automation command. |
+| `questionnaire` | Run the `questionnaire` migration automation command. |
+| `stakeholder-pack` | Run the `stakeholder-pack` migration automation command. |
+| `github-issues` | Run the `github-issues` migration automation command. |
 
-## Solo/Master-Orchestrator Commands
+## Commerce/CXP/CRM/POS
 
 | Command | Purpose |
 | --- | --- |
-| `solo-init` | Create a solo migration project operating folder. |
-| `solo-run` | Run the full solo orchestration flow from inventory input. |
-| `solo-evidence` | Generate evidence completeness outputs. |
-| `solo-status` | Generate health, status, next actions, and confidence outputs. |
-| `solo-gates` | Generate self-approval and external approval gates. |
-| `solo-daily` | Generate the daily migration command sheet. |
-| `solo-war-room` | Generate cutover war-room outputs. |
-| `solo-hypercare` | Generate hypercare command center outputs. |
-| `solo-audit-binder` | Generate audit and evidence binder outputs. |
-| `solo-benefits` | Generate benefits realization outputs. |
-| `solo-orchestrate` | Generate master-orchestrator plan, routing, evidence-to-skill matrix, and action queue. |
-| `solo-brain` | Generate AI migration brain outputs. |
-| `solo-next` | Generate next-best-action outputs. |
-| `solo-simulate` | Generate decision impact simulations. |
-| `solo-scope-defense` | Generate scope defense outputs. |
-| `solo-waste-hunter` | Generate waste hunter report. |
-| `solo-predict` | Generate prediction outputs. |
-| `solo-translate` | Generate stakeholder translation outputs. |
-| `solo-drift` | Generate project drift detector outputs. |
-| `solo-communicate` | Generate communication copilot outputs. |
-| `solo-test-plan` | Generate key-user, UAT, regression, and process owner test planning outputs. |
-| `solo-test-status` | Generate test execution status outputs. |
-| `solo-signoff` | Generate business sign-off outputs. |
+| `commerce-pack` | Run the `commerce-pack` migration automation command. |
+| `commerce-readiness` | Run the `commerce-readiness` migration automation command. |
+| `commerce-cutover` | Run the `commerce-cutover` migration automation command. |
+| `commerce-offline-check` | Run the `commerce-offline-check` migration automation command. |
+| `commerce-crm-pack` | Run the `commerce-crm-pack` migration automation command. |
+| `commerce-store-pack` | Run the `commerce-store-pack` migration automation command. |
+| `commerce-payments-pack` | Run the `commerce-payments-pack` migration automation command. |
+| `commerce-omnichannel-pack` | Run the `commerce-omnichannel-pack` migration automation command. |
 
-## Autonomous Governance & Evidence Commands
+## Solo/Master Orchestrator
 
 | Command | Purpose |
 | --- | --- |
-| `governance-pack` | Generate the autonomous governance master pack. |
-| `evidence-vault` | Generate evidence vault, freshness, go-live gap, chain-of-custody, and audit binder outputs. |
-| `scope-guard` | Generate scope baseline, change request, contract/scope risk, and commercial approval outputs. |
-| `contract-risk` | Generate contract, SOW assumption, commercial risk, and change request impact outputs. |
-| `cutover-rehearsal` | Generate cutover rehearsal plan, scorecard, defect log, and critical path variance outputs. |
-| `reconciliation-judge` | Generate finance, inventory, customer/vendor, open transaction, and tolerance reconciliation outputs. |
-| `license-cost` | Generate license mapping, over-allocation, subscription forecast, and cost optimization outputs. |
-| `alm-release` | Generate ALM release train, environment gate, freeze calendar, and deployment risk outputs. |
-| `training-readiness` | Generate training effectiveness, adoption risk, and role training coverage outputs. |
-| `isv-exit` | Generate ISV exit strategy, transition risk, and vendor termination outputs. |
-| `country-regulatory-pack` | Generate country regulatory, localization, tax, and e-invoicing readiness outputs. |
-| `archive-strategy` | Generate legacy archive strategy, access model, and retention evidence outputs. |
-| `hyperautomation-pack` | Generate automation candidate, Power Platform, and modernization outputs. |
-| `board-risk` | Generate board risk forecast, go-live probability, and budget/scope/test trend outputs. |
-| `process-twin` | Generate end-to-end process twin and process risk traceability outputs. |
-| `meeting-copilot` | Generate meeting action log, meeting-to-backlog bridge, decision bottleneck, and sentiment outputs. |
+| `solo-init` | Run the `solo-init` migration automation command. |
+| `solo-run` | Run the `solo-run` migration automation command. |
+| `solo-evidence` | Run the `solo-evidence` migration automation command. |
+| `solo-status` | Run the `solo-status` migration automation command. |
+| `solo-gates` | Run the `solo-gates` migration automation command. |
+| `solo-daily` | Run the `solo-daily` migration automation command. |
+| `solo-war-room` | Run the `solo-war-room` migration automation command. |
+| `solo-hypercare` | Run the `solo-hypercare` migration automation command. |
+| `solo-audit-binder` | Run the `solo-audit-binder` migration automation command. |
+| `solo-benefits` | Run the `solo-benefits` migration automation command. |
+| `solo-orchestrate` | Run the `solo-orchestrate` migration automation command. |
+| `solo-brain` | Run the `solo-brain` migration automation command. |
+| `solo-next` | Run the `solo-next` migration automation command. |
+| `solo-simulate` | Run the `solo-simulate` migration automation command. |
+| `solo-scope-defense` | Run the `solo-scope-defense` migration automation command. |
+| `solo-waste-hunter` | Run the `solo-waste-hunter` migration automation command. |
+| `solo-predict` | Run the `solo-predict` migration automation command. |
+| `solo-translate` | Run the `solo-translate` migration automation command. |
+| `solo-drift` | Run the `solo-drift` migration automation command. |
+| `solo-communicate` | Run the `solo-communicate` migration automation command. |
+| `solo-test-plan` | Run the `solo-test-plan` migration automation command. |
+| `solo-test-status` | Run the `solo-test-status` migration automation command. |
+| `solo-signoff` | Run the `solo-signoff` migration automation command. |
 
-## Connector and Validation Commands
+## Autonomous Governance & Evidence
 
 | Command | Purpose |
 | --- | --- |
-| `wizard` | Generate a guided project command plan for finance, manufacturing, commerce, CRM, or solo profiles. |
+| `governance-pack` | Run the `governance-pack` migration automation command. |
+| `evidence-vault` | Run the `evidence-vault` migration automation command. |
+| `scope-guard` | Run the `scope-guard` migration automation command. |
+| `contract-risk` | Run the `contract-risk` migration automation command. |
+| `cutover-rehearsal` | Run the `cutover-rehearsal` migration automation command. |
+| `reconciliation-judge` | Run the `reconciliation-judge` migration automation command. |
+| `license-cost` | Run the `license-cost` migration automation command. |
+| `alm-release` | Run the `alm-release` migration automation command. |
+| `training-readiness` | Run the `training-readiness` migration automation command. |
+| `isv-exit` | Run the `isv-exit` migration automation command. |
+| `country-regulatory-pack` | Run the `country-regulatory-pack` migration automation command. |
+| `archive-strategy` | Run the `archive-strategy` migration automation command. |
+| `hyperautomation-pack` | Run the `hyperautomation-pack` migration automation command. |
+| `board-risk` | Run the `board-risk` migration automation command. |
+| `process-twin` | Run the `process-twin` migration automation command. |
+| `meeting-copilot` | Run the `meeting-copilot` migration automation command. |
+
+## Migration Intelligence Fabric
+
+| Command | Purpose |
+| --- | --- |
+| `intelligence-pack` | Run the `intelligence-pack` migration automation command. |
+| `migration-memory` | Run the `migration-memory` migration automation command. |
+| `benchmark` | Run the `benchmark` migration automation command. |
+| `portfolio-control` | Run the `portfolio-control` migration automation command. |
+| `scenario-lab` | Run the `scenario-lab` migration automation command. |
+| `quality-audit` | Run the `quality-audit` migration automation command. |
+| `debt-liquidator` | Run the `debt-liquidator` migration automation command. |
+| `fabric-advisor` | Run the `fabric-advisor` migration automation command. |
+| `integration-resilience` | Run the `integration-resilience` migration automation command. |
+| `attack-surface` | Run the `attack-surface` migration automation command. |
+| `sustainability` | Run the `sustainability` migration automation command. |
+| `pmo-negotiator` | Run the `pmo-negotiator` migration automation command. |
+| `knowledge-transfer-exam` | Run the `knowledge-transfer-exam` migration automation command. |
+| `war-game` | Run the `war-game` migration automation command. |
+| `value-realization` | Run the `value-realization` migration automation command. |
+| `continuous-improvement` | Run the `continuous-improvement` migration automation command. |
+
+## Automation, Gates, Demos, Connectors
+
+| Command | Purpose |
+| --- | --- |
+| `orchestrate` | Analyze input, select skills, detect missing evidence, and propose next CLI commands. |
+| `evidence-gates` | Create go-live gate questionnaire and Ready/Needs control/Blocked result. |
+| `wizard` | Ask for or accept a project profile and generate a tailored execution plan. |
 | `demo-projects` | Generate ready-to-open demo projects and dashboards. |
-| `ax-sql` | Extract AX SQL/modelstore inventory through ODBC. |
-| `push-ado` | Create Azure DevOps work items from analyzer CSV. |
-| `fetch-lcs` | Fetch LCS metadata or payloads from a configured endpoint. |
-| `fetch-d365fo` | Fetch D365FO metadata or OData payloads from a configured endpoint. |
-| `usage-telemetry` | Summarize AX usage telemetry CSV. |
-| `validate` | Run JSON, skill, test, analyzer, template, Commerce, Solo, and placeholder checks. |
-| `doctor` | Check runtime, optional dependencies, plugin metadata, configs, and connector environment variables. |
-| `examples` | Print useful command examples. |
+| `ax-sql` | Run the `ax-sql` migration automation command. |
+| `push-ado` | Run the `push-ado` migration automation command. |
+| `fetch-lcs` | Run the `fetch-lcs` migration automation command. |
+| `fetch-d365fo` | Run the `fetch-d365fo` migration automation command. |
+| `usage-telemetry` | Run the `usage-telemetry` migration automation command. |
+| `validate` | Run the `validate` migration automation command. |
+| `doctor` | Run the `doctor` migration automation command. |
+| `examples` | Run the `examples` migration automation command. |
+

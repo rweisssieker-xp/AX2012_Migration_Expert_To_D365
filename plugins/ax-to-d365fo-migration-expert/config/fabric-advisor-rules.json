@@ -1,0 +1,9 @@
+{
+  "targets": [
+    "Fabric",
+    "Lakehouse",
+    "Power BI",
+    "Dataverse",
+    "data product"
+  ]
+}

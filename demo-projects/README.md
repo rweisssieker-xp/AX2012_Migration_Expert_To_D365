@@ -6,5 +6,6 @@
 | manufacturing | `ax2012-r3-manufacturing-inventory.csv` | [manufacturing dashboard](./manufacturing/analysis/dashboard.html) |
 | commerce-pos | `ax2012-retail-commerce-pos-inventory.csv` | [commerce-pos dashboard](./commerce-pos/analysis/dashboard.html) |
 | crm-lead-to-cash | `ax2012-crm-lead-to-cash-inventory.csv` | [crm-lead-to-cash dashboard](./crm-lead-to-cash/analysis/dashboard.html) |
+| multi-country-rollout | `ax2012-multi-country-rollout-inventory.csv` | [multi-country-rollout dashboard](./multi-country-rollout/analysis/dashboard.html) |
 
 Each demo includes analysis, persona, and governance outputs. Commerce and CRM demos include their domain packs.

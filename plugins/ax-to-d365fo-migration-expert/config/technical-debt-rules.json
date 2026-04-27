@@ -1,0 +1,9 @@
+{
+  "drivers": [
+    "custom code",
+    "direct sql",
+    "old isv",
+    "manual process",
+    "unsupported pattern"
+  ]
+}

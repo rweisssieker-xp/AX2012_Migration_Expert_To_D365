@@ -108,7 +108,23 @@ Generate a guided command plan and demo dashboards:
 
 ```powershell
 python .\axmigrate.py wizard --profile commerce --project "Contoso Retail Migration" --output migration-wizard\commerce
+python .\axmigrate.py wizard --profile multi-country --project "Contoso Global Rollout" --output migration-wizard\multi-country
 python .\axmigrate.py demo-projects --output demo-projects
+```
+
+Run the autonomous router, evidence gates, and Migration Intelligence Fabric:
+
+```powershell
+python .\axmigrate.py orchestrate migration-analysis\sample --output orchestration\sample
+python .\axmigrate.py evidence-gates migration-analysis\sample --ciso-approval yes --cutover-rehearsal yes --finance-reconciliation yes --uat-signoff yes --rollback-plan yes --output evidence-gates\sample
+python .\axmigrate.py intelligence-pack migration-analysis\sample --output intelligence-pack\sample
+python .\axmigrate.py migration-memory migration-analysis\sample --output migration-memory\sample
+python .\axmigrate.py benchmark migration-analysis\sample --output benchmark\sample
+python .\axmigrate.py portfolio-control migration-analysis\sample --output portfolio-control\sample
+python .\axmigrate.py scenario-lab migration-analysis\sample --output scenario-lab\sample
+python .\axmigrate.py quality-audit migration-analysis\sample --output quality-audit\sample
+python .\axmigrate.py war-game migration-analysis\sample --output war-game\sample
+python .\axmigrate.py value-realization migration-analysis\sample --output value-realization\sample
 ```
 
 ## Repository Map
@@ -125,12 +141,12 @@ python .\axmigrate.py demo-projects --output demo-projects
 
 | Area | Current state |
 | --- | --- |
-| Skills | 92 Codex skills across migration, roles, testing, solo operation, orchestration, connectors, industry/regulatory, Commerce/CXP/CRM/POS, and governance/evidence intelligence. |
-| Templates | 264 templates for assessment, delivery, governance, testing, cutover, hypercare, role packs, solo operation, Commerce, evidence, rehearsal, reconciliation, ALM, training, archive, board risk, and process twin. |
-| Scripts | 51 Python scripts including CLI, analyzer, exporters, connectors, validators, Commerce generators, Solo/Master generators, governance generators, wizard, and demo project generator. |
-| Configs | 25 JSON configs including cost model, risks, D365FO knowledge, integrations, Commerce readiness/gates, POS offline, PCI, CRM lead management, evidence, scope, reconciliation, license, ALM, training, country regulatory, and process twin rules. |
+| Skills | 112 Codex skills across migration, roles, testing, solo operation, orchestration, connectors, industry/regulatory, Commerce/CXP/CRM/POS, governance/evidence intelligence, and Migration Intelligence Fabric. |
+| Templates | 325 templates for assessment, delivery, governance, testing, cutover, hypercare, role packs, solo operation, Commerce, evidence, rehearsal, reconciliation, ALM, training, archive, board risk, process twin, and intelligence fabric outputs. |
+| Scripts | 72 Python scripts including CLI, analyzer, exporters, connectors, validators, Commerce generators, Solo/Master generators, governance generators, intelligence generators, documentation generator, wizard, evidence gates, router, and demo project generator. |
+| Configs | 35 JSON configs including cost model, risks, D365FO knowledge, integrations, Commerce readiness/gates, POS offline, PCI, CRM lead management, evidence, scope, reconciliation, license, ALM, training, country regulatory, process twin, benchmarking, portfolio, scenario, quality, integration resilience, security, and value rules. |
 | Analyzer outputs | 46 generated outputs from inventory analysis, including technical, executive, governance, role, dashboard, graph, and backlog artifacts. |
-| AI/KI features | 380 documented feature items, including solo autonomy, Commerce features, and autonomous governance/evidence intelligence. |
+| AI/KI features | 500 documented feature items, including solo autonomy, Commerce features, autonomous governance/evidence intelligence, wizard automation, evidence gates, Dashboard 2.0, stronger Office exports, strict validation, and Migration Intelligence Fabric. |
 
 ## Documentation
 

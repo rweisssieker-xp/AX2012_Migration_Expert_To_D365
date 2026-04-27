@@ -1,0 +1,260 @@
+[
+  {
+    "source_file": "ax2012-multi-country-rollout-inventory.csv",
+    "category": "integration",
+    "object_type": "Service",
+    "name": "LedgerJournalService",
+    "layer": "CUS",
+    "module": "Finance",
+    "usage": "",
+    "complexity": "8",
+    "technology": "",
+    "business_purpose": "",
+    "risk_flags": [
+      "overlayering",
+      "posting"
+    ],
+    "disposition": "Rebuild",
+    "target_pattern": "Middleware-backed D365FO integration pattern",
+    "effort_points": 7,
+    "confidence": "Medium",
+    "confidence_reason": "Inventory row supports a recommendation but needs workshop validation.",
+    "rationale": "Legacy integrations usually need redesign for D365FO operations and monitoring."
+  },
+  {
+    "source_file": "ax2012-multi-country-rollout-inventory.csv",
+    "category": "integration",
+    "object_type": "Integration",
+    "name": "DE_EInvoiceAdapter",
+    "layer": "VAR",
+    "module": "Tax",
+    "usage": "",
+    "complexity": "9",
+    "technology": "",
+    "business_purpose": "",
+    "risk_flags": [
+      "overlayering"
+    ],
+    "disposition": "Rebuild",
+    "target_pattern": "Middleware-backed D365FO integration pattern",
+    "effort_points": 6,
+    "confidence": "Medium",
+    "confidence_reason": "Inventory row supports a recommendation but needs workshop validation.",
+    "rationale": "Legacy integrations usually need redesign for D365FO operations and monitoring."
+  },
+  {
+    "source_file": "ax2012-multi-country-rollout-inventory.csv",
+    "category": "object",
+    "object_type": "Batch",
+    "name": "FR_TaxSettlementBatch",
+    "layer": "CUS",
+    "module": "Tax",
+    "usage": "",
+    "complexity": "7",
+    "technology": "",
+    "business_purpose": "",
+    "risk_flags": [
+      "batch",
+      "overlayering",
+      "posting"
+    ],
+    "disposition": "Extend",
+    "target_pattern": "SysOperation/batch framework alignment",
+    "effort_points": 7,
+    "confidence": "Medium",
+    "confidence_reason": "Inventory row supports a recommendation but needs workshop validation.",
+    "rationale": "Customization likely needs extension-based migration."
+  },
+  {
+    "source_file": "ax2012-multi-country-rollout-inventory.csv",
+    "category": "integration",
+    "object_type": "Integration",
+    "name": "UK_VATMakingTaxDigital",
+    "layer": "CUS",
+    "module": "Tax",
+    "usage": "",
+    "complexity": "8",
+    "technology": "",
+    "business_purpose": "",
+    "risk_flags": [
+      "aif",
+      "overlayering"
+    ],
+    "disposition": "Rebuild",
+    "target_pattern": "OData, custom service, Business Events, or middleware",
+    "effort_points": 7,
+    "confidence": "Medium",
+    "confidence_reason": "Inventory row supports a recommendation but needs workshop validation.",
+    "rationale": "Legacy integrations usually need redesign for D365FO operations and monitoring."
+  },
+  {
+    "source_file": "ax2012-multi-country-rollout-inventory.csv",
+    "category": "integration",
+    "object_type": "Integration",
+    "name": "US_SalesTaxConnector",
+    "layer": "ISV",
+    "module": "Tax",
+    "usage": "",
+    "complexity": "8",
+    "technology": "",
+    "business_purpose": "",
+    "risk_flags": [
+      "integration-modernization"
+    ],
+    "disposition": "Rebuild",
+    "target_pattern": "Middleware-backed D365FO integration pattern",
+    "effort_points": 6,
+    "confidence": "Medium",
+    "confidence_reason": "Inventory row supports a recommendation but needs workshop validation.",
+    "rationale": "Legacy integrations usually need redesign for D365FO operations and monitoring."
+  },
+  {
+    "source_file": "ax2012-multi-country-rollout-inventory.csv",
+    "category": "object",
+    "object_type": "Class",
+    "name": "IntercompanyOrderFlow",
+    "layer": "CUS",
+    "module": "SCM",
+    "usage": "",
+    "complexity": "8",
+    "technology": "",
+    "business_purpose": "",
+    "risk_flags": [
+      "client-dependency",
+      "overlayering"
+    ],
+    "disposition": "Rebuild",
+    "target_pattern": "Extension/service/data entity redesign",
+    "effort_points": 5,
+    "confidence": "Medium",
+    "confidence_reason": "Inventory row supports a recommendation but needs workshop validation.",
+    "rationale": "Unsupported legacy dependency detected."
+  },
+  {
+    "source_file": "ax2012-multi-country-rollout-inventory.csv",
+    "category": "object",
+    "object_type": "Table",
+    "name": "GlobalCustomerMaster",
+    "layer": "CUS",
+    "module": "AccountsReceivable",
+    "usage": "",
+    "complexity": "9",
+    "technology": "",
+    "business_purpose": "",
+    "risk_flags": [
+      "client-dependency",
+      "overlayering"
+    ],
+    "disposition": "Rebuild",
+    "target_pattern": "Extension/service/data entity redesign",
+    "effort_points": 5,
+    "confidence": "Medium",
+    "confidence_reason": "Inventory row supports a recommendation but needs workshop validation.",
+    "rationale": "Unsupported legacy dependency detected."
+  },
+  {
+    "source_file": "ax2012-multi-country-rollout-inventory.csv",
+    "category": "object",
+    "object_type": "Class",
+    "name": "VendorBankValidation",
+    "layer": "CUS",
+    "module": "AccountsPayable",
+    "usage": "",
+    "complexity": "7",
+    "technology": "",
+    "business_purpose": "",
+    "risk_flags": [
+      "overlayering"
+    ],
+    "disposition": "Extend",
+    "target_pattern": "Chain of Command or event handler",
+    "effort_points": 4,
+    "confidence": "Medium",
+    "confidence_reason": "Inventory row supports a recommendation but needs workshop validation.",
+    "rationale": "Customization likely needs extension-based migration."
+  },
+  {
+    "source_file": "ax2012-multi-country-rollout-inventory.csv",
+    "category": "security",
+    "object_type": "Security",
+    "name": "SecurityRoleTemplate",
+    "layer": "CUS",
+    "module": "Security",
+    "usage": "",
+    "complexity": "8",
+    "technology": "",
+    "business_purpose": "",
+    "risk_flags": [
+      "overlayering"
+    ],
+    "disposition": "Map",
+    "target_pattern": "D365FO roles, duties, privileges, and SoD review",
+    "effort_points": 3,
+    "confidence": "Medium",
+    "confidence_reason": "Inventory row supports a recommendation but needs workshop validation.",
+    "rationale": "Security must be mapped rather than technically migrated as-is."
+  },
+  {
+    "source_file": "ax2012-multi-country-rollout-inventory.csv",
+    "category": "integration",
+    "object_type": "Report",
+    "name": "LegacyDataArchive",
+    "layer": "CUS",
+    "module": "Archive",
+    "usage": "",
+    "complexity": "6",
+    "technology": "",
+    "business_purpose": "",
+    "risk_flags": [
+      "overlayering"
+    ],
+    "disposition": "Rebuild",
+    "target_pattern": "Middleware-backed D365FO integration pattern",
+    "effort_points": 6,
+    "confidence": "Medium",
+    "confidence_reason": "Inventory row supports a recommendation but needs workshop validation.",
+    "rationale": "Legacy integrations usually need redesign for D365FO operations and monitoring."
+  },
+  {
+    "source_file": "ax2012-multi-country-rollout-inventory.csv",
+    "category": "object",
+    "object_type": "Process",
+    "name": "CountryRolloutPMO",
+    "layer": "CUS",
+    "module": "PMO",
+    "usage": "",
+    "complexity": "7",
+    "technology": "",
+    "business_purpose": "",
+    "risk_flags": [
+      "overlayering"
+    ],
+    "disposition": "Review",
+    "target_pattern": "Fit-gap validation required",
+    "effort_points": 3,
+    "confidence": "Medium",
+    "confidence_reason": "Inventory row supports a recommendation but needs workshop validation.",
+    "rationale": "Insufficient evidence for an automatic recommendation."
+  },
+  {
+    "source_file": "ax2012-multi-country-rollout-inventory.csv",
+    "category": "integration",
+    "object_type": "AOT",
+    "name": "LocalLabelExtensions",
+    "layer": "CUS",
+    "module": "Localization",
+    "usage": "",
+    "complexity": "5",
+    "technology": "",
+    "business_purpose": "",
+    "risk_flags": [
+      "overlayering"
+    ],
+    "disposition": "Rebuild",
+    "target_pattern": "Middleware-backed D365FO integration pattern",
+    "effort_points": 6,
+    "confidence": "Medium",
+    "confidence_reason": "Inventory row supports a recommendation but needs workshop validation.",
+    "rationale": "Legacy integrations usually need redesign for D365FO operations and monitoring."
+  }
+]

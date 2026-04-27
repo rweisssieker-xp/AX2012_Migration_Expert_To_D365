@@ -1,0 +1,10 @@
+{
+  "kpis": [
+    "adoption",
+    "cost",
+    "cycle time",
+    "automation",
+    "defects",
+    "benefits"
+  ]
+}

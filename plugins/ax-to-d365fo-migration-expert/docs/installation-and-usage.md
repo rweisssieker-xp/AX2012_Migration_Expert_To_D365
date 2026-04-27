@@ -184,6 +184,32 @@ python .\axmigrate.py meeting-copilot migration-analysis\contoso --output meetin
 
 These commands convert the same migration evidence into contract/scope control, evidence vaults, cutover rehearsal proof, reconciliation sign-off, license cost optimization, ALM release gates, training readiness, ISV exit, country regulatory packs, archive strategy, hyperautomation backlog, board risk forecast, process twin traceability, and meeting-to-backlog actions.
 
+## Autonomous Router, Wizard, Evidence Gates, and Demos
+
+```powershell
+python .\axmigrate.py orchestrate migration-analysis\contoso --output orchestration\contoso
+python .\axmigrate.py evidence-gates migration-analysis\contoso --ciso-approval yes --cutover-rehearsal yes --finance-reconciliation yes --uat-signoff yes --rollback-plan yes --output evidence-gates\contoso
+python .\axmigrate.py wizard --profile multi-country --project "Contoso Global Rollout" --output migration-wizard\global
+python .\axmigrate.py demo-projects --output demo-projects
+```
+
+The router analyzes text, analysis folders, or project folders, selects the matching skills, lists missing evidence, and writes `next-commands.ps1`. The evidence gate command produces Ready, Needs control, or Blocked results while keeping real CISO, legal, finance, audit, payment/PCI, and production approvals external.
+
+## Migration Intelligence Fabric
+
+```powershell
+python .\axmigrate.py intelligence-pack migration-analysis\contoso --output intelligence-pack\contoso
+python .\axmigrate.py migration-memory migration-analysis\contoso --output migration-memory\contoso
+python .\axmigrate.py benchmark migration-analysis\contoso --output benchmark\contoso
+python .\axmigrate.py portfolio-control migration-analysis\contoso --output portfolio-control\contoso
+python .\axmigrate.py scenario-lab migration-analysis\contoso --output scenario-lab\contoso
+python .\axmigrate.py quality-audit migration-analysis\contoso --output quality-audit\contoso
+python .\axmigrate.py war-game migration-analysis\contoso --output war-game\contoso
+python .\axmigrate.py value-realization migration-analysis\contoso --output value-realization\contoso
+```
+
+These commands create reusable migration memory, benchmark comparisons, rollout portfolio control, scenario simulations, quality audits, technical debt actions, resilience drills, and post-go-live value tracking.
+
 ## Configuration
 
 Adjust these files to fit your delivery model:
@@ -211,6 +237,14 @@ Adjust these files to fit your delivery model:
 - `config/training-effectiveness-rules.json`
 - `config/country-regulatory-rules.json`
 - `config/process-twin-rules.json`
+- `config/intelligence-fabric-rules.json`
+- `config/benchmarking-rules.json`
+- `config/portfolio-control-rules.json`
+- `config/scenario-lab-rules.json`
+- `config/quality-audit-rules.json`
+- `config/integration-resilience-rules.json`
+- `config/security-attack-surface-rules.json`
+- `config/value-realization-rules.json`
 
 ## Tests
 

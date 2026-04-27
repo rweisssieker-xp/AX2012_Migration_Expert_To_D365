@@ -1423,6 +1423,9 @@ def html_dashboard(items: list[InventoryItem], rating: str, score: int, model: d
     evidence_gaps = sum(1 for item in items if item.confidence == "Low")
     blocked = sum(1 for item in items if dashboard_status(item) == "Blocked")
     needs_control = sum(1 for item in items if dashboard_status(item) == "Needs control")
+    go_live_confidence = max(0, min(100, 100 - blocked * 12 - needs_control * 5 - evidence_gaps * 8 - high_risk * 4))
+    commerce_signals = sum(1 for item in items if any(word in " ".join([item.name, item.module, item.business_purpose]).lower() for word in ("commerce", "retail", "pos", "store", "payment", "csu")))
+    board_risk = "High" if blocked or high_risk >= 3 else "Medium" if needs_control else "Low"
     cards = [
         ("Complexity", rating),
         ("Score", str(score)),
@@ -1432,6 +1435,10 @@ def html_dashboard(items: list[InventoryItem], rating: str, score: int, model: d
         ("Effort Points", str(total_points)),
         ("Evidence Gaps", str(evidence_gaps)),
         ("Blocked", str(blocked)),
+        ("Go-live Confidence", f"{go_live_confidence}%"),
+        ("Commerce Gates", "Active" if commerce_signals else "No scope signal"),
+        ("Solo Actions", str(blocked + needs_control + evidence_gaps)),
+        ("Board Risk Forecast", board_risk),
     ]
     rows = "\n".join(
         f"<tr data-status=\"{dashboard_status(item)}\"><td>{html.escape(item.name)}</td><td>{html.escape(item.category)}</td><td><span class=\"pill {dashboard_status(item).lower().replace(' ', '-')}\">{dashboard_status(item)}</span></td><td>{html.escape(item.disposition)}</td><td>{item.effort_points}</td><td>{html.escape(', '.join(item.risk_flags))}</td><td>{html.escape(', '.join(skill_routes_for_item(item)))}</td></tr>"
@@ -1449,6 +1456,15 @@ def html_dashboard(items: list[InventoryItem], rating: str, score: int, model: d
     route_rows = "\n".join(
         f"<tr><td>{html.escape(route)}</td><td>{count}</td></tr>"
         for route, count in sorted(skill_route_counts(items).items(), key=lambda value: value[1], reverse=True)
+    )
+    gate_rows = "\n".join(
+        f"<tr><td>{gate}</td><td><span class=\"pill {status.lower().replace(' ', '-')}\">{status}</span></td><td>{action}</td></tr>"
+        for gate, status, action in [
+            ("Evidence Gaps", "Blocked" if evidence_gaps else "Ready", "Close missing usage, owner, risk and decision evidence"),
+            ("Commerce Gates", "Needs control" if commerce_signals else "Ready", "Run commerce-readiness, commerce-cutover and payments/offline checks when in scope"),
+            ("Solo-Orchestrator Actions", "Needs control" if blocked + needs_control else "Ready", "Run orchestrate and follow next-commands.ps1"),
+            ("Board Risk Forecast", "Blocked" if board_risk == "High" else "Needs control" if board_risk == "Medium" else "Ready", "Review executive risk trend and gate evidence"),
+        ]
     )
     return f"""<!doctype html>
 <html lang="en">
@@ -1491,6 +1507,10 @@ def html_dashboard(items: list[InventoryItem], rating: str, score: int, model: d
         <table><thead><tr><th>Skill / Command Route</th><th>Signals</th></tr></thead><tbody>{route_rows}</tbody></table>
       </section>
     </div>
+    <section class="panel">
+      <h2>Go-live Gates, Evidence Gaps, Commerce Gates, Solo Actions, Board Risk</h2>
+      <table><thead><tr><th>Control</th><th>Status</th><th>Next Action</th></tr></thead><tbody>{gate_rows}</tbody></table>
+    </section>
     <h2>Disposition and Risk</h2>
     <div class="toolbar">
       <input id="search" placeholder="Search items, risks, disposition" oninput="filterRows()">

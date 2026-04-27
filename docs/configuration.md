@@ -10,81 +10,44 @@ plugins/ax-to-d365fo-migration-expert/config
 
 | File | Purpose |
 | --- | --- |
-| `migration-cost-model.json` | Converts effort points to person-days and budget range. |
-| `standard-feature-map.json` | Maps AX terms to D365FO standard capabilities. |
-| `d365fo-knowledge-base.json` | Data entities, business events, workspaces, and feature management hints. |
-| `risk-rules.json` | Risk-to-mitigation guidance. |
-| `industry-packs.json` | Industry-specific focus areas. |
-| `integrations.json` | Environment variable names and connector defaults. |
-| `regulatory-packs.json` | DACH/GDPR/GoBD, EU e-invoicing, audit, pharma, automotive, and public-sector control packs. |
-| `commerce-role-skill-map.json` | Commerce role to skill, artifact, and CLI command routing. |
-| `commerce-synonyms.json` | German/English synonyms for CXP, CRM, Commerce, CSU, POS, Offline, Payments, and Store Ops routing. |
-| `commerce-readiness-rules.json` | Score rules for Commerce/CXP/CRM/POS workstreams. |
-| `commerce-gate-minimum-evidence.json` | Minimum evidence required for Commerce go-live gates. |
-| `commerce-cutover-checks.json` | Cutover checks for HQ, CSU, Channel DB, POS, Payments, Offline, and Store Smoke. |
-| `pos-offline-risk-rules.json` | POS offline blockers, risks, and recovery controls. |
-| `payment-pci-risk-rules.json` | Payment, PCI, terminal, tokenization, and settlement risk rules. |
-| `crm-lead-management-map.json` | CRM/Dataverse, lead-to-cash, customer/contact/opportunity/case, dual-write, and customer master mapping. |
-| `governance-role-skill-map.json` | Governance domain to skill and command routing. |
-| `governance-synonyms.json` | Contract, evidence, rehearsal, reconciliation, and meeting synonyms. |
-| `evidence-vault-rules.json` | Evidence freshness, critical evidence, and blocker rules. |
-| `contract-scope-risk-rules.json` | Scope creep, change request, and commercial impact rules. |
-| `reconciliation-rules.json` | Finance, inventory, customer/vendor, open transaction, and tolerance rules. |
-| `license-cost-rules.json` | License domain, role, user, and cost risk signals. |
-| `alm-release-rules.json` | Build, deploy, freeze, release approval, rollback, and environment readiness gates. |
-| `training-effectiveness-rules.json` | Training, adoption, UAT, key-user, and role coverage readiness rules. |
-| `country-regulatory-rules.json` | Country, tax, e-invoicing, audit retention, privacy, localization, payment, and reporting obligations. |
-| `process-twin-rules.json` | End-to-end process, role, data, integration, report, test, risk, evidence, and decision nodes. |
-
-## Cost Model
-
-Tune these fields for your delivery organization:
-
-```json
-{
-  "hours_per_effort_point": 6,
-  "hours_per_day": 8,
-  "blended_day_rate": 950,
-  "risk_multiplier": {
-    "Low": 1.0,
-    "Medium": 1.15,
-    "High": 1.3,
-    "Critical": 1.5
-  }
-}
-```
-
-## Integration Variables
-
-Set only when using real external connectors:
-
-| Variable | Used by |
-| --- | --- |
-| `AX_SQL_CONNECTION_STRING` | AX SQL connector |
-| `AZDO_ORG_URL` | Azure DevOps connector |
-| `AZDO_PROJECT` | Azure DevOps connector |
-| `AZDO_PAT` | Azure DevOps connector |
-| `LCS_BASE_URL` | LCS connector |
-| `LCS_BEARER_TOKEN` | LCS connector |
-| `D365FO_BASE_URL` | D365FO connector |
-| `D365FO_BEARER_TOKEN` | D365FO connector |
+| `alm-release-rules.json` | Alm release rules rules, mappings, thresholds, or routing defaults. |
+| `benchmarking-rules.json` | Benchmarking rules rules, mappings, thresholds, or routing defaults. |
+| `commerce-cutover-checks.json` | Commerce cutover checks rules, mappings, thresholds, or routing defaults. |
+| `commerce-gate-minimum-evidence.json` | Commerce gate minimum evidence rules, mappings, thresholds, or routing defaults. |
+| `commerce-readiness-rules.json` | Commerce readiness rules rules, mappings, thresholds, or routing defaults. |
+| `commerce-role-skill-map.json` | Commerce role skill map rules, mappings, thresholds, or routing defaults. |
+| `commerce-synonyms.json` | Commerce synonyms rules, mappings, thresholds, or routing defaults. |
+| `contract-scope-risk-rules.json` | Contract scope risk rules rules, mappings, thresholds, or routing defaults. |
+| `country-regulatory-rules.json` | Country regulatory rules rules, mappings, thresholds, or routing defaults. |
+| `crm-lead-management-map.json` | Crm lead management map rules, mappings, thresholds, or routing defaults. |
+| `d365fo-knowledge-base.json` | D365fo knowledge base rules, mappings, thresholds, or routing defaults. |
+| `evidence-vault-rules.json` | Evidence vault rules rules, mappings, thresholds, or routing defaults. |
+| `fabric-advisor-rules.json` | Fabric advisor rules rules, mappings, thresholds, or routing defaults. |
+| `governance-role-skill-map.json` | Governance role skill map rules, mappings, thresholds, or routing defaults. |
+| `governance-synonyms.json` | Governance synonyms rules, mappings, thresholds, or routing defaults. |
+| `industry-packs.json` | Industry packs rules, mappings, thresholds, or routing defaults. |
+| `integration-resilience-rules.json` | Integration resilience rules rules, mappings, thresholds, or routing defaults. |
+| `integrations.json` | Integrations rules, mappings, thresholds, or routing defaults. |
+| `intelligence-fabric-rules.json` | Intelligence fabric rules rules, mappings, thresholds, or routing defaults. |
+| `license-cost-rules.json` | License cost rules rules, mappings, thresholds, or routing defaults. |
+| `migration-cost-model.json` | Migration cost model rules, mappings, thresholds, or routing defaults. |
+| `payment-pci-risk-rules.json` | Payment pci risk rules rules, mappings, thresholds, or routing defaults. |
+| `portfolio-control-rules.json` | Portfolio control rules rules, mappings, thresholds, or routing defaults. |
+| `pos-offline-risk-rules.json` | Pos offline risk rules rules, mappings, thresholds, or routing defaults. |
+| `process-twin-rules.json` | Process twin rules rules, mappings, thresholds, or routing defaults. |
+| `quality-audit-rules.json` | Quality audit rules rules, mappings, thresholds, or routing defaults. |
+| `reconciliation-rules.json` | Reconciliation rules rules, mappings, thresholds, or routing defaults. |
+| `regulatory-packs.json` | Regulatory packs rules, mappings, thresholds, or routing defaults. |
+| `risk-rules.json` | Risk rules rules, mappings, thresholds, or routing defaults. |
+| `scenario-lab-rules.json` | Scenario lab rules rules, mappings, thresholds, or routing defaults. |
+| `security-attack-surface-rules.json` | Security attack surface rules rules, mappings, thresholds, or routing defaults. |
+| `standard-feature-map.json` | Standard feature map rules, mappings, thresholds, or routing defaults. |
+| `technical-debt-rules.json` | Technical debt rules rules, mappings, thresholds, or routing defaults. |
+| `training-effectiveness-rules.json` | Training effectiveness rules rules, mappings, thresholds, or routing defaults. |
+| `value-realization-rules.json` | Value realization rules rules, mappings, thresholds, or routing defaults. |
 
 ## Validation
 
-After configuration changes:
-
 ```powershell
-python plugins\ax-to-d365fo-migration-expert\scripts\migration_cli.py validate
+python .\axmigrate.py validate
 ```
-
-## Commerce Gate Defaults
-
-Commerce go-live is blocked when critical evidence is missing or readiness is below threshold for CSU, POS Offline, Payments/PCI, Store Smoke Tests, Channel Data Sync, Offline Recovery, Payment Reconciliation, Commerce Security/PCI, Customer Master Harmonization, or Lead-to-Cash Traceability.
-
-Readiness status uses:
-
-| Status | Rule |
-| --- | --- |
-| Ready | Score is at least 75 and no critical blockers exist. |
-| Needs control | Score is 50-74 or noncritical evidence is missing. |
-| Blocked | Score is below 50 or critical CSU/POS Offline/Payments/Store Smoke/CISO evidence is missing. |

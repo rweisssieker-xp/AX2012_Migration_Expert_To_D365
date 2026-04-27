@@ -1,0 +1,9 @@
+{
+  "scenarios": [
+    "reimplementation",
+    "hybrid",
+    "technical upgrade",
+    "phased rollout",
+    "scope reduced"
+  ]
+}

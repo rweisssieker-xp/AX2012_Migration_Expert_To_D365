@@ -106,6 +106,39 @@ def main() -> int:
         governance.add_argument("source")
         governance.add_argument("--output", default=default_output)
 
+    intelligence_commands = {
+        "intelligence-pack": ("generate_intelligence_pack.py", "Generate Migration Intelligence Fabric master pack.", "intelligence-pack"),
+        "migration-memory": ("generate_migration_memory.py", "Generate reusable migration memory and decision patterns.", "migration-memory"),
+        "benchmark": ("generate_benchmark.py", "Generate benchmark scorecard and outlier report.", "benchmark"),
+        "portfolio-control": ("generate_portfolio_control.py", "Generate portfolio control tower and wave optimization.", "portfolio-control"),
+        "scenario-lab": ("generate_scenario_lab.py", "Generate scenario simulation and strategy comparison.", "scenario-lab"),
+        "quality-audit": ("generate_quality_audit.py", "Generate delivery quality audit and paper readiness detection.", "quality-audit"),
+        "debt-liquidator": ("generate_debt_liquidator.py", "Generate technical debt liquidation plan.", "debt-liquidator"),
+        "fabric-advisor": ("generate_fabric_advisor.py", "Generate Fabric, Lakehouse, Power BI and data product advisory outputs.", "fabric-advisor"),
+        "integration-resilience": ("generate_integration_resilience.py", "Generate integration resilience and observability pack.", "integration-resilience"),
+        "attack-surface": ("generate_attack_surface.py", "Generate security attack surface and privileged access map.", "attack-surface"),
+        "sustainability": ("generate_sustainability.py", "Generate cloud footprint and sustainability assessment.", "sustainability"),
+        "pmo-negotiator": ("generate_pmo_negotiator.py", "Generate scope, budget, quality trade-off negotiation pack.", "pmo-negotiator"),
+        "knowledge-transfer-exam": ("generate_knowledge_transfer_exam.py", "Generate knowledge transfer and support readiness exam.", "knowledge-transfer-exam"),
+        "war-game": ("generate_war_game.py", "Generate migration failure simulation and war-game plan.", "war-game"),
+        "value-realization": ("generate_value_realization.py", "Generate post-go-live value realization tracker.", "value-realization"),
+        "continuous-improvement": ("generate_continuous_improvement.py", "Generate continuous improvement backlog and modernization roadmap.", "continuous-improvement"),
+    }
+    for command, (_, help_text, default_output) in intelligence_commands.items():
+        intelligence = sub.add_parser(command, help=help_text)
+        intelligence.add_argument("source")
+        intelligence.add_argument("--output", default=default_output)
+
+    orchestrate = sub.add_parser("orchestrate", help="Automatically route input to skills, evidence gaps, artifacts, and next CLI commands.")
+    orchestrate.add_argument("source")
+    orchestrate.add_argument("--output", default="orchestration")
+
+    gates = sub.add_parser("evidence-gates", help="Generate interactive go-live evidence gates and status.")
+    gates.add_argument("source", nargs="?", default=".")
+    gates.add_argument("--output", default="evidence-gates")
+    for gate_name in ["ciso-approval", "cutover-rehearsal", "finance-reconciliation", "uat-signoff", "commerce-payments", "rollback-plan"]:
+        gates.add_argument(f"--{gate_name}", choices=["yes", "no"], default="no")
+
     solo_init = sub.add_parser("solo-init", help="Create a solo migration project operating folder.")
     solo_init.add_argument("project")
     solo_init.add_argument("--output", default="solo-migration")
@@ -185,7 +218,7 @@ def main() -> int:
     sub.add_parser("examples", help="Print useful example commands.")
 
     wizard = sub.add_parser("wizard", help="Generate a guided project command plan for a migration profile.")
-    wizard.add_argument("--profile", choices=["commerce", "crm", "finance", "manufacturing", "solo"], required=True)
+    wizard.add_argument("--profile", choices=["ax40", "ax2009", "ax2012", "commerce", "crm", "finance", "manufacturing", "multi-country", "corporate-rollout", "pos", "solo"])
     wizard.add_argument("--project", default="Contoso AX Migration")
     wizard.add_argument("--output", default="migration-wizard")
 
@@ -218,6 +251,16 @@ def main() -> int:
     if args.command in governance_commands:
         script, _, _ = governance_commands[args.command]
         return run(script, [args.source, "--output", args.output])
+    if args.command in intelligence_commands:
+        script, _, _ = intelligence_commands[args.command]
+        return run(script, [args.source, "--output", args.output])
+    if args.command == "orchestrate":
+        return run("orchestrate_migration.py", [args.source, "--output", args.output])
+    if args.command == "evidence-gates":
+        cmd = [args.source, "--output", args.output]
+        for gate_name in ["ciso_approval", "cutover_rehearsal", "finance_reconciliation", "uat_signoff", "commerce_payments", "rollback_plan"]:
+            cmd += [f"--{gate_name.replace('_', '-')}", getattr(args, gate_name)]
+        return run("evaluate_evidence_gates.py", cmd)
     if args.command == "solo-init":
         return run("create_solo_project.py", [args.project, "--output", args.output])
     if args.command == "solo-run":
@@ -271,7 +314,10 @@ def main() -> int:
         print_examples()
         return 0
     if args.command == "wizard":
-        return run("create_project_wizard.py", ["--profile", args.profile, "--project", args.project, "--output", args.output])
+        cmd = ["--project", args.project, "--output", args.output]
+        if args.profile:
+            cmd += ["--profile", args.profile]
+        return run("create_project_wizard.py", cmd)
     if args.command == "demo-projects":
         return run("create_demo_projects.py", ["--output", args.output])
     return 2

@@ -4,6 +4,7 @@
 from __future__ import annotations
 
 import json
+import re
 import subprocess
 import sys
 import tempfile
@@ -11,6 +12,27 @@ from pathlib import Path
 
 
 ROOT = Path(__file__).resolve().parents[1]
+REPO_ROOT = ROOT.parents[1]
+EXPECTED_SKILLS = 112
+EXPECTED_TEMPLATES = 325
+EXPECTED_ANALYSIS_OUTPUTS = 46
+
+CLI_COMMANDS = [
+    "init", "analyze", "scan-code", "dashboard", "extract-modelstore", "export", "persona-pack", "questionnaire",
+    "github-issues", "stakeholder-pack", "commerce-pack", "commerce-readiness", "commerce-cutover", "commerce-offline-check",
+    "commerce-crm-pack", "commerce-store-pack", "commerce-payments-pack", "commerce-omnichannel-pack", "governance-pack",
+    "evidence-vault", "scope-guard", "contract-risk", "cutover-rehearsal", "reconciliation-judge", "license-cost",
+    "alm-release", "training-readiness", "isv-exit", "country-regulatory-pack", "archive-strategy", "hyperautomation-pack",
+    "board-risk", "process-twin", "meeting-copilot", "intelligence-pack", "migration-memory", "benchmark",
+    "portfolio-control", "scenario-lab", "quality-audit", "debt-liquidator", "fabric-advisor", "integration-resilience",
+    "attack-surface", "sustainability", "pmo-negotiator", "knowledge-transfer-exam", "war-game", "value-realization",
+    "continuous-improvement", "orchestrate", "evidence-gates", "solo-init", "solo-run", "solo-evidence", "solo-status",
+    "solo-gates", "solo-daily", "solo-war-room", "solo-hypercare", "solo-audit-binder", "solo-benefits", "solo-orchestrate",
+    "solo-brain", "solo-next", "solo-simulate", "solo-scope-defense", "solo-waste-hunter", "solo-predict", "solo-translate",
+    "solo-drift", "solo-communicate", "solo-test-plan", "solo-test-status", "solo-signoff", "profile-data", "monitor",
+    "ax-sql", "push-ado", "fetch-lcs", "fetch-d365fo", "usage-telemetry", "validate", "doctor", "examples", "wizard",
+    "demo-projects",
+]
 
 
 def run(args: list[str]) -> None:
@@ -45,14 +67,54 @@ def assert_skill(path: Path) -> None:
         raise SystemExit(f"Skill description should start with 'Use when': {path}")
 
 
+def assert_documentation_coverage(skill_files: list[Path]) -> None:
+    handbook = (REPO_ROOT / "docs" / "skill-handbook.md").read_text(encoding="utf-8")
+    command_ref = (REPO_ROOT / "docs" / "command-reference.md").read_text(encoding="utf-8")
+    config_doc = (REPO_ROOT / "docs" / "configuration.md").read_text(encoding="utf-8")
+    template_map = (REPO_ROOT / "docs" / "template-map.md").read_text(encoding="utf-8")
+
+    missing_skills = [path.parent.name for path in skill_files if path.parent.name not in handbook]
+    if missing_skills:
+        raise SystemExit("Skills missing from handbook:\n" + "\n".join(missing_skills))
+
+    missing_commands = [command for command in CLI_COMMANDS if f"`{command}`" not in command_ref]
+    if missing_commands:
+        raise SystemExit("CLI commands missing from command reference:\n" + "\n".join(missing_commands))
+
+    missing_configs = [path.name for path in sorted((ROOT / "config").glob("*.json")) if path.name not in config_doc]
+    if missing_configs:
+        raise SystemExit("Config files missing from configuration docs:\n" + "\n".join(missing_configs))
+
+    missing_templates = [path.name for path in sorted((ROOT / "templates").glob("*.md")) if path.name not in template_map]
+    if missing_templates:
+        raise SystemExit("Templates missing from template map:\n" + "\n".join(missing_templates))
+
+
+def assert_feature_numbers() -> None:
+    text = (ROOT / "docs" / "ai-usp-feature-list.md").read_text(encoding="utf-8")
+    numbers: set[int] = set()
+    for match in re.finditer(r"## Feature (\d+):", text):
+        numbers.add(int(match.group(1)))
+    for match in re.finditer(r"## Features (\d+)-(\d+):", text):
+        start, end = int(match.group(1)), int(match.group(2))
+        numbers.update(range(start, end + 1))
+    expected = set(range(1, 501))
+    missing = sorted(expected - numbers)
+    extra_gap = sorted(num for num in numbers if num < 1 or num > 500)
+    if missing or extra_gap:
+        raise SystemExit(f"Feature numbering is not continuous 1-500. Missing={missing[:20]} Extra={extra_gap[:20]}")
+
+
 def main() -> int:
     for path in [ROOT / ".codex-plugin" / "plugin.json", *list((ROOT / "config").glob("*.json"))]:
         assert_json(path)
     skill_files = sorted((ROOT / "skills").glob("*/SKILL.md"))
-    if len(skill_files) != 92:
-        raise SystemExit(f"Expected 92 skills, got {len(skill_files)}")
+    if len(skill_files) != EXPECTED_SKILLS:
+        raise SystemExit(f"Expected {EXPECTED_SKILLS} skills, got {len(skill_files)}")
     for path in skill_files:
         assert_skill(path)
+    assert_documentation_coverage(skill_files)
+    assert_feature_numbers()
 
     run([sys.executable, "-m", "unittest", "discover", str(ROOT / "tests")])
     with tempfile.TemporaryDirectory(prefix="axmigrate-validation-") as tmp:
@@ -98,8 +160,22 @@ def main() -> int:
         ]
         wizard_output = temp_root / "wizard"
         demo_output = temp_root / "demo_projects"
+        export_output = temp_root / "exports"
+        orchestration_output = temp_root / "orchestration"
+        evidence_gate_output = temp_root / "evidence_gates"
+        intelligence_outputs = [
+            temp_root / "intelligence_pack",
+            temp_root / "migration_memory",
+            temp_root / "benchmark",
+            temp_root / "portfolio_control",
+            temp_root / "scenario_lab",
+            temp_root / "quality_audit",
+            temp_root / "war_game",
+            temp_root / "value_realization",
+        ]
         run([sys.executable, str(ROOT / "scripts" / "analyze_ax_inventory.py"), str(ROOT / "examples" / "sample-ax-inventory.csv"), str(ROOT / "examples" / "sample-xpp-class.xpp"), "--output", str(analysis)])
         run([sys.executable, str(ROOT / "scripts" / "create_migration_workspace.py"), "Validation", "--output", str(workspace)])
+        run([sys.executable, str(ROOT / "scripts" / "export_analysis.py"), str(analysis), "--output", str(export_output)])
         for script, output in [
             ("generate_commerce_pack.py", commerce_outputs[0]),
             ("generate_commerce_readiness.py", commerce_outputs[1]),
@@ -141,12 +217,26 @@ def main() -> int:
         ]:
             run([sys.executable, str(ROOT / "scripts" / script), str(analysis), "--output", str(output)])
 
+        for script, output in [
+            ("generate_intelligence_pack.py", intelligence_outputs[0]),
+            ("generate_migration_memory.py", intelligence_outputs[1]),
+            ("generate_benchmark.py", intelligence_outputs[2]),
+            ("generate_portfolio_control.py", intelligence_outputs[3]),
+            ("generate_scenario_lab.py", intelligence_outputs[4]),
+            ("generate_quality_audit.py", intelligence_outputs[5]),
+            ("generate_war_game.py", intelligence_outputs[6]),
+            ("generate_value_realization.py", intelligence_outputs[7]),
+        ]:
+            run([sys.executable, str(ROOT / "scripts" / script), str(analysis), "--output", str(output)])
+        run([sys.executable, str(ROOT / "scripts" / "orchestrate_migration.py"), str(analysis), "--output", str(orchestration_output)])
+        run([sys.executable, str(ROOT / "scripts" / "evaluate_evidence_gates.py"), str(analysis), "--ciso-approval", "yes", "--cutover-rehearsal", "yes", "--finance-reconciliation", "yes", "--uat-signoff", "yes", "--rollback-plan", "yes", "--output", str(evidence_gate_output)])
+
         report_count = len(list(analysis.glob("*")))
         template_count = len(list((workspace / "validation").glob("*.md")))
-        if report_count != 46:
-            raise SystemExit(f"Expected 46 analysis outputs, got {report_count}")
-        if template_count != 264:
-            raise SystemExit(f"Expected 264 templates, got {template_count}")
+        if report_count != EXPECTED_ANALYSIS_OUTPUTS:
+            raise SystemExit(f"Expected {EXPECTED_ANALYSIS_OUTPUTS} analysis outputs, got {report_count}")
+        if template_count != EXPECTED_TEMPLATES:
+            raise SystemExit(f"Expected {EXPECTED_TEMPLATES} templates, got {template_count}")
         if not (commerce_outputs[0] / "commerce-master-pack.md").exists():
             raise SystemExit("Commerce pack did not generate commerce-master-pack.md")
         if not (commerce_outputs[1] / "commerce-readiness.json").exists():
@@ -171,12 +261,24 @@ def main() -> int:
             raise SystemExit("Reconciliation judge did not generate finance-reconciliation-judge.md")
         if not (governance_outputs[13] / "board-risk-forecast.md").exists():
             raise SystemExit("Board risk did not generate board-risk-forecast.md")
-        run([sys.executable, str(ROOT / "scripts" / "create_project_wizard.py"), "--profile", "commerce", "--project", "Validation Commerce", "--output", str(wizard_output)])
+        if not (export_output / "ceo-migration-value-deck.pptx").exists():
+            raise SystemExit("Export did not generate CEO deck")
+        if not (export_output / "pmo-control-workbook.xlsx").exists():
+            raise SystemExit("Export did not generate PMO workbook")
+        if not (intelligence_outputs[0] / "intelligence-fabric-master-pack.md").exists():
+            raise SystemExit("Intelligence pack did not generate master pack")
+        if not (orchestration_output / "skill-routing.json").exists():
+            raise SystemExit("Orchestrator did not generate skill-routing.json")
+        if not (evidence_gate_output / "go-live-gate-result.json").exists():
+            raise SystemExit("Evidence gates did not generate go-live-gate-result.json")
+        run([sys.executable, str(ROOT / "scripts" / "create_project_wizard.py"), "--profile", "multi-country", "--project", "Validation Global", "--output", str(wizard_output)])
         run([sys.executable, str(ROOT / "scripts" / "create_demo_projects.py"), "--output", str(demo_output)])
         if not (wizard_output / "wizard-plan.md").exists():
             raise SystemExit("Wizard did not generate wizard-plan.md")
         if not (demo_output / "commerce-pos" / "analysis" / "dashboard.html").exists():
             raise SystemExit("Demo projects did not generate commerce-pos dashboard.html")
+        if not (demo_output / "multi-country-rollout" / "analysis" / "dashboard.html").exists():
+            raise SystemExit("Demo projects did not generate multi-country dashboard.html")
 
     todo_hits = []
     for path in [*ROOT.rglob("*"), ROOT.parents[1] / ".agents" / "plugins" / "marketplace.json"]:

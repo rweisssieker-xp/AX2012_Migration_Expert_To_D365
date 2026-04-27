@@ -17,6 +17,7 @@ DEMOS = {
     "manufacturing": ROOT / "examples" / "ax2012-r3-manufacturing-inventory.csv",
     "commerce-pos": ROOT / "examples" / "ax2012-retail-commerce-pos-inventory.csv",
     "crm-lead-to-cash": ROOT / "examples" / "ax2012-crm-lead-to-cash-inventory.csv",
+    "multi-country-rollout": ROOT / "examples" / "ax2012-multi-country-rollout-inventory.csv",
 }
 
 
@@ -46,6 +47,11 @@ def main() -> int:
             run("generate_commerce_cutover.py", [str(analysis), "--output", str(demo / "commerce-cutover")])
         if name == "crm-lead-to-cash":
             run("generate_commerce_crm_pack.py", [str(analysis), "--output", str(demo / "commerce-crm-pack")])
+        if name == "multi-country-rollout":
+            run("generate_country_regulatory_pack.py", [str(analysis), "--output", str(demo / "country-regulatory-pack")])
+            run("generate_board_risk.py", [str(analysis), "--output", str(demo / "board-risk")])
+            run("generate_portfolio_control.py", [str(analysis), "--output", str(demo / "portfolio-control")])
+            run("generate_scenario_lab.py", [str(analysis), "--output", str(demo / "scenario-lab")])
         dashboard_rows.append(f"| {name} | `{source.name}` | [{name} dashboard](./{name}/analysis/dashboard.html) |")
     (root / "README.md").write_text(
         "# Demo Projects\n\n"

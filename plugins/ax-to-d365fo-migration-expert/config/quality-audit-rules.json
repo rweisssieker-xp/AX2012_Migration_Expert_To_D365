@@ -1,0 +1,8 @@
+{
+  "checks": [
+    "artifact completeness",
+    "test evidence",
+    "gate evidence",
+    "owner clarity"
+  ]
+}

@@ -36,3 +36,17 @@ jobs:
 
       - name: Smoke test exports
         run: python axmigrate.py export migration-analysis\ci --output migration-exports\ci
+
+      - name: Smoke test automation and intelligence
+        run: |
+          python axmigrate.py orchestrate migration-analysis\ci --output orchestration\ci
+          python axmigrate.py evidence-gates migration-analysis\ci --ciso-approval yes --cutover-rehearsal yes --finance-reconciliation yes --uat-signoff yes --rollback-plan yes --output evidence-gates\ci
+          python axmigrate.py intelligence-pack migration-analysis\ci --output intelligence-pack\ci
+          python axmigrate.py portfolio-control migration-analysis\ci --output portfolio-control\ci
+          python axmigrate.py scenario-lab migration-analysis\ci --output scenario-lab\ci
+          python axmigrate.py war-game migration-analysis\ci --output war-game\ci
+
+      - name: Smoke test wizard and demos
+        run: |
+          python axmigrate.py wizard --profile multi-country --project "CI Global Rollout" --output migration-wizard\ci
+          python axmigrate.py demo-projects --output demo-projects

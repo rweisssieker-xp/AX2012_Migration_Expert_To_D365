@@ -1,0 +1,10 @@
+{
+  "controls": [
+    "retry",
+    "replay",
+    "idempotency",
+    "monitoring",
+    "queue",
+    "owner"
+  ]
+}

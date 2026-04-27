@@ -35,7 +35,11 @@
 <section class="card"><span>High Risk</span><strong>2</strong></section>
 <section class="card"><span>Effort Points</span><strong>50</strong></section>
 <section class="card"><span>Evidence Gaps</span><strong>0</strong></section>
-<section class="card"><span>Blocked</span><strong>3</strong></section></div>
+<section class="card"><span>Blocked</span><strong>3</strong></section>
+<section class="card"><span>Go-live Confidence</span><strong>41%</strong></section>
+<section class="card"><span>Commerce Gates</span><strong>No scope signal</strong></section>
+<section class="card"><span>Solo Actions</span><strong>6</strong></section>
+<section class="card"><span>Board Risk Forecast</span><strong>High</strong></section></div>
     <div class="split">
       <section class="panel">
         <h2>Workstream Control</h2>
@@ -57,6 +61,13 @@
 <tr><td>ciso-guardian</td><td>1</td></tr></tbody></table>
       </section>
     </div>
+    <section class="panel">
+      <h2>Go-live Gates, Evidence Gaps, Commerce Gates, Solo Actions, Board Risk</h2>
+      <table><thead><tr><th>Control</th><th>Status</th><th>Next Action</th></tr></thead><tbody><tr><td>Evidence Gaps</td><td><span class="pill ready">Ready</span></td><td>Close missing usage, owner, risk and decision evidence</td></tr>
+<tr><td>Commerce Gates</td><td><span class="pill ready">Ready</span></td><td>Run commerce-readiness, commerce-cutover and payments/offline checks when in scope</td></tr>
+<tr><td>Solo-Orchestrator Actions</td><td><span class="pill needs-control">Needs control</span></td><td>Run orchestrate and follow next-commands.ps1</td></tr>
+<tr><td>Board Risk Forecast</td><td><span class="pill blocked">Blocked</span></td><td>Review executive risk trend and gate evidence</td></tr></tbody></table>
+    </section>
     <h2>Disposition and Risk</h2>
     <div class="toolbar">
       <input id="search" placeholder="Search items, risks, disposition" oninput="filterRows()">

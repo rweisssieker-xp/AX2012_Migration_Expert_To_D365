@@ -1,0 +1,10 @@
+{
+  "metrics": [
+    "scope",
+    "effort",
+    "risk",
+    "test",
+    "cutover",
+    "hypercare"
+  ]
+}

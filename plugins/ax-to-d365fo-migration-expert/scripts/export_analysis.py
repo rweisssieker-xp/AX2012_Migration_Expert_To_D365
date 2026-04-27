@@ -51,6 +51,53 @@ def export_xlsx(analysis_dir: Path, output: Path) -> Path:
     return path
 
 
+def export_control_workbooks(analysis_dir: Path, output: Path) -> list[Path]:
+    try:
+        from openpyxl import Workbook
+        from openpyxl.styles import Font, PatternFill
+    except ImportError as exc:
+        raise SystemExit("openpyxl is required for XLSX export.") from exc
+
+    specs = {
+        "pmo-control-workbook.xlsx": [
+            ("Workstream", "Status", "Owner", "Risk", "Next Action"),
+            ("Finance", "Needs control", "PMO", "Reconciliation", "Close sign-off evidence"),
+            ("Data", "Needs control", "Data Lead", "Quality", "Run data profiling"),
+            ("Cutover", "Blocked", "Cutover Lead", "Rehearsal", "Complete rehearsal scorecard"),
+        ],
+        "commerce-readiness-workbook.xlsx": [
+            ("Area", "Score", "Status", "Evidence", "Next Action"),
+            ("CSU", "75", "Ready", "Readiness report", "Validate performance baseline"),
+            ("POS Offline", "60", "Needs control", "Offline runbook", "Execute offline recovery test"),
+            ("Payments/PCI", "50", "Blocked", "PCI gate", "Obtain security approval"),
+        ],
+        "evidence-vault-workbook.xlsx": [
+            ("Evidence", "Owner", "Required", "Present", "Gate"),
+            ("CISO approval", "CISO", "Yes", "No", "Go-live"),
+            ("Finance reconciliation", "CFO/Finance", "Yes", "No", "Go-live"),
+            ("UAT sign-off", "Business", "Yes", "No", "Go-live"),
+        ],
+    }
+    output.mkdir(parents=True, exist_ok=True)
+    paths = []
+    for filename, rows in specs.items():
+        wb = Workbook()
+        ws = wb.active
+        ws.title = "Control"
+        for row in rows:
+            ws.append(row)
+        for cell in ws[1]:
+            cell.font = Font(bold=True, color="FFFFFF")
+            cell.fill = PatternFill("solid", fgColor="1F4E79")
+        ws.freeze_panes = "A2"
+        ws2 = wb.create_sheet("Source")
+        ws2.append(["Analysis folder", str(analysis_dir.resolve())])
+        path = output / filename
+        wb.save(path)
+        paths.append(path)
+    return paths
+
+
 def export_pptx(analysis_dir: Path, output: Path) -> Path:
     try:
         from pptx import Presentation
@@ -86,6 +133,55 @@ def export_pptx(analysis_dir: Path, output: Path) -> Path:
     return path
 
 
+def export_role_decks(analysis_dir: Path, output: Path) -> list[Path]:
+    try:
+        from pptx import Presentation
+        from pptx.util import Inches, Pt
+    except ImportError as exc:
+        raise SystemExit("python-pptx is required for PPTX export.") from exc
+
+    decks = {
+        "ceo-migration-value-deck.pptx": [
+            ("CEO Migration Value", "Value, risk, confidence, benefits realization"),
+            ("Board Signals", "Go-live confidence | budget exposure | business disruption | value leakage"),
+            ("Decision Ask", "Approve scope controls, external sign-offs, and value tracking cadence"),
+        ],
+        "cio-architecture-deck.pptx": [
+            ("CIO Architecture", "Target architecture, integrations, ALM, data and platform readiness"),
+            ("Architecture Risks", "Unsupported customizations | integration resilience | data entity gaps"),
+            ("Modernization Path", "Retire legacy patterns, add observability, plan Fabric/Power BI roadmap"),
+        ],
+        "ciso-gate-deck.pptx": [
+            ("CISO Gate", "Security evidence, roles, secrets, PCI, privileged access and audit posture"),
+            ("Blockers", "Missing CISO approval | payment evidence | service account register | attack surface map"),
+            ("Approval Boundary", "External security/PCI sign-off remains a mandatory independent gate"),
+        ],
+        "board-risk-forecast-deck.pptx": [
+            ("Board Risk Forecast", "Executive risk model based on evidence, testing, cutover and scope controls"),
+            ("Forecast Drivers", "Evidence gaps | late scope | failed rehearsals | reconciliation defects"),
+            ("Required Control", "Weekly board risk review until all critical gates are ready"),
+        ],
+    }
+    output.mkdir(parents=True, exist_ok=True)
+    paths = []
+    for filename, slides in decks.items():
+        prs = Presentation()
+        for idx, (title, body) in enumerate(slides):
+            slide = prs.slides.add_slide(prs.slide_layouts[0] if idx == 0 else prs.slide_layouts[5])
+            slide.shapes.title.text = title
+            box = slide.placeholders[1] if idx == 0 else slide.shapes.add_textbox(Inches(0.8), Inches(1.5), Inches(8.7), Inches(4.5))
+            frame = box.text_frame
+            frame.clear()
+            for part in body.split(" | "):
+                p = frame.add_paragraph()
+                p.text = part
+                p.font.size = Pt(18)
+        path = output / filename
+        prs.save(path)
+        paths.append(path)
+    return paths
+
+
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("analysis_dir")
@@ -94,10 +190,11 @@ def main() -> int:
 
     analysis_dir = Path(args.analysis_dir)
     output = Path(args.output)
-    xlsx = export_xlsx(analysis_dir, output)
-    pptx = export_pptx(analysis_dir, output)
-    print(f"Exported {xlsx.resolve()}")
-    print(f"Exported {pptx.resolve()}")
+    exports = [export_xlsx(analysis_dir, output), export_pptx(analysis_dir, output)]
+    exports.extend(export_control_workbooks(analysis_dir, output))
+    exports.extend(export_role_decks(analysis_dir, output))
+    for path in exports:
+        print(f"Exported {path.resolve()}")
     return 0
 
 

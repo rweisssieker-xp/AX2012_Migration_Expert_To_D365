@@ -1,0 +1,13 @@
+Work Item Type,Title,Description,Tags,Effort,Risk
+User Story,"Rebuild: LedgerJournalService","Legacy integrations usually need redesign for D365FO operations and monitoring. Target: Middleware-backed D365FO integration pattern","AXMigration;integration;overlayering;posting",7,Medium
+User Story,"Extend: FR_TaxSettlementBatch","Customization likely needs extension-based migration. Target: SysOperation/batch framework alignment","AXMigration;object;batch;overlayering;posting",7,Medium
+User Story,"Rebuild: UK_VATMakingTaxDigital","Legacy integrations usually need redesign for D365FO operations and monitoring. Target: OData, custom service, Business Events, or middleware","AXMigration;integration;aif;overlayering",7,Medium
+User Story,"Rebuild: DE_EInvoiceAdapter","Legacy integrations usually need redesign for D365FO operations and monitoring. Target: Middleware-backed D365FO integration pattern","AXMigration;integration;overlayering",6,Medium
+User Story,"Rebuild: US_SalesTaxConnector","Legacy integrations usually need redesign for D365FO operations and monitoring. Target: Middleware-backed D365FO integration pattern","AXMigration;integration;integration-modernization",6,Medium
+User Story,"Rebuild: LegacyDataArchive","Legacy integrations usually need redesign for D365FO operations and monitoring. Target: Middleware-backed D365FO integration pattern","AXMigration;integration;overlayering",6,Medium
+User Story,"Rebuild: LocalLabelExtensions","Legacy integrations usually need redesign for D365FO operations and monitoring. Target: Middleware-backed D365FO integration pattern","AXMigration;integration;overlayering",6,Medium
+User Story,"Rebuild: IntercompanyOrderFlow","Unsupported legacy dependency detected. Target: Extension/service/data entity redesign","AXMigration;object;client-dependency;overlayering",5,Medium
+User Story,"Rebuild: GlobalCustomerMaster","Unsupported legacy dependency detected. Target: Extension/service/data entity redesign","AXMigration;object;client-dependency;overlayering",5,Medium
+User Story,"Extend: VendorBankValidation","Customization likely needs extension-based migration. Target: Chain of Command or event handler","AXMigration;object;overlayering",4,Low
+User Story,"Map: SecurityRoleTemplate","Security must be mapped rather than technically migrated as-is. Target: D365FO roles, duties, privileges, and SoD review","AXMigration;security;overlayering",3,Low
+User Story,"Review: CountryRolloutPMO","Insufficient evidence for an automatic recommendation. Target: Fit-gap validation required","AXMigration;object;overlayering",3,Low

@@ -1,0 +1,10 @@
+{
+  "surfaces": [
+    "roles",
+    "apis",
+    "secrets",
+    "pos",
+    "integrations",
+    "service accounts"
+  ]
+}

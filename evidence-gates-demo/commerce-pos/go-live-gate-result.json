@@ -1,0 +1,12 @@
+{
+  "status": "Needs control",
+  "answers": {
+    "ciso_approval": true,
+    "cutover_rehearsal": true,
+    "finance_reconciliation": true,
+    "uat_signoff": true,
+    "commerce_payments": false,
+    "rollback_plan": true
+  },
+  "source": "demo-projects\\commerce-pos\\analysis"
+}

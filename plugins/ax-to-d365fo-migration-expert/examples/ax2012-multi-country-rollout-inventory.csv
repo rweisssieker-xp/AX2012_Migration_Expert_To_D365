@@ -1,7 +1,13 @@
-Category,ObjectType,Name,Layer,Module,Usage,Complexity,Technology,BusinessPurpose
-Object,Class,DETaxLocalizationOverride,CUS,Tax,High,High,X++,Germany tax localization override
-Object,Class,FREInvoiceConnector,CUS,Finance,High,High,X++,France e-invoicing connector
-Integration,Interface,GlobalBankPaymentHub,CUS,Payments,Daily,High,AIF,Multi-country payment hub
-Data,Table,LegalEntityArchiveHistory,DAT,Finance,High,High,SQL history,Historical legal entity data
-Report,Report,CountryAuditPack,CUS,Audit,Quarterly,High,SSRS,Country audit reporting
-Security,Role,RegionalFinanceController,USR,Finance,High,Medium,AX role,Regional finance access
+Object,Type,Layer,Module,Complexity,BusinessCriticality,UsageCount,Notes
+LedgerJournalService,Service,CUS,Finance,8,High,4200,Global journal upload with country-specific tax checks
+DE_EInvoiceAdapter,Integration,VAR,Tax,9,High,1600,Germany e-invoicing adapter with external archive
+FR_TaxSettlementBatch,Batch,CUS,Tax,7,High,900,France tax settlement customization
+UK_VATMakingTaxDigital,Integration,CUS,Tax,8,High,1100,UK MTD submission and reconciliation
+US_SalesTaxConnector,Integration,ISV,Tax,8,High,2300,US tax connector requiring ISV exit decision
+IntercompanyOrderFlow,Class,CUS,SCM,8,High,3200,Intercompany order and transfer process across legal entities
+GlobalCustomerMaster,Table,CUS,AccountsReceivable,9,High,6500,Customer master harmonization across companies
+VendorBankValidation,Class,CUS,AccountsPayable,7,High,2100,Country-specific vendor bank validation
+SecurityRoleTemplate,Security,CUS,Security,8,High,7800,Global role template with local segregation-of-duties exceptions
+LegacyDataArchive,Report,CUS,Archive,6,Medium,700,Read-only legacy inquiry requirement after go-live
+CountryRolloutPMO,Process,CUS,PMO,7,High,2500,Wave plan, readiness gates, and rollout decision evidence
+LocalLabelExtensions,AOT,CUS,Localization,5,Medium,4500,Language and label gaps for rollout countries
