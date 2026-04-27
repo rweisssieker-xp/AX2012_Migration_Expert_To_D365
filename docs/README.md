@@ -29,7 +29,7 @@
 | --- | ---: |
 | Skills | 92 |
 | Templates | 264 |
-| Python scripts | 49 |
+| Python scripts | 51 |
 | Config JSON files | 25 |
 | Analyzer outputs | 46 |
 | AI/KI features | 380 |

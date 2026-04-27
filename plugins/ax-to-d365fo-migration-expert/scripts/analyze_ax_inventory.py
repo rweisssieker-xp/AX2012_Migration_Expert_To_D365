@@ -1420,6 +1420,9 @@ def html_dashboard(items: list[InventoryItem], rating: str, score: int, model: d
     retire = sum(1 for item in items if "Retire" in item.disposition)
     high_risk = sum(1 for item in items if item.effort_points >= 9)
     total_points = sum(item.effort_points for item in items)
+    evidence_gaps = sum(1 for item in items if item.confidence == "Low")
+    blocked = sum(1 for item in items if dashboard_status(item) == "Blocked")
+    needs_control = sum(1 for item in items if dashboard_status(item) == "Needs control")
     cards = [
         ("Complexity", rating),
         ("Score", str(score)),
@@ -1427,15 +1430,25 @@ def html_dashboard(items: list[InventoryItem], rating: str, score: int, model: d
         ("Retire Candidates", str(retire)),
         ("High Risk", str(high_risk)),
         ("Effort Points", str(total_points)),
+        ("Evidence Gaps", str(evidence_gaps)),
+        ("Blocked", str(blocked)),
     ]
     rows = "\n".join(
-        f"<tr><td>{html.escape(item.name)}</td><td>{html.escape(item.category)}</td><td>{html.escape(item.disposition)}</td><td>{item.effort_points}</td><td>{html.escape(', '.join(item.risk_flags))}</td></tr>"
+        f"<tr data-status=\"{dashboard_status(item)}\"><td>{html.escape(item.name)}</td><td>{html.escape(item.category)}</td><td><span class=\"pill {dashboard_status(item).lower().replace(' ', '-')}\">{dashboard_status(item)}</span></td><td>{html.escape(item.disposition)}</td><td>{item.effort_points}</td><td>{html.escape(', '.join(item.risk_flags))}</td><td>{html.escape(', '.join(skill_routes_for_item(item)))}</td></tr>"
         for item in sorted(items, key=lambda value: value.effort_points, reverse=True)
     )
     card_html = "\n".join(f'<section class="card"><span>{label}</span><strong>{value}</strong></section>' for label, value in cards)
     options = "\n".join(
         f'<option value="{html.escape(value)}">{html.escape(value.title())}</option>'
         for value in sorted({item.category for item in items})
+    )
+    workstream_rows = "\n".join(
+        f"<tr><td>{html.escape(category.title())}</td><td>{sum(1 for item in items if item.category == category)}</td><td>{sum(item.effort_points for item in items if item.category == category)}</td><td>{sum(1 for item in items if item.category == category and dashboard_status(item) == 'Blocked')}</td></tr>"
+        for category in sorted({item.category for item in items})
+    )
+    route_rows = "\n".join(
+        f"<tr><td>{html.escape(route)}</td><td>{count}</td></tr>"
+        for route, count in sorted(skill_route_counts(items).items(), key=lambda value: value[1], reverse=True)
     )
     return f"""<!doctype html>
 <html lang="en">
@@ -1444,38 +1457,58 @@ def html_dashboard(items: list[InventoryItem], rating: str, score: int, model: d
   <title>AX to D365FO Migration Command Center</title>
   <style>
     body {{ font-family: Segoe UI, Arial, sans-serif; margin: 0; background: #f6f8fb; color: #172033; }}
-    header {{ background: #0078d4; color: white; padding: 28px 36px; }}
+    header {{ background: #0f5f8f; color: white; padding: 28px 36px; }}
     main {{ padding: 28px 36px; }}
     .grid {{ display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 14px; margin-bottom: 28px; }}
     .card {{ background: white; border: 1px solid #d9e2ec; border-radius: 8px; padding: 16px; }}
     .card span {{ display: block; color: #526173; font-size: 13px; }}
     .card strong {{ display: block; font-size: 28px; margin-top: 8px; }}
+    .split {{ display: grid; grid-template-columns: minmax(0, 1fr) minmax(260px, 420px); gap: 18px; margin-bottom: 28px; }}
     table {{ width: 100%; border-collapse: collapse; background: white; border: 1px solid #d9e2ec; }}
     th, td {{ text-align: left; padding: 10px 12px; border-bottom: 1px solid #edf1f5; }}
     th {{ background: #eef5fb; }}
     .toolbar {{ display: flex; gap: 12px; margin: 0 0 18px; }}
     input, select {{ padding: 9px 10px; border: 1px solid #b8c5d1; border-radius: 6px; }}
+    .pill {{ display: inline-block; border-radius: 999px; padding: 3px 9px; font-size: 12px; font-weight: 600; }}
+    .ready {{ background: #e4f5ea; color: #0f6b2f; }}
+    .needs-control {{ background: #fff5d7; color: #765000; }}
+    .blocked {{ background: #fde7e9; color: #9f1d2c; }}
+    .panel {{ background: white; border: 1px solid #d9e2ec; border-radius: 8px; padding: 16px; }}
+    @media (max-width: 900px) {{ .split {{ grid-template-columns: 1fr; }} }}
   </style>
 </head>
 <body>
-  <header><h1>AX to D365FO Migration Command Center</h1><p>Generated from AX inventory evidence.</p></header>
+  <header><h1>AX to D365FO Migration Command Center</h1><p>Autonomy dashboard with scope, gate, evidence and skill-routing signals.</p></header>
   <main>
     <div class="grid">{card_html}</div>
+    <div class="split">
+      <section class="panel">
+        <h2>Workstream Control</h2>
+        <table><thead><tr><th>Workstream</th><th>Items</th><th>Effort</th><th>Blocked</th></tr></thead><tbody>{workstream_rows}</tbody></table>
+      </section>
+      <section class="panel">
+        <h2>Skill Routing</h2>
+        <table><thead><tr><th>Skill / Command Route</th><th>Signals</th></tr></thead><tbody>{route_rows}</tbody></table>
+      </section>
+    </div>
     <h2>Disposition and Risk</h2>
     <div class="toolbar">
       <input id="search" placeholder="Search items, risks, disposition" oninput="filterRows()">
       <select id="category" onchange="filterRows()"><option value="">All categories</option>{options}</select>
+      <select id="status" onchange="filterRows()"><option value="">All statuses</option><option>Ready</option><option>Needs control</option><option>Blocked</option></select>
     </div>
-    <table id="items"><thead><tr><th>Item</th><th>Category</th><th>Disposition</th><th>Effort</th><th>Risks</th></tr></thead><tbody>{rows}</tbody></table>
+    <table id="items"><thead><tr><th>Item</th><th>Category</th><th>Status</th><th>Disposition</th><th>Effort</th><th>Risks</th><th>Routes</th></tr></thead><tbody>{rows}</tbody></table>
   </main>
   <script>
     function filterRows() {{
       const q = document.getElementById('search').value.toLowerCase();
       const c = document.getElementById('category').value.toLowerCase();
+      const s = document.getElementById('status').value.toLowerCase();
       document.querySelectorAll('#items tbody tr').forEach(row => {{
         const text = row.innerText.toLowerCase();
         const category = row.children[1].innerText.toLowerCase();
-        row.style.display = text.includes(q) && (!c || category === c) ? '' : 'none';
+        const status = row.dataset.status.toLowerCase();
+        row.style.display = text.includes(q) && (!c || category === c) && (!s || status === s) ? '' : 'none';
       }});
     }}
     document.querySelectorAll('th').forEach((th, index) => th.onclick = () => {{
@@ -1486,6 +1519,46 @@ def html_dashboard(items: list[InventoryItem], rating: str, score: int, model: d
 </body>
 </html>
 """
+
+
+def dashboard_status(item: InventoryItem) -> str:
+    if item.effort_points >= 9 or item.confidence == "Low" or any(flag in item.risk_flags for flag in ("direct-sql", "client-dependency", "posting")):
+        return "Blocked"
+    if item.effort_points >= 6 or item.risk_flags or item.confidence == "Medium":
+        return "Needs control"
+    return "Ready"
+
+
+def skill_routes_for_item(item: InventoryItem) -> list[str]:
+    routes = ["master-orchestrator"]
+    text = " ".join([item.category, item.object_type, item.name, item.module, item.technology, item.business_purpose]).lower()
+    if item.category == "integration" or any(word in text for word in ("aif", "service", "odata", "interface", "middleware")):
+        routes.append("integration-owner")
+    if item.category == "report" or any(word in text for word in ("report", "ssrs", "power bi", "analytics")):
+        routes.append("reporting-bi-lead")
+    if item.category == "security" or any(word in text for word in ("role", "duty", "privilege", "security")):
+        routes.append("ciso-guardian")
+    if item.category == "data" or any(word in text for word in ("history", "table", "data", "entity")):
+        routes.append("data-governance")
+    if item.category == "isv" or "isv" in text or "addon" in text:
+        routes.append("isv-exit-strategist")
+    if any(word in text for word in ("retail", "commerce", "channel", "pos", "store", "payment", "loyalty")):
+        routes.append("commerce-orchestrator")
+    if any(word in text for word in ("finance", "ledger", "tax", "ar", "ap")):
+        routes.append("functional-finance-owner")
+    if any(word in text for word in ("warehouse", "inventory", "manufacturing", "production", "procurement", "sales")):
+        routes.append("functional-scm-owner")
+    if dashboard_status(item) == "Blocked":
+        routes.append("evidence-vault-manager")
+    return sorted(set(routes))
+
+
+def skill_route_counts(items: list[InventoryItem]) -> dict[str, int]:
+    counts: dict[str, int] = {}
+    for item in items:
+        for route in skill_routes_for_item(item):
+            counts[route] = counts.get(route, 0) + 1
+    return counts
 
 
 def item_to_dict(item: InventoryItem) -> dict[str, Any]:

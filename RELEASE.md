@@ -33,9 +33,10 @@ Compress-Archive -Path "$releaseRoot\*" -DestinationPath "dist\ax-to-d365fo-migr
 
 - 92 skills.
 - 264 templates.
-- 49 Python scripts.
+- 51 Python scripts.
 - 25 JSON configs.
 - 46 analyzer outputs.
 - Commerce/CXP/CRM/POS smoke tests.
 - Solo/Master-Orchestrator smoke tests.
 - Autonomous Governance & Evidence Intelligence smoke tests.
+- Wizard and demo project smoke tests.

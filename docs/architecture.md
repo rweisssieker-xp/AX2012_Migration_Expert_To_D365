@@ -32,6 +32,7 @@ repo root
 | Commerce generators | Produce Customer & Commerce Experience artifacts for CXP, CRM, Lead Management, Commerce HQ, CSU, POS, POS Offline, Payments, Store Ops, Omnichannel, Loyalty, Pricing, Marketplace, Call Center, and Analytics. |
 | Solo/Master-Orchestrator generators | Produce single-user project operating artifacts, evidence gates, master routing, daily command sheets, tests, sign-off, audit binder, hypercare, and benefits tracking. |
 | Governance/Evidence generators | Produce contract/scope, stakeholder sentiment, evidence vault, cutover rehearsal, reconciliation, license, ALM release, training, ISV exit, country regulatory, archive, hyperautomation, board risk, process twin, and meeting copilot artifacts. |
+| Productization helpers | Produce guided command plans, demo projects, sample dashboards, and stronger dashboard skill-routing/evidence signals. |
 | Validator | Runs repository health checks. |
 
 ## Data Flow
@@ -84,3 +85,5 @@ AX exports / code / telemetry
 | `run_solo_migration.py` | Runs the solo migration orchestration flow from inputs into a project operating folder. |
 | `governance_pack_common.py` | Shared helper for autonomous governance and evidence intelligence output generation. |
 | `generate_governance_pack.py` | Generates the autonomous governance master pack. |
+| `create_project_wizard.py` | Generates profile-specific command plans for finance, manufacturing, commerce, CRM, and solo migrations. |
+| `create_demo_projects.py` | Generates ready-to-open demo projects with dashboards and generated packs. |

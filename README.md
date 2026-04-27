@@ -20,6 +20,7 @@ The repository contains a Codex plugin that analyzes AX inventories, X++/XPO/AOT
 - Adds a Solo/Master-Orchestrator operating model so a single plugin user can generate project control, evidence, gates, daily actions, test plans, sign-off, audit binder, hypercare, and benefits tracking.
 - Adds a dedicated Customer & Commerce Experience domain for CXP, CRM/Dataverse, Lead Management, D365 Commerce, CSU, POS, POS Offline, Payments, Store Operations, Omnichannel, Loyalty, Pricing, Assortment, Marketplace, Call Center, Analytics, and Store Training.
 - Adds an Autonomous Governance & Evidence Intelligence layer for contract/scope guard, stakeholder sentiment, evidence vault, cutover rehearsal, reconciliation judge, license/cost, ALM release, training readiness, ISV exit, country regulatory packs, archive strategy, hyperautomation, board risk, process twin, and meeting copilot.
+- Adds productized onboarding with `wizard` command plans, `demo-projects`, sample dashboards, and stronger dashboard skill-routing/evidence signals.
 
 ## Quick Start
 
@@ -103,6 +104,13 @@ python .\axmigrate.py solo-test-plan solo-migration\contoso-ax-migration
 python .\axmigrate.py solo-signoff solo-migration\contoso-ax-migration
 ```
 
+Generate a guided command plan and demo dashboards:
+
+```powershell
+python .\axmigrate.py wizard --profile commerce --project "Contoso Retail Migration" --output migration-wizard\commerce
+python .\axmigrate.py demo-projects --output demo-projects
+```
+
 ## Repository Map
 
 - `plugins/ax-to-d365fo-migration-expert/` - Codex plugin.
@@ -119,7 +127,7 @@ python .\axmigrate.py solo-signoff solo-migration\contoso-ax-migration
 | --- | --- |
 | Skills | 92 Codex skills across migration, roles, testing, solo operation, orchestration, connectors, industry/regulatory, Commerce/CXP/CRM/POS, and governance/evidence intelligence. |
 | Templates | 264 templates for assessment, delivery, governance, testing, cutover, hypercare, role packs, solo operation, Commerce, evidence, rehearsal, reconciliation, ALM, training, archive, board risk, and process twin. |
-| Scripts | 49 Python scripts including CLI, analyzer, exporters, connectors, validators, Commerce generators, Solo/Master generators, and governance generators. |
+| Scripts | 51 Python scripts including CLI, analyzer, exporters, connectors, validators, Commerce generators, Solo/Master generators, governance generators, wizard, and demo project generator. |
 | Configs | 25 JSON configs including cost model, risks, D365FO knowledge, integrations, Commerce readiness/gates, POS offline, PCI, CRM lead management, evidence, scope, reconciliation, license, ALM, training, country regulatory, and process twin rules. |
 | Analyzer outputs | 46 generated outputs from inventory analysis, including technical, executive, governance, role, dashboard, graph, and backlog artifacts. |
 | AI/KI features | 380 documented feature items, including solo autonomy, Commerce features, and autonomous governance/evidence intelligence. |

@@ -53,6 +53,13 @@ python plugins\ax-to-d365fo-migration-expert\scripts\migration_cli.py usage-tele
 python plugins\ax-to-d365fo-migration-expert\scripts\migration_cli.py validate
 ```
 
+Guided project wizard and demo projects:
+
+```powershell
+python .\axmigrate.py wizard --profile commerce --project "Contoso Retail Migration" --output migration-wizard\commerce
+python .\axmigrate.py demo-projects --output demo-projects
+```
+
 From the repository root, the shorter wrapper is also available:
 
 ```powershell

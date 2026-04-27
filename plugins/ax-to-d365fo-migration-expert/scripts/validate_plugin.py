@@ -96,6 +96,8 @@ def main() -> int:
             temp_root / "process_twin",
             temp_root / "meeting_copilot",
         ]
+        wizard_output = temp_root / "wizard"
+        demo_output = temp_root / "demo_projects"
         run([sys.executable, str(ROOT / "scripts" / "analyze_ax_inventory.py"), str(ROOT / "examples" / "sample-ax-inventory.csv"), str(ROOT / "examples" / "sample-xpp-class.xpp"), "--output", str(analysis)])
         run([sys.executable, str(ROOT / "scripts" / "create_migration_workspace.py"), "Validation", "--output", str(workspace)])
         for script, output in [
@@ -169,6 +171,12 @@ def main() -> int:
             raise SystemExit("Reconciliation judge did not generate finance-reconciliation-judge.md")
         if not (governance_outputs[13] / "board-risk-forecast.md").exists():
             raise SystemExit("Board risk did not generate board-risk-forecast.md")
+        run([sys.executable, str(ROOT / "scripts" / "create_project_wizard.py"), "--profile", "commerce", "--project", "Validation Commerce", "--output", str(wizard_output)])
+        run([sys.executable, str(ROOT / "scripts" / "create_demo_projects.py"), "--output", str(demo_output)])
+        if not (wizard_output / "wizard-plan.md").exists():
+            raise SystemExit("Wizard did not generate wizard-plan.md")
+        if not (demo_output / "commerce-pos" / "analysis" / "dashboard.html").exists():
+            raise SystemExit("Demo projects did not generate commerce-pos dashboard.html")
 
     todo_hits = []
     for path in [*ROOT.rglob("*"), ROOT.parents[1] / ".agents" / "plugins" / "marketplace.json"]:

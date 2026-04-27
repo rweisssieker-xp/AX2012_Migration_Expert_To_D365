@@ -7,13 +7,14 @@
 - 46 analyzer outputs.
 - 92 Codex skills.
 - 264 migration templates.
-- 49 Python scripts.
+- 51 Python scripts.
 - 25 JSON configuration files.
 - CLI, validation, exports, connectors, and documentation.
 - Persona and stakeholder packs for executive, architecture, security, PMO, team, finance, operations, data, integration, QA, legal, vendor, support, and partner roles.
 - Solo/Master-Orchestrator operating system for single-user migration control, evidence, gates, test planning, sign-off, audit binder, hypercare, benefits, communication, and daily execution.
 - Customer & Commerce Experience domain for CXP, CRM/Dataverse, Lead Management, D365 Commerce, CSU, POS, POS Offline, Payments/PCI, Store Operations, Omnichannel, Loyalty, Pricing, Assortment, Marketplace, Call Center, Analytics, and Store Training.
 - Autonomous Governance & Evidence Intelligence domain for contract/scope guard, stakeholder sentiment, evidence vault, cutover rehearsal, reconciliation judge, license cost, ALM release, training readiness, ISV exit, country regulatory packs, archive strategy, hyperautomation, board risk, process twin, and meeting copilot.
+- Productization helpers for guided wizard command plans, demo project generation, and enhanced dashboard skill-routing/evidence signals.
 - AI/KI USP feature documentation through Feature 380.
 
 ## v0.3

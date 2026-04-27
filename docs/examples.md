@@ -100,3 +100,30 @@ python .\axmigrate.py board-risk migration-analysis\sample --output board-risk\s
 python .\axmigrate.py process-twin migration-analysis\sample --output process-twin\sample
 python .\axmigrate.py meeting-copilot migration-analysis\sample --output meeting-copilot\sample
 ```
+
+## Generate Guided Wizard Plan
+
+```powershell
+python .\axmigrate.py wizard --profile commerce --project "Contoso Retail Migration" --output migration-wizard\commerce
+```
+
+Supported profiles:
+
+- `finance`
+- `manufacturing`
+- `commerce`
+- `crm`
+- `solo`
+
+## Generate Demo Projects
+
+```powershell
+python .\axmigrate.py demo-projects --output demo-projects
+```
+
+Generated demos include:
+
+- `finance`
+- `manufacturing`
+- `commerce-pos`
+- `crm-lead-to-cash`

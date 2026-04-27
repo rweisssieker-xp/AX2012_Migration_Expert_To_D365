@@ -100,6 +100,8 @@ python plugins\ax-to-d365fo-migration-expert\scripts\migration_cli.py <command> 
 
 | Command | Purpose |
 | --- | --- |
+| `wizard` | Generate a guided project command plan for finance, manufacturing, commerce, CRM, or solo profiles. |
+| `demo-projects` | Generate ready-to-open demo projects and dashboards. |
 | `ax-sql` | Extract AX SQL/modelstore inventory through ODBC. |
 | `push-ado` | Create Azure DevOps work items from analyzer CSV. |
 | `fetch-lcs` | Fetch LCS metadata or payloads from a configured endpoint. |

@@ -184,6 +184,14 @@ def main() -> int:
     sub.add_parser("doctor", help="Check local runtime, optional dependencies, config, and environment.")
     sub.add_parser("examples", help="Print useful example commands.")
 
+    wizard = sub.add_parser("wizard", help="Generate a guided project command plan for a migration profile.")
+    wizard.add_argument("--profile", choices=["commerce", "crm", "finance", "manufacturing", "solo"], required=True)
+    wizard.add_argument("--project", default="Contoso AX Migration")
+    wizard.add_argument("--output", default="migration-wizard")
+
+    demos = sub.add_parser("demo-projects", help="Generate ready-to-open demo projects and dashboards.")
+    demos.add_argument("--output", default="demo-projects")
+
     args = parser.parse_args()
     if args.command == "init":
         return run("create_migration_workspace.py", [args.project, "--output", args.output])
@@ -262,6 +270,10 @@ def main() -> int:
     if args.command == "examples":
         print_examples()
         return 0
+    if args.command == "wizard":
+        return run("create_project_wizard.py", ["--profile", args.profile, "--project", args.project, "--output", args.output])
+    if args.command == "demo-projects":
+        return run("create_demo_projects.py", ["--output", args.output])
     return 2
 
 
@@ -342,6 +354,12 @@ Generate autonomous governance and evidence intelligence:
   python axmigrate.py cutover-rehearsal migration-analysis/sample --output cutover-rehearsal/sample
   python axmigrate.py reconciliation-judge migration-analysis/sample --output reconciliation/sample
   python axmigrate.py board-risk migration-analysis/sample --output board-risk/sample
+
+Generate a guided command plan:
+  python axmigrate.py wizard --profile commerce --project "Contoso Retail Migration" --output migration-wizard/commerce
+
+Generate demo projects and dashboards:
+  python axmigrate.py demo-projects --output demo-projects
 
 Run solo migration operating system:
   python axmigrate.py solo-run --project "Contoso AX Migration" --input plugins/ax-to-d365fo-migration-expert/examples/sample-ax-inventory.csv --output solo-migration

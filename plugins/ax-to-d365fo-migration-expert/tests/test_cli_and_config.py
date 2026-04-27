@@ -45,3 +45,25 @@ class CliAndConfigTests(unittest.TestCase):
             )
             self.assertEqual(result.returncode, 0, result.stderr)
             self.assertTrue((Path(tmp) / "dashboard.html").exists())
+
+    def test_wizard_generates_plan(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            result = subprocess.run(
+                [
+                    sys.executable,
+                    str(CLI),
+                    "wizard",
+                    "--profile",
+                    "commerce",
+                    "--project",
+                    "Validation Commerce",
+                    "--output",
+                    tmp,
+                ],
+                cwd=REPO,
+                text=True,
+                capture_output=True,
+            )
+            self.assertEqual(result.returncode, 0, result.stderr)
+            self.assertTrue((Path(tmp) / "wizard-plan.md").exists())
+            self.assertIn("commerce-pack", (Path(tmp) / "wizard-plan.md").read_text(encoding="utf-8"))

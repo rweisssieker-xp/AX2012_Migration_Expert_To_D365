@@ -8,7 +8,7 @@ Codex plugin for AI-powered Microsoft Dynamics AX 4.0, AX 2009, and AX 2012 migr
 | --- | --- |
 | Skills | 92 Codex skills. |
 | Templates | 264 delivery, governance, testing, Commerce, solo, evidence, rehearsal, reconciliation, ALM, training, board risk, and role templates. |
-| Scripts | 49 Python scripts. |
+| Scripts | 51 Python scripts. |
 | Configs | 25 JSON configuration files. |
 | Analyzer outputs | 46 files from a standard inventory analysis. |
 | AI/KI feature docs | 380 feature entries. |
@@ -329,6 +329,13 @@ python plugins/ax-to-d365fo-migration-expert/scripts/migration_cli.py reconcilia
 python plugins/ax-to-d365fo-migration-expert/scripts/migration_cli.py board-risk migration-analysis/contoso --output board-risk/contoso
 python plugins/ax-to-d365fo-migration-expert/scripts/migration_cli.py process-twin migration-analysis/contoso --output process-twin/contoso
 python plugins/ax-to-d365fo-migration-expert/scripts/migration_cli.py meeting-copilot migration-analysis/contoso --output meeting-copilot/contoso
+```
+
+Generate guided command plans and demo projects:
+
+```bash
+python plugins/ax-to-d365fo-migration-expert/scripts/migration_cli.py wizard --profile commerce --project "Contoso Retail Migration" --output migration-wizard/commerce
+python plugins/ax-to-d365fo-migration-expert/scripts/migration_cli.py demo-projects --output demo-projects
 ```
 
 ## Main Documentation

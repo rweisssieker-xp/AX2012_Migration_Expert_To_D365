@@ -1,0 +1,7 @@
+Category,ObjectType,Name,Layer,Module,Usage,Complexity,Technology,BusinessPurpose
+Integration,Service,AIFLeadToCashSync,CUS,CRM,Daily,High,AIF,Lead to cash synchronization with CRM
+Data,Table,CustContactLegacyMap,DAT,Customer Master,High,Medium,SQL history,Customer contact legacy mapping
+Object,Class,OpportunityQuoteBridge,CUS,Sales,High,High,X++,Opportunity to quotation custom bridge
+Integration,Interface,DataverseCustomerExport,CUS,Dataverse,Daily,High,Direct SQL,Customer export to Dataverse staging
+Report,Report,PipelineConversionLegacy,CUS,CRM,Monthly,Medium,SSRS,Pipeline conversion reporting
+Security,Role,SalesManagerLegacyRole,USR,Sales,High,Medium,AX role,Sales manager security
