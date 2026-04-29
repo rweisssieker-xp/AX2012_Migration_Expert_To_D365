@@ -161,6 +161,7 @@ python .\axmigrate.py project-ui --output migration-ui
 - [FAQ](docs/faq.md)
 - [Command reference](docs/command-reference.md)
 - [Skill handbook](docs/skill-handbook.md)
+- [Migration operating handbook](docs/migration-operating-handbook.md)
 - [Commerce/CXP/CRM/POS](docs/commerce-cxp-crm-pos.md)
 - [Solo and Master Orchestrator](docs/solo-master-orchestrator.md)
 - [Autonomous Governance & Evidence Intelligence](docs/autonomous-governance-evidence.md)
