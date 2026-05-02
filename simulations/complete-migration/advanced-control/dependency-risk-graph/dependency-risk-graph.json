@@ -1,0 +1,57 @@
+{
+  "nodes": [
+    "Analysis",
+    "Skill Routing",
+    "Evidence Gates",
+    "Security",
+    "Finance",
+    "Commerce/POS",
+    "Testing",
+    "Cutover",
+    "Go-live"
+  ],
+  "edges": [
+    [
+      "Analysis",
+      "Skill Routing"
+    ],
+    [
+      "Skill Routing",
+      "Evidence Gates"
+    ],
+    [
+      "Evidence Gates",
+      "Security"
+    ],
+    [
+      "Security",
+      "Finance"
+    ],
+    [
+      "Finance",
+      "Commerce/POS"
+    ],
+    [
+      "Commerce/POS",
+      "Testing"
+    ],
+    [
+      "Testing",
+      "Cutover"
+    ],
+    [
+      "Cutover",
+      "Go-live"
+    ]
+  ],
+  "signals": {
+    "evidence": 857,
+    "cutover": 157,
+    "security": 299,
+    "finance": 317,
+    "commerce": 539,
+    "data": 1050,
+    "integration": 550,
+    "testing": 95
+  }
+}

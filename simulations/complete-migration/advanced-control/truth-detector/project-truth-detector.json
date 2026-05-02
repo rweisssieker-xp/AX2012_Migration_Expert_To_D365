@@ -1,0 +1,21 @@
+{
+  "mode": "truth-detector",
+  "project": "Contoso Complete AX to D365FO Migration",
+  "score": 100,
+  "status": "Ready",
+  "signals": {
+    "evidence": 857,
+    "cutover": 157,
+    "security": 299,
+    "finance": 317,
+    "commerce": 539,
+    "data": 1050,
+    "integration": 550,
+    "testing": 95
+  },
+  "actions": [
+    "Challenge all green status items without evidence file, owner, or gate result.",
+    "Escalate missing CISO, UAT, finance, rollback, and cutover evidence.",
+    "Compare steering reports against `go-live-gate-result.json` and evidence manifest."
+  ]
+}

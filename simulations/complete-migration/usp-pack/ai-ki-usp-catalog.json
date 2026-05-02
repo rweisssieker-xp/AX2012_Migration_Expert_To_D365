@@ -1,0 +1,509 @@
+{
+  "source": "simulations\\complete-migration\\guided-run\\analysis",
+  "project": "Contoso Complete AX to D365FO Migration",
+  "usps": [
+    {
+      "id": "USP-001",
+      "name": "Autonomous Migration PMO",
+      "audience": [
+        "PMO",
+        "CIO",
+        "CEO"
+      ],
+      "claim": "The plugin generates project control, RAID, RACI, gates, evidence, escalations, and next actions from migration inputs.",
+      "automation": [
+        "orchestrate",
+        "guided-run",
+        "evidence-gates"
+      ],
+      "proof": [
+        "skill-routing.json",
+        "guided-run-plan.md",
+        "role-action-inbox.md"
+      ]
+    },
+    {
+      "id": "USP-002",
+      "name": "Evidence-Based Project Governance",
+      "audience": [
+        "PMO",
+        "CISO",
+        "Auditor"
+      ],
+      "claim": "A green status requires evidence, owner, gate context, and generated artifacts.",
+      "automation": [
+        "evidence-vault",
+        "evidence-gates",
+        "health-snapshot"
+      ],
+      "proof": [
+        "evidence-manifest.json",
+        "go-live-gate-result.json",
+        "project-health-snapshot.md"
+      ]
+    },
+    {
+      "id": "USP-003",
+      "name": "AI Status Honesty Engine",
+      "audience": [
+        "CEO",
+        "PMO",
+        "Steering Committee"
+      ],
+      "claim": "Reported progress is challenged against real artifacts, missing gates, and evidence gaps.",
+      "automation": [
+        "health-snapshot",
+        "quality-audit",
+        "board-risk"
+      ],
+      "proof": [
+        "project-health-snapshot.html",
+        "delivery-quality-audit.md",
+        "board-risk-forecast.md"
+      ]
+    },
+    {
+      "id": "USP-004",
+      "name": "Go-Live Confidence Score",
+      "audience": [
+        "CEO",
+        "CIO",
+        "CISO",
+        "PMO"
+      ],
+      "claim": "Go-live readiness is scored from testing, cutover, security, finance, commerce, data, and rollback signals.",
+      "automation": [
+        "evidence-gates",
+        "commerce-readiness",
+        "health-snapshot"
+      ],
+      "proof": [
+        "go-live-gate-result.json",
+        "commerce-readiness.json",
+        "project-health-snapshot.md"
+      ]
+    },
+    {
+      "id": "USP-005",
+      "name": "Migration Command Center in a Box",
+      "audience": [
+        "Solo Consultant",
+        "PMO",
+        "Partner"
+      ],
+      "claim": "Local CLI, dashboards, reports, skills, docs, demo projects, and health snapshots run without cloud dependency.",
+      "automation": [
+        "guided-run",
+        "project-ui",
+        "demo-projects"
+      ],
+      "proof": [
+        "index.html",
+        "project-wizard.html",
+        "demo-index.html"
+      ]
+    },
+    {
+      "id": "USP-006",
+      "name": "AX-to-D365FO Knowledge Pack",
+      "audience": [
+        "Architect",
+        "Functional Lead",
+        "Partner"
+      ],
+      "claim": "Curated migration knowledge covers AX 4.0, AX 2009, AX 2012, D365FO, Commerce, CRM, POS, governance, and intelligence.",
+      "automation": [
+        "wizard",
+        "analyze",
+        "persona-pack"
+      ],
+      "proof": [
+        "docs/skill-handbook.md",
+        "docs/migration-operating-handbook.md",
+        "docs/command-reference.md"
+      ]
+    },
+    {
+      "id": "USP-007",
+      "name": "Role-Aware AI Delivery",
+      "audience": [
+        "CEO",
+        "CIO",
+        "CISO",
+        "CFO",
+        "PMO",
+        "QA"
+      ],
+      "claim": "Each role receives its own view, actions, gates, and evidence expectations.",
+      "automation": [
+        "persona-pack",
+        "stakeholder-pack",
+        "guided-run"
+      ],
+      "proof": [
+        "persona-ceo-summary.md",
+        "stakeholder-cfo-pack.md",
+        "role-action-inbox.md"
+      ]
+    },
+    {
+      "id": "USP-008",
+      "name": "Solo Consultant Superpower",
+      "audience": [
+        "Solo Consultant",
+        "Freelancer",
+        "Small Partner"
+      ],
+      "claim": "One plugin user can operate like a migration team by generating workstreams, gates, test plans, sign-offs, and daily actions.",
+      "automation": [
+        "solo-run",
+        "solo-daily",
+        "solo-signoff"
+      ],
+      "proof": [
+        "solo operating folder",
+        "daily-command-sheet.md",
+        "business-signoff-pack.md"
+      ]
+    },
+    {
+      "id": "USP-009",
+      "name": "Commerce/POS Go-Live Guard",
+      "audience": [
+        "Commerce Lead",
+        "CISO",
+        "Store Operations"
+      ],
+      "claim": "CSU, POS Offline, Payments, PCI, Store Smoke, and Channel Sync are treated as hard go-live gates.",
+      "automation": [
+        "commerce-readiness",
+        "commerce-cutover",
+        "commerce-payments-pack"
+      ],
+      "proof": [
+        "commerce-readiness.json",
+        "commerce-go-live-gate.md",
+        "commerce-security-pci-gate.md"
+      ]
+    },
+    {
+      "id": "USP-010",
+      "name": "AI Migration Factory Generator",
+      "audience": [
+        "PMO",
+        "Partner",
+        "Delivery Lead"
+      ],
+      "claim": "Workstreams, templates, packs, checklists, tests, cutover plans, and hypercare actions are generated from the same evidence base.",
+      "automation": [
+        "guided-run",
+        "questionnaire",
+        "governance-pack"
+      ],
+      "proof": [
+        "guided-run-plan.md",
+        "migration-factory-pack.md",
+        "autonomous-governance-master-pack.md"
+      ]
+    },
+    {
+      "id": "USP-011",
+      "name": "Audit-Ready by Default",
+      "audience": [
+        "Auditor",
+        "CISO",
+        "CFO"
+      ],
+      "claim": "Evidence vault, hashes, sign-off binder, and gate results are generated as standard project artifacts.",
+      "automation": [
+        "evidence-vault",
+        "solo-audit-binder",
+        "evidence-gates"
+      ],
+      "proof": [
+        "evidence-hashes.sha256",
+        "audit-ready-signoff-binder.md",
+        "go-live-gate-result.json"
+      ]
+    },
+    {
+      "id": "USP-012",
+      "name": "Board-Ready Migration Story",
+      "audience": [
+        "CEO",
+        "Board",
+        "Steering Committee"
+      ],
+      "claim": "Technical analysis is translated into decision-ready executive narrative, risk forecast, and value framing.",
+      "automation": [
+        "export",
+        "board-risk",
+        "value-realization"
+      ],
+      "proof": [
+        "ceo-migration-value-deck.pptx",
+        "board-risk-forecast.md",
+        "value-realization-tracker.md"
+      ]
+    },
+    {
+      "id": "USP-013",
+      "name": "Legacy Simplification Engine",
+      "audience": [
+        "CIO",
+        "Architect",
+        "CFO"
+      ],
+      "claim": "The plugin identifies customizations, reports, and integrations that should be retired, standardized, configured, or replaced.",
+      "automation": [
+        "analyze",
+        "debt-liquidator",
+        "scope-guard"
+      ],
+      "proof": [
+        "ai-customization-disposition.md",
+        "technical-debt-liquidation-plan.md",
+        "scope-guard-report.md"
+      ]
+    },
+    {
+      "id": "USP-014",
+      "name": "D365 Standard Fit Advisor",
+      "audience": [
+        "Functional Lead",
+        "CIO",
+        "Partner"
+      ],
+      "claim": "D365 standard capability, configuration, and process change are preferred before rebuild decisions.",
+      "automation": [
+        "analyze",
+        "process-twin",
+        "scope-guard"
+      ],
+      "proof": [
+        "ai-standard-feature-matches.md",
+        "process-twin-map.md",
+        "scope-guard-report.md"
+      ]
+    },
+    {
+      "id": "USP-015",
+      "name": "Migration Risk Radar",
+      "audience": [
+        "PMO",
+        "CISO",
+        "CIO"
+      ],
+      "claim": "Risks are role-aware, evidence-based, and cutover-relevant rather than static list items.",
+      "automation": [
+        "analyze",
+        "board-risk",
+        "health-snapshot"
+      ],
+      "proof": [
+        "ai-risk-mitigation-playbooks.md",
+        "board-risk-forecast.md",
+        "project-health-snapshot.md"
+      ]
+    },
+    {
+      "id": "USP-016",
+      "name": "AI Workstream Orchestrator",
+      "audience": [
+        "PMO",
+        "Delivery Lead",
+        "Solo Consultant"
+      ],
+      "claim": "Finance, SCM, CRM, Commerce, POS, Data, Integration, Security, Testing, and Governance workstreams are routed automatically.",
+      "automation": [
+        "orchestrate",
+        "guided-run"
+      ],
+      "proof": [
+        "skill-routing.json",
+        "next-commands.ps1"
+      ]
+    },
+    {
+      "id": "USP-017",
+      "name": "Executive-to-Engineer Traceability",
+      "audience": [
+        "CEO",
+        "CIO",
+        "PMO",
+        "Engineering"
+      ],
+      "claim": "Board goals, risks, workstreams, skills, artifacts, tests, and evidence are connected in one delivery chain.",
+      "automation": [
+        "orchestrate",
+        "evidence-vault",
+        "traceability outputs"
+      ],
+      "proof": [
+        "skill-routing.json",
+        "evidence-manifest.json",
+        "lead-to-cash-traceability.md"
+      ]
+    },
+    {
+      "id": "USP-018",
+      "name": "No-Excuses Cutover Pack",
+      "audience": [
+        "PMO",
+        "CIO",
+        "Store Operations"
+      ],
+      "claim": "Cutover runbook, war room, smoke tests, rollback, decision gates, and hypercare actions are generated and evidence-linked.",
+      "automation": [
+        "cutover-rehearsal",
+        "commerce-cutover",
+        "solo-war-room"
+      ],
+      "proof": [
+        "cutover-rehearsal-scorecard.md",
+        "commerce-cutover-runbook.md",
+        "war-room-plan.md"
+      ]
+    },
+    {
+      "id": "USP-019",
+      "name": "Migration Intelligence Fabric",
+      "audience": [
+        "CIO",
+        "PMO",
+        "Portfolio Lead"
+      ],
+      "claim": "Memory, benchmarking, scenarios, war games, value realization, and quality audit become a reusable intelligence layer.",
+      "automation": [
+        "intelligence-pack",
+        "benchmark",
+        "scenario-lab"
+      ],
+      "proof": [
+        "intelligence-fabric-master-pack.md",
+        "benchmark-scorecard.md",
+        "scenario-lab.md"
+      ]
+    },
+    {
+      "id": "USP-020",
+      "name": "Local-First Enterprise Safety",
+      "audience": [
+        "CISO",
+        "Legal",
+        "Enterprise IT"
+      ],
+      "claim": "Customer data can stay local while security scan, evidence vault, and generated docs support controlled sharing.",
+      "automation": [
+        "security-scan",
+        "evidence-vault",
+        "doctor"
+      ],
+      "proof": [
+        "security-scan-report.json",
+        "evidence-manifest.json",
+        "doctor output"
+      ]
+    },
+    {
+      "id": "USP-021",
+      "name": "Partner Management Assistant",
+      "audience": [
+        "Customer PMO",
+        "Procurement",
+        "Partner Manager"
+      ],
+      "claim": "Partner deliverables, open points, responsibilities, and scope risks are challenged with evidence and artifacts.",
+      "automation": [
+        "contract-risk",
+        "scope-guard",
+        "pmo-negotiator"
+      ],
+      "proof": [
+        "contract-risk-register.md",
+        "scope-guard-report.md",
+        "pmo-negotiation-pack.md"
+      ]
+    },
+    {
+      "id": "USP-022",
+      "name": "CFO Reconciliation Assurance",
+      "audience": [
+        "CFO",
+        "Finance Lead",
+        "Auditor"
+      ],
+      "claim": "Finance migration is controlled through reconciliation, sign-off, audit paths, and value evidence.",
+      "automation": [
+        "reconciliation-judge",
+        "evidence-gates",
+        "value-realization"
+      ],
+      "proof": [
+        "finance-reconciliation-judge.md",
+        "go-live-gate-result.json",
+        "value-realization-tracker.md"
+      ]
+    },
+    {
+      "id": "USP-023",
+      "name": "CISO Evidence Gatekeeper",
+      "audience": [
+        "CISO",
+        "Security Lead",
+        "Auditor"
+      ],
+      "claim": "Security approval is a generated, testable gate across roles, secrets, PCI, privileged access, and evidence.",
+      "automation": [
+        "security-scan",
+        "attack-surface",
+        "evidence-gates"
+      ],
+      "proof": [
+        "security-scan-report.md",
+        "security-attack-surface-map.md",
+        "go-live-gate-result.json"
+      ]
+    },
+    {
+      "id": "USP-024",
+      "name": "Key User Test Factory",
+      "audience": [
+        "QA",
+        "Key User",
+        "Business Lead"
+      ],
+      "claim": "UAT cases, regression packs, process acceptance, smoke tests, and sign-offs are generated for business users.",
+      "automation": [
+        "solo-test-plan",
+        "solo-test-status",
+        "solo-signoff"
+      ],
+      "proof": [
+        "uat-test-execution-pack.md",
+        "test-status-dashboard.md",
+        "business-signoff-pack.md"
+      ]
+    },
+    {
+      "id": "USP-025",
+      "name": "Migration Demo Sales Kit",
+      "audience": [
+        "Sales",
+        "Partner",
+        "CEO"
+      ],
+      "claim": "Manufacturing, Retail/POS, Finance-heavy, CRM/Lead-to-Cash, and multi-country demo projects make the plugin immediately demonstrable.",
+      "automation": [
+        "demo-projects",
+        "guided-run",
+        "project-ui"
+      ],
+      "proof": [
+        "demo-index.html",
+        "guided-run index.html",
+        "project-wizard.html"
+      ]
+    }
+  ]
+}

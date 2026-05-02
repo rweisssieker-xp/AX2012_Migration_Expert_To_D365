@@ -1,0 +1,9 @@
+{
+  "mode": "wargame",
+  "score": 100,
+  "outputs": [
+    "migration-war-game-plan.md",
+    "failure-simulation-scorecard.md",
+    "resilience-recovery-backlog.md"
+  ]
+}

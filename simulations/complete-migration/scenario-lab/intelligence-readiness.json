@@ -1,0 +1,9 @@
+{
+  "mode": "scenario",
+  "score": 100,
+  "outputs": [
+    "scenario-lab-pack.md",
+    "strategy-comparison-matrix.md",
+    "business-case-scenario-pack.md"
+  ]
+}

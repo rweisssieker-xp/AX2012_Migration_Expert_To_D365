@@ -1,0 +1,21 @@
+{
+  "mode": "partner-deliverable-check",
+  "project": "Contoso Complete AX to D365FO Migration",
+  "score": 95,
+  "status": "Ready",
+  "signals": {
+    "evidence": 857,
+    "cutover": 157,
+    "security": 299,
+    "finance": 317,
+    "commerce": 539,
+    "data": 1050,
+    "integration": 550,
+    "testing": 95
+  },
+  "actions": [
+    "Request missing deliverables from implementation partner with owner and due date.",
+    "Tie payment milestones to evidence, test status, and sign-off artifacts.",
+    "Escalate scope changes without `scope-guard` evidence."
+  ]
+}

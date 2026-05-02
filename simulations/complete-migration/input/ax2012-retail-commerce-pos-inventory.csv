@@ -1,0 +1,8 @@
+Category,ObjectType,Name,Layer,Module,Usage,Complexity,Technology,BusinessPurpose
+Object,Class,RetailPriceOverride,CUS,Commerce,High,High,X++,Custom channel pricing override
+Integration,Service,CSUChannelSyncMonitor,CUS,Commerce,Daily,High,Retail Server,Commerce Scale Unit sync monitoring
+Object,Form,POSOfflineRecoveryForm,USR,POS,High,High,X++,Store offline recovery process
+Integration,Interface,PaymentTerminalConnector,CUS,Payments,Daily,High,Connector,Payment terminal and settlement integration
+Report,Report,LoyaltyLiabilityReport,CUS,Loyalty,Monthly,Medium,SSRS,Loyalty points liability reporting
+Data,Table,RetailTransactionHistory,DAT,Commerce,High,High,SQL history,Historical retail transactions
+Security,Role,StoreManagerLegacyRole,USR,Store Operations,High,Medium,AX role,Store manager access

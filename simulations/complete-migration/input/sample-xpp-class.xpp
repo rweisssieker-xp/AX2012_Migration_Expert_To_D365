@@ -1,0 +1,12 @@
+class SalesFormLetter_Extension
+{
+    public void update()
+    {
+        ttsBegin;
+        SalesFormLetter formLetter;
+        Connection connection = new Connection();
+        Statement statement = connection.createStatement();
+        statement.executeUpdate("update CustTrans set Closed = 1");
+        ttsCommit;
+    }
+}

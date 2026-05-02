@@ -1,0 +1,9 @@
+{
+  "mode": "benchmark",
+  "score": 100,
+  "outputs": [
+    "benchmark-scorecard.md",
+    "peer-comparison-report.md",
+    "migration-outlier-report.md"
+  ]
+}

@@ -1,0 +1,65 @@
+{
+  "project": "Contoso Complete AX to D365FO Migration",
+  "roles": [
+    {
+      "role": "CEO",
+      "prompt": "Summarize business value, top board risks, go-live confidence, and decisions required.",
+      "expected_output": [
+        "actions",
+        "evidence gaps",
+        "risks",
+        "next CLI commands"
+      ]
+    },
+    {
+      "role": "CIO",
+      "prompt": "Review architecture, standardization, integration, data, release, and platform risks.",
+      "expected_output": [
+        "actions",
+        "evidence gaps",
+        "risks",
+        "next CLI commands"
+      ]
+    },
+    {
+      "role": "CISO",
+      "prompt": "Check security scan, privileged access, PCI, secrets, evidence, and external approvals.",
+      "expected_output": [
+        "actions",
+        "evidence gaps",
+        "risks",
+        "next CLI commands"
+      ]
+    },
+    {
+      "role": "CFO",
+      "prompt": "Validate reconciliation, tax, ledger, inventory, settlement, and value realization evidence.",
+      "expected_output": [
+        "actions",
+        "evidence gaps",
+        "risks",
+        "next CLI commands"
+      ]
+    },
+    {
+      "role": "PMO",
+      "prompt": "Create next actions, owner list, RAID updates, dependency risks, and gate closure plan.",
+      "expected_output": [
+        "actions",
+        "evidence gaps",
+        "risks",
+        "next CLI commands"
+      ]
+    },
+    {
+      "role": "QA / Key User",
+      "prompt": "Generate UAT, regression, smoke tests, defects, and business sign-off evidence.",
+      "expected_output": [
+        "actions",
+        "evidence gaps",
+        "risks",
+        "next CLI commands"
+      ]
+    }
+  ]
+}
