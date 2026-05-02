@@ -68,6 +68,11 @@ def main() -> int:
     stakeholder.add_argument("--stakeholder", choices=["cfo", "coo", "data", "integration", "qa", "enterprise-architect", "vendor", "legal", "support", "partner-sales", "all"], default="all")
     stakeholder.add_argument("--output", default="stakeholder-packs")
 
+    usp_pack = sub.add_parser("usp-pack", help="Generate AI/KI USP positioning, proof, and differentiation pack.")
+    usp_pack.add_argument("source", nargs="?", default=".")
+    usp_pack.add_argument("--project", default="Migration Project")
+    usp_pack.add_argument("--output", default="usp-packs")
+
     commerce_commands = {
         "commerce-pack": ("generate_commerce_pack.py", "Generate full Commerce/CXP/CRM/POS pack.", "commerce-packs"),
         "commerce-readiness": ("generate_commerce_readiness.py", "Generate Commerce readiness scores.", "commerce-readiness"),
@@ -151,6 +156,37 @@ def main() -> int:
 
     project_ui = sub.add_parser("project-ui", help="Generate local HTML UI for wizard, gates, router, memory, and security commands.")
     project_ui.add_argument("--output", default="migration-ui")
+
+    guided_run = sub.add_parser("guided-run", help="Run analysis, skill routing, gates, evidence, security, memory, exports, and health snapshot in one pass.")
+    guided_run.add_argument("source")
+    guided_run.add_argument("--project", default="Migration Project")
+    guided_run.add_argument("--output", default="guided-run")
+    for gate_name in ["ciso-approval", "cutover-rehearsal", "finance-reconciliation", "uat-signoff", "commerce-payments", "rollback-plan"]:
+        guided_run.add_argument(f"--{gate_name}", choices=["yes", "no"], default="no")
+
+    health_snapshot = sub.add_parser("health-snapshot", help="Generate a compact Markdown and HTML project health snapshot.")
+    health_snapshot.add_argument("source")
+    health_snapshot.add_argument("--output", default="health-snapshot")
+
+    control_commands = {
+        "usp-actions": ("USP-to-Action Engine", "usp-actions"),
+        "truth-detector": ("Project Truth Detector", "truth-detector"),
+        "cutover-confidence": ("Cutover Confidence Engine", "cutover-confidence"),
+        "meeting-actions": ("AI Meeting-to-Migration Actions", "meeting-actions"),
+        "proposal-pack": ("AI Proposal / Sales Pack Generator", "proposal-pack"),
+        "role-prompt-pack": ("AI Role Prompt Packs 2.0", "role-prompt-pack"),
+        "evidence-freshness": ("Evidence Freshness Monitor", "evidence-freshness"),
+        "dependency-risk-graph": ("Dependency Risk Graph", "dependency-risk-graph"),
+        "partner-deliverable-check": ("Partner Deliverable Checker", "partner-deliverable-check"),
+        "release-pack": ("Release ZIP Builder", "release-pack"),
+        "demo-portal": ("Demo Portal 2.0", "demo-portal"),
+        "wizard-ui": ("Interactive Local Wizard UI 2.0", "wizard-ui"),
+    }
+    for command, (help_text, _) in control_commands.items():
+        control = sub.add_parser(command, help=f"Generate {help_text}.")
+        control.add_argument("source", nargs="?", default=".")
+        control.add_argument("--project", default="Migration Project")
+        control.add_argument("--output", default=command)
 
     solo_init = sub.add_parser("solo-init", help="Create a solo migration project operating folder.")
     solo_init.add_argument("project")
@@ -258,6 +294,8 @@ def main() -> int:
         return run("export_github_issues.py", [args.analysis_dir, "--output", args.output])
     if args.command == "stakeholder-pack":
         return run("generate_stakeholder_pack.py", [args.analysis_dir, "--stakeholder", args.stakeholder, "--output", args.output])
+    if args.command == "usp-pack":
+        return run("generate_usp_pack.py", [args.source, "--project", args.project, "--output", args.output])
     if args.command in commerce_commands:
         script, _, _ = commerce_commands[args.command]
         return run(script, [args.analysis_dir, "--output", args.output])
@@ -283,6 +321,16 @@ def main() -> int:
         return run("scan_sensitive_data.py", cmd)
     if args.command == "project-ui":
         return run("create_project_ui.py", ["--output", args.output])
+    if args.command == "guided-run":
+        cmd = [args.source, "--project", args.project, "--output", args.output]
+        for gate_name in ["ciso_approval", "cutover_rehearsal", "finance_reconciliation", "uat_signoff", "commerce_payments", "rollback_plan"]:
+            cmd += [f"--{gate_name.replace('_', '-')}", getattr(args, gate_name)]
+        return run("guided_run.py", cmd)
+    if args.command == "health-snapshot":
+        return run("health_snapshot.py", [args.source, "--output", args.output])
+    if args.command in control_commands:
+        _, mode = control_commands[args.command]
+        return run("generate_control_feature.py", [args.source, "--mode", mode, "--project", args.project, "--output", args.output])
     if args.command == "solo-init":
         return run("create_solo_project.py", [args.project, "--output", args.output])
     if args.command == "solo-run":

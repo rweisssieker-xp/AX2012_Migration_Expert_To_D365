@@ -13,13 +13,15 @@ The repository contains a Codex plugin that analyzes AX inventories, X++/XPO/AOT
 - Reduces migration scope by identifying what to migrate, replace, configure, archive, or retire.
 - Analyzes CSV, JSON, X++ source, XPO, and AOT text exports.
 - Produces 46 analyzer outputs including dashboards, risk heatmaps, effort estimates, cost model, ADRs, Azure DevOps CSV, knowledge graph JSON, CEO/CIO/CISO/PM/team persona packs, RAID, RACI, weekly status, and steering committee artifacts.
-- Generates 264 migration project templates.
-- Includes 92 Codex skills: end-to-end migration expert plus executive, architecture, security, PMO, delivery, finance, operations, data, integration, QA, legal, vendor, support, partner sales, regulatory, industry, connector, automation, master-orchestrator, solo-operator, key-user/tester, Commerce/CXP/CRM/POS, and autonomous governance/evidence intelligence skills.
+- Generates 325 migration project templates.
+- Includes 112 Codex skills: end-to-end migration expert plus executive, architecture, security, PMO, delivery, finance, operations, data, integration, QA, legal, vendor, support, partner sales, regulatory, industry, connector, automation, master-orchestrator, solo-operator, key-user/tester, Commerce/CXP/CRM/POS, autonomous governance/evidence intelligence, and Migration Intelligence Fabric skills.
 - Exports analysis to Excel and PowerPoint.
 - Provides connector scaffolding for AX SQL, Azure DevOps, LCS, D365FO metadata/OData, and usage telemetry.
 - Adds a Solo/Master-Orchestrator operating model so a single plugin user can generate project control, evidence, gates, daily actions, test plans, sign-off, audit binder, hypercare, and benefits tracking.
 - Adds a dedicated Customer & Commerce Experience domain for CXP, CRM/Dataverse, Lead Management, D365 Commerce, CSU, POS, POS Offline, Payments, Store Operations, Omnichannel, Loyalty, Pricing, Assortment, Marketplace, Call Center, Analytics, and Store Training.
 - Adds an Autonomous Governance & Evidence Intelligence layer for contract/scope guard, stakeholder sentiment, evidence vault, cutover rehearsal, reconciliation judge, license/cost, ALM release, training readiness, ISV exit, country regulatory packs, archive strategy, hyperautomation, board risk, process twin, and meeting copilot.
+- Adds a productized AI/KI USP layer with proof-backed differentiation for autonomous PMO, evidence governance, status honesty, go-live confidence, role-aware delivery, audit readiness, partner management, CISO gates, CFO reconciliation, and demo sales.
+- Adds 12 advanced AI control features: USP actions, truth detection, cutover confidence, meeting actions, proposal packs, role prompts, evidence freshness, dependency graph, partner deliverables, release ZIP, demo portal, and wizard UI.
 - Adds productized onboarding with `wizard` command plans, `demo-projects`, sample dashboards, and stronger dashboard skill-routing/evidence signals.
 
 ## Quick Start
@@ -74,6 +76,12 @@ Generate extended stakeholder packs:
 python .\axmigrate.py stakeholder-pack migration-analysis\sample --stakeholder all --output stakeholder-packs\sample
 ```
 
+Generate AI/KI USP positioning and proof pack:
+
+```powershell
+python .\axmigrate.py usp-pack migration-analysis\sample --project "Contoso AX Migration" --output usp-packs\sample
+```
+
 Export GitHub issue Markdown:
 
 ```powershell
@@ -115,6 +123,8 @@ python .\axmigrate.py demo-projects --output demo-projects
 Run the autonomous router, evidence gates, and Migration Intelligence Fabric:
 
 ```powershell
+python .\axmigrate.py guided-run plugins\ax-to-d365fo-migration-expert\examples\sample-ax-inventory.csv --project "Contoso AX Migration" --ciso-approval yes --cutover-rehearsal yes --finance-reconciliation yes --uat-signoff yes --rollback-plan yes --output guided-runs\sample
+python .\axmigrate.py health-snapshot guided-runs\sample --output health\sample
 python .\axmigrate.py orchestrate migration-analysis\sample --output orchestration\sample
 python .\axmigrate.py evidence-gates migration-analysis\sample --ciso-approval yes --cutover-rehearsal yes --finance-reconciliation yes --uat-signoff yes --rollback-plan yes --output evidence-gates\sample
 python .\axmigrate.py intelligence-pack migration-analysis\sample --output intelligence-pack\sample
@@ -128,6 +138,22 @@ python .\axmigrate.py value-realization migration-analysis\sample --output value
 python .\axmigrate.py memory-store migration-analysis\sample --project "Contoso AX Migration" --output migration-memory-store\sample
 python .\axmigrate.py security-scan migration-analysis\sample --output security-scan\sample
 python .\axmigrate.py project-ui --output migration-ui
+```
+
+Run advanced AI control features:
+
+```powershell
+python .\axmigrate.py truth-detector guided-runs\sample --project "Contoso AX Migration" --output truth\sample
+python .\axmigrate.py cutover-confidence guided-runs\sample --project "Contoso AX Migration" --output cutover-confidence\sample
+python .\axmigrate.py meeting-actions meeting-notes.md --project "Contoso AX Migration" --output meeting-actions\sample
+python .\axmigrate.py proposal-pack guided-runs\sample --project "Contoso AX Migration" --output proposal-packs\sample
+python .\axmigrate.py role-prompt-pack guided-runs\sample --project "Contoso AX Migration" --output role-prompt-packs\sample
+python .\axmigrate.py evidence-freshness guided-runs\sample --project "Contoso AX Migration" --output evidence-freshness\sample
+python .\axmigrate.py dependency-risk-graph guided-runs\sample --project "Contoso AX Migration" --output dependency-graphs\sample
+python .\axmigrate.py partner-deliverable-check guided-runs\sample --project "Contoso AX Migration" --output partner-checks\sample
+python .\axmigrate.py release-pack . --project "Contoso AX Migration" --output release-packs\sample
+python .\axmigrate.py demo-portal guided-runs\sample --project "Contoso AX Migration" --output demo-portal\sample
+python .\axmigrate.py wizard-ui guided-runs\sample --project "Contoso AX Migration" --output wizard-ui\sample
 ```
 
 ## Repository Map
@@ -146,10 +172,10 @@ python .\axmigrate.py project-ui --output migration-ui
 | --- | --- |
 | Skills | 112 Codex skills across migration, roles, testing, solo operation, orchestration, connectors, industry/regulatory, Commerce/CXP/CRM/POS, governance/evidence intelligence, and Migration Intelligence Fabric. |
 | Templates | 325 templates for assessment, delivery, governance, testing, cutover, hypercare, role packs, solo operation, Commerce, evidence, rehearsal, reconciliation, ALM, training, archive, board risk, process twin, and intelligence fabric outputs. |
-| Scripts | 75 Python scripts including CLI, analyzer, exporters, connectors, validators, Commerce generators, Solo/Master generators, governance generators, intelligence generators, documentation generator, wizard, evidence gates, router, memory store, security scanner, local UI, and demo project generator. |
-| Configs | 35 JSON configs including cost model, risks, D365FO knowledge, integrations, Commerce readiness/gates, POS offline, PCI, CRM lead management, evidence, scope, reconciliation, license, ALM, training, country regulatory, process twin, benchmarking, portfolio, scenario, quality, integration resilience, security, and value rules. |
+| Scripts | 79 Python scripts including CLI, analyzer, exporters, connectors, validators, Commerce generators, Solo/Master generators, governance generators, intelligence generators, USP generator, advanced control generator, documentation generator, guided run, health snapshot, wizard, evidence gates, router, memory store, security scanner, local UI, and demo project generator. |
+| Configs | 36 JSON configs including cost model, risks, D365FO knowledge, integrations, Commerce readiness/gates, POS offline, PCI, CRM lead management, evidence, scope, reconciliation, license, ALM, training, country regulatory, process twin, benchmarking, portfolio, scenario, quality, integration resilience, security, value rules, and USP catalog. |
 | Analyzer outputs | 46 generated outputs from inventory analysis, including technical, executive, governance, role, dashboard, graph, and backlog artifacts. |
-| AI/KI features | 530 documented feature items, including solo autonomy, Commerce features, autonomous governance/evidence intelligence, wizard automation, evidence gates, Dashboard 2.0, stronger Office exports, strict validation, Migration Intelligence Fabric, memory store, evidence hashes, security scanning, local UI, and demo portal. |
+| AI/KI features | 577 documented feature items, including solo autonomy, Commerce features, autonomous governance/evidence intelligence, wizard automation, evidence gates, guided runs, health snapshots, proof-backed USPs, advanced AI control features, Dashboard 2.0, stronger Office exports, strict validation, Migration Intelligence Fabric, memory store, evidence hashes, security scanning, local UI, and demo portal. |
 
 ## Documentation
 
@@ -166,6 +192,8 @@ python .\axmigrate.py project-ui --output migration-ui
 - [Solo and Master Orchestrator](docs/solo-master-orchestrator.md)
 - [Autonomous Governance & Evidence Intelligence](docs/autonomous-governance-evidence.md)
 - [Migration Intelligence Fabric](docs/migration-intelligence-fabric.md)
+- [Advanced AI Control Features EN](docs/advanced-ai-control-features.en.md)
+- [Advanced AI Control Features DE](docs/advanced-ai-control-features.de.md)
 - [Plugin usage](plugins/ax-to-d365fo-migration-expert/docs/installation-and-usage.md)
 - [Input format](plugins/ax-to-d365fo-migration-expert/docs/input-inventory-format.md)
 - [AI feature list](plugins/ax-to-d365fo-migration-expert/docs/ai-usp-feature-list.md)

@@ -44,6 +44,7 @@ plugins/ax-to-d365fo-migration-expert/config
 | `standard-feature-map.json` | Standard feature map rules, mappings, thresholds, or routing defaults. |
 | `technical-debt-rules.json` | Technical debt rules rules, mappings, thresholds, or routing defaults. |
 | `training-effectiveness-rules.json` | Training effectiveness rules rules, mappings, thresholds, or routing defaults. |
+| `usp-catalog.json` | Usp catalog rules, mappings, thresholds, or routing defaults. |
 | `value-realization-rules.json` | Value realization rules rules, mappings, thresholds, or routing defaults. |
 
 ## Validation

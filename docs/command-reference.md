@@ -26,6 +26,7 @@ python .\axmigrate.py <command> [options]
 | `persona-pack` | Run the `persona-pack` migration automation command. |
 | `questionnaire` | Run the `questionnaire` migration automation command. |
 | `stakeholder-pack` | Run the `stakeholder-pack` migration automation command. |
+| `usp-pack` | Generate AI/KI USP positioning, proof, and differentiation pack. |
 | `github-issues` | Run the `github-issues` migration automation command. |
 
 ## Commerce/CXP/CRM/POS
@@ -120,6 +121,20 @@ python .\axmigrate.py <command> [options]
 | `memory-store` | Persist migration memory into local SQLite and JSONL files. |
 | `security-scan` | Scan files for secrets, connection strings, and common PII patterns. |
 | `project-ui` | Generate a local HTML command UI for wizard, gates, router, memory, and security commands. |
+| `guided-run` | Run analysis, skill routing, gates, evidence, security, memory, exports, and health snapshot in one pass. |
+| `health-snapshot` | Generate compact Markdown and HTML project health status from gates, evidence, routing, and security signals. |
+| `usp-actions` | Generate USP-to-action map with CLI commands, skills, proof, and demo narrative. |
+| `truth-detector` | Generate project truth detector comparing status claims with evidence, gates, and artifacts. |
+| `cutover-confidence` | Generate cutover confidence score from rehearsal, rollback, smoke, finance, security, and Commerce/POS signals. |
+| `meeting-actions` | Generate migration decisions, risks, tasks, evidence gaps, and next commands from meeting notes. |
+| `proposal-pack` | Generate proposal and sales pack from USPs, demo story, and analysis signals. |
+| `role-prompt-pack` | Generate role-specific prompt library with expected outputs and evidence requirements. |
+| `evidence-freshness` | Generate evidence freshness monitor for stale, aging, current, or missing evidence. |
+| `dependency-risk-graph` | Generate dependency risk graph across workstreams, gates, tests, integrations, and cutover. |
+| `partner-deliverable-check` | Generate partner deliverable checker for scope, sign-off, evidence, and milestone controls. |
+| `release-pack` | Build release ZIP and manifest for plugin distribution. |
+| `demo-portal` | Generate Demo Portal 2.0 linking guided run, health, USPs, dashboards, and pitch story. |
+| `wizard-ui` | Generate Interactive Local Wizard UI 2.0 for project type, gates, evidence, packs, and commands. |
 | `wizard` | Ask for or accept a project profile and generate a tailored execution plan. |
 | `demo-projects` | Generate ready-to-open demo projects and dashboards. |
 | `ax-sql` | Run the `ax-sql` migration automation command. |

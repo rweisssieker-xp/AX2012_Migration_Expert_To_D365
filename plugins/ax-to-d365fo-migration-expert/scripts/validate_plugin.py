@@ -19,14 +19,16 @@ EXPECTED_ANALYSIS_OUTPUTS = 46
 
 CLI_COMMANDS = [
     "init", "analyze", "scan-code", "dashboard", "extract-modelstore", "export", "persona-pack", "questionnaire",
-    "github-issues", "stakeholder-pack", "commerce-pack", "commerce-readiness", "commerce-cutover", "commerce-offline-check",
+    "github-issues", "stakeholder-pack", "usp-pack", "commerce-pack", "commerce-readiness", "commerce-cutover", "commerce-offline-check",
     "commerce-crm-pack", "commerce-store-pack", "commerce-payments-pack", "commerce-omnichannel-pack", "governance-pack",
     "evidence-vault", "scope-guard", "contract-risk", "cutover-rehearsal", "reconciliation-judge", "license-cost",
     "alm-release", "training-readiness", "isv-exit", "country-regulatory-pack", "archive-strategy", "hyperautomation-pack",
     "board-risk", "process-twin", "meeting-copilot", "intelligence-pack", "migration-memory", "benchmark",
     "portfolio-control", "scenario-lab", "quality-audit", "debt-liquidator", "fabric-advisor", "integration-resilience",
     "attack-surface", "sustainability", "pmo-negotiator", "knowledge-transfer-exam", "war-game", "value-realization",
-    "continuous-improvement", "orchestrate", "evidence-gates", "memory-store", "security-scan", "project-ui", "solo-init", "solo-run", "solo-evidence", "solo-status",
+    "continuous-improvement", "orchestrate", "evidence-gates", "memory-store", "security-scan", "project-ui", "guided-run", "health-snapshot",
+    "usp-actions", "truth-detector", "cutover-confidence", "meeting-actions", "proposal-pack", "role-prompt-pack", "evidence-freshness",
+    "dependency-risk-graph", "partner-deliverable-check", "release-pack", "demo-portal", "wizard-ui", "solo-init", "solo-run", "solo-evidence", "solo-status",
     "solo-gates", "solo-daily", "solo-war-room", "solo-hypercare", "solo-audit-binder", "solo-benefits", "solo-orchestrate",
     "solo-brain", "solo-next", "solo-simulate", "solo-scope-defense", "solo-waste-hunter", "solo-predict", "solo-translate",
     "solo-drift", "solo-communicate", "solo-test-plan", "solo-test-status", "solo-signoff", "profile-data", "monitor",
@@ -98,11 +100,11 @@ def assert_feature_numbers() -> None:
     for match in re.finditer(r"## Features (\d+)-(\d+):", text):
         start, end = int(match.group(1)), int(match.group(2))
         numbers.update(range(start, end + 1))
-    expected = set(range(1, 531))
+    expected = set(range(1, 578))
     missing = sorted(expected - numbers)
-    extra_gap = sorted(num for num in numbers if num < 1 or num > 530)
+    extra_gap = sorted(num for num in numbers if num < 1 or num > 577)
     if missing or extra_gap:
-        raise SystemExit(f"Feature numbering is not continuous 1-530. Missing={missing[:20]} Extra={extra_gap[:20]}")
+        raise SystemExit(f"Feature numbering is not continuous 1-577. Missing={missing[:20]} Extra={extra_gap[:20]}")
 
 
 def main() -> int:
@@ -166,6 +168,10 @@ def main() -> int:
         memory_store_output = temp_root / "memory_store"
         security_scan_output = temp_root / "security_scan"
         project_ui_output = temp_root / "project_ui"
+        guided_run_output = temp_root / "guided_run"
+        health_snapshot_output = temp_root / "health_snapshot"
+        usp_pack_output = temp_root / "usp_pack"
+        control_output = temp_root / "control_features"
         intelligence_outputs = [
             temp_root / "intelligence_pack",
             temp_root / "migration_memory",
@@ -236,6 +242,42 @@ def main() -> int:
         run([sys.executable, str(ROOT / "scripts" / "update_migration_memory_store.py"), str(analysis), "--project", "Validation", "--output", str(memory_store_output)])
         run([sys.executable, str(ROOT / "scripts" / "scan_sensitive_data.py"), str(analysis), "--output", str(security_scan_output)])
         run([sys.executable, str(ROOT / "scripts" / "create_project_ui.py"), "--output", str(project_ui_output)])
+        run([sys.executable, str(ROOT / "scripts" / "generate_usp_pack.py"), str(analysis), "--project", "Validation", "--output", str(usp_pack_output)])
+        for mode in [
+            "usp-actions",
+            "truth-detector",
+            "cutover-confidence",
+            "meeting-actions",
+            "proposal-pack",
+            "role-prompt-pack",
+            "evidence-freshness",
+            "dependency-risk-graph",
+            "partner-deliverable-check",
+            "release-pack",
+            "demo-portal",
+            "wizard-ui",
+        ]:
+            run([sys.executable, str(ROOT / "scripts" / "generate_control_feature.py"), str(analysis), "--mode", mode, "--project", "Validation", "--output", str(control_output / mode)])
+        run([
+            sys.executable,
+            str(ROOT / "scripts" / "guided_run.py"),
+            str(ROOT / "examples" / "sample-ax-inventory.csv"),
+            "--project",
+            "Validation Guided",
+            "--ciso-approval",
+            "yes",
+            "--cutover-rehearsal",
+            "yes",
+            "--finance-reconciliation",
+            "yes",
+            "--uat-signoff",
+            "yes",
+            "--rollback-plan",
+            "yes",
+            "--output",
+            str(guided_run_output),
+        ])
+        run([sys.executable, str(ROOT / "scripts" / "health_snapshot.py"), str(guided_run_output), "--output", str(health_snapshot_output)])
 
         report_count = len(list(analysis.glob("*")))
         template_count = len(list((workspace / "validation").glob("*.md")))
@@ -287,6 +329,36 @@ def main() -> int:
             raise SystemExit("Security scan did not generate security-scan-report.json")
         if not (project_ui_output / "project-wizard.html").exists():
             raise SystemExit("Project UI did not generate project-wizard.html")
+        if not (guided_run_output / "guided-run-plan.md").exists():
+            raise SystemExit("Guided run did not generate guided-run-plan.md")
+        if not (guided_run_output / "recommended-commands.md").exists():
+            raise SystemExit("Guided run did not generate recommended-commands.md")
+        if not (guided_run_output / "project-health-snapshot.html").exists():
+            raise SystemExit("Guided run did not generate project-health-snapshot.html")
+        if not (guided_run_output / "index.html").exists():
+            raise SystemExit("Guided run did not generate index.html")
+        if not (health_snapshot_output / "project-health-snapshot.md").exists():
+            raise SystemExit("Health snapshot did not generate project-health-snapshot.md")
+        if not (usp_pack_output / "ai-ki-usp-pack.md").exists():
+            raise SystemExit("USP pack did not generate ai-ki-usp-pack.md")
+        if not (usp_pack_output / "ai-ki-usp-catalog.json").exists():
+            raise SystemExit("USP pack did not generate ai-ki-usp-catalog.json")
+        for mode, expected_name in {
+            "usp-actions": "usp-to-action-map.md",
+            "truth-detector": "project-truth-detector.md",
+            "cutover-confidence": "cutover-confidence-score.md",
+            "meeting-actions": "meeting-to-migration-actions.md",
+            "proposal-pack": "proposal-sales-pack.md",
+            "role-prompt-pack": "role-prompt-pack-2.md",
+            "evidence-freshness": "evidence-freshness-monitor.md",
+            "dependency-risk-graph": "dependency-risk-graph.md",
+            "partner-deliverable-check": "partner-deliverable-check.md",
+            "release-pack": "release-pack-manifest.md",
+            "demo-portal": "demo-portal-2.html",
+            "wizard-ui": "interactive-wizard-ui-2.html",
+        }.items():
+            if not (control_output / mode / expected_name).exists():
+                raise SystemExit(f"{mode} did not generate {expected_name}")
         run([sys.executable, str(ROOT / "scripts" / "create_project_wizard.py"), "--profile", "multi-country", "--project", "Validation Global", "--output", str(wizard_output)])
         run([sys.executable, str(ROOT / "scripts" / "create_demo_projects.py"), "--output", str(demo_output)])
         if not (wizard_output / "wizard-plan.md").exists():

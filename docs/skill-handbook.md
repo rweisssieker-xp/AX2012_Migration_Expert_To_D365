@@ -118,18 +118,3 @@ Total skills: **112**
 | `ax-migration-war-room-copilot` | Executive leadership | war, room, copilot | analysis folder, inventory, evidence, decisions | `cutover-war-room.md`, `meeting-copilot-pack.md`, `war-room-command-board.md` | Used by orchestrator | Use `ax-migration-war-room-copilot` to assess evidence gaps and generate next actions. |
 | `ax-migration-waste-hunter` | QA, key users, testers | waste, hunter | analysis folder, inventory, evidence, decisions | `anti-waste-score.md`, `waste-hunter-report.md` | Used by orchestrator | Use `ax-migration-waste-hunter` to assess evidence gaps and generate next actions. |
 | `ax-to-d365fo-migration` | QA, key users, testers | ax, to, d365fo, migration | analysis folder, inventory, evidence, decisions | `ai-migration-brain.md`, `assortment-catalog-migration-pack.md`, `call-center-migration-pack.md`, `continuous-migration-monitor.md` | Used by orchestrator | Use `ax-to-d365fo-migration` to assess evidence gaps and generate next actions. |
-
-## Automation Tools Covered By The Master Orchestrator
-
-These runtime tools are not separate Codex skill folders, but they are part of the autonomous operating model and are routed by the master/orchestration layer.
-
-| Tool / Command | Purpose | Inputs | Outputs | Related skills |
-| --- | --- | --- | --- | --- |
-| `orchestrate` | Analyze text, analysis folders, or project folders and automatically select skills, missing evidence, artifacts, and next CLI commands. | Analysis folder, project folder, or text file. | `orchestration-plan.md`, `skill-routing.json`, `next-commands.ps1`. | `ax-migration-master-orchestrator`, `ax-migration-ai-migration-brain`, domain owner skills. |
-| `evidence-gates` | Ask/record go-live evidence gates and return Ready, Needs control, or Blocked. | Gate answers for CISO, cutover, finance reconciliation, UAT, Commerce/payments, rollback. | `evidence-gate-questionnaire.md`, `go-live-gate-result.json`, `next-evidence-actions.md`. | `ax-migration-self-approval-gates`, `ax-migration-ciso-guardian`, `ax-migration-reconciliation-judge`, `ax-migration-cutover-rehearsal-lead`. |
-| `memory-store` | Persist reusable migration memory locally for future projects. | Analysis folder or project folder plus project name. | `migration-memory.sqlite`, `migration-memory.jsonl`, `migration-memory-store.md`. | `ax-migration-migration-memory`, `ax-migration-intelligence-fabric-orchestrator`, `ax-migration-ai-migration-brain`. |
-| `security-scan` | Scan generated or source files for secrets, connection strings, email addresses, IBANs, and card-like values with redacted output. | File or folder. | `security-scan-report.md`, `security-scan-report.json`, `security-scan-findings.csv`. | `ax-migration-ciso-guardian`, `ax-migration-security-attack-surface-mapper`, `ax-migration-commerce-security-pci-lead`. |
-| `project-ui` | Generate a local HTML command UI for wizard, gates, router, memory, security scan, and demo commands. | Output folder. | `project-wizard.html`. | `ax-migration-connector-wizard`, `ax-migration-master-orchestrator`, `ax-migration-solo-operator`. |
-| `demo-projects` | Generate ready-to-open demo projects and a central demo portal. | Output folder. | `demo-index.html`, dashboards, persona packs, governance packs, Commerce/CRM/Multi-country examples. | `ax-migration-industry-pack`, `ax-migration-commerce-orchestrator`, `ax-migration-crm-owner`, `ax-migration-portfolio-control-tower`. |
-
-Real executive, CISO, legal, audit, payment/PCI, finance, and production approvals remain external approvals. The plugin prepares evidence, status, and recommended actions, but does not replace accountable sign-off.

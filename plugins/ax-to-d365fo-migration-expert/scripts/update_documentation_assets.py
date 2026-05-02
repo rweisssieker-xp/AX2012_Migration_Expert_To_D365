@@ -14,12 +14,12 @@ DOCS = REPO / "docs"
 
 COMMAND_GROUPS = {
     "Core Migration": ["init", "analyze", "scan-code", "dashboard", "extract-modelstore", "export", "profile-data", "monitor"],
-    "Role, Governance, and Delivery": ["persona-pack", "questionnaire", "stakeholder-pack", "github-issues"],
+    "Role, Governance, and Delivery": ["persona-pack", "questionnaire", "stakeholder-pack", "usp-pack", "github-issues"],
     "Commerce/CXP/CRM/POS": ["commerce-pack", "commerce-readiness", "commerce-cutover", "commerce-offline-check", "commerce-crm-pack", "commerce-store-pack", "commerce-payments-pack", "commerce-omnichannel-pack"],
     "Solo/Master Orchestrator": ["solo-init", "solo-run", "solo-evidence", "solo-status", "solo-gates", "solo-daily", "solo-war-room", "solo-hypercare", "solo-audit-binder", "solo-benefits", "solo-orchestrate", "solo-brain", "solo-next", "solo-simulate", "solo-scope-defense", "solo-waste-hunter", "solo-predict", "solo-translate", "solo-drift", "solo-communicate", "solo-test-plan", "solo-test-status", "solo-signoff"],
     "Autonomous Governance & Evidence": ["governance-pack", "evidence-vault", "scope-guard", "contract-risk", "cutover-rehearsal", "reconciliation-judge", "license-cost", "alm-release", "training-readiness", "isv-exit", "country-regulatory-pack", "archive-strategy", "hyperautomation-pack", "board-risk", "process-twin", "meeting-copilot"],
     "Migration Intelligence Fabric": ["intelligence-pack", "migration-memory", "benchmark", "portfolio-control", "scenario-lab", "quality-audit", "debt-liquidator", "fabric-advisor", "integration-resilience", "attack-surface", "sustainability", "pmo-negotiator", "knowledge-transfer-exam", "war-game", "value-realization", "continuous-improvement"],
-    "Automation, Gates, Demos, UI, Security, Connectors": ["orchestrate", "evidence-gates", "memory-store", "security-scan", "project-ui", "wizard", "demo-projects", "ax-sql", "push-ado", "fetch-lcs", "fetch-d365fo", "usage-telemetry", "validate", "doctor", "examples"],
+    "Automation, Gates, Demos, UI, Security, Connectors": ["orchestrate", "evidence-gates", "memory-store", "security-scan", "project-ui", "guided-run", "health-snapshot", "usp-actions", "truth-detector", "cutover-confidence", "meeting-actions", "proposal-pack", "role-prompt-pack", "evidence-freshness", "dependency-risk-graph", "partner-deliverable-check", "release-pack", "demo-portal", "wizard-ui", "wizard", "demo-projects", "ax-sql", "push-ado", "fetch-lcs", "fetch-d365fo", "usage-telemetry", "validate", "doctor", "examples"],
 }
 
 PURPOSES = {
@@ -30,6 +30,21 @@ PURPOSES = {
     "memory-store": "Persist migration memory into local SQLite and JSONL files.",
     "security-scan": "Scan files for secrets, connection strings, and common PII patterns.",
     "project-ui": "Generate a local HTML command UI for wizard, gates, router, memory, and security commands.",
+    "guided-run": "Run analysis, skill routing, gates, evidence, security, memory, exports, and health snapshot in one pass.",
+    "health-snapshot": "Generate compact Markdown and HTML project health status from gates, evidence, routing, and security signals.",
+    "usp-pack": "Generate AI/KI USP positioning, proof, and differentiation pack.",
+    "usp-actions": "Generate USP-to-action map with CLI commands, skills, proof, and demo narrative.",
+    "truth-detector": "Generate project truth detector comparing status claims with evidence, gates, and artifacts.",
+    "cutover-confidence": "Generate cutover confidence score from rehearsal, rollback, smoke, finance, security, and Commerce/POS signals.",
+    "meeting-actions": "Generate migration decisions, risks, tasks, evidence gaps, and next commands from meeting notes.",
+    "proposal-pack": "Generate proposal and sales pack from USPs, demo story, and analysis signals.",
+    "role-prompt-pack": "Generate role-specific prompt library with expected outputs and evidence requirements.",
+    "evidence-freshness": "Generate evidence freshness monitor for stale, aging, current, or missing evidence.",
+    "dependency-risk-graph": "Generate dependency risk graph across workstreams, gates, tests, integrations, and cutover.",
+    "partner-deliverable-check": "Generate partner deliverable checker for scope, sign-off, evidence, and milestone controls.",
+    "release-pack": "Build release ZIP and manifest for plugin distribution.",
+    "demo-portal": "Generate Demo Portal 2.0 linking guided run, health, USPs, dashboards, and pitch story.",
+    "wizard-ui": "Generate Interactive Local Wizard UI 2.0 for project type, gates, evidence, packs, and commands.",
 }
 
 FEATURE_381_500 = [
@@ -75,6 +90,32 @@ FEATURE_501_530 = [
     "AI Cross-Project Reuse Signal", "AI Command UI Evidence Flow", "AI Security Gate Smoke Test",
     "AI Memory Store Smoke Test", "AI UI Generation Smoke Test", "AI Demo Index Smoke Test",
     "AI Evidence Manifest Validator", "AI Enterprise Distribution Hardening", "AI Product Readiness Extension Gate",
+]
+
+FEATURE_531_540 = [
+    "AI Guided Migration Run Autopilot", "AI Project Health Snapshot", "AI Role Action Inbox",
+    "AI Evidence Strength Score", "AI Guided Run Command Center", "AI One-Command Demo Launcher",
+    "AI Analysis-to-Gate Pipeline", "AI Routed Command Sequencer", "AI Snapshot HTML Publisher",
+    "AI Guided Run Validation Gate",
+]
+
+FEATURE_541_565 = [
+    "Autonomous Migration PMO", "Evidence-Based Project Governance", "AI Status Honesty Engine",
+    "Go-Live Confidence Score", "Migration Command Center in a Box", "AX-to-D365FO Knowledge Pack",
+    "Role-Aware AI Delivery", "Solo Consultant Superpower", "Commerce POS Go-Live Guard",
+    "AI Migration Factory Generator", "Audit-Ready by Default", "Board-Ready Migration Story",
+    "Legacy Simplification Engine", "D365 Standard Fit Advisor", "Migration Risk Radar",
+    "AI Workstream Orchestrator", "Executive-to-Engineer Traceability", "No-Excuses Cutover Pack",
+    "Migration Intelligence Fabric USP", "Local-First Enterprise Safety", "Partner Management Assistant",
+    "CFO Reconciliation Assurance", "CISO Evidence Gatekeeper", "Key User Test Factory",
+    "Migration Demo Sales Kit",
+]
+
+FEATURE_566_577 = [
+    "USP-to-Action Engine", "Project Truth Detector", "Cutover Confidence Engine",
+    "AI Meeting-to-Migration Actions", "AI Proposal Sales Pack Generator", "AI Role Prompt Packs 2.0",
+    "Evidence Freshness Monitor", "Dependency Risk Graph", "Partner Deliverable Checker",
+    "Release ZIP Builder CLI", "Demo Portal 2.0", "Interactive Local Wizard UI 2.0",
 ]
 
 
@@ -198,7 +239,7 @@ def extend_features() -> None:
     path = ROOT / "docs" / "ai-usp-feature-list.md"
     text = path.read_text(encoding="utf-8")
     existing = {int(num) for num in re.findall(r"## Feature (\d+):", text)}
-    if all(num in existing for num in range(381, 531)):
+    if all(num in existing for num in range(381, 578)):
         return
     additions = []
     for idx, title in enumerate(FEATURE_381_500, start=381):
@@ -207,6 +248,15 @@ def extend_features() -> None:
     for idx, title in enumerate(FEATURE_501_530, start=501):
         if idx not in existing:
             additions.append(f"## Feature {idx}: {title}\n\n{title} adds product-readiness automation for local memory, evidence vault integrity, UI, demo showcase, security scanning, or enterprise distribution hardening.\n")
+    for idx, title in enumerate(FEATURE_531_540, start=531):
+        if idx not in existing:
+            additions.append(f"## Feature {idx}: {title}\n\n{title} turns migration execution into a guided, evidence-backed one-command flow with routed skills, project health, role actions, generated outputs, and validation coverage.\n")
+    for idx, title in enumerate(FEATURE_541_565, start=541):
+        if idx not in existing:
+            additions.append(f"## Feature {idx}: {title}\n\n{title} productizes a differentiated AI/KI USP with target audience, automation path, proof artifacts, and migration delivery value.\n")
+    for idx, title in enumerate(FEATURE_566_577, start=566):
+        if idx not in existing:
+            additions.append(f"## Feature {idx}: {title}\n\n{title} adds advanced AI control automation with English and German documentation, CLI access, generated artifacts, and validator coverage.\n")
     if additions:
         path.write_text(text.rstrip() + "\n\n" + "\n".join(additions), encoding="utf-8")
 

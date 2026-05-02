@@ -44,6 +44,8 @@ python plugins\ax-to-d365fo-migration-expert\scripts\migration_cli.py init "Cont
 python plugins\ax-to-d365fo-migration-expert\scripts\migration_cli.py analyze plugins\ax-to-d365fo-migration-expert\examples\sample-ax-inventory.csv --output migration-analysis\contoso
 python plugins\ax-to-d365fo-migration-expert\scripts\migration_cli.py scan-code plugins\ax-to-d365fo-migration-expert\examples\sample-xpp-class.xpp --output migration-analysis\code
 python plugins\ax-to-d365fo-migration-expert\scripts\migration_cli.py dashboard plugins\ax-to-d365fo-migration-expert\examples\sample-ax-inventory.csv --output migration-dashboard\contoso
+python plugins\ax-to-d365fo-migration-expert\scripts\migration_cli.py guided-run plugins\ax-to-d365fo-migration-expert\examples\sample-ax-inventory.csv --project "Contoso AX Migration" --output guided-runs\contoso
+python plugins\ax-to-d365fo-migration-expert\scripts\migration_cli.py health-snapshot guided-runs\contoso --output health\contoso
 python plugins\ax-to-d365fo-migration-expert\scripts\migration_cli.py profile-data data-export.csv --output data-quality-profile.md
 python plugins\ax-to-d365fo-migration-expert\scripts\migration_cli.py ax-sql --output ax-modelstore.csv --dry-run
 python plugins\ax-to-d365fo-migration-expert\scripts\migration_cli.py push-ado migration-analysis\contoso\ai-azure-devops-work-items.csv --dry-run
@@ -56,9 +58,13 @@ python plugins\ax-to-d365fo-migration-expert\scripts\migration_cli.py validate
 Guided project wizard and demo projects:
 
 ```powershell
+python .\axmigrate.py guided-run plugins\ax-to-d365fo-migration-expert\examples\sample-ax-inventory.csv --project "Contoso AX Migration" --ciso-approval yes --cutover-rehearsal yes --finance-reconciliation yes --uat-signoff yes --rollback-plan yes --output guided-runs\contoso
+python .\axmigrate.py health-snapshot guided-runs\contoso --output health\contoso
 python .\axmigrate.py wizard --profile commerce --project "Contoso Retail Migration" --output migration-wizard\commerce
 python .\axmigrate.py demo-projects --output demo-projects
 ```
+
+`guided-run` is the one-command path for solo users and demos. It analyzes inputs or reuses an existing analysis folder, routes skills, generates gates, evidence vault, governance pack, security scan, memory store, Office exports, role action inbox, recommended commands, and a project health snapshot.
 
 From the repository root, the shorter wrapper is also available:
 
@@ -107,6 +113,8 @@ Outputs:
 ## Important Outputs
 
 - `dashboard.html`: browser-friendly command center.
+- `guided-run-plan.md`: one-command execution plan with routed skills, generated outputs, and next actions.
+- `project-health-snapshot.html`: compact Ready / Needs control / Blocked status across gates, evidence, security, and routing.
 - `ai-command-center-dashboard.md`: KPI dashboard.
 - `ai-customization-disposition.md`: retire / extend / rebuild recommendations.
 - `ai-risk-mitigation-playbooks.md`: risk-to-action guidance.
@@ -121,9 +129,32 @@ Outputs:
 ```powershell
 python .\axmigrate.py persona-pack migration-analysis\contoso --persona all --office --output persona-packs\contoso
 python .\axmigrate.py stakeholder-pack migration-analysis\contoso --stakeholder all --output stakeholder-packs\contoso
+python .\axmigrate.py usp-pack migration-analysis\contoso --project "Contoso AX Migration" --output usp-packs\contoso
 python .\axmigrate.py questionnaire --persona all --output migration-questionnaires\contoso
 python .\axmigrate.py github-issues migration-analysis\contoso --output github-issues\contoso
 ```
+
+## Advanced AI Control Features
+
+```powershell
+python .\axmigrate.py usp-actions migration-analysis\contoso --project "Contoso AX Migration" --output usp-actions\contoso
+python .\axmigrate.py truth-detector migration-analysis\contoso --project "Contoso AX Migration" --output truth\contoso
+python .\axmigrate.py cutover-confidence migration-analysis\contoso --project "Contoso AX Migration" --output cutover-confidence\contoso
+python .\axmigrate.py meeting-actions meeting-notes.md --project "Contoso AX Migration" --output meeting-actions\contoso
+python .\axmigrate.py proposal-pack migration-analysis\contoso --project "Contoso AX Migration" --output proposal-packs\contoso
+python .\axmigrate.py role-prompt-pack migration-analysis\contoso --project "Contoso AX Migration" --output role-prompt-packs\contoso
+python .\axmigrate.py evidence-freshness migration-analysis\contoso --project "Contoso AX Migration" --output evidence-freshness\contoso
+python .\axmigrate.py dependency-risk-graph migration-analysis\contoso --project "Contoso AX Migration" --output dependency-graphs\contoso
+python .\axmigrate.py partner-deliverable-check migration-analysis\contoso --project "Contoso AX Migration" --output partner-checks\contoso
+python .\axmigrate.py release-pack . --project "Contoso AX Migration" --output release-packs\contoso
+python .\axmigrate.py demo-portal migration-analysis\contoso --project "Contoso AX Migration" --output demo-portal\contoso
+python .\axmigrate.py wizard-ui migration-analysis\contoso --project "Contoso AX Migration" --output wizard-ui\contoso
+```
+
+English and German documentation:
+
+- `docs/advanced-ai-control-features.en.md`
+- `docs/advanced-ai-control-features.de.md`
 
 ## Commerce/CXP/CRM/POS Packs
 

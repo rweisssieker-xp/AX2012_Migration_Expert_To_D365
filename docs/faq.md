@@ -49,15 +49,15 @@ Yes. The Autonomous Governance & Evidence Intelligence layer covers contract/sco
 
 ## What is the Migration Intelligence Fabric?
 
-It is the documented next USP backlog after the current 380-feature implementation. It proposes Features 381-500 for migration memory, benchmarking, portfolio control, scenario simulation, delivery quality audit, technical debt liquidation, Fabric/data product modernization, integration resilience, security attack surface, sustainability, PMO negotiation, knowledge transfer, migration war games, value realization, and continuous improvement.
+It is the implemented intelligence layer for migration memory, benchmarking, portfolio control, scenario simulation, delivery quality audit, technical debt liquidation, Fabric/data product modernization, integration resilience, security attack surface, sustainability, PMO negotiation, knowledge transfer, migration war games, value realization, continuous improvement, memory store, evidence hashing, security scanning, local UI, and demo portal support.
 
 ## How can I quickly demo the plugin?
 
-Run `python .\axmigrate.py demo-projects --output demo-projects`. This creates finance, manufacturing, Commerce/POS, and CRM/Lead-to-Cash demo folders with dashboards and generated packs.
+Run `python .\axmigrate.py demo-projects --output demo-projects`. This creates finance, manufacturing, Commerce/POS, CRM/Lead-to-Cash, and multi-country rollout demo folders with dashboards, a demo index, and generated packs.
 
 ## How do I know which commands to run for a new project?
 
-Run `python .\axmigrate.py wizard --profile <profile> --project "<name>" --output migration-wizard\<profile>`. Supported profiles are `finance`, `manufacturing`, `commerce`, `crm`, and `solo`.
+Run `python .\axmigrate.py wizard --profile <profile> --project "<name>" --output migration-wizard\<profile>`. Supported profiles include `ax40`, `ax2009`, `ax2012`, `finance`, `manufacturing`, `commerce`, `crm`, `pos`, `solo`, `multi-country`, and `corporate-rollout`.
 
 ## When is Commerce go-live blocked?
 

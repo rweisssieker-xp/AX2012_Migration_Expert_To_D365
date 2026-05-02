@@ -30,14 +30,16 @@
 | --- | ---: |
 | Skills | 112 |
 | Templates | 325 |
-| Python scripts | 75 |
-| Config JSON files | 35 |
+| Python scripts | 79 |
+| Config JSON files | 36 |
 | Analyzer outputs | 46 |
-| AI/KI features | 530 |
+| AI/KI features | 577 |
 
 ## Implemented USP Layer
 
 - [Migration Intelligence Fabric](migration-intelligence-fabric.md): implemented layer for Features 381-500, including migration memory, benchmarking, portfolio control, scenario lab, quality audit, technical debt liquidation, Fabric advisor, integration resilience, attack surface, sustainability, PMO negotiation, knowledge transfer, war games, value realization, and continuous improvement.
+- [Advanced AI Control Features EN](advanced-ai-control-features.en.md): 12 additional AI control commands for truth detection, cutover confidence, meeting actions, proposals, prompts, freshness, dependency graph, partner checks, release packaging, demo portal, and wizard UI.
+- [Advanced AI Control Features DE](advanced-ai-control-features.de.md): deutsche Dokumentation fuer dieselben 12 AI/KI-Control-Kommandos.
 - [Template map](template-map.md): validator-backed mapping for every template.
 
 ## Governance

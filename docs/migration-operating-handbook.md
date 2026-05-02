@@ -9,6 +9,7 @@ Das Plugin arbeitet als lokales Migration Operating System fuer AX 4.0, AX 2009,
 | Ebene | Zweck | Ergebnis |
 | --- | --- | --- |
 | Master Orchestrator | Eingaben analysieren, passende Skills waehlen, Evidence-Luecken erkennen, naechste Commands vorschlagen. | `orchestration-plan.md`, `skill-routing.json`, `next-commands.ps1` |
+| Guided Run | Analyse, Routing, Gates, Evidence, Security, Memory, Export und Health Snapshot in einem Lauf verbinden. | `guided-run-plan.md`, `role-action-inbox.md`, `recommended-commands.md`, `project-health-snapshot.html` |
 | Analyzer | AX Inventory, X++, XPO, CSV, JSON und Projektdaten auswerten. | Dashboard, Risks, Backlog, Roadmap, Effort, Role Views |
 | Packs | Rollen-, Commerce-, Governance-, Solo- und Intelligence-Artefakte erzeugen. | Markdown, JSON, CSV, XLSX, PPTX |
 | Evidence Gates | Kritische Nachweise und externe Freigaben pruefbar machen. | Ready / Needs control / Blocked |
@@ -37,6 +38,7 @@ Das Plugin arbeitet als lokales Migration Operating System fuer AX 4.0, AX 2009,
 
 | Schritt | Command | Ergebnis |
 | --- | --- | --- |
+| Gefuehrter Lauf | `python .\axmigrate.py guided-run <input> --project "Contoso" --output guided-runs\contoso` | Analyse, Skills, Gates, Evidence, Security, Memory, Exporte und Health Snapshot |
 | Skill Routing | `python .\axmigrate.py orchestrate migration-analysis\sample --output orchestration\sample` | Skills, Evidence Gaps, Next Commands |
 | Solo Betrieb | `python .\axmigrate.py solo-run --project "Contoso" --input <input>` | Solo Operating Folder |
 | Tagessteuerung | `python .\axmigrate.py solo-daily <source>` | Daily Command Sheet |
@@ -45,10 +47,11 @@ Das Plugin arbeitet als lokales Migration Operating System fuer AX 4.0, AX 2009,
 
 | Bereich | Commands |
 | --- | --- |
-| Persona/Rollen | `persona-pack`, `stakeholder-pack`, `questionnaire` |
+| Persona/Rollen/USPs | `persona-pack`, `stakeholder-pack`, `questionnaire`, `usp-pack` |
 | Commerce/CRM/POS | `commerce-pack`, `commerce-readiness`, `commerce-cutover`, `commerce-offline-check`, `commerce-crm-pack`, `commerce-store-pack`, `commerce-payments-pack`, `commerce-omnichannel-pack` |
 | Governance | `governance-pack`, `evidence-vault`, `scope-guard`, `contract-risk`, `cutover-rehearsal`, `reconciliation-judge`, `board-risk` |
 | Intelligence | `intelligence-pack`, `migration-memory`, `benchmark`, `portfolio-control`, `scenario-lab`, `quality-audit`, `war-game`, `value-realization` |
+| Advanced AI Control | `usp-actions`, `truth-detector`, `cutover-confidence`, `meeting-actions`, `proposal-pack`, `role-prompt-pack`, `evidence-freshness`, `dependency-risk-graph`, `partner-deliverable-check`, `release-pack`, `demo-portal`, `wizard-ui` |
 
 ### Phase 5: Evidence, Security, Freigaben
 
@@ -58,6 +61,7 @@ Das Plugin arbeitet als lokales Migration Operating System fuer AX 4.0, AX 2009,
 | Evidence Vault | `python .\axmigrate.py evidence-vault <source> --output evidence-vault\sample` | Evidence Index, Manifest, Hashes |
 | Security Scan | `python .\axmigrate.py security-scan <source> --output security-scan\sample` | Secrets/PII/Connection String Report |
 | Memory Store | `python .\axmigrate.py memory-store <source> --project "Contoso"` | SQLite und JSONL Memory |
+| Health Snapshot | `python .\axmigrate.py health-snapshot guided-runs\contoso --output health\contoso` | Kompakter Ready/Needs control/Blocked Projektstatus |
 
 ### Phase 6: Export, Reporting, Go-live
 
@@ -279,4 +283,3 @@ Das Plugin bereitet Entscheidungen, Evidence und Empfehlungen vor, ersetzt aber 
 | Security Scan | `python .\axmigrate.py security-scan <source> --output security-scan\sample` |
 | Evidence Vault | `python .\axmigrate.py evidence-vault <source> --output evidence-vault\sample` |
 | Memory Store | `python .\axmigrate.py memory-store <source> --project "Contoso"` |
-
